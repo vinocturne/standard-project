@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.standard.customer.CustomerService;
 import org.standard.customer.CustomerVO;
 
-@Service("userService")
+@Service("CustomerService")
 public class CustomerServiceImpl implements CustomerService {
 	@Autowired
 	private CustomerDAO customerDAO;
