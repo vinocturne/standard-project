@@ -3,22 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="seller" href="css/style.css">
     <title>셀러 페이지</title>
 </head>
+
 <style>
 
-    #ul{
-        font-size: 5px;
-
+    ul{
+        font-size: 20px;
+        list-style-type: square;
+        
     }
+
+    .menu_box{
+        position: fixed;
+        background: #fff;
+        width: 200px;
+        top: 128px;
+        margin-left: 15px;
+        font-size: 13px;
+        line-height: 20px;
+    }
+    .menu_box .sub{
+        padding: 0;
+        line-height: 20px;
+        font-size: 11px;
+    }
+    li{
+       list-style: none; 
+    }
+    li{
+        list-style: none; 
+    }
+    thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
 </style>
+
 <body>
-    <h1>헤더</h1>
+    <div id ="header">
+        <h1>헤더</h1>
+    </div>
+<hr>
+<div id="listcontentWrap2">
+<div class=menu_box>
+    <li class="title">관리자 페이지</li>
+    <li class="sub">상품관리</li>
+    <li class="sub">배송관리</li>
+    <li class="sub">리뷰관리</li>
+</div>
+<div class = "ec-base-table typeList gBorder">
+    <thead class="xans-element- xans-board xans-board-listheader-1002 xans-board-listheader xans-board-1002 ">
+        <tr style=" ">
+        <th scope="col"> 번호</th>
+        <th scope="col" class="displaynone">카테고리</th>
+        <th scope="col">제목</th>
+        <th scope="col">작성자</th>
+        <th scope="col" class="">작성일</th>
+        <th scope="col" class="displaynone">조회</th>
+        <th scope="col" class="displaynone">추천</th>
+        <th scope="col" class="displaynone">평점</th>
+                        </tr></thead>
 
-    <ul>상품관리</ul>
-    <ul>배송관리</ul>
-    <ul>리뷰관리</ul>
+</div>
 
-    
+
+
+
+</div>
 </body>
 </html>
