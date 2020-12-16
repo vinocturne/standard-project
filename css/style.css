@@ -58,7 +58,7 @@ ol, ul {
       margin-right:10px;
   }
   header .logo a {
-      background: url("../img/logo2.png");
+      /* background: url("../img/logo2.png"); */
       widows: 32px;
       height: 32px;
       display: block;
