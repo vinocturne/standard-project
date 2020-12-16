@@ -1,0 +1,188 @@
+
+/*COMMON*/
+.body__container {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+}
+a {
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+}
+ol, ul {
+    list-style: none;
+}
+
+/* FLOAT CLEARFIX */
+.clearfix::after{
+    content: "";
+    clear:both;
+    display: block;
+  }
+  .float--left {
+      float:left;
+  } 
+  .float--right{
+      float: right;
+  }  
+
+
+/* SECTION & INNER  */
+.section {
+   position: relative;
+}
+.section .inner {
+    max-width: 980px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;    
+}
+
+  /* HEADER */
+    header { 
+        border-bottom: 1px solid #e5e5e5;
+        background: #fff;
+    }
+    header .inner {
+        height: 78px;
+    }
+  header .menu-group {
+      display: flex;
+      align-items:center;
+      height: 100%;/*inner 78px에 맞춰짐*/
+
+  }
+  header .logo {
+      margin-right:10px;
+  }
+  header .logo a {
+      background: url("../img/logo2.png");
+      widows: 32px;
+      height: 32px;
+      display: block;
+      text-indent: -9999px;
+  }
+  /* header .logo a:hover{
+      background: url("../img/logo_on.svg");
+  } */
+  header .main-menu{
+      display: flex;
+  }
+  header .main-menu li a{
+      display: block;
+      padding: 10px;
+      color: #3c4146;
+  }
+  header .main-menu li a:hover { 
+      /* 색깔바뀌는거 말고 밑줄 생기게 바꾸기 */
+      color: #4078c5;
+  }
+  header .sign-group{ 
+      display: flex;
+      align-items: center;
+      height: 100%;
+  }
+  header .sign-group img{
+    padding-right: 10px;
+  }
+  header .sign-group a:first-of-type input[type=text] {
+    height: 20px;
+    padding: 0;
+    font-size: 11px;
+    color: #000;
+    width: 0px;
+    border: none;
+    border-bottom: 1px solid #000;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+  header .sign-group a:first-of-type:hover input[type=text] {
+    width: 100px;
+}
+  header .btn-group {
+      order:2;
+      display: flex;
+  }
+  header .btn-group .sign-in{
+      margin-right: 4px;
+  }
+  header .sub-menu {
+      display: flex;
+      margin-right: 10px; 
+  }
+  header .sub-menu li a{
+      padding: 8px;
+      display: block;
+      font-size:14px;
+      color: #3c4146;;
+  }
+  header .sub-menu li a:hover{
+      /* 색깔 바뀌는거 말고 밑줄 생기게 바꾸기  */
+      color : #4078c0;
+  }
+  #toggle-btn {
+      display: none;
+      background:url("../img/toggle-btn.svg");
+      width:18px;
+      height: 24px;
+      position: absolute;
+      top:16px;
+      right: 20px;
+      cursor: pointer;
+      text-indent: -9999px;
+  }
+
+/* MAIN:BODY */
+.section--visual {
+    /* background-image: url("../img/main2.jpg"); */
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: cover;
+}
+.section--visual .inner {
+    padding:160px 0 ;
+    
+}
+.section--visual .inner img {
+    display: block;
+    margin: auto;
+   
+}
+
+/* FOOTER  */
+footer { 
+
+}
+footer .inner {
+   padding: 50px 0;
+   border-top: 1px solid #eee;
+}
+footer .site-links {
+   display: flex;
+}
+footer .site-links li {
+   font-size:12px;
+   margin-right: 10px;
+   color:#767676;
+}
+footer .site-links li a {
+    color: #4078c0;
+}
+footer .site-links li a:hover {
+    text-decoration: underline;
+}
+footer .logo{
+   position: absolute;
+   top:0;
+   bottom:0;
+   left: 0;
+   right: 0;
+   margin: auto;
+   width: 24px;
+   height: 24px;
+}
+footer .logo:hover svg{
+   fill: #4078c0;
+}
