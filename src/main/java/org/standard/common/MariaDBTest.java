@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class MariaDBTest {
 
 		public static void main(String[] args) {
-			String url = "jdbc:mysql://localhost/jdbc2?createDatabaseIfNotExist=true";
+			String url = "jdbc:mysql://localhost:3306/standard";
 			String user = "root";
 			String password = "12345";
 			try {
