@@ -14,7 +14,7 @@ import org.standard.customer.CustomerVO;
 @Controller
 @RequestMapping(value="/login")
 public class CustomerController {
-	@Resource
+	@Resource(name="CustomerService")
 	CustomerService customerService;
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
