@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+  <title>MagazinMain</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 <body>
+<div>
+    <div class="container">
+        <div id="test" class="row no-collapse-1"></div>
+    </div>
+</div>
 
+<script>
+   window.onload = function() {
+        var html = '';
+        var step;
+          for (step = 0; step < 5; step++) {
+            
+            var title = "";
+            var contents = "";
+            var img = "";
+
+            if(step == 0)
+            {
+                title = "메거진1";
+                contents = "옷이 좋았다";
+                img = "img/1.png";
+            }
+            else if(step == 1)
+            {
+                title = "메거진2";
+                contents = "근데 이젠 아니다";
+                img = "img/3.png";
+            }
+            else if(step == 2)
+            {
+                title = "메거진3";
+                contents = "난 지금 눈물이 난다";
+                img = "img/4.png";
+            }
+            else if(step == 3)
+            {
+                title = "메거진4";
+                contents = "가슴이 웅장해진다";
+                img = "img/cart.svg";
+            }
+            else if(step == 4)
+            {
+                title = "메거진5";
+                contents = "나는 옷이 싫다";
+                img = "img/search.svg";
+            }
+
+             html += '<section class="4u"> <a href="#" class="image featured"><img style="width:200px;height:200px" class="img-thumbnail" src=' + img + ' alt=""></a>';
+              html += '<div class="box">';
+              html += '<p>' + title + '</p>';
+              html += '<p>' + contents + '</p>';
+              html += '<a href="magazinIn.html" class="button">더보기</a> </div>';
+              ;
+              html += '</section>';
+          }
+          
+          document.getElementById("test").innerHTML = html;
+    }
+</script>
 </body>
 </html>
