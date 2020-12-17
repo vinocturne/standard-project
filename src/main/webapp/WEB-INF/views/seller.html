@@ -3,105 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="../css/style.css">
     <title>셀러 페이지</title>
 </head>
 <style>
-
-    ul{
-        font-size: 20px;
-        list-style-type: square;   
+    body{
+        font:14px/1.8 Arial, Helvetica, sans-serif;
     }
-     .menu_box{
-        position: fixed;
-        background: #fff;
-        width: 200px;
-        top: 128px;
-        margin-left: 15px;
-        font-size: 13px;
-        line-height: 20px;
+   
+    .header{
+        padding:40px 10px;
+        text-align :center;
+        background: #eee;
+        margin-bottom:20px;
     }
-    .menu_box .sub{
-        padding: 0;
-        line-height: 20px;
-        font-size: 11px;
+    .logo{
+        font-size: 2em;
+        font-weight: bold;
+        background: #5457de;
+        color: #fff;
+        display: inline-block;
+        padding:0 8px;
     }
-    li{
-       list-style: none; 
+    .container{
+        overflow:hidden;
     }
-    li{
-        list-style: none; 
+    .nav{
+        float:left;
+        width:150px;
+        background: #333;
+        color: #fff;
+        margin-right:50px;
     }
-    table{
-        border-collapse: collapse;
-    }
-    table, th, td{
-        border : 1px solid black;
-    }
-    th, td{
-        padding : 10px
-    }
-
-    th{
-        text-align: left;
+    .nav-list{
+        list-style:none;
+        margin:0;
+        padding:10px 0;
     }
 
+    .nav-item{
+        margin:4px 0;
+    }
+    .nav-link{
+        display: block;
+        text-decoration:none;
+        padding:4px 10px;
+        color: #fff;
+    }
+    .nav-link:hover{
+        background: #5457de;
+    }
+    .content{
+        float : left;
+        width:900px;
+        height: 500px;
+        padding-left: 100px;
+        padding-top: 5%;
+    }
+    .footer{
+        text-align: center;
+        border-top:1px solid #aaa;
+        margin : 20px 20px 0;
+        font-size :12px;
+    }
+    .container{
+    display: table;
+    }
+    .nav, .content{
+    display: table-cell;
+    }
+    .content table,tr{
+        border: 1px solid black;
+    }
 </style>
 
-
 <body>
+    <div class="frame">
+        <div class="header">
+            <div class="logo">img</div>
+        </div>
 
-    <div id ="header">
-        <h1>관리자 페이지</h1>
+        <div class="container">
+        <div class="nav">
+            <ul class="nav-list">
+                <li clas="nav-item"><a href ="" class="nav-link">Menu-1</a></li>
+                <li clas="nav-item"><a href ="" class="nav-link">Menu-2</a></li>
+                <li clas="nav-item"><a href ="" class="nav-link">Menu-3</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>관리자페이지</h1>
+            <table>
+                <tr>
+                    <th>번호</th>
+                    <th>상품명</th>
+                    <th>이미지</th>
+                    <th>재고 현황</th>
+                    <th>비고</th>
+                    <th>삭제</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>후드</td>
+                    <td>이미지</td>
+                    <td>재고 현황</td>
+                    <td>비고</td>
+                    <button>삭제</button>
+                </tr>
+            </table>
+        </div>
+        </div>
+
+        <footer class="section">
+            <div class="inner clearfix">
+        
+                <ul class="site-links float--right">
+                    <li><a href="#">Contact GitHub</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">Training</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+        
+                <ul class="site-links float--left">
+                    <li>© 2020 STANDARD Inc.</li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Status</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+        
+                <a href="#" class="logo">
+                    <img src="../img/logo2.png" width=60 height="40">   
+                </a>
+            </div>
+        </footer> 
     </div>
-<hr>
-
-<div class=menu_box>
-    <li class="title">관리자 페이지</li>
-    <li class="sub">상품관리</li>
-    <li class="sub">배송관리</li>
-    <li class="sub">리뷰관리</li>
-</div>
-
-    <table class="main_menu">
-        <tr>
-            <th>번호</th>
-            <th>사진</th>
-            <th>품명</th>
-            <th>등록일</th>
-            <th>재고상태</th>
-            <th>비고</th>
-            <th><button>삭제하기</button></th>
-        </tr>
-        <tr>
-            <th>1</th>
-            <td>img</td>
-            <td>후드</td>
-            <th>20/12/17</th>
-            <th>재고부족</th>
-            <th>입고준비중</th>
-            <th><button>삭제하기</button></th>
-        </tr>
-        <tr>
-            <th>2</th>
-            <td>img</td>
-            <td>티셔츠</td>
-            <th>20/12/18</th>
-            <th>200</th>
-            <th>안팔림</th>
-            <th><button>삭제하기</button></th>
-        </tr>
-        <tr>
-            <th>3</th>
-            <td>img</td>
-            <td>바지</td>
-            <th>20/12/17</th>
-            <th>재고부족</th>
-            <th>재고부족</th>
-            <th><button>삭제하기</button></th>
-        </tr>
-    </table>
-
-
 </body>
 </html>
