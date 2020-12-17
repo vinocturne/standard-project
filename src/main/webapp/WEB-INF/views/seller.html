@@ -4,113 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/seller.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>셀러 페이지</title>
 </head>
-<style>
-    body{
-        font:14px/1.8 Arial, Helvetica, sans-serif;
-    }
-   
-    .header{
-        padding:40px 10px;
-        text-align :center;
-        background: #eee;
-        margin-bottom:20px;
-    }
-    .logo{
-        font-size: 2em;
-        font-weight: bold;
-        background: #5457de;
-        color: #fff;
-        display: inline-block;
-        padding:0 8px;
-    }
-    .container{
-        overflow:hidden;
-    }
-    .nav{
-        float:left;
-        width:150px;
-        background: #333;
-        color: #fff;
-        margin-right:50px;
-    }
-    .nav-list{
-        list-style:none;
-        margin:0;
-        padding:10px 0;
-    }
-
-    .nav-item{
-        margin:4px 0;
-    }
-    .nav-link{
-        display: block;
-        text-decoration:none;
-        padding:4px 10px;
-        color: #fff;
-    }
-    .nav-link:hover{
-        background: #5457de;
-    }
-    .content{
-        float : left;
-        width:900px;
-        height: 500px;
-        padding-left: 100px;
-        padding-top: 5%;
-    }
-    .footer{
-        text-align: center;
-        border-top:1px solid #aaa;
-        margin : 20px 20px 0;
-        font-size :12px;
-    }
-    .container{
-    display: table;
-    }
-    .nav, .content{
-    display: table-cell;
-    }
-    .content table,tr{
-        border: 1px solid black;
-    }
-</style>
 
 <body>
-    <div class="frame">
-        <div class="header">
-            <div class="logo">img</div>
-        </div>
+     <header class="section">
+        <div class="inner clearfix">
 
+            <div class="menu-group float--left">
+                <!-- <div class="logo"> -->
+                    <a href="#" class="logo"><img src="../img/logo2.png" width="60" height="40"></a>
+                <!-- </div> -->
+                
+                <ul class="main-menu toggle">
+                    <li><a href="#">Store</a></li>
+                    <li><a href="#">Magazine</a></li>
+                    <li><a href="#">My page</a></li>
+                    
+                </ul>
+            </div>
+            
+            <div class="sign-group float--right toggle">
+                <ul class="sub-menu">
+                    <li><a href="">Login</a></li>
+                    <li><a href="">Register</a></li>
+                </ul>
+                <a href="#">
+                    <input type="text">
+                    <img src="../img/search.svg" alt="search" height="20" width="20">
+                </a>
+                <a href="#">
+                    <img src="../img/cart.svg" alt="cart" height="25" width="25">
+                </a>
+            </div>
+            <div id="toggle-btn">Header Menu Toggle Button</div>
+        </div>
+    </header>
+    <div class="frame">
         <div class="container">
         <div class="nav">
             <ul class="nav-list">
-                <li clas="nav-item"><a href ="" class="nav-link">Menu-1</a></li>
-                <li clas="nav-item"><a href ="" class="nav-link">Menu-2</a></li>
-                <li clas="nav-item"><a href ="" class="nav-link">Menu-3</a></li>
+                <li>관리자페이지</li>
+                <br>
+                <li clas="nav-item"><a href ="" class="nav-link">상품 관리</a></li>
+                <li clas="nav-item"><a href ="" class="nav-link">배송 관리</a></li>
+                <li clas="na`v-item"><a href ="" class="nav-link">리뷰 관리</a></li>
             </ul>
         </div>
         <div class="content">
-            <h1>관리자페이지</h1>
-            <table>
-                <tr>
-                    <th>번호</th>
+            <h3>상품관리</h3>
+            <br>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>상품번호</th>
                     <th>상품명</th>
-                    <th>이미지</th>
-                    <th>재고 현황</th>
+                    <th>상품 이미지</th> 
+                    <th>재고현황</th>
                     <th>비고</th>
-                    <th>삭제</th>
-                </tr>
-                <tr>
+                    <th>삭제하기</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
                     <td>1</td>
+                    <td><a href="">후드</a></td>
+                    <td><img src="../img/logo2"></td>
+                    <td>100</td>
                     <td>후드</td>
-                    <td>이미지</td>
-                    <td>재고 현황</td>
-                    <td>비고</td>
-                    <button>삭제</button>
-                </tr>
-            </table>
+                    <td><button>삭제하기</button></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>바지</td>
+                    <td>mary@example.com</td>
+                    <td>후드</td>
+                    <td>후드</td>
+                    <td><button>삭제하기</button></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>티셔츠</td>
+                    <td>july@example.com</td>
+                    <td>후드</td>
+                    <td>후드</td>
+                    <td><button>삭제하기</button></td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
         </div>
 
