@@ -1,5 +1,5 @@
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
-
+<%-- <%@ include file="/WEB-INF/views/include/header.jsp" %> --%>
+<!-- 에러나서 주석처리함 담  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +22,7 @@
         </ul>
 
         <ul class="site-links float--left">
-            <li>© 2020 STANDARD Inc.</li>
+            <li>Â© 2020 STANDARD Inc.</li>
             <li><a href="#">Terms</a></li>
             <li><a href="#">Privacy</a></li>
             <li><a href="#">Security</a></li>
