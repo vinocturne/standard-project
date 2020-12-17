@@ -25,7 +25,7 @@
             
             <div class="sign-group float--right toggle">
                 <ul class="sub-menu">
-                    <li><a href="">Login</a></li>
+                    <li><a href="login.jsp">Login</a></li>
                     <li><a href="">Register</a></li>
                 </ul>
                 <a href="#">
