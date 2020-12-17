@@ -22,5 +22,10 @@ public class CustomerServiceImpl implements CustomerService {
 	public void joinCustomer(CustomerVO vo) {
 		customerDAO.joinCustomer(vo);		
 	}
+	@Override
+	public CustomerVO getCustomer(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
