@@ -251,13 +251,13 @@ header .sub-menu li a:hover {
 }
 
 /* ORDER */
-.title_area{
-    padding: 20px 0;
-}
 .order_wrap {
     width: 100%;
     padding: 100px 0;
 }   
+.title_area{
+    padding: 20px 0;
+}
 .title_area1 {
     font-size: 20px;
     font-weight: bold;
@@ -269,7 +269,7 @@ header .sub-menu li a:hover {
     border-bottom: 1px solid #e5e5e5;
 }
 
-table.type11 {
+.type11 {
     border-spacing: 1px;
     text-align: center;
     line-height: 1.5;
@@ -279,18 +279,17 @@ table.type11 {
   }
   .table11 thead tr th {
     padding: 14px 0 15px;
-    border-left: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
     color: #353535;
     font-weight: bold;
     vertical-align: middle;
-    font-weight: normal;
+    font-weight: bold;
     background: #fff;
 }
  .type11 tbody td {
     border: 1px solid #eaeaea;
-    border-left: 0;
-    border-right: 0;
+    /* border-left: 0;
+    border-right: none; */
     padding: 50px 0;
     font-size: 14px;
     text-align: center;
@@ -299,7 +298,11 @@ table.type11 {
     padding: 10px;
     vertical-align: top;
 }
-  
+ 
+/* CART */
+select {
+    
+}
 /* FOOTER  */
 footer {}
 
