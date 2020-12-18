@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.standard.customer.CustomerService;
-import org.standard.customer.CustomerVO;
+import org.standard.project.customer.CustomerService;
+import org.standard.project.customer.CustomerVO;
 
 @Controller
 @RequestMapping(value="/login")
@@ -18,19 +18,19 @@ public class CustomerController {
 	CustomerService customerService;
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public void login() {} //GETÀ¸·Î loginÀÌ¶ó´Â ÁÖ¼Ò¸¦ ¹ÞÀ¸¸é login.jsp·Î ÀÌµ¿.
+	public void login() {} //GETï¿½ï¿½ï¿½ï¿½ loginï¿½Ì¶ï¿½ï¿½ ï¿½Ö¼Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ login.jspï¿½ï¿½ ï¿½Ìµï¿½.
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ModelAndView login_ok(CustomerVO vo, ModelAndView mav, HttpSession session) {
 		if(vo.getC_Id() == null || vo.getC_Id().equals("")) {
-			throw new IllegalArgumentException("¾ÆÀÌµð¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä");
-			//¾ÆÀÌµð°¡ nullÀÌ°Å³ª °ø¹éÀÏ °æ¿ì Ãâ·Â
+			throw new IllegalArgumentException("ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½");
+			//ï¿½ï¿½ï¿½Ìµï¿½ nullï¿½Ì°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		}
 		
 		CustomerVO customer = customerService.getCustomer(vo);
 		
-		session.setAttribute("loginCustomer", customer); //sessionÀ» loginUser¶ó´Â ÀÌ¸§À¸·Î ¼³Á¤ÇÏ°í,userVO¿¡¼­ ºÒ·¯¿Â userÀÇ vo¸¦ ³Ö¾îÁØ´Ù.
-		mav.setViewName("redirect:login"); //loginÀ¸·Î Àç¿¬°á.
+		session.setAttribute("loginCustomer", customer); //sessionï¿½ï¿½ loginUserï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½,userVOï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ userï¿½ï¿½ voï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ø´ï¿½.
+		mav.setViewName("redirect:login"); //loginï¿½ï¿½ï¿½ï¿½ ï¿½ç¿¬ï¿½ï¿½.
 		
 		return mav;
 	}
