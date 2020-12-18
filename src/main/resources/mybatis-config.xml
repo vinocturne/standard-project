@@ -5,7 +5,7 @@
 <configuration>
    <typeAliases>
    	  <!-- VO 클래스 위치 -->
-      <typeAlias alias="CustomerVO" type="org.standard.customer.CustomerVO"/>
+      <typeAlias alias="CustomerVO" type="org.standard.project.customer.CustomerVO"/>
    </typeAliases>
    <environments default="development">
       <environment id="development">

@@ -14,14 +14,15 @@
       <property name="username" value="root" />
       <property name="password" value="12345" />
    </bean>   
-   
+
    <!-- mybatis로 호출될 시 불러올 설정 -->
- 
+
    <bean id="mybatis" class="org.mybatis.spring.SqlSessionTemplate">
       <constructor-arg ref="sqlSessionFactory" />
    </bean>
-  
+
    <!-- mariaDB 설정 연결 관련 --> 
+
    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
       <property name="dataSource" ref="dataSource" />
       <property name="configLocation"

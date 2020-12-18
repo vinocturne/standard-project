@@ -1,5 +1,6 @@
 package org.standard.project.customer.impl;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.standard.project.customer.CustomerVO;
@@ -7,8 +8,7 @@ import org.standard.project.customer.CustomerVO;
 @Repository("customerDAO")
 public class CustomerDAO {
 	@Autowired
-	//SqlSessionTemplate mySQL; // applicationContext���� �ʿ�.
-	
+	SqlSessionTemplate mySQL;
 	private String loc = "org.standard.CustomerMapper.";
 	
 	/*
