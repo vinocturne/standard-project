@@ -96,8 +96,7 @@ header .main-menu li a {
 }
 
 header .main-menu li a:hover {
-    /* 색깔바뀌는거 말고 밑줄 생기게 바꾸기 */
-    color: #4078c5;
+    text-decoration:underline; 
 }
 
 header .sign-group {
@@ -149,8 +148,7 @@ header .sub-menu li a {
 }
 
 header .sub-menu li a:hover {
-    /* 색깔 바뀌는거 말고 밑줄 생기게 바꾸기  */
-    color: #4078c0;
+    text-decoration:underline; 
 }
 
 #toggle-btn {
@@ -171,6 +169,7 @@ header .sub-menu li a:hover {
 }
 .side_nav {
     width:150px;
+    padding-top: 50px;
 }
 .side_nav .side_nav_title {
     font-size: 16px;
@@ -203,7 +202,6 @@ header .sub-menu li a:hover {
     text-align: center;
     margin-bottom: 30px;
 }
-
 
 .login_title{
     font-size: 18px;
@@ -252,8 +250,56 @@ header .sub-menu li a:hover {
     padding: 0 30px;
 }
 
+/* ORDER */
+.title_area{
+    padding: 20px 0;
+}
+.order_wrap {
+    width: 100%;
+    padding: 100px 0;
+}   
+.title_area1 {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 0;
+    text-align: center;
+}
+.title_area2 {
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
 
-
+table.type11 {
+    border-spacing: 1px;
+    text-align: center;
+    line-height: 1.5;
+    margin: 20px 10px;
+    border-left: none;
+    border-right: none;
+  }
+  .table11 thead tr th {
+    padding: 14px 0 15px;
+    border-left: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    color: #353535;
+    font-weight: bold;
+    vertical-align: middle;
+    font-weight: normal;
+    background: #fff;
+}
+ .type11 tbody td {
+    border: 1px solid #eaeaea;
+    border-left: 0;
+    border-right: 0;
+    padding: 50px 0;
+    font-size: 14px;
+    text-align: center;
+    color: #757575;
+    width: 155px;
+    padding: 10px;
+    vertical-align: top;
+}
+  
 /* FOOTER  */
 footer {}
 
