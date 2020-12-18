@@ -1,4 +1,4 @@
-package org.standard.common;
+package org.standard.project.common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
