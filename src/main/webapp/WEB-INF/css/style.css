@@ -300,9 +300,17 @@ header .sub-menu li a:hover {
 }
  
 /* CART */
-select {
+select { }
+button{
+    background: #e5e5e5;
+    padding: 4px;
+    margin: 5px auto;
+    /* box-sizing: border-box; */
+    border:1px solid slategrey;
+    border-radius: 3px;
     
 }
+
 /* FOOTER  */
 footer {}
 
