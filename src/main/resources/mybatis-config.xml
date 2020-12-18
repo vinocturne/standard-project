@@ -19,7 +19,7 @@
       </environment>
    </environments>
    <mappers>
-      <mapper resource="mapper위치" />
+      <!-- <mapper resource="mapper위치" /> -->
    </mappers>
    
 </configuration>
