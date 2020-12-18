@@ -311,6 +311,49 @@ button{
     
 }
 
+/* Register */
+
+.title_area{
+    padding: 20px 0;
+}
+.register_wrap {
+    width: 100%;
+    padding: 30px 0;
+}   
+
+.required{
+    text-align: right;
+    font-size: 10pt;
+}
+
+
+table.type12 {
+    font-size: 9pt;
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-top: 1px solid #ccc;
+  }
+  table.type12 th {
+    width: 60px;
+    padding: 15px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    background: none;
+    text-align: left;
+  }
+  table.type12 td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+  }
+
+
+
 /* FOOTER  */
 footer {}
 
