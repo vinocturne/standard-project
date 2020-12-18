@@ -1,21 +1,25 @@
 package org.standard.project.common;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class JdbcUtil {
-	/*
+	
 	public static Connection getConnection() {
 		try {
-			Server server = Server.createTcpServer(null).start();
-			
-			Class.forName("org.h2.Driver");
-			return DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", "12345");
-		} catch (Exception e) {
+			Class.forName("org.mariadb.jdbc.Driver");
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/standard","root","12345");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-
+	
 	public static void close(PreparedStatement stmt, Connection conn) {
 		if (stmt != null) {
 			try {
@@ -71,5 +75,4 @@ public class JdbcUtil {
 			}
 		}
 	}
-	*/
 }

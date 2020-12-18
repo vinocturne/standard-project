@@ -23,7 +23,7 @@ public class MariaDBTest {
 				e.printStackTrace();
 			}
 			
-			
+			System.out.println("JdbcUtil Connection >> " + JdbcUtil.getConnection());
 			
 
 		}
