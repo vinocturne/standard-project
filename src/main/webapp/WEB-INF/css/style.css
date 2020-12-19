@@ -318,14 +318,13 @@ button{
 }
 .register_wrap {
     width: 100%;
-    padding: 30px 0;
+    padding: 15px 0;
 }   
 
 .required{
     text-align: right;
     font-size: 10pt;
 }
-
 
 table.type12 {
     font-size: 9pt;
@@ -351,6 +350,60 @@ table.type12 {
     vertical-align: top;
     border-bottom: 1px solid #ccc;
   }
+  table.type12 td > input {
+    border: 1px solid #C3C3C3;
+    width: 120px; 
+    height: 20px;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  #mobile2, #mobile3, #phone2, #phone3 {
+    width: 50px;
+    height: 17px;
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 20px 0;
+    text-align: left;
+}
+
+.content-box.typeThinBg {
+    border-width: 1px;
+    border-color: #d7d5d5;
+    background-color: #fbfafa;
+    line-height: 20px;
+}
+
+.content-box {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #eaeaea;
+    color: #404040;
+    font-size: 9pt;
+}
+
+.register_wrap .agreeArea .content {
+    overflow: auto;
+    height: 110px;
+    padding: 20px;
+    border: 1px solid #d5d5d5;
+    background: #fff;
+}
+
+.register_wrap .content{
+    font-size: 9pt;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 300%;
+}
+
+.member_join {
+    text-align: center;
+}
+
 
 
 
