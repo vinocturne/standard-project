@@ -33,12 +33,35 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "main";
+		return "home";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Locale locale, Model model) {
+		logger.info("test", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "login";
+	}
+	
+	@RequestMapping(value = "/Review", method = RequestMethod.GET)
+	public String Review(Locale locale, Model model) {
+		logger.info("test", locale);
+		
+		
+		
+		return "Review";
 	}
 	
 }
 
 // TEST 1 
-// TEST 2 ¼º°ï     
-// TEST 3 °ÇÈñ
-// TEST 4 ¼º°ï
+// TEST 2 ï¿½ï¿½ï¿½ï¿½     
+// TEST 3 ï¿½ï¿½ï¿½ï¿½
+// TEST 4 ï¿½ï¿½ï¿½ï¿½
