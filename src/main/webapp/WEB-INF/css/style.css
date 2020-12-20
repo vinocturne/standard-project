@@ -360,7 +360,7 @@ table.type12 {
 
   #mobile2, #mobile3, #phone2, #phone3 {
     width: 50px;
-    height: 17px;
+    height: 18px;
   }
 
   h3 {
@@ -402,6 +402,88 @@ table.type12 {
 
 .member_join {
     text-align: center;
+}
+
+/* Modify */
+
+.confirm-button {
+    text-align: center;
+    padding: 15px;
+}
+
+.confirm-button .withdrawal {
+    float: right;
+    text-align: right;
+}
+
+/* Wish List */
+
+
+.wishList_wrap {
+    width: 100%;
+    padding: 100px 0;
+}   
+
+.type13 table, th {
+    font-size: 9pt;
+    border: 1px solid #eaeaea;
+    padding: 10px 0 10px;
+    width: 650px;
+    text-align: center;
+  }
+
+  .type13 td {
+    font-size: 9pt;
+    border: 1px solid #eaeaea;
+    border-left: 0;
+    border-right: 0;
+    padding: 5pt;
+    width: 650px;
+    text-align: center;
+    color: #353535;
+    vertical-align: middle;
+  }
+
+  input[type=checkbox] {
+    width: 13px;
+    height: 13px;
+    border: 0;
+}
+
+input, select, textarea {
+    font-size: 100%;
+    color: #353535;
+    vertical-align: middle;
+}
+
+.button > input{
+    color: white;
+    background-color: #5D5D5D;
+    width: 65pt;
+    padding: 1pt;
+    margin: 1pt;
+}
+
+.delete_cart .gLeft {
+    float: left;
+    text-align: left;
+}
+
+.delete_cart .gRight {
+    float: right;
+    text-align: right;
+}
+
+.wishlist_index {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 10pt;
+    line-height: 0;
+    font-family: Verdana,Dotum,AppleGothic,sans-serif;
+}
+
+.wishlist_index .first {
+    float: center;
 }
 
 
