@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CART</title>
+    <title>LOGIN</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -15,7 +15,6 @@
     <link rel="stylesheet" media="(max-width:768px)" href="../css/main_small.css">
 
     <script defer src="../js/main.js"></script>
-    <script src="../js/count.js"></script>
 </head>
 
 <body class="">
@@ -29,7 +28,7 @@
                 <ul class="main-menu toggle">
                     <li><a href="#">Store</a></li>
                     <li><a href="#">Magazine</a></li>
-                    <li><a href="../views/login_form.html">My page</a></li>
+                    <li><a href="#">My page</a></li>
                 </ul>
             </div>
             <div class="sign-group float--right toggle">
@@ -49,77 +48,53 @@
         </div>
     </header>
 
-    <!-- CONTENT :사이드바 필요하면 넣기 (default:Mypage) -->
+    <!-- CONTENT -->
     <div class="content_wrap inner">
         <!-- side_nav -->
         <div class="side_nav">
             <div class="side_nav_item">
                 <p class="side_nav_title">My page</p>
                 <ul>
-                    <li><a href="login_form.html">Login</a></li>
+                    <li><a href="#">Login</a></li>
                     <li><a href="Register.html">Register</a></li>
                     <li><a href="cart.html">Cart</a></li>
-                    <li><a href="../views/order.html">Order</a></li>
+                    <li><a href="order.html">Order</a></li>
                     <li><a href="Wishlist.html">Wish list</a></li>
                     <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
                 </ul>
             </div>
         </div>
-        <!-- CART 장바구니-->
-        <div class="order_wrap">
-            <div class="title_area">
-                <div class="title_area1">
-                    <h1>장바구니</h1>
+        <!-- Login -->
+        <div class="login_wrap">
+            <div class="login_box">
+                <div class="title_box">
+                    <p class="login_title">Member Login</p>
+                    <p>가입 시 입력하신 아이디와 비밀번호로 로그인이 가능합니다.</p>
+                </div>
+                <form action="#">
+                    <div class="login_content">
+                        <div class="input_box">
+                            <input type="text" placeholder="ID">
+                            <input type="password" placeholder="PASSWORD">
+                        </div>
+                        <button type="button">로그인</button>
+                    </div>
+                </form>
+                <div class="login_forgot">
+                    <a href="#">아이디 찾기</a>
+                    <a href="#">비밀번호 찾기</a>
+                </div>
+                <div class="join">
+                    <div class="join_txt">
+                        회원가입을 하시면 다양하고 특별한<br>
+                        혜택이 준비되어 있습니다
+                    </div>
+                    <div class="join_btn">
+                        <a href="#">회원가입</a>
+                    </div>
                 </div>
             </div>
-            <div class="order_table">
-                <table class="type11">
-                    <thead>
-                        <tr>
-                            <th scope="cols">이미지</th>
-                            <th scope="cols">상품정보</th>
-                            <th scope="cols">가격</th>
-                            <th scope="cols">수량</th>
-                            <th scope="cols">주문금액</th>
-                            <th scope="cols">선택</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="../img/logo2.png" style="width=" 30px" height="20px"></th>
-                            <td>트위드 플레어 스커트</th>
-                                <td>38000원</th>
-                                <!-- 수량을 아직 못바꿈 ㅜㅜ -->
-                            <td>
-                                <form name="form" method="get">
-                                    수량 : <input type=hidden name="sell_price" value="5500">
-                                    <input type="text" name="amount" value="1" size="3" onchange="change();">개
-                                    <input type="button" value=" + " onclick="add();">
-                                    <input type="button" value=" - " onclick="del();"><br>
-                                </td>
-                            <td>금액 : <input type="text" name="sum" size="11" readonly>원
-                                </form>
-                                </td>
-                            <!-- <td>
-                                관리자 페이지 필요
-                                <select name="Delivery">
-                                    <option value="d_ready" selected="selected">배송 준비 중</option>
-                                    <option value="d_start">배송 중</option>
-                                    <option value="d_done" >배송 완료</option>
-                                  </select>
-                                </td> -->
-                                  <td class="button">
-                                    <div><button href="order.html">주문하기</button></div>
-                                    <div><button href="#">찜하기</button></div>
-                                    <div><button href="#">삭제</button></div>
-                                  </td>
-                                  </tr>
-
-                    </tbody>
-                </table>
-            </div>
         </div>
-    </div>
     </div>
 
     <!-- FOOTER -->

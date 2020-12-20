@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Main.jsp 불러오기 TEST</h2>
-	<hr>
-	<p>main.jsp 불러오기 테스트입니다.</p>
-	<p><a href="login">login</a></p>
-	<p><a href="Review">Review</a></p>
-	<p><a href="index">Index</a></p>
+<p>그냥 메인페이지만 보여주면되겠지~~~ 로그인오케이</p>
 </body>
 </html>

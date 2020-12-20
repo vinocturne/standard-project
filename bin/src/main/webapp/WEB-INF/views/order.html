@@ -1,13 +1,10 @@
-<!-- <%@ include file="/WEB-INF/views/include/header.jsp" %> 
-     <%@ include file="/WEB-INF/views/include/footer.jsp" %> -->
-
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CART</title>
+    <title>ORDER</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -15,10 +12,9 @@
     <link rel="stylesheet" media="(max-width:768px)" href="../css/main_small.css">
 
     <script defer src="../js/main.js"></script>
-    <script src="../js/count.js"></script>
 </head>
 
-<body class="">
+<body>
     <!-- HEADER -->
     <header class="section">
         <div class="inner clearfix">
@@ -29,6 +25,7 @@
                 <ul class="main-menu toggle">
                     <li><a href="#">Store</a></li>
                     <li><a href="#">Magazine</a></li>
+                    <!-- 로그인 안한 상태에서 보여주는 페이지 -->
                     <li><a href="../views/login_form.html">My page</a></li>
                 </ul>
             </div>
@@ -49,14 +46,14 @@
         </div>
     </header>
 
-    <!-- CONTENT :사이드바 필요하면 넣기 (default:Mypage) -->
+    <!-- CONTENT -->
     <div class="content_wrap inner">
         <!-- side_nav -->
         <div class="side_nav">
             <div class="side_nav_item">
                 <p class="side_nav_title">My page</p>
                 <ul>
-                    <li><a href="login_form.html">Login</a></li>
+                    <li><a href="#">Login</a></li>
                     <li><a href="Register.html">Register</a></li>
                     <li><a href="cart.html">Cart</a></li>
                     <li><a href="../views/order.html">Order</a></li>
@@ -65,61 +62,49 @@
                 </ul>
             </div>
         </div>
-        <!-- CART 장바구니-->
+        <!-- ORDER :주문조회-->
         <div class="order_wrap">
             <div class="title_area">
-                <div class="title_area1">
-                    <h1>장바구니</h1>
-                </div>
-            </div>
+              <div class="title_area1">
+                  <h1>주문 조회</h1>
+              </div>
+              <div class="title_area2">
+                  <h2><주문 상품 정보></h2>
+              </div>
+              </div>
             <div class="order_table">
                 <table class="type11">
                     <thead>
                         <tr>
-                            <th scope="cols">이미지</th>
+                            <th scope="cols">주문일자</th>
                             <th scope="cols">상품정보</th>
                             <th scope="cols">가격</th>
                             <th scope="cols">수량</th>
                             <th scope="cols">주문금액</th>
-                            <th scope="cols">선택</th>
+                            <th scope="cols">주문상태</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><img src="../img/logo2.png" style="width=" 30px" height="20px"></th>
-                            <td>트위드 플레어 스커트</th>
-                                <td>38000원</th>
-                                <!-- 수량을 아직 못바꿈 ㅜㅜ -->
-                            <td>
-                                <form name="form" method="get">
-                                    수량 : <input type=hidden name="sell_price" value="5500">
-                                    <input type="text" name="amount" value="1" size="3" onchange="change();">개
-                                    <input type="button" value=" + " onclick="add();">
-                                    <input type="button" value=" - " onclick="del();"><br>
-                                </td>
-                            <td>금액 : <input type="text" name="sum" size="11" readonly>원
-                                </form>
-                                </td>
-                            <!-- <td>
-                                관리자 페이지 필요
-                                <select name="Delivery">
-                                    <option value="d_ready" selected="selected">배송 준비 중</option>
-                                    <option value="d_start">배송 중</option>
-                                    <option value="d_done" >배송 완료</option>
-                                  </select>
-                                </td> -->
-                                  <td class="button">
-                                    <div><button href="order.html">주문하기</button></div>
-                                    <div><button href="#">찜하기</button></div>
-                                    <div><button href="#">삭제</button></div>
-                                  </td>
-                                  </tr>
-
+                            <td>2020-11-12<br>(202011120153111)</th>
+                            <td>닭가슴살/소시지/만두BEST 67종 골라담기</th>
+                            <td>7600원</th>
+                            <td>2개</th> 
+                            <td>15,200</th> 
+                            <td>배송전</th>
+                        </tr>
+                        <tr>
+                            <td>내용</th>
+                            <td>내용</th>
+                            <td>내용</th>
+                            <td>내용</th>
+                            <td>내용</th>
+                            <td>내용</th>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- FOOTER -->
@@ -139,6 +124,8 @@
             </ul>
         </div>
     </footer>
+</body>
+
 </body>
 
 </html>
