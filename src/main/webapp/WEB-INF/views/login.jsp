@@ -9,7 +9,7 @@
 <body>
 <h1>로그인</h1>
 <hr>
-<form action="login.jsp" method="post">
+<form action="login_ok" method="post">
 	<table border="1" cellpadding="0" cellpspacing="0">
 	<tr>
 		<th bgcolor="grey">아이디</th>
