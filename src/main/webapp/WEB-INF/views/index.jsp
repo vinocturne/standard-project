@@ -17,7 +17,7 @@
 
 <body class="index!!">
     <!-- HEADER -->
-    <%@ include file="/WEB-INF/views/include/header.jsp" %> 
+    <%@ include file="/webapp/WEB-INF/views/header" %> 
 
     <!-- CONTENT :사이드바 필요하면 넣기 (default:Mypage)
     <div class="content_wrap inner">
