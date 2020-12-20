@@ -10,6 +10,7 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<p>login</p>
+	<p><a href="login">login</a></p>
+	<p><a href="Review">Review</a></p>
 </body>
 </html>
