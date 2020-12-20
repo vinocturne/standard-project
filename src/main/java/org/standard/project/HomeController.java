@@ -52,7 +52,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "login_form";
+		return "/Customer/login_form";
 	}
 	
 	@RequestMapping(value = "/Review", method = RequestMethod.GET)
@@ -73,14 +73,14 @@ public class HomeController {
 		return "SellerReview";
 	}
 	
-	@RequestMapping(value = "/login_ok", method = RequestMethod.POST)
+	@RequestMapping(value = "/Customer/login_ok", method = RequestMethod.POST)
 	public String LoginOk(CustomerVO vo, CustomerDAO customerDAO) {
 		System.out.println("로그인 오케이");
 		
 		
 		
 		
-		return "login_ok";
+		return "/Customer/login_ok";
 	}
 	
 	
