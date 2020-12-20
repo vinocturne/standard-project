@@ -73,9 +73,11 @@
                             <input type="password" placeholder="PASSWORD">
                         </div>
              
-                        <input type="submit" value="로그인">
+                        
                     </div>
                 </form>
+                <input type="submit" value="로그인">
+                
                 <div class="login_forgot">
                     <a href="#">아이디 찾기</a>
                     <a href="#">비밀번호 찾기</a>
