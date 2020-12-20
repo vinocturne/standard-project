@@ -82,6 +82,26 @@ public class HomeController {
 		
 		return "login_ok";
 	}
+	
+	
+	@RequestMapping(value = "/Register", method = RequestMethod.GET)
+	public String Register(Locale locale, Model model) {
+		logger.info("test", locale);
+		
+		
+		
+		return "Register";
+	}
+	
+	@RequestMapping(value = "/Wishlist", method = RequestMethod.GET)
+	public String Wishlist(Locale locale, Model model) {
+		logger.info("test", locale);
+		
+		
+		
+		return "Register";
+	}
+	
 }
 
 // TEST 1 

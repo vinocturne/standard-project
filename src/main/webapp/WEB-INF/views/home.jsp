@@ -51,6 +51,7 @@
 	<p><a href="login">login</a></p>
 	<p><a href="Review">Review</a></p>
 	<p><a href="SellerReview">SellerReview</a></p>
+	<p><a href="Register">Register</a></p>
 	
 	<footer class="section">
         <div class="inner clearfix">
