@@ -59,6 +59,14 @@ public class HomeController {
 		return "Review";
 	}
 	
+	@RequestMapping(value = "/SellerReview", method = RequestMethod.GET)
+	public String SellerReview(Locale locale, Model model) {
+		logger.info("test", locale);
+		
+		
+		
+		return "SellerReview";
+	}
 }
 
 // TEST 1 
