@@ -41,7 +41,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login_form", method = RequestMethod.GET)
 	public String login(Locale locale, Model model) {
 		logger.info("test", locale);
 		
@@ -52,7 +52,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "login";
+		return "login_form";
 	}
 	
 	@RequestMapping(value = "/Review", method = RequestMethod.GET)
