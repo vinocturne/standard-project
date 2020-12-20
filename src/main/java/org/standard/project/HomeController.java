@@ -4,12 +4,17 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.standard.project.customer.CustomerVO;
+import org.standard.project.customer.impl.CustomerDAO;
 
 /**
  * Handles requests for the application home page.
@@ -66,6 +71,16 @@ public class HomeController {
 		
 		
 		return "SellerReview";
+	}
+	
+	@RequestMapping(value = "/login_ok", method = RequestMethod.POST)
+	public String LoginOk(CustomerVO vo, CustomerDAO customerDAO) {
+		System.out.println("로그인 오케이");
+		
+		
+		
+		
+		return "login_ok";
 	}
 }
 
