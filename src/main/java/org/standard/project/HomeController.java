@@ -4,41 +4,44 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.standard.project.customer.CustomerVO;
+import org.standard.project.customer.impl.CustomerDAO;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "main";
+		return "index";
 	}
 	
-}
+	@RequestMapping(value = "/Review", method = RequestMethod.GET)
+	public String Review(Locale locale, Model model) {
+		return "/Review/Review";
+	}
+	
+	@RequestMapping(value = "/SellerReview", method = RequestMethod.GET)
+	public String SellerReview(Locale locale, Model model) {
+		return "SellerReview";
+	}
+	
+	@RequestMapping(value = "/Register", method = RequestMethod.GET)
+	public String Register(Locale locale, Model model) {
 
-// TEST 1 
-// TEST 2 ¼º°ï     
-// TEST 3 °ÇÈñ
-// TEST 4 ¼º°ï
+		return "Register";
+	}
+	
+
+}

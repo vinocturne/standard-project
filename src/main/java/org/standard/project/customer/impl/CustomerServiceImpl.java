@@ -13,19 +13,13 @@ public class CustomerServiceImpl implements CustomerService {
 	public void setCustomerDAO(CustomerDAO customerDAO) {
 		this.customerDAO = customerDAO;
 	}
-	/*
-	public CustomerVO getCustomer(CustomerVO vo) {
-		return customerDAO.getCustomer(vo);
-	}
-	*/
 	
 	public void joinCustomer(CustomerVO vo) {
 		customerDAO.joinCustomer(vo);		
 	}
-	@Override
+	
 	public CustomerVO getCustomer(CustomerVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return customerDAO.getCustomer(vo);
 	}
 
 }
