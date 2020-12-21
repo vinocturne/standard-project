@@ -8,9 +8,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ProductController {
-	@Resource(name="")
-//	CustomerService customerService; //이런식으로 입력
-	
-	@RequestMapping(value="/Wishlist", method=RequestMethod.GET)
-	public void productListView() {} 
+
 }
