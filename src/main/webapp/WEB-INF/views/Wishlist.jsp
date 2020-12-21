@@ -1,21 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ page import="java.util.*" %>
 <!DOCTYPE html>
-     <html lang="ko">
-     
-     <head>
-         <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>Wish List</title>
+<html>
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Review</title>
          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
          <link rel="stylesheet" href="../css/reset.css">
          <link rel="stylesheet" href="../css/style.css">
          <link rel="stylesheet" media="(max-width:1024px)" href="../css/main_medium.css">
          <link rel="stylesheet" media="(max-width:768px)" href="../css/main_small.css">
-         
-         <script defer src="../js/main.js"></script>
-        
-     </head>
      
-     <body class="">
+         <script defer src="../js/main.js"></script>
+         <script src="../js/count.js"></script>
+         
+<title>Wishlist</title>
+
+</head>
+<body>
+
+<body class="">
          <!-- HEADER -->
          <header class="section">
              <div class="inner clearfix">
@@ -83,8 +90,7 @@
                                 <th>합계</th>
                                 <th>선택</th>
                             </tr>
-                            </thead>
-
+                            </thead> 
                             <tbody class="wishbody">
                                 <tr class="wishbody_tr">
                                 <td><input name="" id="" enable-order="" reserve-order="" enable-purchase="1" class="" is-set-product="" value="" type="checkbox"></td>
@@ -126,8 +132,8 @@
                     <a href="#none" class="last"><img src="../img/lastpage.png" width="20" height="20" alt="마지막 페이지"></a>
                     </div>
 
+
             </div>
-            
         </div>
 
      
@@ -148,6 +154,7 @@
                  </ul>
              </div>
          </footer>
+         
      </body>
      
      </html>

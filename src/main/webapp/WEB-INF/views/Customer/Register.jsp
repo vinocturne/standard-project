@@ -59,13 +59,14 @@
                                 <th scope="row" id="c_Birthday"> 출생년도</th>
                                 <td> <input type="date" name="c_Birthday" value='2000-01-01'>
                             </tr>
-                            <tr class="c_Address1">
+                            <tr class="c_Address">
                                 <th scope="row"> 주소 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
                                 <td>
-                                <input id="c_Address1" name="c_Address1" fw-filter="isLengthRange[1][14]" fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                    
-                                <a href="#none" onclick="" id="postBtn"><img src="../img/Address.png" width="70" height="25" alt="우편번호"></a><br>
-                                <input id="c_Address2" name="c_Address2" fw-filter="isFill" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text"> 기본주소<br>
-                                <input id="addr2" name="addr2" fw-filter="" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> 나머지주소 (선택입력가능)</td>
+                                    <input id="c_Address1" name="c_Address1" fw-filter="isLengthRange[1][14]" fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                    
+                                    <a href="#none" onclick="" id=""><input type="button" class="Address_btn" name="Address_btn" value="우편번호 >"></a><br>
+                                    <input id="c_Address2" name="c_Address2" fw-filter="isFill" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text"> 기본주소<br>
+                                    <input id="addr2" name="addr2" fw-filter="" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> 나머지주소 (선택입력가능)
+                                </td>    
                             </tr>
                             <tr class="c_Phone1">
                                 <th scope="row"> 연락처 1 <img src= "../img/required.png" width="8" height="8" alt="필수"></th>
