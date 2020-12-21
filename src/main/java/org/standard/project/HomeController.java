@@ -21,74 +21,26 @@ import org.standard.project.customer.impl.CustomerDAO;
  */
 @Controller
 public class HomeController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		
 		return "index";
-	}
-	
-	@RequestMapping(value = "/login_form", method = RequestMethod.GET)
-	public String login(Locale locale, Model model) {
-		logger.info("test", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "/Customer/login_form";
 	}
 	
 	@RequestMapping(value = "/Review", method = RequestMethod.GET)
 	public String Review(Locale locale, Model model) {
-		logger.info("test", locale);
-		
-		
-		
 		return "/Review/Review";
 	}
 	
 	@RequestMapping(value = "/SellerReview", method = RequestMethod.GET)
 	public String SellerReview(Locale locale, Model model) {
-		logger.info("test", locale);
-		
-		
-		
 		return "SellerReview";
 	}
 	
-	@RequestMapping(value = "/Customer/login_ok", method = RequestMethod.POST)
-	public String LoginOk(CustomerVO vo, CustomerDAO customerDAO) {
-		System.out.println("로그인 오케이");
-		
-		
-		
-		
-		return "/Customer/login_ok";
-	}
-	
-	
 	@RequestMapping(value = "/Register", method = RequestMethod.GET)
 	public String Register(Locale locale, Model model) {
-		logger.info("test", locale);
-		
-		
-		
+
 		return "Register";
 	}
 	
 
 }
-
-// TEST 1 
-// TEST 2 ����     
-// TEST 3 ����
-// TEST 4 ����

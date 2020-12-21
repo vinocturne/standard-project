@@ -12,25 +12,24 @@ import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 
 @Controller
-@RequestMapping(value="/login")
+@RequestMapping(value="/Customer")
 public class CustomerController {
 	@Resource(name="CustomerService")
 	CustomerService customerService;
 	
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public void login() {} //GET���� login�̶�� �ּҸ� ������ login.jsp�� �̵�.
+	@RequestMapping(value="/login_form", method=RequestMethod.GET)
+	public void login() {} 
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ModelAndView login_ok(CustomerVO vo, ModelAndView mav, HttpSession session) {
 		if(vo.getC_Id() == null || vo.getC_Id().equals("")) {
-			throw new IllegalArgumentException("���̵� �Է����ּ���");
-			//���̵� null�̰ų� ������ ��� ���
+			throw new IllegalArgumentException("ID를 입력해주세요");
 		}
 		
 		CustomerVO customer = customerService.getCustomer(vo);
 		
-		session.setAttribute("loginCustomer", customer); //session�� loginUser��� �̸����� �����ϰ�,userVO���� �ҷ��� user�� vo�� �־��ش�.
-		mav.setViewName("redirect:login"); //login���� �翬��.
+		session.setAttribute("loginCustomer", customer); 
+		mav.setViewName("redirect:login"); 
 		
 		return mav;
 	}

@@ -17,7 +17,7 @@
 			</div>
 			<div class="sign-group float--right toggle">
 				<ul class="sub-menu">
-					<li><a href="../views/login_form.html">Login</a></li>
+					<li><a href="Customer/login_form">Login</a></li>
 					<li><a href="Register.html">Register</a></li>
 				</ul>
 				<a href="#"> <input type="text"> <img
