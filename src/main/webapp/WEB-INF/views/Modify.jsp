@@ -1,20 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ page import="java.util.*" %>
 <!DOCTYPE html>
-     <html lang="ko">
-     
-     <head>
-         <meta charset="UTF-8">
+<html>
+<head>
+<meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>MY INFO</title>
+         <title>Review</title>
          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
          <link rel="stylesheet" href="../css/reset.css">
          <link rel="stylesheet" href="../css/style.css">
          <link rel="stylesheet" media="(max-width:1024px)" href="../css/main_medium.css">
          <link rel="stylesheet" media="(max-width:768px)" href="../css/main_small.css">
-         
-         <script defer src="../js/main.js"></script>
-        
-     </head>
      
+         <script defer src="../js/main.js"></script>
+         <script src="../js/count.js"></script>
+         
+<title>Modify</title>
+
+</head>
+<body>
+
+
      <body class="">
          <!-- HEADER -->
          <header class="section">
@@ -90,7 +98,7 @@
                             </tr>
                             <tr>
                                 <th scope="row" id="c_Birthday"> 출생년도</th>
-                                <td> <input type="date" name="c_Birthday" value='2000-01-01'> </td>
+                                <td> <input type="date" name="c_Birthday" value='2000-01-01'>
                             </tr>
                             <tr class="c_Address1">
                                 <th scope="row"> 주소 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
@@ -164,11 +172,7 @@
                             </tr>
                             <tr class="brandName">
                                 <th scope="row"> 브랜드명 </th>
-                                <td><select name="role" id="role">
-                                <option value="">Nike</option>
-                                <option value="">Adidas</option>
-                                <option value="">Puma</option>    
-                                </select>
+                                <td><input  id="brandName" name="brandName" type="text" ></span>
                                 </td>
                             </tr>
                     </table>
@@ -204,7 +208,8 @@
                  </ul>
              </div>
          </footer>
+         
      </body>
-     
      </html>
+
 
