@@ -12,7 +12,7 @@ import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 
 @Controller
-@RequestMapping(value="/Customer")
+@RequestMapping(value="/login")
 public class CustomerController {
 	@Resource(name="CustomerService")
 	CustomerService customerService;
