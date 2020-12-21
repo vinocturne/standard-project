@@ -31,8 +31,8 @@
                             <input type="text" placeholder="ID" name="c_Id">
                             <input type="password" placeholder="PASSWORD" name="c_Password">
                         </div>
+	                <input type="submit" value="로그인">
                     </div>
-                <input type="submit" value="로그인">
                 </form>
                 
                 <div class="login_forgot">

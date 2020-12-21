@@ -1,17 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@ include file="head.jsp"%>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
+<%@ include file="head.jsp" %> 
 
-<%@ include file="header.jsp"%>
-
-<!-- CONTENT : MAIN -->
-	<style>
+  <style>
   /* Make the image fully responsive */
   .carousel-inner img {
     width: 100%;
@@ -19,33 +10,27 @@
   }
   </style>
 </head>
-<body>
+<%@ include file="header.jsp"%>
 
-<div class="container mt-3">
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-  <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-  </ul>
+	<!-- CONTENT : MAIN -->
+	<div class="container mt-3">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+   <!-- Indicators -->
+   <ul class="carousel-indicators">
+     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+     <li data-target="#myCarousel" data-slide-to="1"></li>
+     <li data-target="#myCarousel" data-slide-to="2"></li>
+     <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ul> 
   
   <!-- The slideshow -->
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="<%=request.getContextPath()%>/ResourcesFile/img/main01.jpg" alt="main01" width="850" height="450">
-    </div>
-    <div class="carousel-item">
-      <img src="<%=request.getContextPath()%>/ResourcesFile/img/main02.jpg" alt="main02" width="850" height="450">
-    </div>
-    <div class="carousel-item">
-      <img src="<%=request.getContextPath()%>/ResourcesFile/img/main03.jpg" alt="main03" width="850" height="450">
-    </div>
-     <div class="carousel-item">
-      <img src="<%=request.getContextPath()%>/ResourcesFile/img/main04.jpg" alt="main04" width="850" height="450">
-    </div>
+    <div class="carousel-item active"></div>
+    <div class="carousel-item"></div>
+    <div class="carousel-item"></div>
+    <div class="carousel-item"></div>
   </div>
   
   <!-- Left and right controls -->
@@ -59,8 +44,8 @@
 
 </div>
 
-</body>
-</html>
+<!-- <!-- </body>
+</html> --> 
 
 
 <!-- FOOTER -->
