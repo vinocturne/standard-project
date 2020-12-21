@@ -18,7 +18,7 @@
 			<div class="sign-group float--right toggle">
 				<ul class="sub-menu">
 					<li><a href="/project/Customer/login_form">Login</a></li>
-					<li><a href="Register.html">Register</a></li>
+					<li><a href="/project/Customer/Register">Register</a></li>
 				</ul>
 				<a href="#"> <input type="text"> <img
 					src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg" alt="search" height="20" width="20">
