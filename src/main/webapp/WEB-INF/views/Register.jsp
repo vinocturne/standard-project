@@ -111,7 +111,7 @@
                                 <th scope="row" id="c_Birthday"> 출생년도</th>
                                 <td> <input type="date" name="c_Birthday" value='2000-01-01'></td>
                             </tr>
-                            <tr class="c_Address1">
+                            <tr class="c_Address">
                                 <th scope="row"> 주소 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
                                 <td>
                                     <input id="c_Address1" name="c_Address1" fw-filter="isLengthRange[1][14]" fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                    
