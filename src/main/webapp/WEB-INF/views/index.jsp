@@ -8,7 +8,7 @@
     <title>INDEX</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../ResourcesFile/css/style.css">
     <link rel="stylesheet" media="(max-width:1024px)" href="../css/main_medium.css">
     <link rel="stylesheet" media="(max-width:768px)" href="../css/main_small.css">
 
