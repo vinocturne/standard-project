@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
+<style>
+.xans-board-listpackage {
+    margin: 0 0 10px;
+}
+.xans-board-listpackage {
+    font-size: 11px;
+}
+
+
+</style>
 </head>
 <%@ include file="../header.jsp"%>
 
