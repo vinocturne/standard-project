@@ -36,8 +36,9 @@ public class Email {
 		    String toEmail = "xun415@naver.com"; // 콤마(,)로 여러개 나열
 		    
 		    //태훈 프로젝트용 구글 아이디
-		    final String username = "standardadpth@gmail.com";         
-		    final String password = "cipgzfykwwmnwjxg";
+		    final String username = "standardadpth@gmail.com"; 
+		    //비밀번호 일단 표시 안함
+		    final String password = "";
 		    
 		    // 메일에 출력할 텍스트
 		    StringBuffer sb = new StringBuffer();
