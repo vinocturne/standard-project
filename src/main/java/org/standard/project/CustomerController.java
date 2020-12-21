@@ -64,10 +64,7 @@ public class CustomerController {
 		return "user/login";
 	}
 	
-	@RequestMapping(value="/Modify", method=RequestMethod.GET)
-	public String Modify(HttpSession session) {
-		
-		
-		return "Modify";
-	}
+
+	
+	
 }
