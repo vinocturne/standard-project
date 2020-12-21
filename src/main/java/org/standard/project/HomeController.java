@@ -61,7 +61,7 @@ public class HomeController {
 		
 		
 		
-		return "Review";
+		return "/Review/Review";
 	}
 	
 	@RequestMapping(value = "/SellerReview", method = RequestMethod.GET)
