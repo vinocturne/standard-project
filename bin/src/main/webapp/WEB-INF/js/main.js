@@ -30,3 +30,8 @@
         }); 
     }
 })(window, document)
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> branch 'master' of https://github.com/damlee89/standard-project.git

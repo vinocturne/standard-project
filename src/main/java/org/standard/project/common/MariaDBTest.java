@@ -22,11 +22,6 @@ public class MariaDBTest {
 				System.out.println("Connection Error!");
 				e.printStackTrace();
 			}
-			
-			
-			
-
+			System.out.println("JdbcUtil Connection >> " + JdbcUtil.getConnection());
 		}
-
-	
 }

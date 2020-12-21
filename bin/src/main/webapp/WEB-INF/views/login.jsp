@@ -9,12 +9,22 @@
 <body>
 <h1>로그인</h1>
 <hr>
+<<<<<<< HEAD
 <form action="login.do" method="post">
 	<table border="1" cellpadding="0" cellpspacing="0">
 	<tr>
 		<th bgcolor="grey">아이디</th>
 		<td><input type="text" name="c_Id"/></td>
 	</tr>
+=======
+<form action="login_ok" method="post">
+	<table border="1" cellpadding="0" cellpspacing="0">
+	<tr>
+		<th bgcolor="grey">아이디</th>
+		<td><input type="text" name="c_Id"/></td>
+	</tr>
+	<P>  The time on the server is ${serverTime}. </P>
+>>>>>>> branch 'master' of https://github.com/damlee89/standard-project.git
 	<tr>	
 		<th bgcolor="grey">비밀번호</th>
 		<td><input type="password" name="c_Password"/></td>
