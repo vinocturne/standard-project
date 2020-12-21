@@ -28,8 +28,8 @@
                 <form action="/project/Customer/login_ok" method="post">
                     <div class="login_content">
                         <div class="input_box">
-                            <input type="text" placeholder="ID">
-                            <input type="password" placeholder="PASSWORD">
+                            <input type="text" placeholder="ID" name="c_Id">
+                            <input type="password" placeholder="PASSWORD" name="c_Password">
                         </div>
                     </div>
                 <input type="submit" value="로그인">
@@ -45,7 +45,7 @@
                         혜택이 준비되어 있습니다
                     </div>
                     <div class="join_btn">
-                        <a href="#">회원가입</a>
+                        <a href="/WEB-INF/views/Customer/Register">회원가입</a>
                     </div>
                 </div>
             </div>
