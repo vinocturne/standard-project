@@ -106,7 +106,7 @@ header .sign-group {
 }
 
 header .sign-group img {
-    padding-right: 10px;
+    margin-right: 10px;
 }
 
 header .sign-group a:first-of-type input[type=text] {
@@ -181,6 +181,22 @@ header .sub-menu li a:hover {
 }
 .side_nav li a {
     display: block;
+}
+
+.carousel-item {
+	height: 600px;
+}
+.carousel-item:nth-child(1){
+	background:url(../img/main01.jpg) no-repeat center / cover;
+}
+.carousel-item:nth-child(2){
+	background:url(../img/main02.jpg) no-repeat center / cover;
+}	
+.carousel-item:nth-child(3){
+	background:url(../img/main03.jpg) no-repeat center / cover;
+}
+.carousel-item:nth-child(4){
+	background:url(../img/main04.jpg) no-repeat center / cover;
 }
 
 /* LOGIN */
@@ -326,7 +342,6 @@ button{
     font-size: 10pt;
 }
 
-
 table.type12 {
     font-size: 9pt;
     width: 100%;
@@ -339,36 +354,24 @@ table.type12 {
     width: 60px;
     padding: 15px;
     font-weight: bold;
-    vertical-align: middle;
+    vertical-align: top;
     border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
-    border-top: 1px solid #ccc;
     background: none;
     text-align: left;
-    border-left: none;
   }
-
   table.type12 td {
-    vertical-align: middle;
     width: 350px;
     padding: 10px;
     vertical-align: top;
     border-bottom: 1px solid #ccc;
-    padding-left: 15px;
   }
   table.type12 td > input {
     border: 1px solid #C3C3C3;
-    width: 120px;
-    margin: 2pt; 
+    width: 120px; 
     height: 20px;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-  }
-
-  .Address_btn {
-    font-size: 8pt;
-    font-weight: bold;
-    background-color: #f5f5f5;  
   }
 
   #mobile2, #mobile3, #phone2, #phone3 {
@@ -523,6 +526,3 @@ footer .site-links li {
 footer .site-links li a {
     color:#e5e5e5;
 }
-
-
-

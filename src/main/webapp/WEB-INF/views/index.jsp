@@ -44,9 +44,5 @@
 
 </div>
 
-<!-- <!-- </body>
-</html> --> 
-
-
 <!-- FOOTER -->
 <%@ include file="footer.jsp"%>

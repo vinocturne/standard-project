@@ -1,7 +1,7 @@
-<%@page import="org.standard.project.customer.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<body>
+<%@ page import="org.standard.project.customer.*" %>
+
 	<!-- HEADER -->
 	<header class="section">
 		<div class="inner clearfix">
@@ -13,20 +13,23 @@
 				<ul class="main-menu toggle">
 					<li><a href="#">Store</a></li>
 					<li><a href="#">Magazine</a></li>
-					<li><a href="../Customer/Modify.jsp">My page</a></li>
+					<li><a href="../Customer/login_form.jsp">My page</a></li>
 				</ul>
 			</div>
 			<div class="sign-group float--right toggle">
 				<ul class="sub-menu">
 					<%
-					if(session.getAttribute("loginCustomer")==null){ %> 
+					CustomerVO customer = (CustomerVO)session.getAttribute("loginCustomer");
+					
+					if(customer==null){
+						System.out.println("if null print..." + session.getAttribute("loginCustomer"));
+						%> 
 						<!-- 세션이 설정되지 않을 경우 --> 
 						<li><a href="/project/Customer/login_form">Login</a></li>
 						<li><a href="/project/Customer/Register">Register</a></li>
-					<% }else{ 
-						CustomerVO customer = (CustomerVO)session.getAttribute("loginCustomer");%>
+					<% }else{ %>
 						<li><a href="/project/Customer/login_form">Logout</a></li>
-						<li><%= customer.getC_Name() %>님 환영합니다~</li>
+						<li><a="#><%=customer.getC_Id()%></a>>님 환영합니다</li>
 					<% } %>
 				</ul>
 				<a href="#"><input type="text"><img src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg" alt="search" width="20" height="20">
