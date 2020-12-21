@@ -6,7 +6,7 @@
 		<div class="inner clearfix">
 			<div class="menu-group float--left">
 				<!-- <div class="logo"> -->
-				<a href="../views/index.jsp" class="logo"><img
+				<a href="/project" class="logo"><img
 					src="<%=request.getContextPath()%>/ResourcesFile/img/logo2.png" width="60" height="40"></a>
 				<!-- </div> -->
 				<ul class="main-menu toggle">
@@ -17,7 +17,7 @@
 			</div>
 			<div class="sign-group float--right toggle">
 				<ul class="sub-menu">
-					<li><a href="Customer/login_form">Login</a></li>
+					<li><a href="/project/Customer/login_form">Login</a></li>
 					<li><a href="Register.html">Register</a></li>
 				</ul>
 				<a href="#"> <input type="text"> <img
