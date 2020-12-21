@@ -29,7 +29,7 @@
 						<li><a href="/project/Customer/Register">Register</a></li>
 					<% }else{ %>
 						<li><a href="/project/Customer/login_form">Logout</a></li>
-						<li><a="#><%=customer.getC_Id()%></a>>님 환영합니다</li>
+						<li><a><%=customer.getC_Id()%>님 환영합니다</a></li>
 					<% } %>
 				</ul>
 				<a href="#"><input type="text"><img src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg" alt="search" width="20" height="20">
