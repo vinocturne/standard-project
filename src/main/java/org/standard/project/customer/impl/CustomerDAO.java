@@ -9,16 +9,16 @@ import org.standard.project.customer.CustomerVO;
 public class CustomerDAO {
 	@Autowired
 	SqlSessionTemplate mySQL;
-	private String loc = "org.standard.CustomerMapper.";
 	
-	/*
+	private String loc = "org.standard.project.CustomerMapper.";
+	
 	public CustomerVO getCustomer(CustomerVO vo) {
 		return mySQL.selectOne(loc+"getCustomer", vo);
 	}
-	*/
-	
+		
 	public void joinCustomer(CustomerVO vo) {
-		//mySQL.insert(loc+"joinCustomer", vo);
-		//mySQL ���� �� ���۷� getCustomer�� joinCustomer ���� �ʿ�.
+		
 	}
+
+
 }

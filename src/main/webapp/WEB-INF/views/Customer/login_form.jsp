@@ -28,8 +28,8 @@
                 <form action="/project/Customer/login_ok" method="post">
                     <div class="login_content">
                         <div class="input_box">
-                            <input type="text" placeholder="ID">
-                            <input type="password" placeholder="PASSWORD">
+                            <input type="text" placeholder="ID" name="c_Id">
+                            <input type="password" placeholder="PASSWORD" name="c_Password">
                         </div>
                     </div>
                 <input type="submit" value="로그인">
