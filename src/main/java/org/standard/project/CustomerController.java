@@ -20,12 +20,12 @@ public class CustomerController {
 	@RequestMapping(value="/login_form", method=RequestMethod.GET)
 	public void login() {} 
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="/login_ok", method=RequestMethod.POST)
 	public ModelAndView login_ok(CustomerVO vo, ModelAndView mav, HttpSession session) {
 		if(vo.getC_Id() == null || vo.getC_Id().equals("")) {
-			throw new IllegalArgumentException("ID를 입력해주세요");
+//			throw new IllegalArgumentException("ID를 입력해주세요");
 		}
-		
+		System.out.println(">>> 로그인 프로세스 입장");
 		CustomerVO customer = customerService.getCustomer(vo);
 		
 		session.setAttribute("loginCustomer", customer); 
