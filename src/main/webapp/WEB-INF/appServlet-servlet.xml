@@ -10,7 +10,9 @@
 
 	<!-- 사용하고자하는 설정을 여기 입력. -->
 	<mvc:annotation-driven></mvc:annotation-driven>
-	
+	<mvc:resources mapping="/ResourcesFile/css/**" location="/ResourcesFile/css/"/>
+	<mvc:resources mapping="/ResourcesFile/js/**" location="/ResourcesFile/js/"/>
+	<mvc:resources mapping="/ResourcesFile/img/**" location="/ResourcesFile/img/"/>
 	<!-- .jsp를 입력하지 않고, 또 전체 루트를 입력하지 않고 해당 페이지의 이름만으로 연결 시켜주기 위한 초석.
 		 jsp에서 링크를 연결할 때 .jsp 빼도 가능. -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

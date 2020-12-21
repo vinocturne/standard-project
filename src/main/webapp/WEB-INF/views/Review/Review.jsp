@@ -1,56 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/views/header.jsp" %> 
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Review</title>
-<link
-	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
-	rel="stylesheet">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/reset.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/style.css">
-<link rel="stylesheet" media="(max-width:1024px)"
-	href="<%=request.getContextPath()%>/css/main_medium.css">
-<link rel="stylesheet" media="(max-width:768px)"
-	href="<%=request.getContextPath()%>/css/main_small.css">
-<script defer src="../js/main.js"></script>
-<script src="../js/count.js"></script>
-
-<style>
-.title_area1 {
-	border-top: 1px solid #dfdfdf;
-}
-
-.reviewArea
-         .reviewSearch
-         .sorting li {
-	display: inline-block;
-	vertical-align: top;
-	line-height: 14px;
-}
-
-.reviewArea
-         .reviewSearch
-         .sorting li:before {
-	display: inline-block;
-	content: "";
-	margin: 0 15px 0 12px;
-	width: 1px;
-	height: 11px;
-	vertical-align: -1px;
-	background: #d6d6d6;
-}
-</style>
-
-<title>Review</title>
-
-</head>
-<body>
 	<header class="section">
 		<div class="inner clearfix">
 			<div class="menu-group float--left">
@@ -206,8 +156,4 @@
 		</div>
 	</footer>
 
-
-
-
-</body>
-</html>
+<%@ include file="/WEB-INF/views/footer.jsp"%>
