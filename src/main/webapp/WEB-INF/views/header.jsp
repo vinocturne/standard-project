@@ -1,3 +1,4 @@
+<%@page import="org.standard.project.customer.CustomerVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <body>
@@ -22,9 +23,10 @@
 						<!-- 세션이 설정되지 않을 경우 --> 
 						<li><a href="/project/Customer/login_form">Login</a></li>
 						<li><a href="/project/Customer/Register">Register</a></li>
-					<% }else{ %>
+					<% }else{ 
+						CustomerVO customer = (CustomerVO)session.getAttribute("loginCustomer");%>
 						<li><a href="/project/Customer/login_form">Logout</a></li>
-						<li><%=session.getAttribute("loginCustomer.c_Id")%>님 환영합니다~</li>
+						<li><%= customer.getC_Name() %>님 환영합니다~</li>
 					<% } %>
 				</ul>
 				<a href="#"><input type="text"><img src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg" alt="search" width="20" height="20">

@@ -61,7 +61,7 @@ public class CustomerController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		
-		return "user/login";
+		return "redirect:user/login";
 	}
 	
 
