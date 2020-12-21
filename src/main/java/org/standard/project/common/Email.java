@@ -24,18 +24,25 @@ public class Email {
 			 // 메일 인코딩
 		    final String bodyEncoding = "UTF-8"; //콘텐츠 인코딩
 		    
+		    //제목
 		    String subject = "메일 발송 테스트";
+		    
+		    //보내는 사람 이메일
 		    String fromEmail = "standardADPTH@gmail.com";
+		    //보내는 사람
 		    String fromUsername = "SYSTEM MANAGER";
+		    
+		    //받는 사람 이메일
 		    String toEmail = "xun415@naver.com"; // 콤마(,)로 여러개 나열
 		    
+		    //태훈 프로젝트용 구글 아이디
 		    final String username = "standardadpth@gmail.com";         
 		    final String password = "cipgzfykwwmnwjxg";
 		    
 		    // 메일에 출력할 텍스트
 		    StringBuffer sb = new StringBuffer();
 		    sb.append("<h3>안녕하세요</h3>\n");
-		    sb.append("<h4>개발하는 도치입니다.</h4>\n");    
+		    sb.append("<h4>스탠다드 운영진입니다</h4>\n");    
 		    String html = sb.toString();
 		    
 		    // 메일 옵션 설정
