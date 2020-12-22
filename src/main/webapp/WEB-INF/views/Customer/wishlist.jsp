@@ -56,6 +56,20 @@
                                 <input type="button" name="btn2" value="장바구니 담기">
                                 <input type="button" name="btn3" value="삭제">    
                                 </td>
+                                 <td><input name="" id="" enable-order="" reserve-order="" enable-purchase="1" class="" is-set-product="" value="" type="checkbox"></td>
+                                <td class="Thumbnail"><a href=""><img src="../img/thumbnail.png" width="80" alt="썸네일"></a></td>
+                                <td class="left"><strong><a href="" class="ec-product-name">트위드 플레어 스커트 p_Id</a></strong>
+                                </td>
+                                <td class="price"><b>p_Price</b></td>
+                                <td><div class="txtInfo">개별배송<div class="displaynone">(해외배송가능)</div>
+                                </div></td>
+                                <td><span class="">2,500원<br></span> 고정</td>
+                                <td class="price">81,500원</td>
+                                <td class="button">
+                                <input type="button" name="btn1" value="주문하기">
+                                <input type="button" name="btn2" value="장바구니 담기">
+                                <input type="button" name="btn3" value="삭제">    
+                                </td>
                               </tr>
                             </tbody>
                         </table>
