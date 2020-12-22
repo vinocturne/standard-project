@@ -110,13 +110,6 @@
                                 <td><input  id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10"></span>
                                 </td>
                             </tr>
-                            <tr class="c_RegisterDay">
-                                <th scope="row" id="c_RegisterDay"> 가입일 </th>
-                                <td> <input type="date" name="c_RegisterDay" value='2020-12-01'>
-                                <script>
-                                            
-                                </script>
-                            </tr>
                             <tr class="c_Email">
                             <th scope="row"> 이메일 <img src= "../img/required.png" width="8" height="8" alt="필수"></th>
                             <td>
