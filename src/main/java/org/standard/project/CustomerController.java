@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.standard.project.common.Encrypt;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.customer.impl.CustomerDAO;
-
 @Controller
 @RequestMapping(value="/Customer")
 public class CustomerController {
@@ -36,6 +36,9 @@ public class CustomerController {
 		}
 		System.out.println(">>> 로그인 프로세스 입장");
 		System.out.println(vo);
+		//암호화처리.(사용자가 입력한 비밀번호를 암호화처리하여 vo객체에 setPassword()처리후에 디비조회.
+		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
+		
 		CustomerVO customer = customerService.getCustomer(vo);
 		System.out.println(customer);
 		if(vo.getC_Id().equals(customer.getC_Id()) && vo.getC_Password().equals(customer.getC_Password())) {
@@ -79,7 +82,7 @@ public class CustomerController {
 		vo.setC_Phone2(phoneNum2);
 		String emailAddr = req.getParameter("email1")+"@"+req.getParameter("email2");
 		vo.setC_Email(emailAddr);
-		
+		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
 		customerService.joinCustomer(vo);
 		
 		System.out.println(vo);

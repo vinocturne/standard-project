@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 
 public class Encrypt {
 
-	public String encrypt(String plainText) {
+	public static String encrypt(String plainText) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
 			md.update(plainText.getBytes());
