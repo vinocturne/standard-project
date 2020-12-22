@@ -34,6 +34,10 @@
                     <form action="/project/Customer/Modify" method="POST">
                     <table class="type12">
                         <thead>
+                       		<tr class="c_Id">
+                                <th scope="row" > 아이디 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                                <td><input id="c_Id" name="c_Id" type="text" class="inputTypeText"></th>
+                            </tr>
                             <tr class="c_Password">
                                 <th scope="row"> 비밀번호 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input id="c_Password" name="c_Password" autocomplete="off" maxlength="16" 0="disabled"  type="password"> 
