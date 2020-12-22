@@ -535,12 +535,10 @@ input[type=radio], input[type=checkbox] {
 
 .mypage_wrap {
     width: 100%;
-    padding: 50px 0;
-    margin: 50px 0;
+    padding: 70px 0;
 }   
 
-h2{
-    
+h2{  
     font-size: 9pt;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -550,8 +548,8 @@ h2{
 .type14 table, th {
     font-size: 9pt;
     border: 1px solid #eaeaea;
-    padding: 10px 0 10px;
-    width: 100pt;
+    padding: 30pt 0;
+    width: 130pt;
     height: 70pt;
     text-align: center;
     vertical-align: middle;
@@ -566,9 +564,6 @@ h2{
     color: #353535;
     vertical-align: middle;
   }
-
-
-
 
 
 
