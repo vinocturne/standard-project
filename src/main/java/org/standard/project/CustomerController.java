@@ -64,8 +64,7 @@ public class CustomerController {
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
-		
-		return "redirect:user/login";
+		return "redirect:/Customer/login_form";
 	}
 	
 	//Register. Get일땐 페이지로 단순이동, Post면 등록처리
@@ -123,6 +122,7 @@ public class CustomerController {
 	public String modify_form() {
 		return "Customer/Modify";
 	}
+	
 	@RequestMapping(value="/Modify", method=RequestMethod.POST)
 	public ModelAndView modify(CustomerVO vo,ModelAndView mav, HttpServletRequest req) {
 		String phoneNum = req.getParameter("mobile1-1")+req.getParameter("mobile1-2")+req.getParameter("mobile1-3");

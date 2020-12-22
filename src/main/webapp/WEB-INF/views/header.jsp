@@ -28,7 +28,7 @@
 						<li><a href="/project/Customer/login_form">Login</a></li>
 						<li><a href="/project/Customer/Register">Register</a></li>
 					<% }else{ %>
-						<li><a href="/project/Customer/login_form">Logout</a></li>
+						<li><a href="/project/Customer/logout">Logout</a></li>
 						<li><a><%=customer.getC_Id()%>님 환영합니다</a></li>
 					<% } %>
 				</ul>
