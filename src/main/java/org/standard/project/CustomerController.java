@@ -83,7 +83,15 @@ public class CustomerController {
 		String emailAddr = req.getParameter("email1")+"@"+req.getParameter("email2");
 		vo.setC_Email(emailAddr);
 		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
-		customerService.joinCustomer(vo);
+		//구매자이면 바로 가입
+		if(vo.getRole().equals("구매자")){
+			customerService.joinCustomer(vo);
+		}
+		//셀러면 가입대기목록에 저장(waitingcustomer)
+		else if(vo.getRole().equals("셀러")){
+			customerService.joinWaitingList(vo);
+		}
+		
 		
 		System.out.println(vo);
 		mav.setViewName("index");
@@ -100,7 +108,8 @@ public class CustomerController {
 		CustomerVO vo = new CustomerVO();
 		vo.setC_Id(RequestedID);
 		CustomerVO customer = customerService.getCustomer(vo);
-		if(customer==null) {
+		CustomerVO waitingCustomer =customerService.getWaitingCustomer(vo);
+		if(customer==null&&waitingCustomer==null) {
 			//등록이 되었지 않은 경우
 			out.print("사용할 수 있는 아이디 입니다.");
 		}else {

@@ -20,5 +20,14 @@ public class CustomerDAO {
 		mySQL.insert(loc+"joinCustomer", vo);
 	}
 
+	public void joinWaitingList(CustomerVO vo) {
+		mySQL.insert(loc+"joinWaitingList", vo);
+		
+	}
+
+	public CustomerVO getWaitingCustomer(CustomerVO vo) {
+		return mySQL.selectOne(loc+"getWaitingCustomer", vo);
+	}
+
 
 }
