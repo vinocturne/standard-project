@@ -533,6 +533,7 @@ input[type=radio], input[type=checkbox] {
 
 /*My page*/
 
+
 .mypage_wrap {
     width: 100%;
     padding: 70px 0;
@@ -548,7 +549,6 @@ h2{
 .type14 table, th {
     font-size: 9pt;
     border: 1px solid #eaeaea;
-    padding: 30pt 0;
     width: 130pt;
     height: 70pt;
     text-align: center;
@@ -558,7 +558,7 @@ h2{
   .type14 td {
     font-size: 9pt;
     border: 1px solid #eaeaea;
-    padding: 5pt;
+    padding: 5pt 0;
     width: 650px;
     text-align: center;
     color: #353535;
