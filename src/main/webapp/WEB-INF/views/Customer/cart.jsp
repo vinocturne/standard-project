@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="org.standard.project.vo.OrderHistoryVO"%>
-<%@ include file="head.jsp"%>
+<%@ include file="../head.jsp"%>
 </head>
 
 <!-- HEADER -->
-<%@ include file="header.jsp"%>
+<%@ include file="../header.jsp"%>
 
 <!--COMTENT -->
 <div class="content_wrap inner">
@@ -16,8 +16,8 @@
 			<ul>
 				<li><a href="#">Login</a></li>
 				<li><a href="Register.html">Register</a></li>
-				<li><a href="cart.html">Cart</a></li>
-				<li><a href="../views/order.html">Order</a></li>
+				<li><a href="/project/Customer/cart">Cart</a></li>
+				<li><a href="/project/Customer/order">Order</a></li>
 				<li><a href="Wishlist.html">Wish list</a></li>
 				<li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
 			</ul>
@@ -83,4 +83,4 @@
 
 
 <!-- FOOTER -->
-<%@ include file="footer.jsp"%>
+<%@ include file="../footer.jsp"%>

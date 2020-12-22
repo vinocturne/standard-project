@@ -143,4 +143,14 @@ public class CustomerController {
        
    }
    
+   @RequestMapping(value="/cart", method=RequestMethod.GET)
+   public String myCart() {
+      return "Customer/cart";
+   }
+   
+   @RequestMapping(value="/order", method=RequestMethod.GET)
+   public String myOrder() {
+      return "Customer/order";
+   }
+   
 }
