@@ -106,7 +106,7 @@ public class CustomerController {
 		
 		
 		//수정완료후 메인 페이지로 돌아감. 
-        mav.setViewName("index"); 
+        mav.setViewName("Customer/Modify"); 
         return mav;
 		 
 	}
