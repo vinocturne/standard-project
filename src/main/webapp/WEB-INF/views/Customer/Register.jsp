@@ -81,8 +81,6 @@
                                 <option value="019">019</option>
                                 </select>-<input id="mobile2" name="mobile[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="" value="" type="text">-<input id="mobile3" name="mobile[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="" value="" type="text"></td>
                    
-                                <input type="hidden" value="">
-                                
                             </tr>
                             <tr class="c_Phone2">
                                 <th scope="row"> 연락처 2 
@@ -122,7 +120,7 @@
                             <tr class="c_Email">
                             <th scope="row"> 이메일 <img src= "../img/required.png" width="8" height="8" alt="필수"></th>
                             <td>
-                                <input name="email1" type="text" class="box" id="email1" size="15"> @ <input name="email2" type="text" class="box" id="email2" size="20">
+                                <input name="email1" type="text" class="box" id="email1" size="15" onclick="mk_phoneNumber()"> @ <input name="email2" type="text" class="box" id="email2" size="20">
                                 <select name="email_select" class="box" id="email_select" onChange="checkemailaddy();">
                                     <option value="" selected>선택하세요</option>
                                     <option value="naver.com">naver.com</option>
