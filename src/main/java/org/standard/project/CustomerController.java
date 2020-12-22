@@ -72,9 +72,17 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="/Register", method=RequestMethod.POST)
-	public ModelAndView register(CustomerVO vo,ModelAndView mav) {
-		System.out.println(vo);
+	public ModelAndView register(CustomerVO vo,ModelAndView mav, HttpServletRequest req) {
+		String phoneNum = req.getParameter("mobile1-1")+req.getParameter("mobile1-2")+req.getParameter("mobile1-3");
+		vo.setC_Phone1(phoneNum);
+		String phoneNum2 = req.getParameter("mobile2-1")+req.getParameter("mobile2-2")+req.getParameter("mobile2-3");
+		vo.setC_Phone2(phoneNum2);
+		String emailAddr = req.getParameter("email1")+"@"+req.getParameter("email2");
+		vo.setC_Email(emailAddr);
 		
+		customerService.joinCustomer(vo);
+		
+		System.out.println(vo);
 		mav.setViewName("index");
 		//등록 완료후에는 메인페이지로 이동
 		return mav;

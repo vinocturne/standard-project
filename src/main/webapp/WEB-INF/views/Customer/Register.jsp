@@ -72,19 +72,19 @@
                             </tr>
                             <tr class="c_Phone1">
                                 <th scope="row"> 연락처 1 <img src= "../img/required.png" width="8" height="8" alt="필수"></th>
-                                <td><select id="c_Phone1" name="mobile[]" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="">
+                                <td><select id="c_Phone1" name="mobile1-1" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="">
                                 <option value="010">010</option>
                                 <option value="011">011</option>
                                 <option value="016">016</option>
                                 <option value="017">017</option>
                                 <option value="018">018</option>
                                 <option value="019">019</option>
-                                </select>-<input id="mobile2" name="mobile[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="" value="" type="text">-<input id="mobile3" name="mobile[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="" value="" type="text"></td>
+                                </select>-<input id="mobile2" name="mobile1-2" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="" value="" type="text">-<input id="mobile3" name="mobile1-3" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="" value="" type="text"></td>
                    
                             </tr>
                             <tr class="c_Phone2">
                                 <th scope="row"> 연락처 2 
-                                <td><select id="c_Phone2" name="phone[]" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="">
+                                <td><select id="c_Phone2" name="mobile2-1" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="">
                                 <option value="02">02</option>
                                 <option value="031">031</option>
                                 <option value="032">032</option>
@@ -103,7 +103,7 @@
                                 <option value="063">063</option>
                                 <option value="064">064</option>
                                 <option value="070">070</option>
-                                </select>-<input id="phone2" name="phone[]" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="" value="" type="text">-<input id="phone3" name="phone[]" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="" value="" type="text"></td>
+                                </select>-<input id="phone2" name="mobile2-2" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="" value="" type="text">-<input id="phone3" name="mobile2-3" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="" value="" type="text"></td>
                                 </tr>
                             <tr class="businessNumber">
                                 <th scope="row"> 사업자번호 </th>
@@ -135,17 +135,17 @@
                             <tr class="role">
                                 <th scope="row"> Role </th>
                                 <td><select name="role" id="role">
-                                <option value="">구매자</option>
-                                <option value="">셀러</option>    
+                                <option value="구매자">구매자</option>
+                                <option value="셀러">셀러</option>    
                                 </select>
                                 </td>
                             </tr>
                             <tr class="brandName">
                                 <th scope="row"> 브랜드명 </th>
                                 <td><select name="brandName" id="brandName">
-                                <option value="">Nike</option>
-                                <option value="">Adidas</option>
-                                <option value="">Puma</option>    
+                                <option value="Nike">Nike</option>
+                                <option value="Adidas">Adidas</option>
+                                <option value="Puma">Puma</option>    
                                 </select>
                                 </td>
                             </tr>
