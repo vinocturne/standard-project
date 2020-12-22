@@ -21,5 +21,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public CustomerVO getCustomer(CustomerVO vo) {
 		return customerDAO.getCustomer(vo);
 	}
+	
+	public CustomerVO getCustomerModify(CustomerVO vo) {
+		return customerDAO.getCustomerModify(vo);
+	}
 
 }

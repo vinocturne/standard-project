@@ -19,6 +19,10 @@ public class CustomerDAO {
 	public void joinCustomer(CustomerVO vo) {
 		mySQL.insert(loc+"joinCustomer", vo);
 	}
+	
+	public CustomerVO getCustomerModify(CustomerVO vo) {
+		return mySQL.selectOne(loc+"getCustomerModify", vo);
+	}
 
 
 }
