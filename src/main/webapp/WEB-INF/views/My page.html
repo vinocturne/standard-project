@@ -4,7 +4,7 @@
      <head>
          <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>Wish List</title>
+         <title>My page</title>
          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
          <link rel="stylesheet" href="../css/reset.css">
          <link rel="stylesheet" href="../css/style.css">
@@ -63,66 +63,29 @@
              </div>
              
 
-             <!-- WishList -->
+             <!-- My page -->
 
-             <div class="wishList_wrap">
+             <div class="mypage_wrap">
                 <div class="title_area1">
-                      <h1>관심상품</h1>
-                      <br>
+                      <h1>마이 쇼핑 </h1>
                   </div>
-                <div class="WishList_table">
-                    <table class="type13">
-                            <thead>
-                            <tr>
-                                <th><input type="checkbox" onclick=""></th>
-                                <th>이미지</th>
-                                <th>상품정보</th>
-                                <th>판매가</th>
-                                <th>배송구분</th>
-                                <th>배송비</th>
-                                <th>합계</th>
-                                <th>선택</th>
+                <div class="mypage_table">
+                    <table class="type14">
+                        <thead>
+                            <tr class="welcome">
+                                <th> 사진 </th>
+                                <td> 
+                                <h2> <%=customer.getC_Id()%> 님 저희 쇼핑몰을 이용해 주셔서 감사합니다.  
+                                </h2>
+                                </td>    
                             </tr>
-                            </thead>
-
-                            <tbody class="wishbody">
-                                <tr class="wishbody_tr">
-                                <td><input name="" id="" enable-order="" reserve-order="" enable-purchase="1" class="" is-set-product="" value="" type="checkbox"></td>
-                                <td class="Thumbnail"><a href=""><img src="../img/thumbnail.png" width="80" alt="썸네일"></a></td>
-                                <td class="left"><strong><a href="" class="ec-product-name">트위드 플레어 스커트</a></strong>
-                                </td>
-                                <td class="price"><b>79,000원</b></td>
-                                <td><div class="txtInfo">개별배송<div class="displaynone">(해외배송가능)</div>
-                                </div></td>
-                                <td><span class="">2,500원<br></span> 고정</td>
-                                <td class="price">81,500원</td>
-                                <td class="button">
-                                <input type="button" name="btn1" value="주문하기">
-                                <input type="button" name="btn2" value="장바구니 담기">
-                                <input type="button" name="btn3" value="삭제">    
-                                </td>
-                              </tr>
-                            </tbody>
+                        </thead>
                         </table>
+                        </div>
+                        
                     </div>
 
-                    <!-- <div class="delete_cart"><span class="gLeft">
-                        <div onclick="" class="btsize1 btn4"><input type="button" name="delete" value="삭제하기"></div>
-                        <div onclick="" class="btsize1 btn5"><input type="button" name="cart" value="장바구니 담기"></div>
-                    </span>
-                <span class="gRight">
-                    <div onclick="" class=""><input type="button" name="delete" value="전체상품 주문"></div>
-                    <div onclick="" class=""><input type="button" name="delete" value="관심상품 비우기"></div>
-                    </span>
-                </div> -->
-
-                <div class="wishlist_index">
-                    <a href="#none" class=""><button> << </button></a>
-                    <a href="#none" class=""><button> < </button></a>
-                    <a href="#none" class=""><button> 1 </button></a>
-                    <a href="#none" class=""><button> > </button></a>
-                    <a href="#none" class=""><button> >> </button></a>
-                    </div>
+                    
             </div>
             
         </div>
