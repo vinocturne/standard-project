@@ -1,5 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
+<!-- daum 우편번호 찾기를 위한 라이브러리 호출 -->
+<script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+/* 아이디 중복검사 */
+    function check_Id(){
+       let ID = document.getElementById("c_Id").value;
+       $.ajax({
+                   type: "POST",
+                   dataType: "text",
+                   async: true,
+                   url:"/project/Customer/check_Id",          
+                   data:{param: ID},
+                   success:function(data,textStatus){
+                    document.getElementById("idMsg").innerText = data;
+                   },
+                   error:function(data,textStatus){
+                       console.log("에러 발생");
+                   }
+                });
+    }
+    function openDaumZipAddress() {
+		new daum.Postcode({
+			oncomplete:function(data) {
+				jQuery("#zipcode").val(data.zonecode);
+				jQuery("#c_Address1").val(data.address);
+				jQuery("#c_Address2").focus();
+				console.log(data);
+			}
+		}).open();
+	}
+</script>
 </head>
 <%@ include file="../header.jsp" %> 
  <div class="content_wrap inner">
@@ -17,7 +48,7 @@
                      </ul>
                  </div>
              </div>
-             
+            
 
              <!-- Register -->
 
@@ -28,30 +59,31 @@
                   </div>
                   <div class="title_area2">
                       <h2>기본 정보</h2>
-                      <p class="required"> <img src="../img/required.png" width="8" height="8"> 필수입력사항</p>
+                      <p class="required"> <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8"> 필수입력사항</p>
                   </div>
                   </div>
                 <div class="Register_table">
+                    <form action="/project/Customer/Register" method="POST">
                     <table class="type12">
                         <thead>
                             <tr class="c_Id">
-                                <th scope="row" > 아이디 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                                <th scope="row" > 아이디 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input id="c_Id" name="c_Id" type="text" class="inputTypeText"></th>
                                     <span id="idMsg" class="error"> 아이디를 입력해주세요.
-                                    </span> (영문소문자/숫자, 4~16자)</td>    
+                                    </span> (영문소문자/숫자, 4~16자) <input type="button" value="중복확인" onclick="check_Id()"></td>    
                             </tr>
                             <tr class="c_Password">
-                                <th scope="row"> 비밀번호 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                                <th scope="row"> 비밀번호 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input id="c_Password" name="c_Password" autocomplete="off" maxlength="16" 0="disabled"  type="password"> 
                                     (영문 대소문자/숫자 2가지 이상 조합, 10자~16자)</td>
                             </tr>
                             <tr class="c_Password_confirm">
-                                <th scope="row"> 비밀번호 확인 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                                <th scope="row"> 비밀번호 확인 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input id="c_Password_confirm" name="c_Password_confirm" fw-filter="isFill&amp;isMatch[c_Password]" fw-label="비밀번호 확인" fw-msg="비밀번호가 일치하지 않습니다." autocomplete="off" maxlength="16" 0="disabled" value="" type="password"> 
                                     <span id="pwConfirmMsg"></span> </td>
                             </tr>
                             <tr class="c_Name">
-                                <th scope="row"> 이름 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                                <th scope="row"> 이름 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input  id="c_Name" name="c_Name" type="text"  maxlength="14"></span>
                                 </td>
                             </tr>
@@ -60,28 +92,30 @@
                                 <td> <input type="date" name="c_Birthday" value='2000-01-01'>
                             </tr>
                             <tr class="c_Address">
-                                <th scope="row"> 주소 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                            <!-- zipcode추가로 우편번호 주소 1,2 name 변경해줬습니다. -->
+                                <th scope="row"> 주소 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td>
-                                    <input id="c_Address1" name="c_Address1" fw-filter="isLengthRange[1][14]" fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                    
-                                    <a href="#none" onclick="" id=""><input type="button" class="Address_btn" name="Address_btn" value="우편번호 >"></a><br>
-                                    <input id="c_Address2" name="c_Address2" fw-filter="isFill" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text"> 기본주소<br>
-                                    <input id="addr2" name="addr2" fw-filter="" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> 나머지주소 (선택입력가능)
+                                    <input id="zipcode" name="zipcode" fw-filter="isLengthRange[1][14]" fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                    
+                                    <input type="button" onClick="openDaumZipAddress();" class="Address_btn" name="Address_btn" value="우편번호 찾기"><br>
+                                    <input id="c_Address1" name="c_Address1" fw-filter="isFill" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text"> 기본주소<br>
+                                    <input id="c_Address2" name="c_Address2" fw-filter="" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> 나머지주소 (선택입력가능)
                                 </td>    
                             </tr>
                             <tr class="c_Phone1">
-                                <th scope="row"> 연락처 1 <img src= "../img/required.png" width="8" height="8" alt="필수"></th>
-                                <td><select id="c_Phone1" name="mobile[]" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="">
+                                <th scope="row"> 연락처 1 <img src= "<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
+                                <td><select id="c_Phone1" name="mobile1-1" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="">
                                 <option value="010">010</option>
                                 <option value="011">011</option>
                                 <option value="016">016</option>
                                 <option value="017">017</option>
                                 <option value="018">018</option>
                                 <option value="019">019</option>
-                                </select>-<input id="mobile2" name="mobile[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="" value="" type="text">-<input id="mobile3" name="mobile[]" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="" value="" type="text"></td>
+                                </select>-<input id="mobile2" name="mobile1-2" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="" value="" type="text">-<input id="mobile3" name="mobile1-3" maxlength="4" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="" value="" type="text"></td>
+                   
                             </tr>
                             <tr class="c_Phone2">
                                 <th scope="row"> 연락처 2 
-                                <td><select id="c_Phone2" name="phone[]" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="">
+                                <td><select id="c_Phone2" name="mobile2-1" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="">
                                 <option value="02">02</option>
                                 <option value="031">031</option>
                                 <option value="032">032</option>
@@ -100,22 +134,15 @@
                                 <option value="063">063</option>
                                 <option value="064">064</option>
                                 <option value="070">070</option>
-                                </select>-<input id="phone2" name="phone[]" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="" value="" type="text">-<input id="phone3" name="phone[]" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="" value="" type="text"></td>
+                                </select>-<input id="phone2" name="mobile2-2" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="" value="" type="text">-<input id="phone3" name="mobile2-3" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="" value="" type="text"></td>
                                 </tr>
                             <tr class="businessNumber">
                                 <th scope="row"> 사업자번호 </th>
                                 <td><input  id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10"></span>
                                 </td>
                             </tr>
-                            <tr class="c_RegisterDay">
-                                <th scope="row" id="c_RegisterDay"> 가입일 </th>
-                                <td> <input type="date" name="c_RegisterDay" value='2020-12-01'>
-                                <script>
-                                            
-                                </script>
-                            </tr>
                             <tr class="c_Email">
-                            <th scope="row"> 이메일 <img src= "../img/required.png" width="8" height="8" alt="필수"></th>
+                            <th scope="row"> 이메일 <img src= "<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                             <td>
                                 <input name="email1" type="text" class="box" id="email1" size="15"> @ <input name="email2" type="text" class="box" id="email2" size="20">
                                 <select name="email_select" class="box" id="email_select" onChange="checkemailaddy();">
@@ -132,17 +159,17 @@
                             <tr class="role">
                                 <th scope="row"> Role </th>
                                 <td><select name="role" id="role">
-                                <option value="">구매자</option>
-                                <option value="">셀러</option>    
+                                <option value="구매자">구매자</option>
+                                <option value="셀러">셀러</option>    
                                 </select>
                                 </td>
                             </tr>
                             <tr class="brandName">
                                 <th scope="row"> 브랜드명 </th>
-                                <td><select name="role" id="role">
-                                <option value="">Nike</option>
-                                <option value="">Adidas</option>
-                                <option value="">Puma</option>    
+                                <td><select name="brandName" id="brandName">
+                                <option value="Nike">Nike</option>
+                                <option value="Adidas">Adidas</option>
+                                <option value="Puma">Puma</option>    
                                 </select>
                                 </td>
                             </tr>
@@ -179,10 +206,11 @@
                     <span> 이메일 수신을 동의하십니까?</span> <input id="is_news_mail0" name="is_news_mail" fw-label="is_news_mail" fw-msg="" class="ec-base-chk" value="T" type="checkbox"><label for="is_news_mail0">동의함</label>            </li>
                     </ul>
             </div>
-                <div class="member_join">    
-                <br><img src="../img/member_join.png" width="145" height="45" alt="회원가입"></a>
+                <div class="member_join">
+                <br><input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/member_join.png" width="145" height="45" alt="회원가입">
                 </div>
             </div>
-
         </div>
+    </form>
+    
         <%@ include file="../footer.jsp"%>
