@@ -92,7 +92,15 @@ public class CustomerController {
 		return "Customer/Modify";
 	}
 	@RequestMapping(value="/Modify", method=RequestMethod.POST)
-	public ModelAndView modify(CustomerVO vo,ModelAndView mav) {
+	public ModelAndView modify(CustomerVO vo,ModelAndView mav, HttpServletRequest req) {
+		String phoneNum = req.getParameter("mobile1-1")+req.getParameter("mobile1-2")+req.getParameter("mobile1-3");
+		vo.setC_Phone1(phoneNum);
+		String phoneNum2 = req.getParameter("mobile2-1")+req.getParameter("mobile2-2")+req.getParameter("mobile2-3");
+		vo.setC_Phone2(phoneNum2);
+		String emailAddr = req.getParameter("email1")+"@"+req.getParameter("email2");
+		vo.setC_Email(emailAddr);
+		
+		
 		System.out.println(vo);
 		
 		
