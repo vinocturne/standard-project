@@ -24,7 +24,7 @@ public class CustomerController {
 	@Resource(name="CustomerService")
 	CustomerService customerService;
 	
-	@RequestMapping(value="/login_form", method=RequestMethod.GET)
+	@RequestMapping(value="/SellerReview", method=RequestMethod.GET)
 	public void login() {} 
 	
 	@RequestMapping(value="/login_ok", method=RequestMethod.POST)
