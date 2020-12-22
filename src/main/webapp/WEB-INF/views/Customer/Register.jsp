@@ -32,6 +32,7 @@
                   </div>
                   </div>
                 <div class="Register_table">
+                    <form action="/project/Customer/Register" method="POST">
                     <table class="type12">
                         <thead>
                             <tr class="c_Id">
@@ -139,7 +140,7 @@
                             </tr>
                             <tr class="brandName">
                                 <th scope="row"> 브랜드명 </th>
-                                <td><select name="role" id="role">
+                                <td><select name="brandName" id="brandName">
                                 <option value="">Nike</option>
                                 <option value="">Adidas</option>
                                 <option value="">Puma</option>    
@@ -179,10 +180,11 @@
                     <span> 이메일 수신을 동의하십니까?</span> <input id="is_news_mail0" name="is_news_mail" fw-label="is_news_mail" fw-msg="" class="ec-base-chk" value="T" type="checkbox"><label for="is_news_mail0">동의함</label>            </li>
                     </ul>
             </div>
-                <div class="member_join">    
-                <br><img src="../img/member_join.png" width="145" height="45" alt="회원가입"></a>
+                <div class="member_join">   
+                <br><img src="../img/member_join.png" width="145" height="45" alt="회원가입">
+                <input type="submit" value="회원가입">
                 </div>
             </div>
-
         </div>
+    </form>
         <%@ include file="../footer.jsp"%>

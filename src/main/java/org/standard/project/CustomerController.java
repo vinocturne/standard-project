@@ -71,12 +71,12 @@ public class CustomerController {
 		return "Customer/Register";
 	}
 	
-	@RequestMapping(value="Register", method=RequestMethod.POST)
-	public String register(CustomerVO vo) {
+	@RequestMapping(value="/Register", method=RequestMethod.POST)
+	public ModelAndView register(CustomerVO vo,ModelAndView mav) {
 		System.out.println(vo);
-		customerService.joinCustomer(vo);
 		
-		//등록 완료후에는 로그인 페이지로 이동?
-		return "login_form";
+		mav.setViewName("index");
+		//등록 완료후에는 메인페이지로 이동
+		return mav;
 	}	
 }
