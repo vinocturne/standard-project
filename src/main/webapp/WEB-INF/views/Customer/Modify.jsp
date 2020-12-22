@@ -31,6 +31,7 @@
                   </div>
                   </div>
                 <div class="Register_table">
+                    <form action="/project/Customer/Modify" method="POST">
                     <table class="type12">
                         <thead>
                             <tr class="c_Password">
@@ -111,14 +112,14 @@
                                 </select>
                                 </td>
                             </tr>
-                            <tr class="role">
+                            <!-- <tr class="role">
                                 <th scope="row"> Role </th>
                                 <td><select name="role" id="role">
                                 <option value="">구매자</option>
                                 <option value="">셀러</option>    
                                 </select>
                                 </td>
-                            </tr>
+                            </tr> -->
                             <tr class="brandName">
                                 <th scope="row"> 브랜드명 </th>
                                 <td><input  id="brandName" name="brandName" type="text" ></span>
@@ -128,14 +129,18 @@
                 </div>
                 <div class="confirm-button modify">
                     <a href="#none" onclick="memberEditAction()">
-                        <img src="../img/modify.png" width="135" height="40" alt="회원정보수정"></a>
-                    <a href="/main.html">
-                        <img src="../img/cancel.png" width="135" height="40" alt="취소"></a>
+                        <img src="../img/modify.png" width="135" height="40" alt="회원정보수정">
+                        <input type="submit" value="회원정보수정"></a>
+                    <a href="/index">
+                        <img src="../img/cancel.png" width="135" height="40" alt="취소">
+                        <input type="submit" value="회원탈퇴"></a><!-- 일단 옆에 있는것들이랑 같이 모양새 만듬 -->
                     <span class="withdrawal">
                         <a href="#none" onclick="memberDelAction(0, -1, -1)">
-                        <img src="../img/withdrawal.png" width="100" height="30" alt="회원탈퇴"></a>
+                        <img src="../img/withdrawal.png" width="100" height="30" alt="회원탈퇴">
+                        <input type="submit" value="회원탈퇴"></a>
                     </span>
                 </div>
             </div>
         </div>
+     </form>
         <%@ include file="../footer.jsp"%>
