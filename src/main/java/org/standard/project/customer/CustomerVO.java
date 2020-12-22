@@ -3,9 +3,15 @@ package org.standard.project.customer;
 import java.sql.Date;
 
 public class CustomerVO {
-    private String c_Id, c_Password, c_Name, c_Address1, c_Address2, c_Phone1, c_Phone2, businessNumber, c_Email, role, brandName;
+    private String c_Id, c_Password, c_Name, zipcode, c_Address1, c_Address2, c_Phone1, c_Phone2, businessNumber, c_Email, role, brandName;
     private Date c_Birthday, c_RegisterDay;
     
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
 	public String getC_Id() {
 		return c_Id;
 	}
@@ -86,11 +92,12 @@ public class CustomerVO {
 	}
 	@Override
 	public String toString() {
-		return "CustomerVO [c_Id=" + c_Id + ", c_Password=" + c_Password + ", c_Name=" + c_Name + ", c_Address1="
-				+ c_Address1 + ", c_Address2=" + c_Address2 + ", c_Phone1=" + c_Phone1 + ", c_Phone2=" + c_Phone2
-				+ ", businessNumber=" + businessNumber + ", c_Email=" + c_Email + ", role=" + role + ", brandName="
-				+ brandName + ", c_Birthday=" + c_Birthday + ", c_RegisterDay=" + c_RegisterDay + "]";
+		return "CustomerVO [c_Id=" + c_Id + ", c_Password=" + c_Password + ", c_Name=" + c_Name + ", zipcode=" + zipcode
+				+ ", c_Address1=" + c_Address1 + ", c_Address2=" + c_Address2 + ", c_Phone1=" + c_Phone1 + ", c_Phone2="
+				+ c_Phone2 + ", businessNumber=" + businessNumber + ", c_Email=" + c_Email + ", role=" + role
+				+ ", brandName=" + brandName + ", c_Birthday=" + c_Birthday + ", c_RegisterDay=" + c_RegisterDay + "]";
 	}
+
 	
 	
 }
