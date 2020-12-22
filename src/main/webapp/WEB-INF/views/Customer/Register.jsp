@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
+<!-- daum 우편번호 찾기를 위한 라이브러리 호출 -->
+<script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
 /* 아이디 중복검사 */
     function check_Id(){
@@ -17,8 +19,17 @@
                        console.log("에러 발생");
                    }
                 });
-
     }
+    function openDaumZipAddress() {
+		new daum.Postcode({
+			oncomplete:function(data) {
+				jQuery("#zipcode").val(data.zonecode);
+				jQuery("#c_Address1").val(data.address);
+				jQuery("#c_Address2").focus();
+				console.log(data);
+			}
+		}).open();
+	}
 </script>
 </head>
 <%@ include file="../header.jsp" %> 
@@ -84,10 +95,10 @@
                             <!-- zipcode추가로 우편번호 주소 1,2 name 변경해줬습니다. -->
                                 <th scope="row"> 주소 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td>
-                                    <input id="c_Address1" name="zipcode" fw-filter="isLengthRange[1][14]" fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                    
-                                    <a href="#none" onclick="" id=""><input type="button" class="Address_btn" name="Address_btn" value="우편번호 >"></a><br>
-                                    <input id="c_Address2" name="c_Address1" fw-filter="isFill" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text"> 기본주소<br>
-                                    <input id="addr2" name="c_Address2" fw-filter="" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> 나머지주소 (선택입력가능)
+                                    <input id="zipcode" name="zipcode" fw-filter="isLengthRange[1][14]" fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                    
+                                    <input type="button" onClick="openDaumZipAddress();" class="Address_btn" name="Address_btn" value="우편번호 찾기"><br>
+                                    <input id="c_Address1" name="c_Address1" fw-filter="isFill" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="" type="text"> 기본주소<br>
+                                    <input id="c_Address2" name="c_Address2" fw-filter="" fw-label="주소" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> 나머지주소 (선택입력가능)
                                 </td>    
                             </tr>
                             <tr class="c_Phone1">
