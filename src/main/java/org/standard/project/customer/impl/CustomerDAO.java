@@ -17,7 +17,7 @@ public class CustomerDAO {
 	}
 		
 	public void joinCustomer(CustomerVO vo) {
-		
+		mySQL.insert(loc+"joinCustomer", vo);
 	}
 
 
