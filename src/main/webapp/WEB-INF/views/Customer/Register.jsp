@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
 <script>
+/* 아이디 중복검사 */
     function check_Id(){
-       console.log("중복체크 아이디가 눌렸습니다.");
        let ID = document.getElementById("c_Id").value;
-    
-       console.log(ID);
        $.ajax({
                    type: "POST",
                    dataType: "text",
