@@ -45,7 +45,7 @@
                         혜택이 준비되어 있습니다
                     </div>
                     <div class="join_btn">
-                        <a href="/WEB-INF/views/Customer/Register">회원가입</a>
+                        <a href="/project/Customer/Register">회원가입</a>
                     </div>
                 </div>
             </div>
