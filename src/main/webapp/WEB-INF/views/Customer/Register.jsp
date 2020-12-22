@@ -48,7 +48,7 @@
                   </div>
                   <div class="title_area2">
                       <h2>기본 정보</h2>
-                      <p class="required"> <img src="../img/required.png" width="8" height="8"> 필수입력사항</p>
+                      <p class="required"> <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8"> 필수입력사항</p>
                   </div>
                   </div>
                 <div class="Register_table">
@@ -56,23 +56,23 @@
                     <table class="type12">
                         <thead>
                             <tr class="c_Id">
-                                <th scope="row" > 아이디 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                                <th scope="row" > 아이디 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input id="c_Id" name="c_Id" type="text" class="inputTypeText"></th>
                                     <span id="idMsg" class="error"> 아이디를 입력해주세요.
                                     </span> (영문소문자/숫자, 4~16자) <input type="button" value="중복확인" onclick="check_Id()"></td>    
                             </tr>
                             <tr class="c_Password">
-                                <th scope="row"> 비밀번호 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                                <th scope="row"> 비밀번호 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input id="c_Password" name="c_Password" autocomplete="off" maxlength="16" 0="disabled"  type="password"> 
                                     (영문 대소문자/숫자 2가지 이상 조합, 10자~16자)</td>
                             </tr>
                             <tr class="c_Password_confirm">
-                                <th scope="row"> 비밀번호 확인 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                                <th scope="row"> 비밀번호 확인 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input id="c_Password_confirm" name="c_Password_confirm" fw-filter="isFill&amp;isMatch[c_Password]" fw-label="비밀번호 확인" fw-msg="비밀번호가 일치하지 않습니다." autocomplete="off" maxlength="16" 0="disabled" value="" type="password"> 
                                     <span id="pwConfirmMsg"></span> </td>
                             </tr>
                             <tr class="c_Name">
-                                <th scope="row"> 이름 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                                <th scope="row"> 이름 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input  id="c_Name" name="c_Name" type="text"  maxlength="14"></span>
                                 </td>
                             </tr>
@@ -82,7 +82,7 @@
                             </tr>
                             <tr class="c_Address">
                             <!-- zipcode추가로 우편번호 주소 1,2 name 변경해줬습니다. -->
-                                <th scope="row"> 주소 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
+                                <th scope="row"> 주소 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td>
                                     <input id="c_Address1" name="zipcode" fw-filter="isLengthRange[1][14]" fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" maxlength="14" value="" type="text">                    
                                     <a href="#none" onclick="" id=""><input type="button" class="Address_btn" name="Address_btn" value="우편번호 >"></a><br>
@@ -91,7 +91,7 @@
                                 </td>    
                             </tr>
                             <tr class="c_Phone1">
-                                <th scope="row"> 연락처 1 <img src= "../img/required.png" width="8" height="8" alt="필수"></th>
+                                <th scope="row"> 연락처 1 <img src= "<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><select id="c_Phone1" name="mobile1-1" fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg="">
                                 <option value="010">010</option>
                                 <option value="011">011</option>
@@ -131,7 +131,7 @@
                                 </td>
                             </tr>
                             <tr class="c_Email">
-                            <th scope="row"> 이메일 <img src= "../img/required.png" width="8" height="8" alt="필수"></th>
+                            <th scope="row"> 이메일 <img src= "<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                             <td>
                                 <input name="email1" type="text" class="box" id="email1" size="15"> @ <input name="email2" type="text" class="box" id="email2" size="20">
                                 <select name="email_select" class="box" id="email_select" onChange="checkemailaddy();">
@@ -195,9 +195,8 @@
                     <span> 이메일 수신을 동의하십니까?</span> <input id="is_news_mail0" name="is_news_mail" fw-label="is_news_mail" fw-msg="" class="ec-base-chk" value="T" type="checkbox"><label for="is_news_mail0">동의함</label>            </li>
                     </ul>
             </div>
-                <div class="member_join">   
-                <br><img src="../img/member_join.png" width="145" height="45" alt="회원가입">
-                <input type="submit" value="회원가입">
+                <div class="member_join">
+                <br><input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/member_join.png" width="145" height="45" alt="회원가입">
                 </div>
             </div>
         </div>
