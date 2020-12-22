@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.customer.impl.CustomerDAO;
 
 @Controller
 @RequestMapping(value="/Customer")
@@ -64,7 +65,18 @@ public class CustomerController {
 		return "redirect:user/login";
 	}
 	
-
+	//Register. Get일땐 페이지로 단순이동, Post면 등록처리
+	@RequestMapping(value="/Register", method=RequestMethod.GET)
+	public String register_form() {
+		return "Customer/Register";
+	}
 	
-	
+	@RequestMapping(value="Register", method=RequestMethod.POST)
+	public String register(CustomerVO vo) {
+		System.out.println(vo);
+		customerService.joinCustomer(vo);
+		
+		//등록 완료후에는 로그인 페이지로 이동?
+		return "login_form";
+	}	
 }
