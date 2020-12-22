@@ -25,7 +25,7 @@
 						System.out.println("if null print..." + session.getAttribute("loginCustomer"));
 						%> 
 						<!-- 세션이 설정되지 않을 경우 --> 
-						<li><a href="/project/Customer/SellerReview">Login</a></li>
+						<li><a href="/project/Customer/login_form">Login</a></li>
 						<li><a href="/project/Customer/Register">Register</a></li>
 					<% }else{ %>
 						<li><a href="/project/Customer/login_form">Logout</a></li>
