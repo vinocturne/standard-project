@@ -38,9 +38,9 @@ public class CustomerController {
 		System.out.println(vo);
 		CustomerVO customer = customerService.getCustomer(vo);
 		System.out.println(customer);
-		
 		if(vo.getC_Id().equals(customer.getC_Id()) && vo.getC_Password().equals(customer.getC_Password())) {
 			System.out.println("로그인 되어씁니다");
+			customer.setC_Password(null);
 			session.setAttribute("loginCustomer", customer); 
 			mav.setViewName("index"); 
 		}else {
