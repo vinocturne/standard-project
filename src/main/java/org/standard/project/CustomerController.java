@@ -86,5 +86,21 @@ public class CustomerController {
 		mav.setViewName("index");
 		//등록 완료후에는 메인페이지로 이동
 		return mav;
-	}	
+	}
+	@RequestMapping(value="/Modify", method=RequestMethod.GET)
+	public String modify_form() {
+		return "Customer/Modify";
+	}
+	@RequestMapping(value="/Modify", method=RequestMethod.POST)
+	public ModelAndView modify(CustomerVO vo,ModelAndView mav) {
+		System.out.println(vo);
+		
+		
+		
+		//수정완료후 메인 페이지로 돌아감. 
+        mav.setViewName("index"); 
+        return mav;
+		 
+	}
+	
 }
