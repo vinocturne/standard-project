@@ -1,5 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
+<script>
+    function check_Id(){
+       console.log("중복체크 아이디가 눌렸습니다.");
+       let ID = document.getElementById("c_Id").value;
+    
+       console.log(ID);
+       $.ajax({
+                   type: "POST",
+                   dataType: "text",
+                   async: true,
+                   url:"/project/Customer/check_Id",          
+                   data:{param: ID},
+                   success:function(data,textStatus){
+                    document.getElementById("idMsg").innerText = data;
+                   },
+                   error:function(data,textStatus){
+                       console.log("에러 발생");
+                   }
+                });
+
+    }
+</script>
 </head>
 <%@ include file="../header.jsp" %> 
  <div class="content_wrap inner">
@@ -17,7 +39,7 @@
                      </ul>
                  </div>
              </div>
-             
+            
 
              <!-- Register -->
 
@@ -39,7 +61,7 @@
                                 <th scope="row" > 아이디 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input id="c_Id" name="c_Id" type="text" class="inputTypeText"></th>
                                     <span id="idMsg" class="error"> 아이디를 입력해주세요.
-                                    </span> (영문소문자/숫자, 4~16자)</td>    
+                                    </span> (영문소문자/숫자, 4~16자) <input type="button" value="중복확인" onclick="check_Id()"></td>    
                             </tr>
                             <tr class="c_Password">
                                 <th scope="row"> 비밀번호 <img src="../img/required.png" width="8" height="8" alt="필수"></th>
@@ -120,7 +142,7 @@
                             <tr class="c_Email">
                             <th scope="row"> 이메일 <img src= "../img/required.png" width="8" height="8" alt="필수"></th>
                             <td>
-                                <input name="email1" type="text" class="box" id="email1" size="15" onclick="mk_phoneNumber()"> @ <input name="email2" type="text" class="box" id="email2" size="20">
+                                <input name="email1" type="text" class="box" id="email1" size="15"> @ <input name="email2" type="text" class="box" id="email2" size="20">
                                 <select name="email_select" class="box" id="email_select" onChange="checkemailaddy();">
                                     <option value="" selected>선택하세요</option>
                                     <option value="naver.com">naver.com</option>
@@ -189,4 +211,5 @@
             </div>
         </div>
     </form>
+    
         <%@ include file="../footer.jsp"%>

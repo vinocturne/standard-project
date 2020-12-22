@@ -87,6 +87,26 @@ public class CustomerController {
 		//등록 완료후에는 메인페이지로 이동
 		return mav;
 	}
+	@RequestMapping(value="/check_Id")
+	public void check_Id(HttpServletRequest req,HttpServletResponse response)throws IOException {
+		response.setContentType("text/html; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+		//System.out.println(req.getParameter("data"));
+		System.out.println(req.getParameter("param"));
+		String RequestedID = req.getParameter("param");
+		CustomerVO vo = new CustomerVO();
+		vo.setC_Id(RequestedID);
+		CustomerVO customer = customerService.getCustomer(vo);
+		if(customer==null) {
+			//등록이 되었지 않은 경우
+			out.print("사용할 수 있는 아이디 입니다.");
+		}else {
+			//등록이 되어있는경우
+			out.print("이미 사용중인 아이디입니다.");
+		}
+		
+		
+	}
 	@RequestMapping(value="/Modify", method=RequestMethod.GET)
 	public String modify_form() {
 		return "Customer/Modify";
