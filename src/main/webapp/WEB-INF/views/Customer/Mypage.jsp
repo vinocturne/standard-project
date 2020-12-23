@@ -11,7 +11,7 @@
                  <div class="side_nav_item">
                      <p class="side_nav_title">My page</p>
                      <ul>
-                         <li><a href="Modify.html">MY info</a></li>
+                         <li><a href="Modify.html">Modify</a></li>
                          <li><a href="cart.html">Cart</a></li>
                          <li><a href="order.html">Order</a></li>
                          <li><a href="Wishlist.html">Wish list</a></li>

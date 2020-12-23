@@ -35,6 +35,7 @@
 			<table class="type11">
 				<thead>
 					<tr>
+						<th scope="cols">선택</th>
 						<th scope="cols">이미지</th>
 						<th scope="cols">상품정보</th>
 						<th scope="cols">가격</th>
@@ -46,17 +47,19 @@
 				<tbody>
 					<tr>
 					<!-- OrderHistoryVO 구현되면 get xxx로연결하기  -->
+						<td><input type="checkbox" name="checkbox" value="1" style="border:0"></td> 
 						<td><img src="../img/logo2.png" style width="30px" height="20px"></th>
 						<td>트위드 플레어 스커트</th>
 						<td>38000원</th>
 						<td>
 							<form action= "" name="form" method="get">
 								수량 : <input type=hidden name="p_Price" value="5500">
-									  <input type="text" name="o_Num" value="1" size="1" onchange="change();">개 
-									  <input type="button" value=" + " onclick="add();"> 
-									  <input type="button" value=" - " onclick="del();">
-						</td>
-						<td>금액 : <input type="text" name="o_TotalPrice" size="11" readonly>원
+									  <input type="text" name="o_Num" value="1" size="1" onchange="change();">개
+									  <input type="button" value=" + " onclick="add();">
+                                    	<input type="button" value=" - " onclick="del();"><br>
+								</td>
+						<td>금액 : 
+							<input type="text" name="o_TotalPrice">원
 							</form>
 						</td>
 						<td class="button">

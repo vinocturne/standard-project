@@ -324,7 +324,9 @@ button{
     /* box-sizing: border-box; */
     border:1px solid slategrey;
     border-radius: 3px;
-    
+}
+.plusBtn, .minusBtn {
+	box-sizing:border-box;
 }
 
 /* Register */
@@ -586,5 +588,5 @@ footer .site-links li {
 }
 
 footer .site-links li a {
-    color:#e5e5e5;
+    color:#000;
 }

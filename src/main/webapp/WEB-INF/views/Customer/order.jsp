@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="org.standard.project.vo.OrderHistoryVO" %>
+
+<%-- <%@ page import="org.standard.project.vo.OrderHistoryVO" %> --%>
 <%@ include file="../head.jsp" %> 
 </head>
 
@@ -13,12 +14,19 @@
             <div class="side_nav_item">
                 <p class="side_nav_title">My page</p>
                 <ul>
+                <%
+					if(customer==null){
+					System.out.println("if null print..." + session.getAttribute("loginCustomer"));
+				%>   
                     <li><a href="#">Login</a></li>
                     <li><a href="Register.html">Register</a></li>
+                    <% } else { %>
                     <li><a href="/project/Customer/cart">Cart</a></li>
                     <li><a href="/project/Customer/order">Order</a></li>
                     <li><a href="Wishlist.html">Wish list</a></li>
                     <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
+                    <%} %>
+                    
                 </ul>
             </div>
         </div>
