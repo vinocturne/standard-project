@@ -39,9 +39,9 @@
                         <thead>
                             <tr class="welcome">
                             <th> 
-                                <img src="../img/person.png" width="150px" height="150px" alt="">    
+                                <img src="../ResourcesFile/img/person.png" width="100px" height="100px" alt="">    
                             </th>
-                                <td> 
+                                <td class="textbox"> 
                                 <h2>  <%=customer.getC_Id()%> 님 저희 쇼핑몰을 이용해 주셔서 감사합니다. 
                                 </h2>
                                 </td>    

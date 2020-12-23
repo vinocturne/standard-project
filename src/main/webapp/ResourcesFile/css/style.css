@@ -566,6 +566,9 @@ h2{
     color: #353535;
     vertical-align: middle;
   }
+  .textbox>h2{
+  text-align:center;
+  }
 
 
 
