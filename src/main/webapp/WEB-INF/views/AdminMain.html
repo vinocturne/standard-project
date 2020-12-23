@@ -36,7 +36,7 @@
     <div class="side_nav_item">
         <p class="side_nav_title">어드민 목록</p>
         <ul>
-            <li><a href="gaipdegi">가입 대기 목록</a></li>
+            <li><a href="\WEB-INF\views\AdminMain">가입 대기 목록</a></li>
             <li><a href="sangpumgwanli">Magazin 관리</a></li>
             <li><a href="\project\Cs\cs_request">Customer Q&A</a></li>
         </ul>
@@ -44,22 +44,60 @@
 </div>
 <body>
 
-<table border="1">
-<th>고객아이디</th>
-<th>비밀번호</th>
-<th>고객이름</th>
-<th>출생년도</th>
-<th>우편번호</th>
-<th>주소</th>
-<th>상세주소</th>
-<th>연락처1</th>
-<th>연락처2</th>
-<th>사업자번호</th>
-<th>가입일</th>
-<th>메일주소</th>
-<th>role</th>
+<table class = CustomerList border="1">
+    
+        <tr>
+          <th>고객아이디</th>
+          <th>고객이름</th>
+          <th>출생년도</th>
+          <th>우편번호</th>
+          <th>주소</th>
+          <th>상세주소</th>
+          <th>연락처1</th>
+          <th>연락처2</th>
+          <th>사업자번호</th>
+          <th>가입일</th>
+          <th>메일주소</th>
+          <th>role</th>
+          <th>브랜드</th>
+          <th>가입허가</th>
+        </tr>
+        <tr>
+            <!-- 값 받아오는 칸 -->
+            <th>c_Id</th>
+            <th>c_Name</th>
+            <th>c_Birthday</th>
+            <th>zipcode</th>
+            <th>c_Address1</th>
+            <th>c_Address2</th>
+            <th>c_Phone1</th>
+            <th>c_Phone2</th>
+            <th>businessNumber</th>
+            <th>c_RegisterDay</th>
+            <th>c_Email</th>
+            <th>role</th>
+            <th>brandName</th>
+            <th><input type="submit" value="승인"></th>
+        </tr>
+        <tr>
+            <th>c_Id</th>
+            <th>c_Name</th>
+            <th>c_Birthday</th>
+            <th>zipcode</th>
+            <th>c_Address1</th>
+            <th>c_Address2</th>
+            <th>c_Phone1</th>
+            <th>c_Phone2</th>
+            <th>businessNumber</th>
+            <th>c_RegisterDay</th>
+            <th>c_Email</th>
+            <th>role</th>
+            <th>brandName</th>
+            <th><input type="submit" value="승인"></th>
+        </tr>
 
 </table>
+
 
 </body>
 
