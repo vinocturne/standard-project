@@ -10,8 +10,27 @@
     </div>
 </div>
 
+var img = "<%=request.getContextPath()%>/ResourcesFile/img/Magazin/"+ step + ".jpg";
 
-<script>
+<div class="listItem">
+			<div class="articleImg">
+				<a href="img" title="지금 SNS에서 가장 핫한 브랜드? MFG!"><img data-original="https://image.musinsa.com/mfile_s01/2020/12/23/928965c4bda225c6e5839ac8393f41b3.jpg.0" alt="지금 SNS에서 가장 핫한 브랜드? MFG!" class="lazy-load-image" src="https://image.musinsa.com/mfile_s01/2020/12/23/928965c4bda225c6e5839ac8393f41b3.jpg.0" style="display: inline;"><b class="vamHelper"></b></a>
+			</div>
+			<div class="articleInfo">
+				<div class="title">	
+					<a href="/index.php?m=magazine&amp;uid=15646"><span class="category">리포트</span><span> | </span>지금 SNS에서 가장 핫한 브랜드? MFG!</a> <a href="/index.php?m=magazine&amp;uid=15646#comLine" class="creplyCnt new">3</a> <span class="ti_new">NEW</span>								</div>
+				<div class="info">
+					<span class="date division">7시간 전</span><span class="viewCnt">136</span>
+					<b class="rev-division"><a href="/?m=magazine&amp;brand=marithefrancoisgirbaud"><span class="brand">마리떼 프랑소와 저버</span></a></b>								</div>
+				<p class="description">
+					 마리떼 프랑소와 저버 20 F/W 컬렉션으로 완성한 인플루언서의 특별한 코디.									 <a href="/index.php?m=magazine&amp;media=musinsa" class="mediumName">무신사 매거진</a> 								</p>
+			</div>
+</div>
+ <div id="test"></div>
+ 
+ 
+ 
+<script> 
    $(document).ready(function () {
           var val = location.href.substr(
               location.href.lastIndexOf('=') + 1
@@ -80,19 +99,27 @@
 
                   title = "매거진" + step;
                   
-                  
+                  html += '<section class="4u"> <a href="#" class="image featured"><img style="min-width:300px;height:200px" class="img-thumbnail" src=' + img + ' alt=""></a>';                  
                   html += '<img class="card-img-top" src=' + img + ' style="width:100%;height:140px" alt="Card image cap">';
-                  html += '<section class="4u"> <a href="#" class="image featured"><img style="min-width:300px;height:200px" class="img-thumbnail" src=' + img + ' alt=""></a>';
                   html += '<div class="box">';
                   html += '<p>' + title + '</p>';
                   html += '<p>' + contents + '</p>';
-                  
                   html += '</section>';
 
-                document.getElementById("test").innerHTML = html;
+              
               }
+             
             }
-
+            document.getElementById("test").innerHTML = html;
+            
+            
+            <span class="date division">등록일 : 20.12.23 14:00</span>
+            <img title="올해 최고의 뷰티템은? 2020 뷰신사 연말 결산!" 
+            		alt="올해 최고의 뷰티템은? 2020 뷰신사 연말 결산!" 
+        			src = img 
+            		style="display: inline;">
+            		
+            		
             
       });
 </script>
