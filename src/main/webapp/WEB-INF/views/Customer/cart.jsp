@@ -18,7 +18,6 @@
 				<li><a href="/project/Customer/Register">Register</a></li>
 				<li><a href="/project/Customer/cart">Cart</a></li>
 				<li><a href="/project/Customer/order">Order</a></li>
-				<li><a href="#">Wish list</a></li>
 				<li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
 			</ul>
 		</div>
