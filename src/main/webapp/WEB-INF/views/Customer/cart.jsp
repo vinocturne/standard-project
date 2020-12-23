@@ -29,6 +29,7 @@
 		</div>
 	</div>
 
+	    
 	<!-- CART:주문조회-->
 	<div class="order_wrap">
 		<div class="title_area">
@@ -37,7 +38,7 @@
 			</div>
 		</div>
 		<div class="order_table">
-			<table class="type11">
+			<table class="type15">
 				<thead>
 					<tr>
 						<th scope="cols">선택</th>
@@ -46,6 +47,7 @@
 						<th scope="cols">가격</th>
 						<th scope="cols">수량</th>
 						<th scope="cols">주문금액</th>
+						<th scope="cols">선택</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -55,17 +57,25 @@
 						<td><img src="../img/logo2.png" style width="30px" height="20px"></th>
 						<td>트위드 플레어 스커트</th>
 						<td>38000원</th>
-						<form name="form" method="get">
-									<!--변수명 바꾸기 -->
-                                    수량 : <input type=hidden name="sell_price" value="5500">
-                                    <input type="text" name="amount" value="1" size="3" onchange="change();">개
-                                    <input type="button" value=" + " onclick="add();">
-                                    <input type="button" value=" - " onclick="del();"><br>
-                                </td>
-                            <td>금액 : <input type="text" name="sum" size="11" readonly>원
-                                </form>
-                                </td>
-						<td class="button">
+						<td>
+							<form name="form" method="get">
+							<span class=""> 
+								<span class="ec-base-qty"> 
+								<input type="text" name="amount" value="1" size="3" onchange="change();"> 
+								<a onclick="add();"> 
+									<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가" class="up">
+								</a> 
+								<a onclick="del();"> 
+									<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소" class="down">
+								</a>
+								</span>
+							</span>
+							</td>
+						<td>금액 : 
+							<input type="text" name="o_TotalPrice" id="o_TotalPrice" >원
+							</form>
+						</td>
+						<td class="cart_button">
 							<div>
 								<button href="order.html">주문하기</button>
 							</div>
@@ -81,12 +91,8 @@
 			</table>
 		</div>
 	</div>
-
-
-
 </div>
-
-
+	
 
 <!-- FOOTER -->
 <%@ include file="../footer.jsp"%>
