@@ -19,5 +19,10 @@ public class MagazineController {
 		return "Magazine/Magazine";
 	}
 	
+	@RequestMapping("/MagazineIn")
+	public String magazineDetail() {
+		
+		return "Magazine/MagazineIn";
+	}
 
 }

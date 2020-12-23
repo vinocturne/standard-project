@@ -20,7 +20,13 @@
             </div>
         </div>
         <div id="Magazine"></div>
+        
+        
 <script>
+
+
+
+
    window.onload = function() {
         var html = '';
         var step;
