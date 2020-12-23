@@ -126,9 +126,12 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "/Modify", method = RequestMethod.POST)
-	public ModelAndView modify(CustomerVO vo, ModelAndView mav, HttpServletRequest req) {
+	public ModelAndView modify(CustomerVO vo, ModelAndView mav, HttpServletRequest req, HttpServletResponse response) throws IOException {
 		System.out.println("수정기능");
 		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
+		if(!(vo.getC_Password()==null)) {
+			
+		}
 		System.out.println(vo);
 		String phoneNum = req.getParameter("mobile1-1") + req.getParameter("mobile1-2") + req.getParameter("mobile1-3");
 		vo.setC_Phone1(phoneNum);
@@ -141,23 +144,29 @@ public class CustomerController {
 		System.out.println(vo);
 
 		// 수정완료후 수정페이지
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+			out.println("<script>alert('수정완료.'); history.go(-1);</script>");
+			out.flush();
 		mav.setViewName("Customer/Modify");
 		return mav;
 
 	}
 	
 	@RequestMapping(value = "/Delete",method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView delete(CustomerVO vo, ModelAndView mav, HttpServletRequest req, HttpSession session) {
+	public ModelAndView delete(CustomerVO vo, ModelAndView mav, HttpServletRequest req, HttpSession session, HttpServletResponse response) throws IOException {
 		vo = (CustomerVO) session.getAttribute("loginCustomer");
-		//비번체크 필요
 		System.out.println("삭제기능");
 		System.out.println(vo);
 		customerService.deleteCustomer(vo);
 		System.out.println(vo);
 		
-		// 탈퇴완료 알럿필요
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+			out.println("<script>alert('삭제완료.'); history.go(1);</script>");
+			out.flush();
 		
-		// 삭제완료후 메인페이지
 		mav.setViewName("index");
 		return mav;
 
