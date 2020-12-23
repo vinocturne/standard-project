@@ -12,7 +12,7 @@
 				<!-- </div> -->
 				<ul class="main-menu toggle">
 					<li><a href="#">Store</a></li>
-					<li><a href="#">Magazine</a></li>
+					<li><a href="/project/magazine/magazineList">Magazine</a></li>
 					<li><a href="../Customer/login_form.jsp">My page</a></li>
 				</ul>
 			</div>

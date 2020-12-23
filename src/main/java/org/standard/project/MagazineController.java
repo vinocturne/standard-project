@@ -11,7 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.standard.project.customer.CustomerService;
 
 @Controller
+@RequestMapping(value = "/magazine")
 public class MagazineController {
+	@RequestMapping("/magazineList")
+	public String magazineList() {
+		
+		return "Magazine/Magazine";
+	}
 	
 
 }
