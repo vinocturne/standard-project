@@ -7,7 +7,7 @@
  <div class="col-auto p-0">
             <div class="side_nav">
                 <div class="side_nav_item">
-                    <p class="side_nav_title">Shop</p>
+                    <p class="/project/product">Shop</p>
                     <ul>
                         <li><a href="#">Men`s</a></li>
                         <li><a href="#"><!--줄띄우기 --></a></li>
