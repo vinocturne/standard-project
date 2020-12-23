@@ -12,8 +12,13 @@
 				<!-- </div> -->
 				<ul class="main-menu toggle">
 					<li><a href="#">Store</a></li>
+<<<<<<< HEAD
 					<li><a href="/project/magazine/magazineList">Magazine</a></li>
 					<li><a href="../Customer/login_form.jsp">My page</a></li>
+=======
+					<li><a href="#">Magazine</a></li>
+					<li><a href="/project/Customer/myPage">My page</a></li>
+>>>>>>> branch 'master' of https://github.com/damlee89/standard-project.git
 				</ul>
 			</div>
 			<div class="sign-group float--right toggle">
