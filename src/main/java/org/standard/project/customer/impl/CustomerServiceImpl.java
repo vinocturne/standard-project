@@ -25,6 +25,10 @@ public class CustomerServiceImpl implements CustomerService {
 	public void deleteCustomer(CustomerVO vo) {
 		customerDAO.deleteCustomer(vo);
 	}
+	
+	public void modifyCustomer(CustomerVO vo) {
+		customerDAO.modifyCustomer(vo);
+	}
 
 	@Override
 	public void joinWaitingList(CustomerVO vo) {

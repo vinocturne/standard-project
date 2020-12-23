@@ -204,8 +204,8 @@
                 </div>
                 <div class="confirm-button modify">
                 
-                    <a href="#none" onclick="memberEditAction()">
-                        <img src="<%=request.getContextPath()%>/ResourcesFile/img/modify.png" width="135" height="40" alt="회원정보수정">
+                    <a>
+                        <input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/modify.png" width="135" height="40" alt="회원정보수정">
                         <!-- <input type="submit" value="회원정보수정"> --></a>
                     <a href="/project">
                         <img src="<%=request.getContextPath()%>/ResourcesFile/img/cancel.png" width="135" height="40" alt="취소">

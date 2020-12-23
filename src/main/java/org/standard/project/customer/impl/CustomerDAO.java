@@ -23,6 +23,9 @@ public class CustomerDAO {
 	public void deleteCustomer(CustomerVO vo) {
 		mySQL.delete(loc+"deleteCustomer", vo);
 	}
+	public void modifyCustomer(CustomerVO vo) {
+		mySQL.delete(loc+"modifyCustomer", vo);
+	}
 
 	public void joinWaitingList(CustomerVO vo) {
 		mySQL.insert(loc+"joinWaitingList", vo);
