@@ -1,5 +1,3 @@
-
-// Ex_상품가격이 7600원인 경우 
 var sell_price=38000;
 var amount;
 

@@ -46,7 +46,6 @@
 						<th scope="cols">가격</th>
 						<th scope="cols">수량</th>
 						<th scope="cols">주문금액</th>
-						<th scope="cols">선택</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -56,17 +55,16 @@
 						<td><img src="../img/logo2.png" style width="30px" height="20px"></th>
 						<td>트위드 플레어 스커트</th>
 						<td>38000원</th>
-						<td>
-							<form action= "" name="form" method="get">
-								수량 : <input type=hidden name="p_Price" value="5500">
-									  <input type="text" name="o_Num" value="1" size="1" onchange="change();">개
-									  <input type="button" value=" + " onclick="add();">
-                                    	<input type="button" value=" - " onclick="del();"><br>
-								</td>
-						<td>금액 : 
-							<input type="text" name="o_TotalPrice">원
-							</form>
-						</td>
+						<form name="form" method="get">
+									<!--변수명 바꾸기 -->
+                                    수량 : <input type=hidden name="sell_price" value="5500">
+                                    <input type="text" name="amount" value="1" size="3" onchange="change();">개
+                                    <input type="button" value=" + " onclick="add();">
+                                    <input type="button" value=" - " onclick="del();"><br>
+                                </td>
+                            <td>금액 : <input type="text" name="sum" size="11" readonly>원
+                                </form>
+                                </td>
 						<td class="button">
 							<div>
 								<button href="order.html">주문하기</button>
