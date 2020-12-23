@@ -19,11 +19,10 @@
 					System.out.println("if null print..." + session.getAttribute("loginCustomer"));
 				%>   
                     <li><a href="#">Login</a></li>
-                    <li><a href="Register.html">Register</a></li>
+                    <li><a href="/project/Customer/Register">Register</a></li>
                     <% } else { %>
                     <li><a href="/project/Customer/cart">Cart</a></li>
                     <li><a href="/project/Customer/order">Order</a></li>
-                    <li><a href="Wishlist.html">Wish list</a></li>
                     <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
                     <%} %>
                     
