@@ -10,6 +10,7 @@
     </div>
 </div>
 
+
 <script>
    $(document).ready(function () {
           var val = location.href.substr(
@@ -78,12 +79,13 @@
                       contents = "‘오늘 뭐 입지?’ 고민을 덜어줄 옷 .";
 
                   title = "매거진" + step;
-
+                  
+                  
+                  html += '<img class="card-img-top" src=' + img + ' style="width:100%;height:140px" alt="Card image cap">';
                   html += '<section class="4u"> <a href="#" class="image featured"><img style="min-width:300px;height:200px" class="img-thumbnail" src=' + img + ' alt=""></a>';
                   html += '<div class="box">';
                   html += '<p>' + title + '</p>';
                   html += '<p>' + contents + '</p>';
-                //   html += '<a href="#" class="button">더보기</a> </div>';
                   
                   html += '</section>';
 
