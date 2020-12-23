@@ -4,7 +4,7 @@
 <script defer src="../js/main.js"></script>
 </head>
 <%@ include file="../header.jsp" %> 
- <div class="col-auto p-0">
+<div class="col-auto p-0">
             <div class="side_nav">
                 <div class="side_nav_item">
                     <p class="/project/product">Shop</p>
@@ -30,7 +30,7 @@
             var contents = "";
             var img = "";
 
-            img = "/ResourcesFile/img/Magazin/" + step + ".jpg";
+            img = "../../ResourcesFile/img/Magazin/" + step + ".jpg";
             title = "매거진" + step;
 
             if(step == 1)
