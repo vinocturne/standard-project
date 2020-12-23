@@ -20,8 +20,11 @@ public class CustomerDAO {
 		mySQL.insert(loc+"joinCustomer", vo);
 	}
 	
-	public CustomerVO getCustomerModify(CustomerVO vo) {
-		return mySQL.selectOne(loc+"getCustomerModify", vo);
+	public void deleteCustomer(CustomerVO vo) {
+		mySQL.delete(loc+"deleteCustomer", vo);
+	}
+	public void modifyCustomer(CustomerVO vo) {
+		mySQL.delete(loc+"modifyCustomer", vo);
 	}
 
 	public void joinWaitingList(CustomerVO vo) {
@@ -32,6 +35,8 @@ public class CustomerDAO {
 	public CustomerVO getWaitingCustomer(CustomerVO vo) {
 		return mySQL.selectOne(loc+"getWaitingCustomer", vo);
 	}
+	
+	
 
 
 }

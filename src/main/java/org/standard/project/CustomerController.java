@@ -127,6 +127,9 @@ public class CustomerController {
 
 	@RequestMapping(value = "/Modify", method = RequestMethod.POST)
 	public ModelAndView modify(CustomerVO vo, ModelAndView mav, HttpServletRequest req) {
+		System.out.println("수정기능");
+		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
+		System.out.println(vo);
 		String phoneNum = req.getParameter("mobile1-1") + req.getParameter("mobile1-2") + req.getParameter("mobile1-3");
 		vo.setC_Phone1(phoneNum);
 		String phoneNum2 = req.getParameter("mobile2-1") + req.getParameter("mobile2-2")
@@ -134,11 +137,28 @@ public class CustomerController {
 		vo.setC_Phone2(phoneNum2);
 		String emailAddr = req.getParameter("email1") + "@" + req.getParameter("email2");
 		vo.setC_Email(emailAddr);
-
+		customerService.modifyCustomer(vo);
 		System.out.println(vo);
 
-		// 수정완료후 메인 페이지로 돌아감.
+		// 수정완료후 수정페이지
 		mav.setViewName("Customer/Modify");
+		return mav;
+
+	}
+	
+	@RequestMapping(value = "/Delete",method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView delete(CustomerVO vo, ModelAndView mav, HttpServletRequest req, HttpSession session) {
+		vo = (CustomerVO) session.getAttribute("loginCustomer");
+		//비번체크 필요
+		System.out.println("삭제기능");
+		System.out.println(vo);
+		customerService.deleteCustomer(vo);
+		System.out.println(vo);
+		
+		// 탈퇴완료 알럿필요
+		
+		// 삭제완료후 메인페이지
+		mav.setViewName("index");
 		return mav;
 
 	}

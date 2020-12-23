@@ -6,6 +6,6 @@ public interface CustomerService {
 	void joinCustomer(CustomerVO vo);
 
 	void joinWaitingList(CustomerVO vo);
-
-	CustomerVO getCustomerModify(CustomerVO vo);
+	void deleteCustomer(CustomerVO vo);
+	void modifyCustomer(CustomerVO vo);
 }

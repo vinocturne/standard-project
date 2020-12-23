@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/seller.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
     <title>어드민 메인페이지</title>
 </head>
 <header class="section">
@@ -32,51 +41,120 @@
     </div>
 </header>
 
-<div class="side_nav">
-    <div class="side_nav_item">
-        <p class="side_nav_title">어드민 목록</p>
-        <ul>
-            <li><a href="gaipdegi">가입 대기 목록</a></li>
-            <li><a href="sangpumgwanli">Magazin 관리</a></li>
+<div class="frame">
+    <div class="container">
+    <div class="nav">
+        <ul class="nav-list">
+            <li>관리자페이지</li>
+            <br>
+            <li><a href="/WEB-INF/views/AdminMain">가입 대기 목록</a></li>
+            <li><a href="/WEB-INF/views/HtmlBaseFile/seller.html">Magazin 관리</a></li>
             <li><a href="\project\Cs\cs_request">Customer Q&A</a></li>
         </ul>
     </div>
-</div>
-<body>
-
-<table border="1">
-<th>고객아이디</th>
-<th>비밀번호</th>
-<th>고객이름</th>
-<th>출생년도</th>
-<th>우편번호</th>
-<th>주소</th>
-<th>상세주소</th>
-<th>연락처1</th>
-<th>연락처2</th>
-<th>사업자번호</th>
-<th>가입일</th>
-<th>메일주소</th>
-<th>role</th>
-
-</table>
-
-</body>
-
-<footer class="section">
-    <div class="inner clearfix">
-        <ul class="site-links float--right">
-            <li><a href="#">API</a></li>
-            <li><a href="#">Training</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-        <ul class="site-links float--left">
-            <li>© 2020 STANDARD Inc.</li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Status</a></li>
-            <li><a href="#">Help</a></li>
-        </ul>
+    <div class="content">
+        <h3>가입 대기 목록</h3>
+        <br>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>고객아이디</th>
+                <th>고객이름</th>
+                <th>출생년도</th> 
+                <th>우편번호</th>
+                <th>주소</th>
+                <th>상세주소</th>
+                <th>연락처1</th>
+                <th>연락처2</th>
+                <th>사업자번호</th>
+                <th>가입일</th>
+                <th>메일주소</th>
+                <th>role</th>
+                <th>브랜드명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" name=""> 1</td>
+                <td>고객아이디</td>
+                <td>고객이름</td>
+                <td>출생년도</td> 
+                <td>우편번호</td>
+                <td>주소</td>
+                <td>상세주소</td>
+                <td>연락처1</td>
+                <td>연락처2</td>
+                <td>사업자번호</td>
+                <td>가입일</td>
+                <td>메일주소</td>
+                <td>role</td>
+                <td>브랜드명</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name=""> 2</td>
+                <td>고객아이디</td>
+                <td>고객이름</td>
+                <td>출생년도</td> 
+                <td>우편번호</td>
+                <td>주소</td>
+                <td>상세주소</td>
+                <td>연락처1</td>
+                <td>연락처2</td>
+                <td>사업자번호</td>
+                <td>가입일</td>
+                <td>메일주소</td>
+                <td>role</td>
+                <td>브랜드명</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name=""> 3</td>
+                <td>고객아이디</td>
+                <td>고객이름</td>
+                <td>출생년도</td> 
+                <td>우편번호</td>
+                <td>주소</td>
+                <td>상세주소</td>
+                <td>연락처1</td>
+                <td>연락처2</td>
+                <td>사업자번호</td>
+                <td>가입일</td>
+                <td>메일주소</td>
+                <td>role</td>
+                <td>브랜드명</td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="add-product">가입 승인하기</button>
     </div>
-</footer>
+    
+    </div>
+
+    <footer class="section">
+        <div class="inner clearfix">
+    
+            <ul class="site-links float--right">
+                <li><a href="#">Contact GitHub</a></li>
+                <li><a href="#">API</a></li>
+                <li><a href="#">Training</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+    
+            <ul class="site-links float--left">
+                <li>© 2020 STANDARD Inc.</li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Security</a></li>
+                <li><a href="#">Status</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+    
+            <a href="#" class="logo">
+                <img src="../img/logo2.png" width=60 height="40">   
+            </a>
+        </div>
+    </footer> 
+</div>
 </html>
