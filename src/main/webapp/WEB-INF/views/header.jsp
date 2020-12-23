@@ -13,7 +13,7 @@
 				<ul class="main-menu toggle">
 					<li><a href="#">Store</a></li>
 					<li><a href="#">Magazine</a></li>
-					<li><a href="../Customer/login_form.jsp">My page</a></li>
+					<li><a href="/project/Customer/myPage">My page</a></li>
 				</ul>
 			</div>
 			<div class="sign-group float--right toggle">

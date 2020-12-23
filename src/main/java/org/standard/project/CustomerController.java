@@ -182,4 +182,14 @@ public class CustomerController {
 
 	}
 
+	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
+	public String myPageMain(HttpSession session) {
+		if (session.getAttribute("loginCustomer") == null) {
+			return "redirect:/Customer/login_form";
+		} else {
+			return "Customer/Mypage";
+		}
+
+	}
+
 }
