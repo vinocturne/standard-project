@@ -19,13 +19,13 @@
                 </div>
             </div>
         </div>
-        <div id="Magazin"></div>
+        <div id="Magazine"></div>
 <script>
    window.onload = function() {
         var html = '';
         var step;
         html += '<div class="row align-items-start" >';
-          for (step = 1; step < 21; step++) {
+          for (step = 1; step < 22; step++) {
             
             var title = "";
             var contents = "";
@@ -47,7 +47,7 @@
             else
                 contents = "‘오늘 뭐 입지?’ 고민을 덜어줄 옷 .";
             
-            html += '<a href="magazinIn.html">';
+            html += '<a href="MagazineIn">';
                 html += '<div class="card m-1 align-items-start" style="width:210px;height:250px;">';
                     html += '<img class="card-img-top" src=' + img + ' style="width:100%;height:140px" alt="Card image cap">';        
                     html += '<div class="card-body p-0">';
@@ -59,7 +59,7 @@
           }
 
           html += '</div>';
-          document.getElementById("Magazin").innerHTML = html;
+          document.getElementById("Magazine").innerHTML = html;
     }
 </script>
 <%@ include file="../footer.jsp"%>
