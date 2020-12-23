@@ -12,23 +12,6 @@
     border-radius: none;
     border-bottom: 1px solid #e5e5e5;
 }
-/* WHERE IS  */
-#map {
-    /*%부모요소에서 영향을 받음*/
-    width: auto;
-    margin: 40px -20px 0 -20px;
-    border-left: none;
-    border-right: none;
-}
-
-/* PRICING */
-.section--pricing .card {
-    display: block;
-}
-.section--pricing .card .cell2{
-    border-left: none;
-    border-top: 1px solid #e5e5e5;
-}
 
 
 /* FOOTER  */

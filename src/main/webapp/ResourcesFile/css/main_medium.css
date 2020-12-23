@@ -82,35 +82,6 @@ header .toggle.on{
     margin: 0 auto;
 }
 
-/* Feature */
-.section--feature .summary {
-    padding:66px 20px 0 20px;
-}
-.section--feature .tiles li {
-    width: 50%;
-}
-.section--feature .tiles li:nth-child(2){
-    border-right: none;
-}
-.section--feature .tiles li img {
-    padding:14px 30% 24px;
-}
-
-/* Where is  */
-.section--where-is .inner {
-    max-width: none;
-    padding: 80px 20px 0 20px;
-}
-
-/* Pricing card  */
-.section--pricing .inner {
-    max-width: none;
-    padding:80px 20px;
-}
-.section--pricing .card .cell2 {
-    font-size: 20px;
-}
-
 /* Footer */
 footer .inner{
     padding:50px 20px;
