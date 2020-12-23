@@ -19,6 +19,7 @@
                 </div>
             </div>
         </div>
+        <div id="Magazin"></div>
 <script>
    window.onload = function() {
         var html = '';
@@ -30,7 +31,7 @@
             var contents = "";
             var img = "";
 
-            img = "../../ResourcesFile/img/Magazin/" + step + ".jpg";
+            img = "<%=request.getContextPath()%>/ResourcesFile/img/Magazin/" + step + ".jpg";
             title = "매거진" + step;
 
             if(step == 1)
