@@ -173,7 +173,8 @@ header .sub-menu li a:hover {
 }
 .side_nav .side_nav_title {
     font-size: 16px;
-    font-weight: 500;
+    margin-bottom:15px;
+    font-weight: bolder;
 }
 .side_nav li {
     font-size: 12px;
@@ -631,6 +632,7 @@ h2{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     text-align: left;
+    margin-bottom:10px
 }
 
 .type14 table, th {
