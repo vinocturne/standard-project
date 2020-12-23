@@ -137,8 +137,24 @@ public class CustomerController {
 
 		System.out.println(vo);
 
-		// 수정완료후 메인 페이지로 돌아감.
+		// 수정완료후 수정페이지
 		mav.setViewName("Customer/Modify");
+		return mav;
+
+	}
+	
+	@RequestMapping(value = "/Delete",method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView delete(CustomerVO vo, ModelAndView mav, HttpServletRequest req, HttpSession session) {
+		vo = (CustomerVO) session.getAttribute("loginCustomer");
+		System.out.println("삭제기능");
+		System.out.println(vo);
+		customerService.deleteCustomer(vo);
+		System.out.println(vo);
+		
+		// 탈퇴완료 알럿필요
+		
+		// 삭제완료후 메인페이지
+		mav.setViewName("index");
 		return mav;
 
 	}

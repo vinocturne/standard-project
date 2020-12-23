@@ -22,8 +22,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDAO.getCustomer(vo);
 	}
 	
-	public CustomerVO getCustomerModify(CustomerVO vo) {
-		return customerDAO.getCustomerModify(vo);
+	public void deleteCustomer(CustomerVO vo) {
+		customerDAO.deleteCustomer(vo);
 	}
 
 	@Override

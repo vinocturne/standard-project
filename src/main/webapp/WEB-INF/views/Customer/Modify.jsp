@@ -211,7 +211,7 @@
                         <img src="<%=request.getContextPath()%>/ResourcesFile/img/cancel.png" width="135" height="40" alt="취소">
                         <!-- <input type="submit" value="취소"> --></a><!-- 일단 옆에 있는것들이랑 같이 모양새 만듬 -->
                     <span class="withdrawal">
-                        <a href="/project" onclick="memberDelAction(0, -1, -1)">
+                        <a href="/project/Customer/Delete">
                         <img src="<%=request.getContextPath()%>/ResourcesFile/img/withdrawal.png" width="100" height="30" input type="submit" value="회원탈퇴"alt="회원탈퇴">
                         <!-- <input type="submit" value="회원탈퇴"> --></a>
                     </span>
