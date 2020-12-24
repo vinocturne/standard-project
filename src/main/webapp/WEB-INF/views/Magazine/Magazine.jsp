@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
 
+<script defer src="../js/main.js"></script>
 </head>
 <%@ include file="../header.jsp"%>
-
 <div class="col-auto p-0">
 	<div class="side_nav">
 		<div class="side_nav_item">
