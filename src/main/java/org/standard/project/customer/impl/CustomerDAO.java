@@ -1,6 +1,7 @@
 package org.standard.project.customer.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,8 @@ public class CustomerDAO {
 		return mySQL.selectOne(loc+"getWaitingCustomer", vo);
 	}
 	
-	public List<CustomerVO> listWaitingCustomer(CustomerVO vo) {
-		return mySQL.selectOne(loc+"listWaitingCustomer", vo);
+	public List<Map<String, Object>> listWaitingCustomer(Map<String, Object> map) {
+		return mySQL.selectList(loc+"listWaitingCustomer", map);
 	}
 
 }

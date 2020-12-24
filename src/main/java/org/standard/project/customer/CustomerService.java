@@ -1,6 +1,7 @@
 package org.standard.project.customer;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CustomerService {
 	CustomerVO getCustomer(CustomerVO vo);
@@ -10,5 +11,5 @@ public interface CustomerService {
 	void joinWaitingList(CustomerVO vo);
 	void deleteCustomer(CustomerVO vo);
 	void modifyCustomer(CustomerVO vo);
-	List<CustomerVO> listWaitingCustomer(CustomerVO vo);
+	List<Map<String, Object>> listWaitingCustomer(Map<String, Object> map);
 }

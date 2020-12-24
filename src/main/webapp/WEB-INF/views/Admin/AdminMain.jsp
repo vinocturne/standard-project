@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/AdminMain.css">
 </head>
 
@@ -47,54 +48,36 @@
               </tr>
             </thead>
             <tbody>
+              <c:choose>
+            <c:when test ="${fn:length(list)>0}">
+            <c:forEach var="user" items="${list}">
               <tr>
                 <td><input type="checkbox" name=""> 1</td>
-                <td>고객아이디 c_Id</td>
-                <td>고객이름 c_Name</td>
-                <td>출생년도 c_Birthday</td> 
-                <td>우편번호 zipcode</td>
-                <td>주소 c_Address1</td>
-                <td>상세주소 c_Address2</td>
-                <td>연락처1 c_Phone1</td>
-                <td>연락처2 c_Phone2</td>
-                <td>사업자번호 businessNumber</td>
-                <td>가입일 c_RegisterDay</td>
-                <td>메일주소 c_Email</td>
-                <td>role role</td>
-                <td>브랜드명 brandName</td>
+                <td>${user.c_Id}</td>
+                <td>${user.c_Name}</td>
+                <td>${user.c_Birthday}</td> 
+                <td>${user.zipcode}</td>
+                <td>${user.c_Address1}</td>
+                <td>${user.c_Address2}</td>
+                <td>${user.c_Phone1}</td>
+                <td>${user.c_Phone2}</td>
+                <td>${user.businessNumber}</td>
+                <td>${user.c_RegisterDay}</td>
+                <td>${user.c_Email}</td>
+                <td>${user.role}</td>
+                <td>${user.brandName}</td>
               </tr>
+              </c:forEach>
+              </c:when>
+              
+              <c:otherwise>
               <tr>
-                <td><input type="checkbox" name=""> 2</td>
-                <td>고객아이디</td>
-                <td>고객이름</td>
-                <td>출생년도</td> 
-                <td>우편번호</td>
-                <td>주소</td>
-                <td>상세주소</td>
-                <td>연락처1</td>
-                <td>연락처2</td>
-                <td>사업자번호</td>
-                <td>가입일</td>
-                <td>메일주소</td>
-                <td>role</td>
-                <td>브랜드명</td>
+              <td colspan="13">조회된 결과가 없습니다.</td>
               </tr>
-              <tr>
-                <td><input type="checkbox" name=""> 3</td>
-                <td>고객아이디</td>
-                <td>고객이름</td>
-                <td>출생년도</td> 
-                <td>우편번호</td>
-                <td>주소</td>
-                <td>상세주소</td>
-                <td>연락처1</td>
-                <td>연락처2</td>
-                <td>사업자번호</td>
-                <td>가입일</td>
-                <td>메일주소</td>
-                <td>role</td>
-                <td>브랜드명</td>
-              </tr>
+              
+              </c:otherwise>
+              </c:choose>
+              
             </tbody>
           </table>
           <input class="add-product" type="submit" value="가입승인하기">
