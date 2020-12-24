@@ -25,7 +25,7 @@ public class MagazineController {
 		return "Magazine/MagazineIn";
 	}
 
-	@RequestMapping("/MagazineIn")
+	@RequestMapping("/MagazineNew")
 	public String newmagazineList() {
 		
 		return "Magazine/MagazineNew";
