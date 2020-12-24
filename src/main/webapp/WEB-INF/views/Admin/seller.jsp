@@ -15,8 +15,8 @@
                 <div class="side_nav_item">
                     <p class="side_nav_title">관리자페이지</p>
                     <ul>
-                        <li><a href="/WEB-INF/views/Admin/AdminMain">가입 대기 목록</a></li>
-                        <li><a href="/WEB-INF/views/Admin/seller">Magazine 관리</a></li>
+                        <li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
+                        <li><a href="/project/Admin/seller">Magazine 관리</a></li>
                         <li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
                         
                     </ul>
