@@ -14,6 +14,7 @@
 					<li><a href="#">Store</a></li>
 					<li><a href="/project/magazine/magazineList">Magazine</a></li>
 					<li><a href="/project/Customer/myPage">My page</a></li>
+					<li><a href="/project/magazine/MagazineNew">담 테스트</a></li>
 				</ul>
 			</div>
 			<div class="sign-group float--right toggle">
