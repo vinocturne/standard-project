@@ -12,4 +12,11 @@ public class AdminController {
 	public void adminMain() {
 		
 	}
+	
+	@RequestMapping(value= "/seller")
+	public String magazineList() {
+		
+		return "/Admin/seller";
+	}
+	
 }
