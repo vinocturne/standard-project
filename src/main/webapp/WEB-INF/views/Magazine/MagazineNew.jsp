@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
 
+<style>
+.magazine_outline{
+	width:300px: height:300px: position:relative:
+	
+}
+</style>
 </head>
 <%@ include file="../header.jsp" %> 
 <div class="col-auto p-0">
@@ -50,3 +56,4 @@
         <div>1</div>
         
     </div>
+    <%@ include file="../footer.jsp"%>
