@@ -166,7 +166,6 @@ public class CustomerController {
 		PrintWriter out = response.getWriter();
 			out.println("<script>alert('삭제완료.'); history.go(1);</script>");
 			out.flush();
-		
 		mav.setViewName("index");
 		return mav;
 

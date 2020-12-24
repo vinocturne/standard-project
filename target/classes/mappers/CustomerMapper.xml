@@ -28,4 +28,8 @@
 		DELETE FROM CUSTOMER WHERE c_Id=#{c_Id}
 	</select>
 	
+	<select id="listWaitingCustomer" resultType="CustomerVO">
+		SELECT * FROM waitingCustomer
+	</select>
+	
 </mapper>

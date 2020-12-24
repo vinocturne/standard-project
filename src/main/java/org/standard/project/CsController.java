@@ -7,7 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-
+@RequestMapping(value = "/Cs")
 public class CsController {
-
+	@RequestMapping(value = "/cs_request", method = RequestMethod.GET)
+	public void cs_request() {
+		
+		
+	}
 }
