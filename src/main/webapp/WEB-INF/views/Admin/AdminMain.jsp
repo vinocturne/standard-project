@@ -7,18 +7,22 @@
 
 <%@ include file="../header.jsp"%>
 
-<div class="frame">
-	<div class="container">
-		<div class="nav">
-			<ul class="nav-list">
-				<li font-size="20">관리자페이지</li>
-				<br>
-				<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
-				<li><a href="/project/Admin/seller">Magazine 관리</a></li>
-				<li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
-			</ul>
-		</div>
-	</div>
+<div class="content_wrap inner">
+	<!-- side_nav -->
+
+        <div class="col-auto p-0"> 
+            <div class="side_nav">
+                <div class="side_nav_item">
+                    <p class="side_nav_title">관리자페이지</p>
+                    <ul>
+                        <li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
+                        <li><a href="/project/Admin/seller">Magazine 관리</a></li>
+                        <li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
 
 	<div class="content"> 
         <h3>가입 대기 목록</h3>
@@ -93,7 +97,8 @@
               </tr>
             </tbody>
           </table>
-          <button class="add-product">가입 승인하기</button>
+          <input class="add-product" type="submit" value="가입승인하기">
+          
     </div>
 </div>
 <%@ include file="../footer.jsp"%>

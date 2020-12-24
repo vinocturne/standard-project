@@ -1,6 +1,11 @@
 body{
         font:14px/1.8 Arial, Helvetica, sans-serif;
     }
+   .side_nav{
+   
+   width: 200px !important 
+   
+   }
    
     .header{
         padding:40px 10px;
