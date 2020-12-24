@@ -1,6 +1,7 @@
 package org.standard.project.customer.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,9 +44,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDAO.getWaitingCustomer(vo);
 	}
 	
-	@Override
-	public List<CustomerVO> listWaitingCustomer(CustomerVO vo) {
-		return customerDAO.listWaitingCustomer(vo);
+	public List<Map<String, Object>> listWaitingCustomer(Map<String, Object> map) {
+		return customerDAO.listWaitingCustomer(map);
 	}
 
 }
