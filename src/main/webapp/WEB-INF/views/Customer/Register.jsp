@@ -33,18 +33,24 @@
 </script>
 </head>
 <%@ include file="../header.jsp" %> 
+
  <div class="content_wrap inner">
              <!-- side_nav -->
              <div class="side_nav">
                  <div class="side_nav_item">
                      <p class="side_nav_title">My page</p>
                      <ul>
-                         <li><a href="#">Login</a></li>
-                         <li><a href="Register.html">Register</a></li>
-                         <li><a href="/project/Customer/cart">Cart</a></li>
-                         <li><a href="/project/Customer/order">Order</a></li>
-                         <li><a href="Wishlist.html">Wish list</a></li>
-                         <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
+                    <%
+					if(customer==null){
+					System.out.println(session.getAttribute("loginCustomer"));
+				%>   
+                    <li><a href="#">Login</a></li>
+                    <li><a href="/project/Customer/Register">Register</a></li>
+                    <% } else { %>
+                    <li><a href="/project/Customer/cart">Cart</a></li>
+                    <li><a href="/project/Customer/order">Order</a></li>
+                    <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
+                    <%} %>
                      </ul>
                  </div>
              </div>
@@ -58,7 +64,8 @@
                       <h1>회원 가입</h1>
                   </div>
                   <div class="title_area2">
-                      <h2>기본 정보</h2>
+                      <input type="radio" name="chk_role" value="개인회원">개인회원
+					 <input type="radio" name="chk_role" value="기업회원">기업회원
                       <p class="required"> <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8"> 필수입력사항</p>
                   </div>
                   </div>
@@ -69,8 +76,9 @@
                             <tr class="c_Id">
                                 <th scope="row" > 아이디 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
                                 <td><input id="c_Id" name="c_Id" type="text" class="inputTypeText"></th>
-                                    <span id="idMsg" class="error"> 아이디를 입력해주세요.
-                                    </span> (영문소문자/숫자, 4~16자) <input type="button" value="중복확인" onclick="check_Id()"></td>    
+                                	<input type="button" value="중복확인" onclick="check_Id()">
+                                    <span id="idMsg" class="error"> 아이디를 입력해주세요.</span> (영문소문자/숫자, 4~16자) 
+                               </td>    
                             </tr>
                             <tr class="c_Password">
                                 <th scope="row"> 비밀번호 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
@@ -212,5 +220,21 @@
             </div>
         </div>
     </form>
+    
+    <script>
+    function getValue(){
+ 
+    console.log( 'radiobox값 : '+$(":input:radio[name=radiobox]:checked").val() );
+ 
+    $("input[name=checkbox]:checked").each(function() { 
+        console.log( 'checkbox값 : '+$(this).val() );
+    });
+ 
+	}
+    
+    </script>
+    
+    
+    
     
         <%@ include file="../footer.jsp"%>
