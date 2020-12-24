@@ -11,7 +11,14 @@ margin : 0;
 display : grid;
 
 }
-
+.card{
+margin:0;
+}
+.btn-primary {
+    color: #fff;
+    background-color: grey;
+    border-color: black;
+}
 </style>
 
 
