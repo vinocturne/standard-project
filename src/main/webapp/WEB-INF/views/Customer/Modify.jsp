@@ -51,7 +51,7 @@
 				phone1_2 = phone1.substring(3,7); 
 				phone1_3 = phone1.substring(7); 
 			}else{
-				phone1_1 = "010"; 
+				phone1_1 = ""; 
 				phone1_2 = ""; 
 				phone1_3 = "";
 			}
@@ -69,7 +69,7 @@
 					phone2_2 = phone2.substring(2,6); 
 					phone2_3 = phone2.substring(6); 
 				}else{
-					phone2_1 = "02"; 
+					phone2_1 = ""; 
 					phone2_2 = ""; 
 					phone2_3 = "";
 				}
