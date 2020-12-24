@@ -18,6 +18,5 @@ public class AdminController {
 	
 	@RequestMapping(value = "/AdminMain", method = RequestMethod.GET)
 	public void adminMain() {
-		List<CustomerVO> list = customerService
 	}
 }
