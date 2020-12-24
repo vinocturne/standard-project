@@ -1,9 +1,8 @@
-package org.standard.project.customer.impl;
+package org.standard.project.customer;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.standard.project.customer.CustomerVO;
 
 @Repository("customerDAO")
 public class CustomerDAO {

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="org.standard.project.vo.OrderHistoryVO"%>
+<%@ page import="org.standard.project.order.OrderHistoryVO"%>
 <%@ include file="../head.jsp"%>
 </head>
 

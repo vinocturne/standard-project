@@ -1,9 +1,7 @@
-package org.standard.project.customer.impl;
+package org.standard.project.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.standard.project.customer.CustomerService;
-import org.standard.project.customer.CustomerVO;
 
 @Service("CustomerService")
 public class CustomerServiceImpl implements CustomerService {

@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.common.Encrypt;
+import org.standard.project.customer.CustomerDAO;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
-import org.standard.project.customer.impl.CustomerDAO;
 
 @Controller
 @RequestMapping(value = "/Customer")
