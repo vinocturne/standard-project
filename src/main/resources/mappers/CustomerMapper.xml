@@ -32,4 +32,8 @@
 		SELECT * FROM waitingCustomer
 	</select>
 	
+	<select id="deleteWaitingCustomer" resultType="CustomerVO">
+		DELETE FROM waitingCustomer WHERE c_Id=#{c_Id}
+	</select>
+	
 </mapper>

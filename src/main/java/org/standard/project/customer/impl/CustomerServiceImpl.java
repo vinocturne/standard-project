@@ -47,5 +47,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<Map<String, Object>> listWaitingCustomer(Map<String, Object> map) {
 		return customerDAO.listWaitingCustomer(map);
 	}
+	
+	public void deleteWaitingCustomer(CustomerVO vo) {
+		customerDAO.deleteWaitingCustomer(vo);
+	}
 
 }

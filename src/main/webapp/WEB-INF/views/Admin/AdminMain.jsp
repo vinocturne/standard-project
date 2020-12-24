@@ -81,7 +81,9 @@
             </tbody>
           </table>
           <input class="add-product" type="submit" value="가입승인하기">
-          
+          <div class="delBtn">
+   			<button type="button" class="selectDelete_btn">선택 삭제</button> 
+  		</div>
     </div>
 </div>
 <%@ include file="../footer.jsp"%>
