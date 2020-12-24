@@ -1,14 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
+
+<link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/AdminMain.css">
 </head>
+
 <%@ include file="../header.jsp"%>
 
 <div class="frame">
 	<div class="container">
 		<div class="nav">
 			<ul class="nav-list">
-				<li>관리자페이지</li>
+				<li font-size="20">관리자페이지</li>
 				<br>
 				<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
 				<li><a href="/project/Admin/seller">Magazine 관리</a></li>
@@ -20,7 +23,7 @@
 	<div class="content"> 
         <h3>가입 대기 목록</h3>
         <br>
-        <table class="table table-hover">
+        <table class="table table-hover" height="100" width="1000">
             <thead>
               <tr>
                 <th>번호</th>

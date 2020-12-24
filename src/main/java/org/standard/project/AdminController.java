@@ -19,4 +19,11 @@ public class AdminController {
 	@RequestMapping(value = "/AdminMain", method = RequestMethod.GET)
 	public void adminMain() {
 	}
+	
+	@RequestMapping(value= "/seller")
+	public String magazineList() {
+		
+		return "/Admin/seller";
+	}
+	
 }
