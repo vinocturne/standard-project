@@ -2,9 +2,9 @@ package org.standard.project.order;
 
 import java.util.ArrayList;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.standard.project.customer.CustomerDAO;
 import org.standard.project.customer.CustomerVO;
 
 @Service("OrderHistoryService")

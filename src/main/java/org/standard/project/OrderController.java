@@ -23,6 +23,7 @@ public class OrderController {
 	
 	@RequestMapping("/orderHistoryList")
 	public String getList(HttpSession session){
+		session.removeAttribute("orderList");
 		System.out.println("order내역보기");
 		//로그인후에 세션에 저장된 사용자 객체를 활용.
 		CustomerVO customerVO = (CustomerVO)session.getAttribute("loginCustomer");
