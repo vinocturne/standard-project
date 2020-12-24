@@ -14,6 +14,7 @@
                 <li><a href="#">Terms</a></li>
                 <li><a href="#">Status</a></li>
                 <li><a href="#">Help</a></li>
+                <li><a href="/project/Admin/AdminMain">Admin</a></li>
             </ul>
         </div>
     </footer>
