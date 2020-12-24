@@ -63,6 +63,7 @@
 									},
 									success : function(result) {
 										alert("삭제 성공");
+										location.href = "AdminMain";
 									}
 								});
 							}else{

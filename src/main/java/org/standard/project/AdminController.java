@@ -51,7 +51,6 @@ public class AdminController {
 		System.out.println("선택한 웨이팅회원");
 		for (String user_id : c_Id) { 
 			System.out.println("사용자 삭제 = " + user_id); 
-//			int delete_count = customerService.deleteWaitingCustomer(c_Id);
 			customerService.deleteWaitingCustomer(user_id);
 		} 
 		// 목록 페이지로 이동 
