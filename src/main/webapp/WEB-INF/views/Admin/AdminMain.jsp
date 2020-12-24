@@ -17,7 +17,7 @@
 		</div>
 	</div>
 
-	<div class="content">
+	<div class="content"> 
         <h3>가입 대기 목록</h3>
         <br>
         <table class="table table-hover">
@@ -42,19 +42,19 @@
             <tbody>
               <tr>
                 <td><input type="checkbox" name=""> 1</td>
-                <td>고객아이디</td>
-                <td>고객이름</td>
-                <td>출생년도</td> 
-                <td>우편번호</td>
-                <td>주소</td>
-                <td>상세주소</td>
-                <td>연락처1</td>
-                <td>연락처2</td>
-                <td>사업자번호</td>
-                <td>가입일</td>
-                <td>메일주소</td>
-                <td>role</td>
-                <td>브랜드명</td>
+                <td>고객아이디 c_Id</td>
+                <td>고객이름 c_Name</td>
+                <td>출생년도 c_Birthday</td> 
+                <td>우편번호 zipcode</td>
+                <td>주소 c_Address1</td>
+                <td>상세주소 c_Address2</td>
+                <td>연락처1 c_Phone1</td>
+                <td>연락처2 c_Phone2</td>
+                <td>사업자번호 businessNumber</td>
+                <td>가입일 c_RegisterDay</td>
+                <td>메일주소 c_Email</td>
+                <td>role role</td>
+                <td>브랜드명 brandName</td>
               </tr>
               <tr>
                 <td><input type="checkbox" name=""> 2</td>
