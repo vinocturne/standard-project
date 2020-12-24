@@ -42,7 +42,7 @@ public class CustomerDAO {
 	public List<Map<String, Object>> listWaitingCustomer(Map<String, Object> map) {
 		return mySQL.selectList(loc+"listWaitingCustomer", map);
 	}
-	public void deleteWaitingCustomer(CustomerVO vo) {
-		mySQL.delete(loc+"deleteWaitingCustomer", vo);
+	public void deleteWaitingCustomer(String c_Id) {
+		mySQL.delete(loc+"deleteWaitingCustomer", c_Id);
 	}
 }

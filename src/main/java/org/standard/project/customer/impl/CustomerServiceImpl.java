@@ -48,8 +48,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDAO.listWaitingCustomer(map);
 	}
 	
-	public void deleteWaitingCustomer(CustomerVO vo) {
-		customerDAO.deleteWaitingCustomer(vo);
+	public void deleteWaitingCustomer(String c_Id) {
+		customerDAO.deleteWaitingCustomer(c_Id);
 	}
 
 }

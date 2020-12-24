@@ -13,5 +13,5 @@ public interface CustomerService {
 	void modifyCustomer(CustomerVO vo);
 	List<Map<String, Object>> listWaitingCustomer(Map<String, Object> map);
 	
-	void deleteWaitingCustomer(CustomerVO vo);
+	void deleteWaitingCustomer(String c_Id);
 }
