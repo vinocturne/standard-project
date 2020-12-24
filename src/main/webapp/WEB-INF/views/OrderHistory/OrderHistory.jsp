@@ -1,3 +1,5 @@
+<%@page import="org.standard.project.order.OrderHistoryVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
@@ -49,6 +51,7 @@
 			</ul>
 		</div>
 	</div>
+	<%ArrayList<OrderHistoryVO> orderList = (ArrayList)session.getAttribute("orderList"); %>
 	<!-- ORDER :주문조회-->
 	<div class="order_wrap">
 		<div class="title_area">
@@ -62,6 +65,7 @@
 			</div>
 		</div>
 		<div class="orderHistory">
+		<%if(orderList!=null) {%>
 			<table class="type11">
 				<thead>
 					<tr>
@@ -73,37 +77,26 @@
 						<th scope="cols">주문상태</th>
 					</tr>
 				</thead>
+				
 				<tbody>
+				<%for(int i=0; i<orderList.size();i++){ %>
+				
 					<tr>
-						<td>2020-11-12<br>(202011120153111)
-						</th>
-						<td>닭가슴살/소시지/만두BEST 67종 골라담기
-						</th>
-						<td>7600원
-						</th>
-						<td>2개
-						</th>
-						<td>15,200
-						</th>
-						<td>배송전
-						</th>
+						<td><%=orderList.get(i).getO_Date() %></th>
+						<td><%=orderList.get(i).getP_Id() %></th>
+						<td><%=orderList.get(i).getP_Price() %></th>
+						<td><%=orderList.get(i).getO_Quantity() %></th>
+						<td><%=orderList.get(i).getO_TotalPrice() %></th>
+						<td><%=orderList.get(i).getO_Delivery() %></th>
 					</tr>
-					<tr>
-						<td>o_Date<br>o_Num
-						</th>
-						<td>p_Id
-						</th>
-						<td>p_Price
-						</th>
-						<td>o_Quantity
-						</th>
-						<td>p_Price
-						</th>
-						<td>o_Delivery
-						</th>
-					</tr>
+					
+					<%}//for %>
+					
 				</tbody>
 			</table>
+			<%}else{ %>
+						<h2> 주문 내역이 없습니다.</h2>
+			<%} %>
 		</div>
 	</div>
 </div>
