@@ -1,5 +1,7 @@
 package org.standard.project.customer.impl;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -36,7 +38,8 @@ public class CustomerDAO {
 		return mySQL.selectOne(loc+"getWaitingCustomer", vo);
 	}
 	
-	
-
+	public List<CustomerVO> listWaitingCustomer(CustomerVO vo) {
+		return mySQL.selectOne(loc+"listWaitingCustomer", vo);
+	}
 
 }
