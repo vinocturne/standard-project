@@ -52,4 +52,9 @@ public class CustomerServiceImpl implements CustomerService {
 		customerDAO.deleteWaitingCustomer(c_Id);
 	}
 
+	public void approveCustomer(String c_Id) {
+		customerDAO.approveCustomer(c_Id);
+		
+	}
+
 }

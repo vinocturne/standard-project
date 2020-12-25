@@ -35,5 +35,8 @@
 	<select id="deleteWaitingCustomer" resultType="CustomerVO">
 		DELETE FROM waitingCustomer WHERE c_Id=#{c_Id}
 	</select>
+	<select id="approveCustomer" resultType="CustomerVO">
+		INSERT INTO CUSTOMER SELECT * FROM waitingCustomer WHERE c_Id=#{c_Id}
+	</select>
 	
 </mapper>
