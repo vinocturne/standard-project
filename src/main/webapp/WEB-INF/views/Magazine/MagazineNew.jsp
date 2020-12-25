@@ -7,7 +7,7 @@
 margin : 0;
 }
 
-.container{
+.container .card{
 display : grid;
 
 }
@@ -19,25 +19,31 @@ margin:0;
     background-color: grey;
     border-color: black;
 }
+
+.btn btn-primary{
+float : left;
+
+}
+
 </style>
 
 
 </head>
 
 <%@ include file="/WEB-INF/views/header.jsp"%>
+
+<div class="content_wrap inner">
+
 <div class="body_class">
 	<div class="side_nav">
-		<ul class="side_nav_title">
-			<li>Men`s</li>
-			<br>
-			<li class="nav-item"><a href="/project/cart" class="nav-link">Cart</a></li>
-			<li class="nav-item"><a href="/project/order" class="nav-link">Order</a></li>
-			<li class="nav-item"><a
-				href="https://www.cjlogistics.com/ko/tool/parcel/tracking"
-				class="nav-link">Delivery</a></li>
-
-		</ul>
+		<p class="side_nav_title">Men`s</p>
+			<ul>
+			<li ><a href="/project/cart">Cart</a></li>
+			<li ><a href="/project/order" >Order</a></li>
+			<li ><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
+			</ul>
 	</div>
+	
 <div class="container">
 
   <div class="card" style="width:300px">
@@ -48,6 +54,7 @@ margin:0;
       <a href="#" class="btn btn-primary">자세히 보기</a>
     </div>
   </div>
+  
   <br> 
   
 
@@ -71,27 +78,8 @@ margin:0;
     <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/3.jpg" alt="Card image" style="width:100%">
   </div>
 </div>
- <br> 
 
-  <div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">모레는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-      <a href="#" class="btn btn-primary">자세히 보기</a>
-    </div>
-    <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/4.jpg" alt="Card image" style="width:100%">
-  </div>
-
- <br> 
-
-  <div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">모레는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-      <a href="#" class="btn btn-primary">자세히 보기</a>
-    </div>
-    <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/5.jpg" alt="Card image" style="width:100%">
-  </div>
-
+  
+</div>
 
 <%@ include file="../footer.jsp"%>
