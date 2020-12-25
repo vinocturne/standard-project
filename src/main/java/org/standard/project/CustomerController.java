@@ -163,7 +163,7 @@ public class CustomerController {
 		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-			out.println("<script>alert('삭제완료.'); history.go(1);</script>");
+			out.println("<script>alert('삭제완료.'); location.href='/project';</script>");
 			out.flush();
 		mav.setViewName("index");
 		return mav;
