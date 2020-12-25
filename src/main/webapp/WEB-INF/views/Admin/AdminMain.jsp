@@ -6,6 +6,14 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/ResourcesFile/css/AdminMain.css">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<style>
+.table table-hover th{
+clear;
+}
+
+</style>
+
 </head>
 
 <%@ include file="../header.jsp"%>
@@ -104,7 +112,7 @@
 				</script>
 			</a>
 		</div>
-		<table class="table table-hover" height="100" width="1000">
+		<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
 					<th>번호</th>
