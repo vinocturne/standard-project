@@ -34,25 +34,31 @@ public class AdminController {
 		return mav;
 	}
 	
-//	@ResponseBody
-//	@RequestMapping(value = "/deleteWaitingCustomer", method = RequestMethod.POST)
-//	public int deleteWaitingCustomer(HttpSession session, @RequestParam(value = "chBox[]") List<String> chArr, CustomerVO vo) throws Exception {
-//		 System.out.println("선택한 웨이팅회원");
-//		 System.out.println(chArr);
-//		 int result = 0;
-//		 
-//		   customerService.deleteWaitingCustomer(chArr);
-//		   result = 1;
-//		 return result;  
-//		}
 	@RequestMapping(value = "/deleteWaitingCustomer", method = RequestMethod.POST) 
 	public String delete_user(@RequestParam(value = "chBox[]") String[] c_Id) throws Exception { 
-		// 삭제할 사용자 ID마다 반복해서 사용자 삭제
-		System.out.println("선택한 웨이팅회원");
+		// 체크한 ID마다 반복해서 사용자 삭제
+		System.out.println("선택한 회원 삭제 가동");
 		for (String user_id : c_Id) { 
 			System.out.println("사용자 삭제 = " + user_id); 
 			customerService.deleteWaitingCustomer(user_id);
 		} 
-		// 목록 페이지로 이동 
-		return "redirect:/Admin/AdminMain"; }
+		return "redirect:/Admin/AdminMain"; 
+	}
+	
+	@RequestMapping(value = "/approveCustomer", method = RequestMethod.POST) 
+	public String approveCustomer(@RequestParam(value = "chBox[]") String[] c_Id) throws Exception { 
+		// 어차피 id 체크 되어 회원가입한것이라 체크 안하고 쿼리문을 통해 복사 붙혀널기 하고 삭제한다. 
+		// 체크한 ID마다 반복해서 사용자 복붙 및 삭제
+		System.out.println("선택한 회원 승인 가동");
+		for (String user_id : c_Id) { 
+			System.out.println("사용자 복사 붙혀놓기 = " + user_id); 
+			customerService.approveCustomer(user_id);
+			System.out.println("사용자 삭제 = " + user_id); 
+			customerService.deleteWaitingCustomer(user_id);
+		} 
+		
+		return "redirect:/Admin/AdminMain"; 
+	}
+	
+	
 }

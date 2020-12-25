@@ -45,4 +45,9 @@ public class CustomerDAO {
 	public void deleteWaitingCustomer(String c_Id) {
 		mySQL.delete(loc+"deleteWaitingCustomer", c_Id);
 	}
+	public void approveCustomer(String c_Id) {
+		mySQL.delete(loc+"approveCustomer", c_Id);
+
+	}
+	
 }

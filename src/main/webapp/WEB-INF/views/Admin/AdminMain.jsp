@@ -43,7 +43,7 @@
 					}
 				});
 			</script>
-			<div class="delBtn">
+			<a class="delBtn">
 				<button type="button" class="selectDelete_btn">선택 삭제</button>
 				<script>
 					$(".selectDelete_btn").click(function() {
@@ -72,7 +72,37 @@
 						}
 					});
 				</script>
-			</div>
+			</a>
+			<a class="appBtn">
+				<button type="button" class="selectApprove_btn">가입승인하기</button>
+				<script>
+					$(".selectApprove_btn").click(function() {
+						var confirm_val = confirm("승인하시겠습니까?");
+
+						if (confirm_val) {
+							var checkArr = new Array();
+							$("input[class='chBox']:checked").each(function() {
+								checkArr.push($(this).attr("data-c_Id"));
+							});
+							if (!(checkArr == "")) {
+								$.ajax({
+									url : "approveCustomer",
+									type : "post",
+									data : {
+										chBox : checkArr
+									},
+									success : function(result) {
+										alert("승인 성공");
+										location.href = "AdminMain";
+									}
+								});
+							}else{
+								alert("승인할 회원을 선택해주세요");
+							}
+						}
+					});
+				</script>
+			</a>
 		</div>
 		<table class="table table-hover" height="100" width="1000">
 			<thead>
@@ -112,7 +142,7 @@
 										</script>
 									</div>
 								</td>
-								<td>${user.c_Id}</td>
+								<td name="c_Id">${user.c_Id}</td>
 								<td>${user.c_Name}</td>
 								<td>${user.c_Birthday}</td>
 								<td>${user.zipcode}</td>
@@ -137,7 +167,6 @@
 
 			</tbody>
 		</table>
-		<input class="add-product" type="submit" value="가입승인하기">
 	</div>
 </div>
 <%@ include file="../footer.jsp"%>

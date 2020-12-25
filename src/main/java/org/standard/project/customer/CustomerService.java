@@ -14,4 +14,5 @@ public interface CustomerService {
 	List<Map<String, Object>> listWaitingCustomer(Map<String, Object> map);
 	
 	void deleteWaitingCustomer(String c_Id);
+	void approveCustomer(String c_Id);
 }
