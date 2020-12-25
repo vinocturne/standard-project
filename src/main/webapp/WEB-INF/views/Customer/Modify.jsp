@@ -102,7 +102,7 @@
                   </div>
                   <div class="title_area2">
                       <h2>기본 정보</h2>
-                      <p class="required"> <img src="../img/required.png" width="8" height="8"> 필수입력사항</p>
+                      <p class="required"> <img src="../ResourcesFile/img/required.png" width="8" height="8"> 필수입력사항</p>
                   </div>
                   </div>
                 <div class="Register_table">

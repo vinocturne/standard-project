@@ -44,7 +44,7 @@
     <!-- Register -->
     <div class="register_wrap">
         <fieldset>
-            <form action=""/project/Customer/Register" method="POST">
+            <form action="/project/Customer/Register" method="POST">
                 
 
                 
@@ -199,7 +199,7 @@
                     var value = $(this).val();
                     if (value == "기업회원") {
                         $('#companycheck span').html(
-                            '<tr class="businessNumber"><th scope="row"> 사업자번호 </th><td><input id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10"></span></td></tr><br><br><tr class="brandName"><th scope="row"> 브랜드명 </th><td><select name="brandName" id="brandName"><option value="Nike">Nike</option><option value="Adidas">Adidas</option><option value="Puma">Puma</option></select></td></tr>'
+                            '<tr class="businessNumber"><th scope="row"> 사업자번호 </th><td><input id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10"></span></td></tr><br><br><tr class="brandName"><th scope="row"> 브랜드명 </th><td><input id="brandName" name="brandName" type="text" class="inputTypeText"></td></tr>'
                             );
                     } else {
                         $('#companycheck span').html('');
