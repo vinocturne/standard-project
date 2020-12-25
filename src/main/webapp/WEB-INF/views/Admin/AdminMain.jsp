@@ -45,10 +45,10 @@
 				});
 			</script>
 			<a class="delBtn">
-				<button type="button" class="selectDelete_btn">선택 삭제</button>
+				<button type="button" class="selectDelete_btn">회원탈퇴</button>
 				<script>
 					$(".selectDelete_btn").click(function() {
-						var confirm_val = confirm("정말 삭제하시겠습니까?");
+						var confirm_val = confirm("정말 탈퇴 하시겠습니까?");
 
 						if (confirm_val) {
 							var checkArr = new Array();
@@ -63,19 +63,19 @@
 										chBox : checkArr
 									},
 									success : function(result) {
-										alert("삭제 성공");
+										alert("탈퇴 성공");
 										location.href = "AdminMain";
 									}
 								});
 							}else{
-								alert("삭제할 회원을 선택해주세요");
+								alert("탈퇴할 회원을 선택해주세요");
 							}
 						}
 					});
 				</script>
 			</a>
 			<a class="appBtn">
-				<button type="button" class="selectApprove_btn">가입승인하기</button>
+				<button type="button" class="selectApprove_btn">회원가입 승인</button>
 				<script>
 					$(".selectApprove_btn").click(function() {
 						var confirm_val = confirm("승인하시겠습니까?");
