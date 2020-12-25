@@ -72,7 +72,7 @@ float : left;
     <div class="card-body">
       <h4 class="card-title">모레는 뭐 입을까</h4>
       <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-      <a href="/project/MagazineDetail" class="btn btn-primary">자세히 보기</a>
+      <a href="/project/magazine/MagazineDetail" class="btn btn-primary">자세히 보기</a>
     </div>
     <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/3.jpg" alt="Card image" style="width:100%">
   </div>

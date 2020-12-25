@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="../head.jsp" %> 
 </head>
-<body>
-<p>Test Magazine Detail</p>
-</body>
-</html>
+<%@ include file="../header.jsp" %>
+ 
+<div class="content_wrap inner">
+    
+	<%@ include file="/WEB-INF/views/side_nav.jsp"%>
+
+	<div></div>
+
+</div>
+
+<%@ include file="../footer.jsp"%>
