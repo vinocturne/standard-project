@@ -30,4 +30,10 @@ public class MagazineController {
 		
 		return "Magazine/MagazineNew";
 	}
+	
+	@RequestMapping("/MagazineDetail")
+	public String newmagazineDetail() {
+		
+		return "Magazine/MagazineDetail";
+	}
 }
