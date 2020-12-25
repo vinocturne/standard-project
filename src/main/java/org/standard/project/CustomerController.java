@@ -154,12 +154,11 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value = "/Delete",method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView delete(CustomerVO vo, ModelAndView mav, HttpServletRequest req, HttpSession session, HttpServletResponse response) throws IOException {
+	public ModelAndView delete(CustomerVO vo, ModelAndView mav, HttpSession session, HttpServletResponse response) throws IOException {
 		vo = (CustomerVO) session.getAttribute("loginCustomer");
 		System.out.println("삭제기능");
 		System.out.println(vo);
 		customerService.deleteCustomer(vo);
-		System.out.println(vo);
 		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
