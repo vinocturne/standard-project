@@ -316,6 +316,32 @@ header .sub-menu li a:hover {
     vertical-align: top;
 }
  
+ .order_index {
+    position: relative;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.order_index button {
+    text-align: center;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 3px;
+    background-color: transparent;
+    font-size: 9pt;
+    color:#707070;
+    font-family: Verdana,Dotum,AppleGothic,sans-serif;
+}
+
+.order_index button :focus { 	
+    border: none;
+    outline: none;
+    }
+ 
+ 
+ 
 /* CART */
 select { }
 button{
@@ -409,6 +435,31 @@ color: black;
     bottom: 0;
 }
 
+.cart_index {
+    position: relative;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.cart_index button {
+    text-align: center;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 3px;
+    background-color: transparent;
+    font-size: 9pt;
+    color:#707070;
+    font-family: Verdana,Dotum,AppleGothic,sans-serif;
+}
+
+.cart_index button :focus { 	
+    border: none;
+    outline: none;
+    }
+
+
 
 /* Register */
 
@@ -451,6 +502,7 @@ table.type12 {
     padding: 15px;
     vertical-align: middle;
     border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
   }
   
   table.type12 td > input {
@@ -512,8 +564,10 @@ table.type12 {
 
 .confirm-button {
     cursor: pointer;
+    float: center;
     text-align: center;
     padding: 15px;
+    
 }
 
 .confirm-button .withdrawal {

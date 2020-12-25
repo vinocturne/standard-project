@@ -65,6 +65,13 @@
                     </tbody>
                 </table>
             </div>
+            <div class="order_index">
+                    <button type="button" class="" onclick=""><button> << </button></a>
+                    <button type="button" class="" onclick="" ><button> < </button></a>
+                    <button type="button" class="" onclick=""><button> 1 </button></a>
+                    <button type="button" class="" onclick=""><button> > </button></a>
+                    <button type="button" class="" onclick=""><button> >> </button></a>
+        </div>
         </div>
     </div>
 	
