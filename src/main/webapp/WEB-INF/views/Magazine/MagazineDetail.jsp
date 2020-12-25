@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<p>Test Magazine Detail</p>
 </body>
 </html>
