@@ -106,7 +106,7 @@
                   </div>
                   </div>
                 <div class="Register_table">
-                    <form action="/project/Customer/Modify" method="POST">
+                    <form action="/project/Customer/Modify" method="POST" onsubmit="return confirm('이대로 저장하시겠습니까? ');">
                     <table class="type12">
                         <thead>
                        		<tr class="c_Id">
