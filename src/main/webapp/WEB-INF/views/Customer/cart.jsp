@@ -91,6 +91,7 @@
 				</tbody>
 			</table>
 		</div>
+		
 		<div class="cart_index">
                     <button type="button" class="" onclick=""><button> << </button></a>
                     <button type="button" class="" onclick=""><button> < </button></a>
