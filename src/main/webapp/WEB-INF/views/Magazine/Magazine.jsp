@@ -4,7 +4,8 @@
 </head>
 <%@ include file="../header.jsp" %> 
 
-<div class="col-auto p-0">
+           
+<div class="content_wrap inner">
             <div class="side_nav">
                 <div class="side_nav_item">
                     <p class="/project/product">Shop</p>
@@ -18,10 +19,11 @@
                     </ul>
                 </div>
             </div>
+        <div id="Magazin" class="inner"></div>
         </div>
-        <div id="Magazin"></div>
-<script>
-   window.onload = function() {
+        
+	<script>
+   		window.onload = function() {	
         var html = '';
         var step;
         html += '<div class="row align-items-start" >';
@@ -62,4 +64,5 @@
           document.getElementById("Magazin").innerHTML = html;
     }
 </script>
+
 <%@ include file="../footer.jsp"%>
