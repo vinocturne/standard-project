@@ -119,17 +119,18 @@ public class CustomerController {
 		String emailAddr = req.getParameter("email1") + "@" + req.getParameter("email2");
 		vo.setC_Email(emailAddr);
 		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
+		
+		vo.setRole((String)req.getParameter("radiocheck"));
 		System.out.println("vo값"+vo);
-		// 구매자이면 바로 가입
-		if (vo.getRole().equals("구매자")) {
+		if (vo.getRole().equals("개인회원")) {
 			customerService.joinCustomer(vo);
 		}
 		// 셀러면 가입대기목록에 저장(waitingcustomer)
-		else if (vo.getRole().equals("셀러")) {
+		else if (vo.getRole().equals("기업회원")) {
 			customerService.joinWaitingList(vo);
 		}
-
-		System.out.println(vo);
+		out.println("<script>alert('가입완료');</script>");
+		out.flush();
 		mav.setViewName("index");
 		// 등록 완료후에는 메인페이지로 이동
 		return mav;

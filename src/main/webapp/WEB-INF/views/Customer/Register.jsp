@@ -53,7 +53,7 @@
                         <table class="type12">
                             <thead>
                             <div id="customercheck">
-                            <input type="radio" id="customer" name="radiocheck" value=" 개인회원" checked>개인회원
+                            <input type="radio" id="customer" name="radiocheck" value="개인회원" checked>개인회원
                			    <input type="radio" id="company" name="radiocheck" value="기업회원">기업회원
                			     <p class="required"> <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png"
                             width="8" height="8"> 필수입력사항</p>
