@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<!--매거진 실헝용으로 만듬 - 담  -->
 <%@ include file="/WEB-INF/views/head.jsp"%>
 <style>
 .side_nav{
