@@ -91,7 +91,26 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "/Register", method = RequestMethod.POST)
-	public ModelAndView register(CustomerVO vo, ModelAndView mav, HttpServletRequest req) {
+	public ModelAndView register(CustomerVO vo, ModelAndView mav, HttpServletResponse response, HttpServletRequest req) throws IOException {
+		System.out.println("가입기능");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
+		System.out.println((String) req.getParameter("c_Password"));
+		System.out.println((String) req.getParameter("c_Password_confirm"));
+		System.out.println("vo값"+vo);
+		if ((String) req.getParameter("c_Password") == "") {
+			out.println("<script>alert('비밀번호를 입력해주세요.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("Customer/Register");
+			return mav;
+		} else if (req.getParameter("c_Password").equals(req.getParameter("c_Password_confirm")) != true) {
+			out.println("<script>alert('비밀번호와 비밀번호 확인을 같게해주세요.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("Customer/Register");
+			return mav;
+		}
+		
 		String phoneNum = req.getParameter("mobile1-1") + req.getParameter("mobile1-2") + req.getParameter("mobile1-3");
 		vo.setC_Phone1(phoneNum);
 		String phoneNum2 = req.getParameter("mobile2-1") + req.getParameter("mobile2-2")
@@ -100,6 +119,7 @@ public class CustomerController {
 		String emailAddr = req.getParameter("email1") + "@" + req.getParameter("email2");
 		vo.setC_Email(emailAddr);
 		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
+		System.out.println("vo값"+vo);
 		// 구매자이면 바로 가입
 		if (vo.getRole().equals("구매자")) {
 			customerService.joinCustomer(vo);

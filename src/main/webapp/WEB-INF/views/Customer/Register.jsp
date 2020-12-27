@@ -40,12 +40,10 @@
     <!-- side_nav -->
 <%@ include file="/WEB-INF/views/side_nav.jsp"%>
 
-
     <!-- Register -->
     <div class="register_wrap">
         <fieldset>
             <form action="/project/Customer/Register" method="POST">
-         
                 <div class="title_area">
                     <div class="title_area1">
                         <h1>회원 가입</h1>
@@ -55,7 +53,7 @@
                         <table class="type12">
                             <thead>
                             <div id="customercheck">
-                            <input type="radio" id="customer" name="radiocheck"" value=" 개인회원" checked>개인회원
+                            <input type="radio" id="customer" name="radiocheck" value=" 개인회원" checked>개인회원
                			    <input type="radio" id="company" name="radiocheck" value="기업회원">기업회원
                			     <p class="required"> <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png"
                             width="8" height="8"> 필수입력사항</p>
@@ -187,7 +185,7 @@
                 </div>
 
                 <div id="companycheck"><span></span></div>
-            </form>
+            <!--</form>  -->
         </fieldset>
     
         <script type="text/javascript">
