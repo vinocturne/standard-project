@@ -33,8 +33,21 @@ public class CustomerController {
 	@ResponseBody
 	public ModelAndView login_ok(CustomerVO vo, ModelAndView mav, HttpSession session, HttpServletResponse response)
 			throws IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		// 아이디 없을 시
 		if (vo.getC_Id() == null || vo.getC_Id().equals("")) {
-//         throw new IllegalArgumentException("ID를 입력해주세요");
+			out.println("<script>alert('아이디를 입력해주세요.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("Customer/login_form");
+			return mav;
+		}
+		// 비밀번호 없을시
+		else if (vo.getC_Password() == null || vo.getC_Password().equals("")) {
+			out.println("<script>alert('비밀번호를 입력해주세요.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("Customer/login_form");
+			return mav;
 		}
 		System.out.println(">>> 로그인 프로세스 입장");
 		System.out.println(vo);
@@ -43,21 +56,25 @@ public class CustomerController {
 
 		CustomerVO customer = customerService.getCustomer(vo);
 		System.out.println(customer);
-		if (vo.getC_Id().equals(customer.getC_Id()) && vo.getC_Password().equals(customer.getC_Password())) {
-			System.out.println("로그인 되어씁니다");
-			customer.setC_Password(null);
-			session.setAttribute("loginCustomer", customer);
-			mav.setViewName("index");
-		} else {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('로그인 정보를 확인해주세요.'); history.go(-1);</script>");
+		
+		try {
+			if (vo.getC_Id().equals(customer.getC_Id()) && vo.getC_Password().equals(customer.getC_Password())) {
+				System.out.println("로그인 되어씁니다");
+				customer.setC_Password(null);
+				session.setAttribute("loginCustomer", customer);
+				mav.setViewName("index");
+			} else {
+				out.println("<script>alert('아이디 또는 비밀번호가 틀립니다.'); history.go(-1);</script>");
+				out.flush();
+				mav.setViewName("Customer/login_form");
+				return mav;
+			}
+		} catch (NullPointerException e) {
+			out.println("<script>alert('아이디 또는 비밀번호가 틀립니다.'); history.go(-1);</script>");
 			out.flush();
+			mav.setViewName("Customer/login_form");
+			return mav;
 		}
-
-//         System.out.println("꺼져");
-//         mav.setViewName("redirect:login_form"); 
-
 		return mav;
 	}
 
@@ -125,11 +142,24 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "/Modify", method = RequestMethod.POST)
-	public ModelAndView modify(CustomerVO vo, ModelAndView mav, HttpServletRequest req, HttpServletResponse response) throws IOException {
+	public ModelAndView modify(CustomerVO vo, ModelAndView mav, HttpServletRequest req, HttpServletResponse response)
+			throws IOException {
 		System.out.println("수정기능");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
-		if(!(vo.getC_Password()==null)) {
-			
+		System.out.println((String) req.getParameter("c_Password"));
+		System.out.println((String) req.getParameter("c_Password_confirm"));
+		if ((String) req.getParameter("c_Password") == "") {
+			out.println("<script>alert('비밀번호를 입력해주세요.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("Customer/Modify");
+			return mav;
+		} else if (req.getParameter("c_Password").equals(req.getParameter("c_Password_confirm")) != true) {
+			out.println("<script>alert('비밀번호와 비밀번호 확인을 같게해주세요.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("Customer/Modify");
+			return mav;
 		}
 		System.out.println(vo);
 		String phoneNum = req.getParameter("mobile1-1") + req.getParameter("mobile1-2") + req.getParameter("mobile1-3");
@@ -142,28 +172,25 @@ public class CustomerController {
 		customerService.modifyCustomer(vo);
 		System.out.println(vo);
 
-		// 수정완료후 수정페이지
-		
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-			out.println("<script>alert('수정완료.'); history.go(-1);</script>");
-			out.flush();
+		out.println("<script>alert('수정완료.'); history.go(-1);</script>");
+		out.flush();
 		mav.setViewName("Customer/Modify");
 		return mav;
 
 	}
-	
-	@RequestMapping(value = "/Delete",method = {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView delete(CustomerVO vo, ModelAndView mav, HttpSession session, HttpServletResponse response) throws IOException {
+
+	@RequestMapping(value = "/Delete", method = { RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView delete(CustomerVO vo, ModelAndView mav, HttpSession session, HttpServletResponse response)
+			throws IOException {
 		vo = (CustomerVO) session.getAttribute("loginCustomer");
 		System.out.println("삭제기능");
 		System.out.println(vo);
 		customerService.deleteCustomer(vo);
-		
+
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-			out.println("<script>alert('삭제완료.'); location.href='/project';</script>");
-			out.flush();
+		out.println("<script>alert('삭제완료.'); location.href='/project';</script>");
+		out.flush();
 		mav.setViewName("index");
 		return mav;
 
