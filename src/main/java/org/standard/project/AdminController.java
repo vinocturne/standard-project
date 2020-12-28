@@ -1,5 +1,6 @@
 package org.standard.project;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,8 @@ public class AdminController {
 	CustomerService customerService;
 	@Resource(name = "MagazineService")
 	MagazineService magazineService;
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	
 	@RequestMapping(value = "/AdminMain", method = RequestMethod.GET)
 	public ModelAndView adminMain(Map<String, Object> map, CustomerVO vo) {
@@ -90,30 +93,31 @@ public class AdminController {
 		return mav;
 	}
 	@RequestMapping(value = "/magazineWrite", method = RequestMethod.POST)
-	public String magazineWriteAction(HttpServletRequest req, MultipartFile file) throws Exception {
+	public String magazineWriteAction(HttpServletRequest req, MultipartFile m_Img) throws Exception {
 		System.out.println("매거진 입력 액션");
 		MagazineVO vo = new MagazineVO();
 		
 		String m_Title = req.getParameter("m_Title");
 		String m_Content = req.getParameter("m_Content");
 		
-		//파일 처리 코드
-		//이미지 저장 폴더 선언.
-		String imgUploadPath = this.getClass().getResource("").getPath();
-		System.out.println(imgUploadPath);
-		//		imgUploadPath = imgUploadPath.substring(1, imgUploadPath.indexOf(".metadata"))+"standard-project/src/main/webapp/uploadResources/magazineImage";
+		String imgUploadPath = uploadPath + File.separator + "magazineImage";
 		String ymdPath = UploadUtil.calcPath(imgUploadPath);
 		String fileName = null;
-		
-		if(file!=null) {
-			fileName = UploadUtil.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath);
-		}else {
-			fileName = imgUploadPath+"/none.jpg";
+
+		if(m_Img != null) {
+		 fileName =  UploadUtil.fileUpload(imgUploadPath, m_Img.getOriginalFilename(), m_Img.getBytes(), ymdPath); 
+		} else {
+		 fileName = uploadPath + File.separator + "magazineImage" + File.separator + "none.png";
 		}
+
+		vo.setM_Img(File.separator + "magazineImage" + ymdPath + File.separator + fileName);
+		vo.setM_Thumb(File.separator + "magazineImage" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+		
+
+		
 		vo.setM_Title(m_Title);
 		vo.setM_Content(m_Content);
-		vo.setM_Img("/"+imgUploadPath+"/"+ymdPath+"/"+fileName);
-		vo.setM_Thumb("/"+imgUploadPath+"/"+ymdPath+"/thumb"+"/"+"thumb_"+fileName);
+
 		magazineService.writeMagazine(vo);
 		
 		return "redirect:/Admin/magazineManager";
