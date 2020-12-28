@@ -16,18 +16,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.product.ProductParentService;
+import org.standard.project.product.ProductParentVO;
 
 @Controller
 @RequestMapping(value = "/Seller")
 public class SellerController {
+	@Resource(name = "ProductParentService")
+	ProductParentService productParentService;
 	@Resource(name = "CustomerService")
 	CustomerService customerService;
 	
 	@RequestMapping(value = "/ProductManage", method = RequestMethod.GET)
-	public ModelAndView adminMain(Map<String, Object> map, CustomerVO vo) {
-		System.out.println("셀러 입장 및 @@ 목록불러오기");
+	public ModelAndView productManage(Map<String, Object> map, ProductParentVO vo) {
+		System.out.println("어드민 입장 및 웨이팅회원 목록불러오기");
 		ModelAndView mav = new ModelAndView ("/Seller/ProductManage");
-		
+		List<Map<String, Object>> re = productParentService.listProductParent(map);
+		mav.addObject("list", re);
 		
 		return mav;
 	}
