@@ -6,6 +6,7 @@
    <typeAliases>
    	  <!-- VO 클래스 위치 -->
       <typeAlias alias="CustomerVO" type="org.standard.project.customer.CustomerVO"/>
+      <typeAlias alias="MagazineVO" type="org.standard.project.magazine.MagazineVO"/>
    </typeAliases>
    <environments default="development">
       <environment id="development">
