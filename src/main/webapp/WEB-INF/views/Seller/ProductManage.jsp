@@ -17,7 +17,7 @@
                     <ul>
                         <li><a href="/project/Seller/ProductManage">상품관리</a></li>
                         <li><a href="/project/Seller/seller">배송관리</a></li>
-                        <li><a href="/project/Seller/cs_request">리뷰관리</a></li>
+                        <li><a href="/project/Cs/cs_request">리뷰관리</a></li>
                         
                     </ul>
                 </div>
