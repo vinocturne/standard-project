@@ -98,6 +98,13 @@
 						<h2> 주문 내역이 없습니다.</h2>
 			<%} %>
 		</div>
+		<div class="order_index">
+                    <button type="button" class="" onclick=""><button> << </button></a>
+                    <button type="button" class="" onclick="" ><button> < </button></a>
+                    <button type="button" class="" onclick=""><button> 1 </button></a>
+                    <button type="button" class="" onclick=""><button> > </button></a>
+                    <button type="button" class="" onclick=""><button> >> </button></a>
+        </div>
 	</div>
 </div>
 
