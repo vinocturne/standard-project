@@ -50,18 +50,18 @@
 						if (confirm_val) {
 							var checkArr = new Array();
 							$("input[class='chBox']:checked").each(function() {
-								checkArr.push($(this).attr("data-c_Id"));
+								checkArr.push($(this).attr("data-m_Seq"));
 							});
 							if (!(checkArr == "")) {
 								$.ajax({
-									url : "deleteWaitingCustomer",
+									url : "deleteWaitingMagazine",
 									type : "post",
 									data : {
 										chBox : checkArr
 									},
 									success : function(result) {
 										alert("삭제 성공");
-										location.href = "AdminMain";
+										location.href = "magazineManager";
 									}
 								});
 							}else{

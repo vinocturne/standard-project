@@ -3,6 +3,8 @@
 <%@ include file="../head.jsp"%>
 </head>
 <%@ include file="../header.jsp"%>
+
+
 <!-- CONTENT -->
 <div class="content_wrap inner">
 	<!-- side_nav -->
@@ -24,6 +26,52 @@
 			<div class="content">
 				<h3>리뷰관리</h3>
 				<br>
+				<div class="allCheck">
+			<input type="checkbox" name="allCheck" id="allCheck" /><label
+				for="allCheck">모두 선택</label>
+			<script>
+				$("#allCheck").click(function() {
+					var chk = $("#allCheck").prop("checked");
+					if (chk) {
+						$(".chBox").prop("checked", true);
+					} else {
+						$(".chBox").prop("checked", false);
+					}
+				});
+			</script>
+			<a class="delBtn">
+				<button type="button" class="selectDelete_btn">삭제하기</button>
+				<script>
+					$(".selectDelete_btn").click(function() {
+						var confirm_val = confirm("정말 삭제 하시겠습니까?");
+
+						if (confirm_val) {
+							var checkArr = new Array();
+							$("input[class='chBox']:checked").each(function() {
+								checkArr.push($(this).attr("data-p_Id"));
+							});
+							if (!(checkArr == "")) {
+								$.ajax({
+									url : "deleteWaitingCs",
+									type : "post",
+									data : {
+										chBox : checkArr
+									},
+									success : function(result) {
+										alert("삭제 성공");
+										location.href = "cs_request";
+									}
+								});
+							}else{
+								alert("삭제할 게시글을 선택해주세요");
+							}
+						}
+					});
+				</script>
+			</a>
+			
+		</div>
+				
 				<table class="table table-hover">
 					<thead>
 						<tr>
@@ -38,6 +86,7 @@
 					</thead>
 					<tbody>
 						<tr>
+						<td name="c_Id">${user.c_Id}</td>
 							<td>1</td>
 							<td><a href="">후드</a></td>
 							<td>내용</td>
@@ -49,7 +98,9 @@
 									<span class="starR1">별3_왼쪽</span> <span class="starR2">별3_오른쪽</span>
 									<span class="starR1">별4_왼쪽</span> <span class="starR2">별4_오른쪽</span>
 									<span class="starR1">별5_왼쪽</span> <span class="starR2">별5_오른쪽</span>
-								</div> <script>
+								</div> 
+								
+								<script>
 									$('.starRev span').click(
 											function() {
 												$(this).parent().children(
@@ -62,6 +113,7 @@
 								</script>
 						</tr>
 						<tr>
+						<td name="c_Id">${user.c_Id}</td>
 							<td>2</td>
 							<td>바지</td>
 							<td>내용</td>
@@ -70,6 +122,7 @@
 
 						</tr>
 						<tr>
+						<td name="c_Id">${user.c_Id}</td>
 							<td>3</td>
 							<td>티셔츠</td>
 							<td>내용</td>
@@ -81,7 +134,5 @@
 				</table>
 
 			</div>
-
-		</div>
-
+</div>
 		<%@ include file="../footer.jsp"%>
