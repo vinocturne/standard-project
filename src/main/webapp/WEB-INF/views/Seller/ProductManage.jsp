@@ -4,7 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/seller.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/ResourcesFile/css/seller.css">
 </head>
 
 <%@ include file="../header.jsp"%>
@@ -12,50 +13,50 @@
 <div class="content_wrap inner">
 	<!-- side_nav -->
 
-        <div class="col-auto p-0"> 
-            <div class="side_nav">
-                <div class="side_nav_item">
-                    <p class="side_nav_title" font_size="100px" >브랜드 관리페이지</p>
-                    <ul>
-                        <li><a href="/project/Seller/ProductManage">상품관리</a></li>
-                        <li><a href="/project/Seller/seller">배송관리</a></li>
-                        <li><a href="/project/Cs/cs_request">리뷰관리</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-			
-			<div class="content" >
-				<h3>상품관리</h3>
-				<br>
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>상품명</th>
-							<th>상품아이디</th>
-							<th>카테고리1</th>
-							<th>카테고리2</th>
-							<th>썸네일</th>
-							<th>롱이미지</th>
-							<th>브랜드</th>
-							<th>가격</th>
-							<th>삭제 | 수정</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:choose>
-					<c:when test="${fn:length(re)>0}">
-						<c:forEach var="re" items="${re}">
+	<div class="col-auto p-0">
+		<div class="side_nav">
+			<div class="side_nav_item">
+				<p class="side_nav_title" font_size="100px">브랜드 관리페이지</p>
+				<ul>
+					<li><a href="/project/Seller/ProductManage">상품관리</a></li>
+					<li><a href="/project/Seller/seller">배송관리</a></li>
+					<li><a href="/project/Cs/cs_request">리뷰관리</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="content">
+		<h3>상품관리</h3>
+		<br>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>상품명</th>
+					<th>상품아이디</th>
+					<th>카테고리1</th>
+					<th>카테고리2</th>
+					<th>썸네일</th>
+					<th>롱이미지</th>
+					<th>브랜드</th>
+					<th>가격</th>
+					<th>삭제 | 수정</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:choose>
+					<c:when test="${fn:length(list)>0}">
+						<c:forEach var="produt" items="${list}">
 							<tr>
-								<td><a href="project/Seller/ProductAddChild" name="pp_Name">${re.pp_Name}</a></td>
-								<td>${re.parent_p_Id}</td>
-								<td>${re.pp_Category1}</td>
-								<td>${re.pp_Category2}</td>
-								<td>${re.pp_thumb}</td>
-								<td>${re.pp_image}</td>
-								<td>${re.pp_Brand}</td>
-								<td>${re.pp_Price}</td>
+								<td><a href="project/Seller/ProductAddChild" name="pp_Name">${produt.pp_Name}</a></td>
+								<td>${produt.parent_p_Id}</td>
+								<td>${produt.pp_Category1}</td>
+								<td>${produt.pp_Category2}</td>
+								<td>${produt.pp_thumb}</td>
+								<td>${produt.pp_image}</td>
+								<td>${produt.pp_Brand}</td>
+								<td>${produt.pp_Price}</td>
 								<td><button>삭제</button>
 									<button>수정</button></td>
 							</tr>
@@ -67,10 +68,11 @@
 						</tr>
 					</c:otherwise>
 				</c:choose>
-					</tbody>
-				</table>
-				<a href="/project/Seller/ProductAddParent"><button class="add-product">상품 추가하기</button></a>
-			</div>
+			</tbody>
+		</table>
+		<a href="/project/Seller/ProductAddParent"><button
+				class="add-product">상품 추가하기</button></a>
+	</div>
 </div>
 
 <%@ include file="../footer.jsp"%>

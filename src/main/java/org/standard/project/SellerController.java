@@ -31,8 +31,8 @@ public class SellerController {
 	public ModelAndView productManage(Map<String, Object> map, ProductParentVO vo) {
 		System.out.println("어드민 입장 및 웨이팅회원 목록불러오기");
 		ModelAndView mav = new ModelAndView ("/Seller/ProductManage");
-		List<Map<String, Object>> re = productParentService.listProductParent(map);
-		mav.addObject("list", re);
+		List<Map<String, Object>> list = productParentService.listProductParent(map);
+		mav.addObject("list", list);
 		
 		return mav;
 	}
