@@ -23,10 +23,10 @@ public class UploadUtil {
 		File target = new File(imgPath, newFileName);
 		FileCopyUtils.copy(fileData, target);
 
-		String thumbFileName = "s_" + newFileName;
-		File image = new File(imgPath + File.separator + newFileName);
+		String thumbFileName = "thumb_" + newFileName;
+		File image = new File(imgPath + "/" + newFileName);
 
-		File thumbnail = new File(imgPath + File.separator + "s" + File.separator + thumbFileName);
+		File thumbnail = new File(imgPath + "/" + "thumb" + "/" + thumbFileName);
 
 		if (image.exists()) {
 			thumbnail.getParentFile().mkdirs();
@@ -37,12 +37,12 @@ public class UploadUtil {
 
 	public static String calcPath(String uploadPath) {
 		Calendar cal = Calendar.getInstance();
-		String yearPath = File.separator + cal.get(Calendar.YEAR);
-		String monthPath = yearPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.MONTH) + 1);
-		String datePath = monthPath + File.separator + new DecimalFormat("00").format(cal.get(Calendar.DATE));
+		String yearPath = "/" + cal.get(Calendar.YEAR);
+		String monthPath = yearPath + "/" + new DecimalFormat("00").format(cal.get(Calendar.MONTH) + 1);
+		String datePath = monthPath + "/" + new DecimalFormat("00").format(cal.get(Calendar.DATE));
 
 		makeDir(uploadPath, yearPath, monthPath, datePath);
-		makeDir(uploadPath, yearPath, monthPath, datePath + "\\s");
+		makeDir(uploadPath, yearPath, monthPath, datePath + "//thumb");
 
 		return datePath;
 	}

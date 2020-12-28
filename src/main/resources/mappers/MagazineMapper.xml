@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.standard.project.MagazineMapper">
 	<select id="writeMagazine" resultType="MagazineVO">
-		INSERT INTO magazine(m_Title, m_Content) VALUES(#{m_Title}, #{m_Content});
+		INSERT INTO magazine(m_Title, m_Content, m_Thumb, m_Img) VALUES(#{m_Title}, #{m_Content}, #{m_Thumb}, #{m_Img});
 	</select>
 	
 </mapper>

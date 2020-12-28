@@ -24,4 +24,9 @@
 	<!-- controller 메인 어디로 연결되는지 -->
 	<context:component-scan base-package="org.standard.project"/>
 	
+	<!-- 파일업로더를 사용할 때 한 번 업로드 할 때의 용량 크기. 10485760은 10메가이므로, 50메가 가능  -->
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+		<property name="maxUploadSize" value="52428800"/>
+	</bean>
+	
 </beans>
