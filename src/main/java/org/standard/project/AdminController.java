@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -16,12 +17,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.magazine.MagazineService;
+import org.standard.project.magazine.MagazineVO;
 
 @Controller
 @RequestMapping(value = "/Admin")
 public class AdminController {
 	@Resource(name = "CustomerService")
 	CustomerService customerService;
+	@Resource(name = "MagazineService")
+	MagazineService magazineService;
 	
 	@RequestMapping(value = "/AdminMain", method = RequestMethod.GET)
 	public ModelAndView adminMain(Map<String, Object> map, CustomerVO vo) {
@@ -78,5 +83,18 @@ public class AdminController {
 		
 		
 		return mav;
+	}
+	@RequestMapping(value = "/magazineWrite", method = RequestMethod.POST)
+	public String magazineWriteAction(HttpServletRequest req) {
+		System.out.println("매거진 입력 액션");
+		MagazineVO vo = new MagazineVO();
+		String m_Title = req.getParameter("m_Title");
+		String m_Content = req.getParameter("m_Content");
+		vo.setM_Title(m_Title);
+		vo.setM_Content(m_Content);
+		magazineService.writeMagazine(vo);
+		
+		
+		return "redirect:/Admin/magazineManager";
 	}
 }

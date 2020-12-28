@@ -24,16 +24,21 @@
 		</div>
 	</div>
 	<div class="content">
-	<!-- POST방식으로 넘어감. -->
-	<form action="/project/Admin/magazineWrite" method="POST">
-	
-	</form>
+		<!-- POST방식으로 넘어감. -->
+		<form action="/project/Admin/magazineWrite" method="POST">
+			<label for="magazineTitle">매거진 제목</label> <input type="text" name="m_Title" /><br>
+			<label for="magazineContent">매거진 내용</label>
+			<textarea rows="5" cols="50" name="m_Content"></textarea>
+
+			<button type="submit" class="btn btn-primary">등록</button>
+
+		</form>
 	</div>
-	
-	
-	
-	
+
+
+
+
 </div>
-	
-	
+
+
 <%@ include file="../footer.jsp"%>

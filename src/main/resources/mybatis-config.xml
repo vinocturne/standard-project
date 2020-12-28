@@ -22,6 +22,7 @@
       <!-- <mapper resource="mapper위치" /> -->
       <mapper resource="mappers/CustomerMapper.xml"/>
       <mapper resource ="mappers/OrderHistoryMapper.xml"/>
+      <mapper resource ="mappers/MagazineMapper.xml"/>
    </mappers>
    
 </configuration>

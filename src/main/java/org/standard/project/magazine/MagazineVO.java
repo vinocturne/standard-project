@@ -1,4 +1,4 @@
-package org.standard.project.vo;
+package org.standard.project.magazine;
 
 import java.sql.Date;
 
