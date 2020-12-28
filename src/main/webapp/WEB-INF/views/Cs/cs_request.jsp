@@ -69,7 +69,6 @@
 					});
 				</script>
 			</a>
-			
 		</div>
 				
 				<table class="table table-hover">
