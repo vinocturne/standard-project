@@ -30,38 +30,54 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>상품번호</th>
 							<th>상품명</th>
-							<th>상품 이미지</th>
-							<th>재고현황</th>
-							<th>비고</th>
-							<th>삭제하기</th>
+							<th>상품아이디</th>
+							<th>카테고리1</th>
+							<th>카테고리2</th>
+							<th>브랜드</th>
+							<th>컬러</th>
+							<th>사이즈</th>
+							<th>재고</th>
+							<th>단가</th>
+							<th>삭제</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>1</td>
 							<td><a href="">후드</a></td>
-							<td><img src="../img/logo2.png" width=60 height="40"></td>
-							<td>100</td>
-							<td>후드</td>
-							<td><button>삭제하기</button></td>
+							<td>상품아이디</td>
+							<td>카테고리1</td>
+							<td>카테고리2</td>
+							<td>브랜드</td>
+							<td>컬러</td>
+							<td>사이즈</td>
+							<td>재고</td>
+							<td>단가</td>
+							<td><button>삭제</button></td>
 						</tr>
 						<tr>
-							<td>2</td>
-							<td>바지</td>
-							<td><img src="../img/logo2.png" width=60 height="40"></td>
-							<td>200</td>
-							<td>후드</td>
-							<td><button>삭제하기</button></td>
+							<td><a href="">후드</a></td>
+							<td>상품아이디</td>
+							<td>카테고리1</td>
+							<td>카테고리2</td>
+							<td>브랜드</td>
+							<td>컬러</td>
+							<td>사이즈</td>
+							<td>재고</td>
+							<td>단가</td>
+							<td><button>삭제</button></td>
 						</tr>
 						<tr>
-							<td>3</td>
-							<td>티셔츠</td>
-							<td><img src="../img/logo2.png" width=60 height="40"></td>
-							<td>10</td>
-							<td>후드</td>
-							<td><button>삭제하기</button></td>
+							<td><a href="">후드</a></td>
+							<td>상품아이디</td>
+							<td>카테고리1</td>
+							<td>카테고리2</td>
+							<td>브랜드</td>
+							<td>컬러</td>
+							<td>사이즈</td>
+							<td>재고</td>
+							<td>단가</td>
+							<td><button>삭제</button></td>
 						</tr>
 					</tbody>
 				</table>
