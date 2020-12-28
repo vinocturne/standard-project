@@ -23,13 +23,18 @@
 			</div>
 		</div>
 	</div>
+	
 	<div class="content">
+	<h3>Magazine 추가</h3>
+	<br>
+	
 		<!-- POST방식으로 넘어감. -->
 		<form action="/project/Admin/magazineWrite" method="POST" enctype="multipart/form-data">
 			<label for="magazineTitle">매거진 제목</label> <input type="text" name="m_Title" /><br>
+			<br>
 			<label for="magazineContent">매거진 내용</label>
-			<textarea rows="5" cols="50" name="m_Content"></textarea><br>
-			
+			<textarea rows="5" cols="50" name="m_Content"></textarea>
+			<br>
 			<input type="file" id="m_Img" name="m_Img"/>
 			<div class="selectImg_pre"><img src=""/></div>
 			<script>
@@ -48,9 +53,6 @@
 
 		</form>
 	</div>
-
-
-
 
 </div>
 

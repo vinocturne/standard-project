@@ -27,6 +27,7 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
+							<th>선택</th>
 							<th>번호</th>
 							<th>상품명</th>
 							<th>글 내용</th>

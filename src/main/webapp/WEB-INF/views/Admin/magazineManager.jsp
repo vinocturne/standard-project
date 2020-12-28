@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
+
 </style>
 </head>
 <%@ include file="../header.jsp"%>
@@ -44,7 +45,7 @@
 				<button type="button" class="selectDelete_btn">삭제하기</button>
 				<script>
 					$(".selectDelete_btn").click(function() {
-						var confirm_val = confirm("정말 탈퇴 하시겠습니까?");
+						var confirm_val = confirm("정말 삭제 하시겠습니까?");
 
 						if (confirm_val) {
 							var checkArr = new Array();
@@ -59,12 +60,12 @@
 										chBox : checkArr
 									},
 									success : function(result) {
-										alert("탈퇴 성공");
+										alert("삭제 성공");
 										location.href = "AdminMain";
 									}
 								});
 							}else{
-								alert("탈퇴할 회원을 선택해주세요");
+								alert("삭제할 상품을 선택해주세요");
 							}
 						}
 					});
@@ -75,7 +76,8 @@
 	<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
-					<th>매거진 번호</th>
+					<th>선택</th>
+					<th>매거진    번호</th>
 					<th>제목</th>
 					<th>글쓴이</th>
 					<th>내용</th>
@@ -93,7 +95,7 @@
 								<td>
 									<div class="checkBox">
 										<input type="checkbox" name="chBox" class="chBox"
-											data-c_Id="${user.c_Id}" />
+											data-m_Seq="${magazine.m_Seq}" />
 										<script>
 											$(".chBox").click(
 													function() {
@@ -111,14 +113,14 @@
 								<td>${magazine.m_Content}</td>
 								<td>${magazine.m_Date}</td>
 								<td>${magazine.m_Hit}</td>
-								<td>${user.m_Like}</td>
-								<td>${user.m_Img}</td>
+								<td>${magazine.m_Like}</td>
+								<td>${magazine.m_Img}</td>
 							</tr>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="13">조회된 결과가 없습니다.</td>
+							<td colspan="9">조회된 결과가 없습니다.</td>
 						</tr>
 					</c:otherwise>
 				</c:choose>
@@ -128,11 +130,11 @@
 	
 	목록을 불러줄 테이블 필요.
 	체크박스가 있다면 삭제가 좀 더 편리할 것 같습니다.
+	<br>
 	
 	<!-- 매거진 추가 버튼 -->
 	<input type="button" value="매거진 추가하기" onClick="location.href='/project/Admin/magazineWrite'">
 	</div>
-	
 	
 	
 </div>
