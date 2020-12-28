@@ -6,32 +6,21 @@
 <!-- CONTENT -->
 <div class="content_wrap inner">
 	<!-- side_nav -->
-	<div class="side_nav">
-		<div class="side_nav_item">
-			<p class="side_nav_title">My page</p>
-			<ul>
-				<li><a href="#">Login</a></li>
-				<li><a href="/project/Customer/Register">Register</a></li>
-				<li><a href="/project/Customer/cart">Cart</a></li>
-				<li><a href="/project/Customer/order">Order</a></li>
-				<li><a
-					href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
-			</ul>
+	<div class="col-auto p-0">
+		<div class="side_nav">
+			<div class="side_nav_item">
+				<p class="side_nav_title">관리자페이지</p>
+				<ul>
+					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
+					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
+					<li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
+
+				</ul>
+			</div>
 		</div>
 	</div>
 
-	<div class="frame">
-		<div class="container">
-			<div class="nav">
-				<ul class="nav-list">
-					<li>관리자페이지</li>
-					<br>
-					<li clas="nav-item"><a href="seller.html" class="nav-link">상품
-							관리</a></li>
-					<li clas="nav-item"><a href="" class="nav-link">배송 관리</a></li>
-					<li clas="na`v-item"><a href="" class="nav-link">리뷰 관리</a></li>
-				</ul>
-			</div>
+
 			<div class="content">
 				<h3>리뷰관리</h3>
 				<br>
