@@ -43,7 +43,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><a href="project/Seller/ProductAddChild">후드 짱 따듯스</a></td>
+							<td><a href="/ProductAddChild">후드 짱 따듯스</a></td>
 							<td>00010001</td>
 							<td>카테고리1</td>
 							<td>카테고리2</td>
@@ -52,11 +52,10 @@
 							<td>NIKE</td>
 							<td>가격</td>
 							<td><button>삭제</button>
-							
 							<button>수정</button></td>
 						</tr>
 						<tr>
-							<td><a href="project/Seller/ProductAddChild">맨투맨 간지스</a></td>
+							<td><a href="/ProductAddChild">맨투맨 간지스</a></td>
 							<td>00010002</td>
 							<td>카테고리1</td>
 							<td>카테고리2</td>
@@ -67,7 +66,7 @@
 							<td><button>삭제</button><button>수정</button></td>
 						</tr>
 						<tr>
-							<td><a href="project/Seller/ProductAddChild">점퍼 포근쓰</a></td>
+							<td><a href="/ProductAddChild">점퍼 포근쓰</a></td>
 							<td>00020001</td>
 							<td>카테고리1</td>
 							<td>카테고리2</td>
@@ -79,7 +78,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<a href="project/Seller/ProductAddParent"><button class="add-product">상품 추가하기</button></a>
+				<a href="/project/Seller/ProductAddParent"><button class="add-product">상품 추가하기</button></a>
 			</div>
 </div>
 
