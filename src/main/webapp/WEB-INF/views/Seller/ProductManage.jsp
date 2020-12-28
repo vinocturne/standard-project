@@ -34,49 +34,45 @@
 							<th>상품아이디</th>
 							<th>카테고리1</th>
 							<th>카테고리2</th>
+							<th>썸네일</th>
+							<th>롱이미지</th>
 							<th>브랜드</th>
-							<th>컬러</th>
-							<th>사이즈</th>
-							<th>재고</th>
-							<th>단가</th>
+							<th>가격</th>
 							<th>삭제</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><a href="">후드</a></td>
-							<td>상품아이디</td>
+							<td><a href="">후드 짱 따듯스</a></td>
+							<td>00010001</td>
 							<td>카테고리1</td>
 							<td>카테고리2</td>
-							<td>브랜드</td>
-							<td>컬러</td>
-							<td>사이즈</td>
-							<td>재고</td>
-							<td>단가</td>
+							<td>썸네일</td>
+							<td>롱이미지</td>
+							<td>NIKE</td>
+							<td>가격</td>
 							<td><button>삭제</button></td>
 						</tr>
 						<tr>
-							<td><a href="">후드</a></td>
-							<td>상품아이디</td>
+							<td><a href="">맨투맨 간지스</a></td>
+							<td>00010002</td>
 							<td>카테고리1</td>
 							<td>카테고리2</td>
-							<td>브랜드</td>
-							<td>컬러</td>
-							<td>사이즈</td>
-							<td>재고</td>
-							<td>단가</td>
+							<td>썸네일</td>
+							<td>롱이미지</td>
+							<td>NIKE</td>
+							<td>가격</td>
 							<td><button>삭제</button></td>
 						</tr>
 						<tr>
-							<td><a href="">후드</a></td>
-							<td>상품아이디</td>
+							<td><a href="">점퍼 포근쓰</a></td>
+							<td>00020001</td>
 							<td>카테고리1</td>
 							<td>카테고리2</td>
-							<td>브랜드</td>
-							<td>컬러</td>
-							<td>사이즈</td>
-							<td>재고</td>
-							<td>단가</td>
+							<td>썸네일</td>
+							<td>롱이미지</td>
+							<td>PUMA</td>
+							<td>가격</td>
 							<td><button>삭제</button></td>
 						</tr>
 					</tbody>
