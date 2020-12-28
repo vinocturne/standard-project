@@ -67,6 +67,6 @@
 				</table>
 				<button class="add-product">상품 추가하기</button>
 			</div>
-
+</div>
 
 <%@ include file="../footer.jsp"%>
