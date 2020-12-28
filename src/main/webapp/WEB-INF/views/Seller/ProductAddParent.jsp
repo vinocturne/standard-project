@@ -38,12 +38,12 @@
 							<th>롱이미지</th>
 							<th>브랜드</th>
 							<th>가격</th>
-							<th>삭제 | 수정</th>
+							<th>삭제</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><a href="project/Seller/ProductAddChild">후드 짱 따듯스</a></td>
+							<td><a href="">후드 짱 따듯스</a></td>
 							<td>00010001</td>
 							<td>카테고리1</td>
 							<td>카테고리2</td>
@@ -51,12 +51,10 @@
 							<td>롱이미지</td>
 							<td>NIKE</td>
 							<td>가격</td>
-							<td><button>삭제</button>
-							
-							<button>수정</button></td>
+							<td><button>삭제</button></td>
 						</tr>
 						<tr>
-							<td><a href="project/Seller/ProductAddChild">맨투맨 간지스</a></td>
+							<td><a href="">맨투맨 간지스</a></td>
 							<td>00010002</td>
 							<td>카테고리1</td>
 							<td>카테고리2</td>
@@ -64,10 +62,10 @@
 							<td>롱이미지</td>
 							<td>NIKE</td>
 							<td>가격</td>
-							<td><button>삭제</button><button>수정</button></td>
+							<td><button>삭제</button></td>
 						</tr>
 						<tr>
-							<td><a href="project/Seller/ProductAddChild">점퍼 포근쓰</a></td>
+							<td><a href="">점퍼 포근쓰</a></td>
 							<td>00020001</td>
 							<td>카테고리1</td>
 							<td>카테고리2</td>
@@ -75,11 +73,11 @@
 							<td>롱이미지</td>
 							<td>PUMA</td>
 							<td>가격</td>
-							<td><button>삭제</button><button>수정</button></td>
+							<td><button>삭제</button></td>
 						</tr>
 					</tbody>
 				</table>
-				<a href="project/Seller/ProductAddParent"><button class="add-product">상품 추가하기</button></a>
+				<button class="add-product">상품 추가하기</button>
 			</div>
 </div>
 

@@ -31,11 +31,12 @@ public class CustomerController {
 
 	@RequestMapping(value = "/login_ok", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView login_ok(CustomerVO vo, ModelAndView mav, HttpSession session, HttpServletResponse response)
+	public ModelAndView login_ok(CustomerVO vo, ModelAndView mav, HttpSession session,  HttpServletResponse response)
 			throws IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		// 아이디 없을 시
+		
 		if (vo.getC_Id() == null || vo.getC_Id().equals("")) {
 			out.println("<script>alert('아이디를 입력해주세요.'); history.go(-1);</script>");
 			out.flush();
@@ -55,8 +56,10 @@ public class CustomerController {
 		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
 
 		CustomerVO customer = customerService.getCustomer(vo);
+		System.out.println(vo);
 		System.out.println(customer);
-		
+		System.out.println(vo.getC_Password());
+		System.out.println(customer.getC_Password());
 		try {
 			if (vo.getC_Id().equals(customer.getC_Id()) && vo.getC_Password().equals(customer.getC_Password())) {
 				System.out.println("로그인 되어씁니다");
@@ -118,7 +121,6 @@ public class CustomerController {
 		vo.setC_Phone2(phoneNum2);
 		String emailAddr = req.getParameter("email1") + "@" + req.getParameter("email2");
 		vo.setC_Email(emailAddr);
-		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
 		
 		vo.setRole((String)req.getParameter("radiocheck"));
 		System.out.println("vo값"+vo);
