@@ -4,11 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.standard.project.ProductMapper">
 
-	<select id="getProductParentList" resultType="ProductParentVO">
-		SELECT * FROM productParent where pp_Brand='${pp_Brand}'
+	<select id="listProductParent" resultType="ProductParentVO">
+		SELECT * FROM productParent
 	</select>
-	
-	
-	
 	
 </mapper>

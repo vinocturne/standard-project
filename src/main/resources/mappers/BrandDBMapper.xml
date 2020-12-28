@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.standard.project.BrandDBMapper">
 
-	<select id="getList" resultType="BrandVO">
+	<!-- <select id="getList" resultType="BrandVO">
 		SELECT * FROM brandDB where brandId ='${brandId}'
 	</select>
-
+ -->
 </mapper>
