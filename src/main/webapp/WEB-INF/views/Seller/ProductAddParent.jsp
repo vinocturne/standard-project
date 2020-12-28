@@ -39,35 +39,46 @@
                                 <tr class="p_Name">
                                     <th scope="row"> 상품명
                                     </th>
-                                    <td><input id="p_Name" name="p_Name" type="text" class="inputTypeText"></td>
+                                    <td><input id="p_Name" name="p_Name" type="text"></td>
                                 </tr>
                                 <tr class="p_Id">
                                     <th scope="row"> 상품아이디 </th>
-                                    <td><input id="p_Id" name="p_Id" type="text" class="inputTypeText"></td>
+                                    <td><input id="p_Id" name="p_Id" type="text" ></td>
                                 </tr>
                                 <tr class="p_Category1">
                                     <th scope="row"> 카테고리1 </th>
-                                    <td><input id="p_Category1" name="p_Category1" type="text" maxlength="14"></span>
+                                    <td><select id="p_Category1" name="p_Category1">
+                                     <option value="Top">Top</option>
+                                            <option value="Bottom">Bottom</option>
+                                            <option value="Dress">Dress</option>
+                                            <option value="Shoes">Shoes</option>
+                                            <option value="Acc">Acc</option>   </select>      
                                     </td>
                                 </tr>
                                 <tr class="p_Category2">
                                     <th scope="row"> 카테고리2 </th>
-                                    <td><input id="p_Category2" name="p_Category2" type="text" maxlength="14"></span>
+                                    <td><select id="p_Category2" name="p_Category2">
+                                    	    <option value="Top">Top</option>
+                                            <option value="Bottom">Bottom</option>
+                                            <option value="Dress">Dress</option>
+                                            <option value="Shoes">Shoes</option>
+                                            <option value="Acc">Acc</option>   </select>      
+                                    
                                     </td>
                                 </tr>
                                 <tr class="pd_thumb">
                                     <th scope="row"> 썸네일 </th>
-                                    <td><input id="pd_thumb" name="pd_thumb" type="text" maxlength="14"></span>
+                                    <td><input type ="file" id="pd_thumb" name="pd_thumb" >
                                     </td>
                                 </tr>
                                 <tr class="pd_image ">
                                     <th scope="row"> 롱이미지 </th>
-                                    <td><input id="pd_image" name="pd_image" type="text" maxlength="14"></span>
+                                    <td><input type="file" id="pd_image" name="pd_image" >
                                     </td>
                                 </tr>
                                 <tr class="p_Brand">
                                     <th scope="row"> 브랜드 </th>
-                                    <td><input id="p_Brand" name="p_Brand" type="text" maxlength="14"></span>
+                                    <td><input id="p_Brand" name="p_Brand" type="text" maxlength="14">
                                     </td>
                                 </tr>
                                 <tr class="p_Price">
