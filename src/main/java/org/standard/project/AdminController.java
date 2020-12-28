@@ -60,5 +60,23 @@ public class AdminController {
 		return "redirect:/Admin/AdminMain"; 
 	}
 	
-
+	@RequestMapping(value = "/magazineManager", method = RequestMethod.GET)
+	public ModelAndView magazineManager() {
+		System.out.println("매거진 매니저");
+		ModelAndView mav = new ModelAndView ("/Admin/magazineManager");
+		
+		
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/magazineWrite", method = RequestMethod.GET)
+	public ModelAndView magazineWrite() {
+		System.out.println("매거진 입력 폼");
+		ModelAndView mav = new ModelAndView ("/Admin/magazineWrite");
+		
+		
+		
+		return mav;
+	}
 }
