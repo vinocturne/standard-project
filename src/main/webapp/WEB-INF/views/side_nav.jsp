@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
     <!-- SIDE NAV  -->
     
-<div class="side_nav">
+			<div class="side_nav">
                  <div class="side_nav_item">
                      <p class="side_nav_title">My page</p>
                      <ul>
-                <%-- <%
+             <%-- 	<%
 					if(customer==null){
 					System.out.println("if null print..." + session.getAttribute("loginCustomer"));
 				%>   
