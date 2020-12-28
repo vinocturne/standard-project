@@ -3,15 +3,18 @@ package org.standard.project.magazine;
 import java.sql.Date;
 
 public class MagazineVO {
-	private int m_Seq;
+	private int m_Seq, m_Hit, m_Like;
 	private String m_Title, m_Content, m_Thumb, m_Img;
 	private Date m_Date;
 
 	public MagazineVO() {}
-	
-	public MagazineVO(int m_Seq, String m_Title, String m_Content, String m_Thumb, String m_Img, Date m_Date) {
+
+	public MagazineVO(int m_Seq, int m_Hit, int m_Like, String m_Title, String m_Content, String m_Thumb, String m_Img,
+			Date m_Date) {
 		super();
 		this.m_Seq = m_Seq;
+		this.m_Hit = m_Hit;
+		this.m_Like = m_Like;
 		this.m_Title = m_Title;
 		this.m_Content = m_Content;
 		this.m_Thumb = m_Thumb;
@@ -25,6 +28,22 @@ public class MagazineVO {
 
 	public void setM_Seq(int m_Seq) {
 		this.m_Seq = m_Seq;
+	}
+
+	public int getM_Hit() {
+		return m_Hit;
+	}
+
+	public void setM_Hit(int m_Hit) {
+		this.m_Hit = m_Hit;
+	}
+
+	public int getM_Like() {
+		return m_Like;
+	}
+
+	public void setM_Like(int m_Like) {
+		this.m_Like = m_Like;
 	}
 
 	public String getM_Title() {
