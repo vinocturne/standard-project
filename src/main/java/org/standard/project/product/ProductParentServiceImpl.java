@@ -1,5 +1,5 @@
 package org.standard.project.product;
 
-public class ProductParentServiceImpl {
+public class ProductParentServiceImpl implements ProductParentService{
 
 }
