@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/seller.css">
 </head>
 
@@ -42,40 +44,29 @@
 						</tr>
 					</thead>
 					<tbody>
+						<c:choose>
+					<c:when test="${fn:length(re)>0}">
+						<c:forEach var="re" items="${re}">
+							<tr>
+								<td><a href="project/Seller/ProductAddChild" name="pp_Name">${re.pp_Name}</a></td>
+								<td>${re.parent_p_Id}</td>
+								<td>${re.pp_Category1}</td>
+								<td>${re.pp_Category2}</td>
+								<td>${re.pp_thumb}</td>
+								<td>${re.pp_image}</td>
+								<td>${re.pp_Brand}</td>
+								<td>${re.pp_Price}</td>
+								<td><button>삭제</button>
+									<button>수정</button></td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
 						<tr>
-							<td><a href="/ProductAddChild">후드 짱 따듯스</a></td>
-							<td>00010001</td>
-							<td>카테고리1</td>
-							<td>카테고리2</td>
-							<td>썸네일</td>
-							<td>롱이미지</td>
-							<td>NIKE</td>
-							<td>가격</td>
-							<td><button>삭제</button>
-							<button>수정</button></td>
+							<td colspan="9">조회된 결과가 없습니다.</td>
 						</tr>
-						<tr>
-							<td><a href="/ProductAddChild">맨투맨 간지스</a></td>
-							<td>00010002</td>
-							<td>카테고리1</td>
-							<td>카테고리2</td>
-							<td>썸네일</td>
-							<td>롱이미지</td>
-							<td>NIKE</td>
-							<td>가격</td>
-							<td><button>삭제</button><button>수정</button></td>
-						</tr>
-						<tr>
-							<td><a href="/ProductAddChild">점퍼 포근쓰</a></td>
-							<td>00020001</td>
-							<td>카테고리1</td>
-							<td>카테고리2</td>
-							<td>썸네일</td>
-							<td>롱이미지</td>
-							<td>PUMA</td>
-							<td>가격</td>
-							<td><button>삭제</button><button>수정</button></td>
-						</tr>
+					</c:otherwise>
+				</c:choose>
 					</tbody>
 				</table>
 				<a href="/project/Seller/ProductAddParent"><button class="add-product">상품 추가하기</button></a>
