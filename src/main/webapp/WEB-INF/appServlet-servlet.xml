@@ -34,7 +34,8 @@
 		<!-- 현재 프로젝트 workspace의 위치에 있는 metadata로 들어가서 .plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\standard-project\uploadResources가 있는지 확인하고 바꿔주면 된다.
 		이미지를 서버에 저장하지 않는 가장 큰 이유는 서버의 볼륨이 너무 커지기 때문. 따라서 로컬에 이미지를 다룰 수 있도록 해야한다. -->
 		<!-- magazine db 테이블이 잘 생성되어있고, 아래 경로를 제대로 설정해주면 heidiSQL에서 썸네일과 img에 해당 값이 추가된걸 확인할 수 있다. -->
- 		<constructor-arg value="D:\Programming\workSpace\project_bit\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\standard-project\uploadResources" />
+		<constructor-arg value="D:\Programming\workSpace\standard-project\src\main\webapp\uploadResources"/>
+ 		<!-- <constructor-arg value="D:\Programming\workSpace\project_bit\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\standard-project\uploadResources" /> -->
 	</bean>
 	
 </beans>
