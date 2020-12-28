@@ -25,10 +25,24 @@
 	</div>
 	<div class="content">
 		<!-- POST방식으로 넘어감. -->
-		<form action="/project/Admin/magazineWrite" method="POST">
+		<form action="/project/Admin/magazineWrite" method="POST" enctype="multipart/form-data">
 			<label for="magazineTitle">매거진 제목</label> <input type="text" name="m_Title" /><br>
 			<label for="magazineContent">매거진 내용</label>
-			<textarea rows="5" cols="50" name="m_Content"></textarea>
+			<textarea rows="5" cols="50" name="m_Content"></textarea><br>
+			
+			<input type="file" id="m_Img" name="m_Img"/>
+			<div class="selectImg_pre"><img src=""/></div>
+			<script>
+				$("#m_Img").change(function() {
+					if(this.files && this.files[0]) {
+						var reader = new FileReader;
+						reader.onload = function(data) {
+							$(".selectImg_pre img").attr("src", data.target.result).width(500);
+						}
+					reader.readAsDataURL(this.files[0]);
+					}
+				});
+			</script>
 
 			<button type="submit" class="btn btn-primary">등록</button>
 

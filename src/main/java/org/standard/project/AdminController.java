@@ -1,5 +1,6 @@
 package org.standard.project;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
@@ -76,24 +82,51 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/magazineWrite", method = RequestMethod.GET)
-	public ModelAndView magazineWrite() {
+	public ModelAndView magazineWrite(HttpServletRequest req) {
 		System.out.println("매거진 입력 폼");
 		ModelAndView mav = new ModelAndView ("/Admin/magazineWrite");
-		
-		
-		
+
 		return mav;
 	}
 	@RequestMapping(value = "/magazineWrite", method = RequestMethod.POST)
-	public String magazineWriteAction(HttpServletRequest req) {
+	public String magazineWriteAction(HttpServletRequest req, MultipartFile file) {
 		System.out.println("매거진 입력 액션");
 		MagazineVO vo = new MagazineVO();
+		
 		String m_Title = req.getParameter("m_Title");
 		String m_Content = req.getParameter("m_Content");
 		vo.setM_Title(m_Title);
 		vo.setM_Content(m_Content);
-		magazineService.writeMagazine(vo);
+		//파일 처리 코드
+		//이미지 저장 폴더 선언.
+		String uploadDir = this.getClass().getResource("").getPath();
+		uploadDir = uploadDir.substring(1,uploadDir.indexOf(".metadata"))+"standard-project/src/main/webapp/uploadResources/magazineImage";
+		System.out.println("절대경로 : " + uploadDir + "<br/>"); 
+		// 총 100M 까지 저장 가능하게 함
+		int maxSize = 1024 * 1024 * 100;
+		String encoding = "UTF-8";
+		// 사용자가 전송한 파일정보 토대로 업로드 장소에 파일 업로드 수행할 수 있게 함
+		MultipartRequest multipartRequest;
 		
+		try {
+			multipartRequest = new MultipartRequest(req, uploadDir, maxSize, encoding, new DefaultFileRenamePolicy());
+			   // 중복된 파일이름이 있기에 fileRealName이 실제로 서버에 저장된 경로이자 파일
+	        // fineName은 사용자가 올린 파일의 이름이다
+			// 이전 클래스 name = "file" 실제 사용자가 저장한 실제 네임
+			String fileName = multipartRequest.getOriginalFileName("file");
+			// 실제 서버에 업로드 된 파일시스템 네임
+			String fileRealName = multipartRequest.getFilesystemName("file");
+			// 디비에 업로드 메소드
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+     
+		
+
+		
+		
+		magazineService.writeMagazine(vo);
 		
 		return "redirect:/Admin/magazineManager";
 	}
