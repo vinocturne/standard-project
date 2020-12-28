@@ -60,5 +60,5 @@ public class AdminController {
 		return "redirect:/Admin/AdminMain"; 
 	}
 	
-	
+
 }
