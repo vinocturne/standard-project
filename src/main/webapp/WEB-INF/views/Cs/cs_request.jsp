@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <%@ include file="../header.jsp"%>
 
@@ -86,12 +89,12 @@
 					<tbody>
 						<c:choose>
 							<c:when test="${fn:length(list)>0}">
-								<c:forEach var="user" items="${list}">
+								<c:forEach var="review" items="${list}">
 								<tr>
 								<td>
 									<div class="checkBox">
 										<input type="checkbox" name="chBox" class="chBox"
-											data-c_Id="${user.c_Id}" />
+											data-cs_Seq="${review.cs_Seq}" />
 										<script>
 											$(".chBox").click(
 													function() {
@@ -103,13 +106,13 @@
 									</div>
 								</td>
 								
-							<td name="cs_Seq">${user.cs_Seq}</td>
-								<td>${user.cs_Title}</td>
-								<td>${user.cs_Writer}</td>
-								<td>${user.cs_Content}</td>
-								<td>${user.cs_Date}</td>
-								<td>${user.cs_viewCnt}</td>
-								<td>${user.cs_Coment}</td>
+							<td name="cs_Seq">${review.cs_Seq}</td>
+								<td>${review.cs_Title}</td>
+								<td>${review.cs_Writer}</td>
+								<td>${review.cs_Content}</td>
+								<td>${review.cs_Date}</td>
+								<td>${review.cs_viewCnt}</td>
+								<td>${review.cs_Coment}</td>
 							</tr>
 						</c:forEach>
 					</c:when>
