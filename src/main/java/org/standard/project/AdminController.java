@@ -112,10 +112,7 @@ public class AdminController {
 		}
 
 		vo.setM_Img(File.separator + "magazineImage" + ymdPath + File.separator + fileName);
-		vo.setM_Thumb(File.separator + "magazineImage" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
-		
-
-		
+		vo.setM_Thumb(File.separator + "magazineImage" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);	
 		vo.setM_Title(m_Title);
 		vo.setM_Content(m_Content);
 
