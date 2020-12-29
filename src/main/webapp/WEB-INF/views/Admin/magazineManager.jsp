@@ -26,7 +26,6 @@
 					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
 					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
 					<li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
-
 				</ul>
 			</div>
 		</div>
@@ -124,7 +123,7 @@
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="9">조회된 결과가 없습니다.</td>
+							<td colspan="8">조회된 결과가 없습니다.</td>
 						</tr>
 					</c:otherwise>
 				</c:choose>
