@@ -35,8 +35,7 @@ public class CustomerController {
 			throws IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		// 아이디 없을 시
-		
+		// 아이디 없을 시(d
 		if (vo.getC_Id() == null || vo.getC_Id().equals("")) {
 			out.println("<script>alert('아이디를 입력해주세요.'); history.go(-1);</script>");
 			out.flush();
@@ -50,16 +49,27 @@ public class CustomerController {
 			mav.setViewName("Customer/login_form");
 			return mav;
 		}
+		
 		System.out.println(">>> 로그인 프로세스 입장");
 		System.out.println(vo);
 		// 암호화처리.(사용자가 입력한 비밀번호를 암호화처리하여 vo객체에 setPassword()처리후에 디비조회.
 		vo.setC_Password(Encrypt.encrypt(vo.getC_Password()));
 
 		CustomerVO customer = customerService.getCustomer(vo);
+		//등록되지 않은 아이디로 로그인하려는 경우
+		//가입승인처리 되지않은 판매자고객이 로그인하려는경우
+				if(customer==null) {
+					out.println("<script>alert('등록되지 않은 아이디입니다.'); history.go(-1);</script>");
+					out.flush();
+					mav.setViewName("Customer/login_form");
+					return mav;
+				}
 		System.out.println(vo);
 		System.out.println(customer);
 		System.out.println(vo.getC_Password());
 		System.out.println(customer.getC_Password());
+		
+		
 		try {
 			if (vo.getC_Id().equals(customer.getC_Id()) && vo.getC_Password().equals(customer.getC_Password())) {
 				System.out.println("로그인 되어씁니다");
