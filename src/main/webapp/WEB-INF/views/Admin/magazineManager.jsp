@@ -79,7 +79,6 @@
 					<th>선택</th>
 					<th>매거진    번호</th>
 					<th>제목</th>
-					<th>글쓴이</th>
 					<th>내용</th>
 					<th>등록일</th>
 					<th>조회수</th>
@@ -109,12 +108,11 @@
 								<td><input type="checkbox" name=""> 1</td>
 								<td name="m_Seq">${magazine.m_Seq}</td>
 								<td>${magazine.m_Title}</td>
-								<td>${magazine.m_Writer}</td>
 								<td>${magazine.m_Content}</td>
 								<td>${magazine.m_Date}</td>
 								<td>${magazine.m_Hit}</td>
 								<td>${magazine.m_Like}</td>
-								<td>${magazine.m_Img}</td>
+								<td>${magazine.m_Thumb}</td>
 							</tr>
 						</c:forEach>
 					</c:when>
