@@ -18,7 +18,7 @@
 					if(customer==null){
 					System.out.println(session.getAttribute("loginCustomer"));
 				%>   
-                    <li><a href="#">Login</a></li>
+                    <li><a href="/project/Customer/login_form">Login</a></li>
                     <li><a href="/project/Customer/Register">Register</a></li>
                     <% } else { %>
                     <li><a href="/project/Customer/Modify">Modify</a></li>

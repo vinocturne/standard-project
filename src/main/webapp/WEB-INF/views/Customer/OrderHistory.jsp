@@ -14,13 +14,18 @@
 		<div class="side_nav_item">
 			<p class="side_nav_title">My page</p>
 			<ul>
-				<li><a href="#">Login</a></li>
-				<li><a href="Register.html">Register</a></li>
-				<li><a href="cart.html">Cart</a></li>
-				<li><a href="../views/order.html">Order</a></li>
-				<li><a href="Wishlist.html">Wish list</a></li>
-				<li><a
-					href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
+				<%
+					if(customer==null){
+					System.out.println("if null print..." + session.getAttribute("loginCustomer"));
+				%>   
+                    <li><a href="/project/Customer/login_form">Login</a></li>
+                    <li><a href="/project/Customer/Register">Register</a></li>
+                    <% } else { %>
+                    <li><a href="/project/Customer/Modify">Modify</a></li>
+                    <li><a href="/project/Customer/cart">Cart</a></li>
+                    <li><a href="/project/Customer/OrderHistory">Order</a></li>
+                    <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
+                    <%} %>
 			</ul>
 		</div>
 	</div>
@@ -42,6 +47,7 @@
 			<table class="type11">
 				<thead>
 					<tr>
+						<th scope="cols">선택</th>
 						<th scope="cols">주문일자</th>
 						<th scope="cols">상품정보</th>
 						<th scope="cols">가격</th>
@@ -79,9 +85,10 @@
 						</td>
 						<td class="cart_button">
 							<div>
-								<button href="order.html">주문하</button>
+								<button href="#">주문하기</button>
 							<div>
-								<button href="review.html">리뷰작성</button>
+								<input type="button" name="btn1" value="리뷰작성"
+								onclick="window.open('ReviewPopup.html','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
 							</div>
 							<div>
 								<button href="#">삭제</button>
@@ -135,4 +142,6 @@
 		</ul>
 	</div>
 </footer>
+
+
 <%@ include file="../footer.jsp"%>
