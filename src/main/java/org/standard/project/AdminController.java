@@ -92,6 +92,7 @@ public class AdminController {
 
 		return mav;
 	}
+	
 	@RequestMapping(value = "/magazineWrite", method = RequestMethod.POST)
 	public String magazineWriteAction(HttpServletRequest req, MultipartFile m_Img) throws Exception {
 		System.out.println("매거진 입력 액션");

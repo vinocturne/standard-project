@@ -44,10 +44,14 @@ public class SellerController {
 		System.out.println("productParentList 보기");
 		//로그인후에 세션에 저장된 사용자 객체를 활용.
 		CustomerVO customerVO = (CustomerVO)session.getAttribute("loginCustomer");
-		if((CustomerVO)session.getAttribute("loginCustomer") == null) {
-			out.println("<script>alert('기업회원으로 로그인해주세요.');</script>");
+		if(customerVO == null) {
+			out.println("<script>alert('로그인해주세요.');</script>");
 			out.flush();
-			return "index";
+			return "Customer/login_form";
+		}else if (customerVO.getBrandName() ==null) {
+			out.println("<script>alert('기업회원으로 가입해주세요.');</script>");
+			out.flush();
+			return "Customer/login_form";
 		}
 //		customerVO.setBrandName("1");
 		ArrayList<ProductParentVO> listProductParent = new ArrayList<ProductParentVO>();
