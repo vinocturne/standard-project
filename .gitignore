@@ -3,5 +3,4 @@
 .settings
 MANIFEST.MF
 pom.properties
-appServlet-servlet.xml
 /target/
