@@ -26,7 +26,9 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<% session.getAttribute("loginCustomer"); %>
+	
 	<div class="content">
 		<h3>상품관리</h3>
 		<br>
@@ -55,7 +57,7 @@
 								<td>${produt.pp_Category2}</td>
 								<td>${produt.pp_thumb}</td>
 								<td>${produt.pp_image}</td>
-								<td>${produt.pp_Brand}</td>
+								<td><%=customer.getBrandName()%></td>
 								<td>${produt.pp_Price}</td>
 								<td><button>삭제</button>
 									<button>수정</button></td>

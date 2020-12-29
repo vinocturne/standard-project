@@ -15,13 +15,13 @@ import org.standard.project.order.OrderHistoryService;
 import org.standard.project.order.OrderHistoryVO;
 
 @Controller
-@RequestMapping(value = "/order")
+@RequestMapping(value = "/OrderHistory")
 public class OrderController {
 	
 	@Resource(name = "OrderHistoryService")
 	OrderHistoryService orderService;
 	
-	@RequestMapping("/orderHistoryList")
+	@RequestMapping("/OrderHistory")
 	public String getList(HttpSession session){
 		session.removeAttribute("orderList");
 		System.out.println(session.getAttribute("orderList"));
@@ -34,7 +34,7 @@ public class OrderController {
 		//가져온 후 세션에 저장하고,
 		session.setAttribute("orderList", orderHistoryList);
 		//돌아갈 페이지 지정
-		return "OrderHistory/OrderHistory";
+		return "Customer/OrderHistory";
 	}
 
 }
