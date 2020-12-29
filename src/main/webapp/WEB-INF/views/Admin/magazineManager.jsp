@@ -9,7 +9,7 @@
 		width: 150px;
 	}
 	 .table{
-        width: 1000px;
+        width: 1050px;
     }
 	
 </style>
@@ -82,14 +82,14 @@
 	<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
-					<th style="width:5%">선택</th>
-					<th style="width:5%">번호</th>
-					<th style="width:20%">썸네일</th>
-					<th style="width:30%">제목</th>
-					<th style="width:15%">내용</th>
-					<th style="width:15%">등록일</th>
-					<th style="width:10%">조회수</th>
-					<th style="width:10%">좋아요</th>
+					<th style="width:5%; height:10%">선택</th>
+					<th style="width:5%; height:10%">번호</th>
+					<th style="width:20%; height:10%">썸네일</th>
+					<th style="width:28%; height:10%">제목</th>
+					<th style="width:15%; height:10%">내용</th>
+					<th style="width:13%; height:10%">등록일</th>
+					<th style="width:7%; height:10%">조회수</th>
+					<th style="width:7%; height:10%">좋아요</th>
 				</tr>
 			</thead>
 			<tbody>

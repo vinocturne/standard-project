@@ -4,6 +4,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<style>
+.table{
+  width: 1050px;
+}
+</style>
+
 </head>
 <%@ include file="../header.jsp"%>
 
@@ -26,13 +32,13 @@
 	</div>
 
 
-			<div class="content">
-				<h3>상품 문의</h3>
-				<br>
-				<div class="allCheck">
-			<input type="checkbox" name="allCheck" id="allCheck" /><label
+		<div class="content">
+			<h3>상품 문의</h3>
+			<br>
+			<div class="allCheck">
+				<input type="checkbox" name="allCheck" id="allCheck" /><label
 				for="allCheck">모두 선택</label>
-			<script>
+				<script>
 				$("#allCheck").click(function() {
 					var chk = $("#allCheck").prop("checked");
 					if (chk) {
@@ -77,12 +83,12 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>선택</th>
-							<th>번호</th>
-							<th>상품명</th>
-							<th>글 내용</th>
-							<th>재고현황</th>
-							<th>평점</th>
+							<th style="width:15%; height:10%">선택</th>
+							<th style="width:15%; height:10%">번호</th>
+							<th style="width:15%; height:10%">상품명</th>
+							<th style="width:15%; height:10%">글 내용</th>
+							<th style="width:15%; height:10%">재고현황</th>
+							<th style="width:15%; height:10%">평점</th>
 
 						</tr>
 					</thead>
@@ -105,8 +111,7 @@
 										</script>
 									</div>
 								</td>
-								
-							<td name="cs_Seq">${review.cs_Seq}</td>
+								<td name="cs_Seq">${review.cs_Seq}</td>
 								<td>${review.cs_Title}</td>
 								<td>${review.cs_Writer}</td>
 								<td>${review.cs_Content}</td>
