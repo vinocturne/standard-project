@@ -1,8 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<style>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/seller.css">
+     .table{
+        width: 1200px;
+    }
+</style>
+
 </head>
 
 <%@ include file="../header.jsp"%>
@@ -24,15 +32,6 @@
             </div>
         </div>
                <div class="container">
-        <div class="nav">
-            <ul class="nav-list">
-                <li>관리자페이지</li>
-                <br>
-                <li clas="nav-item"><a href ="" class="nav-link">상품 관리</a></li>
-                <li clas="nav-item"><a href ="" class="nav-link">배송 관리</a></li>
-                <li clas="na`v-item"><a href ="" class="nav-link">리뷰 관리</a></li>
-            </ul>
-        </div>
         <div class="content">
             <h3>배송관리</h3>
             <p><input type="date">~<input type="date"><input type="submit" value="검색"></p>
@@ -133,5 +132,6 @@
               </table>
               
         </div>
-        </div>
+    </div>
+ </div>
         <%@ include file="../footer.jsp"%>
