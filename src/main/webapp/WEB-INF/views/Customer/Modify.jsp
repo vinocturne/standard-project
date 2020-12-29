@@ -3,7 +3,7 @@
 </head>
 <%@ include file="../header.jsp" %> 
 <script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<div class="content_wrap inner">
+
 <script>
     function openDaumZipAddress() {
 		new daum.Postcode({
@@ -16,18 +16,11 @@
 		}).open();
 	}
 </script>
+	
+			<!-- CONTENT -->
+			<div class="content_wrap inner">
              <!-- side_nav -->
-             <div class="side_nav">
-                 <div class="side_nav_item">
-                     <p class="side_nav_title">My page</p>
-                     <ul>
-                         <li><a href="/project/Customer/login_form">MY info</a></li>
-                         <li><a href="/project/Customer/cart">Cart</a></li>
-                         <li><a href="/project/Customer/OrderHistory">Order</a></li>
-                         <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
-                     </ul>
-                 </div>
-             </div>
+            <%@ include file="../side_nav.jsp"%>
 			
 			
              <!-- Modify -->
@@ -186,8 +179,8 @@
                             <tr class="c_Email">
                             <th scope="row"> 이메일 <img src= "<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수" ></th>
                             <td>
-                                <input name="email1" type="text" class="box" id="email1" size="15" value="<%=mail1%>" onclick="mk_phoneNumber()"> @ <input name="email2" type="text" class="box" id="email2" size="20" value="<%=mail2%>">
-                                <select name="email_select" class="box" id="email_select" onChange="checkemailaddy();">
+                                <input name="email1" type="text" class="box" id="email1" size="15" value="<%=mail1%>" onclick="mk_phoneNumber()"> @ <input name="email2" class="email2" type="text" class="box" id="email2" size="20" value="<%=mail2%>">
+                                <select name="email_select" class="box" id="email_select" onChange="checkemailaddy(this);">
                                     <option value="<%=mail2%>" selected><%=mail2%></option>
                                     <option value="naver.com">naver.com</option>
                                     <option value="yahoo.co.kr">gmail.com</option>
@@ -241,4 +234,10 @@
             </div>
         </div>
      </form>
+     
+           <script>
+            function checkemailaddy(ele){ var $ele = $(ele); var $email2 = $('input[name=email2]'); 
+              if($ele.val() == "1"){ $email2.attr('readonly', false); 
+              $email2.val(''); } else { $email2.attr('readonly', true); $email2.val($ele.val()); } } 
+         </script>
         <%@ include file="../footer.jsp"%>

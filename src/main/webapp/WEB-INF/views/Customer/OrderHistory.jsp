@@ -7,28 +7,12 @@
 <%@ include file="../header.jsp"%>
 
 
-<!-- CONTENT -->
-<div class="content_wrap inner">
+	<!-- CONTENT -->
+	<div class="content_wrap inner">
 	<!-- side_nav -->
-	<div class="side_nav">
-		<div class="side_nav_item">
-			<p class="side_nav_title">My page</p>
-			<ul>
-				<%
-					if(customer==null){
-					System.out.println("if null print..." + session.getAttribute("loginCustomer"));
-				%>   
-                    <li><a href="/project/Customer/login_form">Login</a></li>
-                    <li><a href="/project/Customer/Register">Register</a></li>
-                    <% } else { %>
-                    <li><a href="/project/Customer/Modify">Modify</a></li>
-                    <li><a href="/project/Customer/cart">Cart</a></li>
-                    <li><a href="/project/Customer/OrderHistory">Order</a></li>
-                    <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
-                    <%} %>
-			</ul>
-		</div>
-	</div>
+	<%@ include file="../side_nav.jsp"%>
+	
+	
 	<%ArrayList<OrderHistoryVO> orderList = (ArrayList)session.getAttribute("orderList"); %>
 	<!-- ORDER :주문조회-->
 	<div class="order_wrap">
@@ -125,23 +109,6 @@
 	</div>
 </div>
 
-<!-- FOOTER -->
-<footer class="section">
-	<div class="inner clearfix">
-		<ul class="site-links float--right">
-			<li><a href="#">API</a></li>
-			<li><a href="#">Training</a></li>
-			<li><a href="#">Shop</a></li>
-			<li><a href="#">About</a></li>
-		</ul>
-		<ul class="site-links float--left">
-			<li>© 2020 STANDARD Inc.</li>
-			<li><a href="#">Terms</a></li>
-			<li><a href="#">Status</a></li>
-			<li><a href="#">Help</a></li>
-		</ul>
-	</div>
-</footer>
 
 
 <%@ include file="../footer.jsp"%>

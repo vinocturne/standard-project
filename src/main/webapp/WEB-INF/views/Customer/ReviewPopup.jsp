@@ -1,14 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="org.standard.project.customer.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../../ResourceFile/css/10-10.css"/>
-<script type="text/javascript" src="../../ResourceFile/css/10-10.js"></script>
+<link rel="stylesheet" href="../../ResourcesFile/css/star.css"/>
+
+<script type="text/javascript" src="../../ResourcesFile/js/star.js"></script>
 </head>
-<body> 
-    <div class="wrap">
-        <h1>후기</h1>
+<body>
+
+<div class="wrap">
+        <h1>상품성후기작</h1>
+        <div class="content_wrap">
+            <div class="mypage_wrap">
+               
+                <div class="mypage_table">
+                    <table class="type14">
+                        <thead>
+                            <tr class="welcome">
+                            <th> 
+                                <img src="../ResourcesFile/img/person.png" width="100px" height="100px" alt="">    
+                            </th>
+                                <td class="textbox"> 
+                                    <%-- <%=customer.getp_Id()%>%> --%>
+                                    
+                                </h2>
+                                </td>    
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+        </div>
         <form name="reviewform" class="reviewform" method="post" action="/save">
             <input type="hidden" name="rate" id="rate" value="0"/>
             <p class="title_star">별점과 이용경험을 남겨주세요.</p>
@@ -29,7 +57,8 @@
                     <input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="5점">
                     <label for="rating5"></label>
                 </div>
-            </div>
+            </div> 
+            
             <div class="review_contents">
                 <div class="warning_msg">5자 이상의 리뷰 내용을 작성해 주세요.</div>
                 <textarea rows="10" class="review_textarea"></textarea>
@@ -39,6 +68,7 @@
             </div>
         </form>
     </div>
+
 </body>
 
 

@@ -36,10 +36,12 @@
 </script>
 </head>
 <%@ include file="../header.jsp" %>
-<div class="content_wrap inner">
-    <!-- side_nav -->
-<%@ include file="/WEB-INF/views/side_nav.jsp"%>
 
+	<!-- CONTENT -->
+	<div class="content_wrap inner">
+    <!-- side_nav -->
+    <%@ include file="../side_nav.jsp"%>	 	
+			
     <!-- Register -->
     <div class="register_wrap">
         <fieldset>
@@ -169,7 +171,7 @@
                                         <input name="email1" type="text" class="box" id="email1" size="15"> @ <input
                                             name="email2" type="text" class="box" id="email2" size="20">
                                         <select name="email_select" class="box" id="email_select"
-                                            onChange="checkemailaddy();">
+                                            onChange="checkemailaddy(this);">
                                             <option value="" selected>선택하세요</option>
                                             <option value="naver.com">naver.com</option>
                                             <option value="yahoo.co.kr">gmail.com</option>
@@ -194,7 +196,7 @@
                     var value = $(this).val();
                     if (value == "기업회원") {
                         $('#companycheck span').html(
-                            '<hr><h2>기업회원 필수 입력 영역</h2><table class="type16"> <thead> <tr class="businessNumber"><th scope="row"> 사업자번호 </th><td><input id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10"></span></td></tr><br><tr class="brandName"><th scope="row"> 브랜드명 </th><td><input id="brandName" name="brandName" type="text" class="inputTypeText"></td></tr></thead></table>'
+                            '<hr><h4>※ 기업회원 필수 입력 영역</h4><table class="type16"> <thead> <tr class="businessNumber"><th scope="row"> 사업자번호 </th><td><input id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10"></span></td></tr><br><tr class="brandName"><th scope="row"> 브랜드명 </th><td><input id="brandName" name="brandName" type="text" class="inputTypeText"></td></tr></thead></table>'
                             );
                     } else {
                         $('#companycheck span').html('');
@@ -208,7 +210,7 @@
                 <h3>전체 동의</h3>
 
                 <div class="content-box typeThinBg gStrong">
-                    <p><span class="content-chk"><input type="checkbox" id="sAgreeAllChecked"><em
+                    <p><span class="content-chk"><input type="checkbox" id="sAgreeAllChecked" class="sAgreeAllChecked"><em
                                 class="checkbox"></em></span>
                         <label for="sAgreeAllChecked"><strong>이용약관 및 개인정보수집 및 이용, 쇼핑정보 수신(선택)에 모두
                                 동의합니다.</strong></label></p>
@@ -346,6 +348,21 @@
                 </div>
     </div>
 </div>
+</div>
 </form>
+
+  			<script>
+            $( document ).ready( function() {
+              $( '.sAgreeAllChecked' ).click( function() {
+                $( '.ec-base-chk' ).prop( 'checked', this.checked );
+              } );
+            } );
+          </script>
+
+           <script>
+            function checkemailaddy(ele){ var $ele = $(ele); var $email2 = $('input[name=email2]'); 
+              if($ele.val() == "1"){ $email2.attr('readonly', false); 
+              $email2.val(''); } else { $email2.attr('readonly', true); $email2.val($ele.val()); } } 
+         </script>
 
 <%@ include file="../footer.jsp"%>

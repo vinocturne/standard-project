@@ -86,17 +86,18 @@ public class AdminController {
 			System.out.println(object.get("businessNumber"));
 			//고객리스트에 복사
 			String user_id =(String)object.get("c_id"); 
-			//customerService.approveCustomer(user_id);
+			customerService.approveCustomer(user_id);
 			
 			String brandName = (String)object.get("brandName");
 			String businessNumber = (String)object.get("businessNumber");
-			//ALTER TABLE brandDB add businessNumber varchar(20) not null;
+			System.out.println("브랜드네임 : "+brandName);
+			System.out.println("사업자번호 :" +businessNumber);
 			vo.setBrandName(brandName);
 			vo.setBusinessNumber(businessNumber);
 			System.out.println(vo.toString());
 			brandDBService.insertBrand(vo);
 			//웨이팅리스트에서 삭제
-			//customerService.deleteWaitingCustomer(user_id);
+			customerService.deleteWaitingCustomer(user_id);
 		}
 			
 

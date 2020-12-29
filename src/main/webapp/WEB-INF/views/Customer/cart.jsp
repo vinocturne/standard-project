@@ -4,31 +4,13 @@
 <%@ include file="../head.jsp"%>
 </head>
 
-<!-- HEADER -->
-<%@ include file="../header.jsp"%>
+	<!-- HEADER -->
+	<%@ include file="../header.jsp"%>
 
-<!--COMTENT -->
-<div class="content_wrap inner">
+	<!--COMTENT -->
+	<div class="content_wrap inner">
 	<!-- side_nav -->
-	<div class="side_nav">
-		<div class="side_nav_item">
-			<p class="side_nav_title">My page</p>
-			<ul>
-				<%
-					if(customer==null){
-					System.out.println(session.getAttribute("loginCustomer"));
-				%>   
-                    <li><a href="/project/Customer/login_form">Login</a></li>
-                    <li><a href="/project/Customer/Register">Register</a></li>
-                    <% } else { %>
-                    <li><a href="/project/Customer/Modify">Modify</a></li>
-                    <li><a href="/project/Customer/cart">Cart</a></li>
-                    <li><a href="/project/Customer/OrderHistory">Order</a></li>
-                    <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
-                    <%} %>
-			</ul>
-		</div>
-	</div>
+	<%@ include file="../side_nav.jsp"%>
 
 	    
 	<!-- CART:주문조회-->
