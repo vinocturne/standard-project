@@ -36,10 +36,12 @@
 </script>
 </head>
 <%@ include file="../header.jsp" %>
-<div class="content_wrap inner">
-    <!-- side_nav -->
-<%@ include file="/WEB-INF/views/side_nav.jsp"%>
 
+	<!-- CONTENT -->
+	<div class="content_wrap inner">
+    <!-- side_nav -->
+    <%@ include file="../side_nav.jsp"%>	 	
+			
     <!-- Register -->
     <div class="register_wrap">
         <fieldset>
@@ -345,6 +347,7 @@
                         width="145" height="45" alt="회원가입">
                 </div>
     </div>
+</div>
 </div>
 </form>
 

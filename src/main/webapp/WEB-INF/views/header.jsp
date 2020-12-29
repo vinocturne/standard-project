@@ -23,14 +23,14 @@
 					CustomerVO customer = (CustomerVO)session.getAttribute("loginCustomer");
 					
 					if(customer==null){
-						System.out.println("if null print..." + session.getAttribute("loginCustomer"));
+						System.out.println(session.getAttribute("loginCustomer"));
 						%> 
 						<!-- 세션이 설정되지 않을 경우 --> 
 						<li><a href="/project/Customer/login_form">Login</a></li>
 						<li><a href="/project/Customer/Register">Register</a></li>
 					<% }else{ %>
 						<li><a href="/project/Customer/logout">Logout</a></li>
-						<li><a><%=customer.getC_Id()%>님 환영합니다</a></li>
+						<li><a href="/project/Customer/myPage"><%=customer.getC_Id()%>님 환영합니다</a></li>
 					<% } %>
 				</ul>
 				<a href="#"><input type="text"><img src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg" alt="search" width="20" height="20">

@@ -167,8 +167,8 @@ public class CustomerController {
 			out.print("이미 사용중인 아이디입니다.");
 		}
 
-	}
-
+	}	
+	
 	@RequestMapping(value = "/Modify", method = RequestMethod.GET)
 	public String modify_form() {
 		return "Customer/Modify";

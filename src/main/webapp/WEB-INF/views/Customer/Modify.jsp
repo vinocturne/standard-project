@@ -3,7 +3,7 @@
 </head>
 <%@ include file="../header.jsp" %> 
 <script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<div class="content_wrap inner">
+
 <script>
     function openDaumZipAddress() {
 		new daum.Postcode({
@@ -16,18 +16,11 @@
 		}).open();
 	}
 </script>
+	
+			<!-- CONTENT -->
+			<div class="content_wrap inner">
              <!-- side_nav -->
-             <div class="side_nav">
-                 <div class="side_nav_item">
-                     <p class="side_nav_title">My page</p>
-                     <ul>
-                         <li><a href="/project/Customer/login_form">MY info</a></li>
-                         <li><a href="/project/Customer/cart">Cart</a></li>
-                         <li><a href="/project/Customer/OrderHistory">Order</a></li>
-                         <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
-                     </ul>
-                 </div>
-             </div>
+            <%@ include file="../side_nav.jsp"%>
 			
 			
              <!-- Modify -->
