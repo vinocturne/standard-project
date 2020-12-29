@@ -79,10 +79,9 @@
 						</td>
 						<td class="cart_button">
 							<div>
-								<button href="order.html">주문하기</button>
-							</div>
+								<button href="order.html">주문하</button>
 							<div>
-								<button href="#">찜하기</button>
+								<button href="review.html">리뷰작성</button>
 							</div>
 							<div>
 								<button href="#">삭제</button>
