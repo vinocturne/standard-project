@@ -156,7 +156,9 @@
 								<td>
 									<div class="checkBox">
 										<input type="checkbox" name="chBox" class="chBox"
-											data-c_Id="${user.c_Id}" />
+											data-c_Id="${user.c_Id}" 
+											data-businessNumber="${user.businessNumber}"
+											data-brandName="${user.brandName}"/>
 										<script>
 											$(".chBox").click(
 													function() {
@@ -175,11 +177,11 @@
 								<td>${user.c_Address2}</td>
 								<td>${user.c_Phone1}</td>
 								<td>${user.c_Phone2}</td>
-								<td>${user.businessNumber}</td>
+								<td name="businessNumber">${user.businessNumber}</td>
 								<td>${user.c_RegisterDay}</td>
 								<td>${user.c_Email}</td>
 								<td>${user.role}</td>
-								<td>${user.brandName}</td>
+								<td name="brandName">${user.brandName}</td>
 							</tr>
 						</c:forEach>
 					</c:when>

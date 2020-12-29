@@ -91,6 +91,8 @@ public class AdminController {
 			String brandName = (String)object.get("brandName");
 			String businessNumber = (String)object.get("businessNumber");
 			//ALTER TABLE brandDB add businessNumber varchar(20) not null;
+			System.out.println("브랜드네임 : "+brandName);
+			System.out.println("사업자번호 :" +businessNumber);
 			vo.setBrandName(brandName);
 			vo.setBusinessNumber(businessNumber);
 			System.out.println(vo.toString());
