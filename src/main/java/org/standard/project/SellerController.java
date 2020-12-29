@@ -86,4 +86,11 @@ public class SellerController {
 		return mav;
 	}
 
+	@RequestMapping(value = "/Review", method = RequestMethod.GET)
+	public ModelAndView sellerReview(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
+		
+		mav = new ModelAndView ("/Seller/Review");
+		return mav;
+	}
+	
 }
