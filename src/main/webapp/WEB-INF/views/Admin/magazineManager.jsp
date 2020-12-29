@@ -8,6 +8,10 @@
 	#Mag_thumbnail {
 		width: 150px;
 	}
+	 .table{
+        width: 1000px;
+    }
+	
 </style>
 </head>
 <%@ include file="../header.jsp"%>

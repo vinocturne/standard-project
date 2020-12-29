@@ -6,6 +6,10 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 
+    .table{
+        width: 1000px;
+    }
+
 </style>
 
 
@@ -163,7 +167,7 @@
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="13">조회된 결과가 없습니다.</td>
+							<td colspan="14">조회된 결과가 없습니다.</td>
 						</tr>
 					</c:otherwise>
 				</c:choose>

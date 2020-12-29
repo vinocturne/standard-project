@@ -27,7 +27,7 @@
 
 
 			<div class="content">
-				<h3>리뷰관리</h3>
+				<h3>상품 문의</h3>
 				<br>
 				<div class="allCheck">
 			<input type="checkbox" name="allCheck" id="allCheck" /><label
