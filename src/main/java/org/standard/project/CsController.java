@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/Cs")
 public class CsController {
 	@RequestMapping(value = "/cs_request", method = RequestMethod.GET)
-	public void cs_request() {
+	public String cs_request() {
 		
-		
+		return "Cs/cs_request";
 	}
 }
