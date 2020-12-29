@@ -114,20 +114,20 @@
 		<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
-					<th>번호</th>
-					<th>고객아이디</th>
-					<th>고객이름</th>
-					<th>출생년도</th>
-					<th>우편번호</th>
-					<th>주소</th>
-					<th>상세주소</th>
-					<th>연락처1</th>
-					<th>연락처2</th>
-					<th>사업자번호</th>
-					<th>가입일</th>
-					<th>메일주소</th>
-					<th>role</th>
-					<th>브랜드명</th>
+					<th style="width:3%; height:10%">번호</th>
+					<th style="width:8%; height:10%">고객아이디</th>
+					<th style="width:7%; height:10%">고객이름</th>
+					<th style="width:7%; height:10%">출생년도</th>
+					<th style="width:7%; height:10%">우편번호</th>
+					<th style="width:3%; height:10%">주소</th>
+					<th style="width:7%; height:10%">상세주소</th>
+					<th style="width:6%; height:10%">연락처1</th>
+					<th style="width:6%; height:10%">연락처2</th>
+					<th style="width:8%; height:10%">사업자번호</th>
+					<th style="width:5%; height:10%">가입일</th>
+					<th style="width:7%; height:10%">메일주소</th>
+					<th style="width:4%; height:10%">role</th>
+					<th style="width:5%; height:10%">브랜드명</th>
 				</tr>
 			</thead>
 			<tbody>
