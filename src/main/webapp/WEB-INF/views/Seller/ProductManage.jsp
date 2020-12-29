@@ -23,7 +23,7 @@
 				<p class="side_nav_title" font_size="100px">브랜드 관리페이지</p>
 				<ul>
 					<li><a href="/project/Seller/ProductManage">상품관리</a></li>
-					<li><a href="/project/Seller/Delivery">배송관리</a></li>
+					<li><a href="/project/Seller/Delivery">구매관리</a></li>
 					<li><a href="/project/Cs/cs_request">리뷰관리</a></li>
 
 				</ul>
