@@ -44,7 +44,6 @@
 				<tbody>
 				<tbody>
 					<tr>
-					<!-- OrderHistoryVO 구현되면 get xxx로연결하기  -->
 						<td><input type="checkbox" name="checkbox" value="1" style="border:0"></td> 
 						<td><img src="../ResourcesFile/img/logo2.png" style width="30px" height="20px"></th>
 						<td>트위드 플레어 스커트</th>

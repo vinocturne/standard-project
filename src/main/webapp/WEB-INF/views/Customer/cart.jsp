@@ -63,7 +63,7 @@
 								<button href="order.html">주문하기</button>
 							</div>
 							<div>
-								<button href="#">찜하기</button>
+								<button href="/project/Customer/ReviewPopup">후기작성</button>
 							</div>
 							<div>
 								<button href="#">삭제</button>
