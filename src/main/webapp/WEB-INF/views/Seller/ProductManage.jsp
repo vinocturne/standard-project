@@ -69,7 +69,7 @@
 									}
 								});
 							}else{
-								alert("삭제할 게시글을 선택해주세요");
+								alert("삭제할 상품을 선택해주세요");
 							}
 						}
 					});
@@ -97,7 +97,7 @@
 					<c:when test="${fn:length(list)>0}">
 						<c:forEach var="product" items="${list}">
 							<tr>
-							<td>
+								<td>
 									<div class="checkBox">
 										<input type="checkbox" name="chBox" class="chBox"
 											data-p_Id="${product.p_Id}" />

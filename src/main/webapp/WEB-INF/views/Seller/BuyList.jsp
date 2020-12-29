@@ -5,133 +5,135 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-
-     .table{
-        width: 1200px;
-    }
+.table {
+	width: 1200px;
+}
 </style>
-
 </head>
-
 <%@ include file="../header.jsp"%>
 <!-- CONTENT -->
 <div class="content_wrap inner">
 	<!-- side_nav -->
 
-        <div class="col-auto p-0"> 
-            <div class="side_nav">
-                <div class="side_nav_item">
-                    <p class="side_nav_title" font_size="100px" >브랜드 관리페이지</p>
-                    <ul>
-                        <li><a href="/project/Seller/ProductManage">상품관리</a></li>
-                        <li><a href="/project/Seller/seller">배송관리</a></li>
-                        <li><a href="/project/Seller/cs_request">리뷰관리</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-               <div class="container">
-        <div class="content">
-            <h3>배송관리</h3>
-            <p><input type="date">~<input type="date"><input type="submit" value="검색"></p>
-            
-            <br>
-            <table class="table table-warning">
-                <td><a href="">배송대기 처리</a></td>
-                <td><a href="">배송중 처리</a></td>
-                <td><a href="">상품준비중 처리</a></td>
-                <td><a href="">배송번호 받기</a></td>
-                <td><a href="">배송취소 처리</a></td>
-                <td><a href="">선택목록삭제</a></td>
-            </table>
-          
-            <table class="table table-hover">
-                <thead>
-                   
-                  <tr>
-                    <th>번호</th>
-                    <th>주문일</th>
-                    <th>주문번호</th> 
-                    <th>주문자</th>
-                    <th>배송번호</th>
-                    <th>택배업체</th>
-                    <th>상태</th>
-                    
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><input type="checkbox" name=""> 1</td>
-                    <td>2020.12.15</a></td>
-                    <td><a href="">2020121000001</a></td>
-                    <td>홍길동</td>
-                    <td>1111</td>
-                    <td>
-                        <select name="subject" id="subject">
-                        <option value="cj대한통운">cj대한통운</option>
-                        <option value="한진">한진</option>
-                        <option value="우체국택배">우체국택배</option>
-                        <option value="로젠택배">로젠택배</option>
-                        <option value="롯데로지스">롯데로지스</option>
-                        </select>
-                        
-                    </td>
-                    <td>배송대기</td>
-                        
-                        
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""> 2</td>
-                    <td>2020.12.16</td>
-                    <td><a href="">2020121000002</a></td>
-                    <td>김길동</td>
-                    <td>22222</td>
-                    <td>
-                        <select name="subject" id="subject">
-                        <option value="cj대한통운">cj대한통운</option>
-                        <option value="한진">한진</option>
-                        <option value="우체국택배">우체국택배</option>
-                        <option value="로젠택배">로젠택배</option>
-                        <option value="롯데로지스">롯데로지스</option>
-                        </select>
-                    </td>
-                    <td>배송대기</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""> 3</td>
-                    <td>2020.12.16</td>
-                    <td><a href="">2020121000003</a></td>
-                    <td>이길동</td>
-                    <td>3333</td>
-                    <td><select name="subject" id="subject">
-                        <option value="cj대한통운">cj대한통운</option>
-                        <option value="한진">한진</option>
-                        <option value="우체국택배">우체국택배</option>
-                        <option value="로젠택배">로젠택배</option>
-                        <option value="롯데로지스">롯데로지스</option>
-                        </select></td>
-                        <td>배송처리</td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox" name=""> 4</td>
-                    <td>2020.12.17</td>
-                    <td><a href="">2020121000004</a></td>
-                    <td>박길동</td>
-                    <td>44444</td>
-                    <td><select name="subject" id="subject">
-                        <option value="cj대한통운">cj대한통운</option>
-                        <option value="한진">한진</option>
-                        <option value="우체국택배">우체국택배</option>
-                        <option value="로젠택배">로젠택배</option>
-                        <option value="롯데로지스">롯데로지스</option>
-                        </select></td>
-                        <td>상품준비중</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-        </div>
-    </div>
- </div>
-        <%@ include file="../footer.jsp"%>
+	<div class="col-auto p-0">
+		<div class="side_nav">
+			<div class="side_nav_item">
+				<p class="side_nav_title" font_size="100px">브랜드 관리페이지</p>
+				<ul>
+					<li><a href="/project/Seller/ProductManage">상품관리</a></li>
+					<li><a href="/project/Seller/BuyList">구매관리</a></li>
+					<li><a href="/project/Seller/Review">리뷰관리</a></li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="content">
+		<h3>구매관리</h3>
+		<br>
+		<div class="allCheck">
+			<input type="checkbox" name="allCheck" id="allCheck" /><label
+				for="allCheck">모두 선택</label>
+			<script>
+				$("#allCheck").click(function() {
+					var chk = $("#allCheck").prop("checked");
+					if (chk) {
+						$(".chBox").prop("checked", true);
+					} else {
+						$(".chBox").prop("checked", false);
+					}
+				});
+			</script>
+			<a class="delBtn">
+				<button type="button" class="selectDelete_btn">삭제하기</button> <script>
+					$(".selectDelete_btn").click(function() {
+						var confirm_val = confirm("정말 삭제 하시겠습니까?");
+
+						if (confirm_val) {
+							var checkArr = new Array();
+							$("input[class='chBox']:checked").each(function() {
+								checkArr.push($(this).attr("data-m_Seq"));
+							});
+							if (!(checkArr == "")) {
+								$.ajax({
+									url : "deleteWaitingMagazine",
+									type : "post",
+									data : {
+										chBox : checkArr
+									},
+									success : function(result) {
+										alert("삭제 성공");
+										location.href = "BuyList";
+									}
+								});
+							} else {
+								alert("삭제할 상품을 선택해주세요");
+							}
+						}
+					});
+				</script>
+			</a>
+
+		</div>
+		<table class="table table-hover" height="100" width="1100">
+			<thead>
+				<tr>
+					<th style="width:5%; height:10%">선택</th>
+					<th style="width:5%; height:10%">고객아이디</th>
+					<th style="width:5%; height:10%">상품아이디</th>
+					<th style="width:5%; height:10%">주문일자</th>
+					<th style="width:5%; height:10%">주문번호</th>
+					<th style="width:5%; height:10%">단가</th>
+					<th style="width:5%; height:10%">수량</th>
+					<th style="width:5%; height:10%">주문금액</th>
+					<th style="width:5%; height:10%">배송상태</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:choose>
+					<c:when test="${fn:length(list)>0}">
+						<c:forEach var="orderHistory" items="${list}">
+							<tr>
+								<td>
+									<div class="checkBox">
+										<input type="checkbox" name="chBox" class="chBox"
+											data-o_Num="${orderHistory.o_Num}" />
+										<script>
+											$(".chBox").click(
+													function() {
+														$("#allCheck").prop(
+																"checked",
+																false);
+													});
+										</script>
+									</div>
+								</td>
+								<td>${orderHistory.c_Id}</td>
+								<td>${orderHistory.p_Id}</td>
+								<td>${orderHistory.o_Date}</td>
+								<td name="o_Num">${orderHistory.o_Num}</td>
+								<td>${orderHistory.p_Price}</td>
+								<td>${orderHistory.o_Quantity}</td>
+								<td>${orderHistory.o_TotalPrce}</td>
+								<td>${orderHistory.o_Delivery}</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan="9">조회된 결과가 없습니다.</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
+
+			</tbody>
+		</table>
+		<br>
+	</div>
+
+
+</div>
+
+
+<%@ include file="../footer.jsp"%>
