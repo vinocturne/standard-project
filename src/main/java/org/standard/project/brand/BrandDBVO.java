@@ -1,6 +1,6 @@
 package org.standard.project.brand;
 
-public class brandVO {
+public class BrandDBVO {
 	//FK: brandName (reference Customer(brandName))
 	private int brandId;
     private String brandName;

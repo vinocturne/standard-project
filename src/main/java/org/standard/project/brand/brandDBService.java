@@ -1,5 +1,5 @@
 package org.standard.project.brand;
 
-public class brandDAO {
+public interface brandDBService {
 
 }
