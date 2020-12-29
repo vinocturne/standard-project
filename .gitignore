@@ -4,4 +4,4 @@
 MANIFEST.MF
 pom.properties
 /target/
-/src/main/webapp/WEB-INF/appServlet-servlet.bean
+appServlet-servlet.xml
