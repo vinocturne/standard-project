@@ -68,12 +68,21 @@ public class SellerController {
 		return mav;
 	}
 	
+	
+	
 	@RequestMapping(value = "/ProductAddParent", method = RequestMethod.GET)
 	public ModelAndView AddParent(Map<String, Object> map, CustomerVO vo) {
 		System.out.println("부모 상품 추가");
 		ModelAndView mav = new ModelAndView ("/Seller/ProductAddParent");
 		
 
+		return mav;
+	}
+	
+	@RequestMapping(value = "/Delivery", method = RequestMethod.GET)
+	public ModelAndView deliveryManage(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
+		
+		mav = new ModelAndView ("/Seller/Delivery");
 		return mav;
 	}
 
