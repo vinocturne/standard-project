@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.standard.project.brand.BrandDBVO;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.order.OrderHistoryVO;
 
 public interface ProductParentService {
 	
-	ArrayList<ProductParentVO> listProductParent(CustomerVO customerVO);
+	ArrayList<ProductParentVO> listProductParent(BrandDBVO loginBrand);
 	
 }

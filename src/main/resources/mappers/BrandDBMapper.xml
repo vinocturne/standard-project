@@ -5,7 +5,7 @@
 <mapper namespace="org.standard.project.BrandDBMapper">
 
 	<select id="getBrandId" resultType="BrandDBVO">
-		SELECT brandId FROM branddb WHERE brandName ='${brandName}'
+		SELECT * FROM branddb WHERE brandName ='${brandName}'
 	</select>
 	
 	<select id="getBrandName" resultType="BrandDBVO">

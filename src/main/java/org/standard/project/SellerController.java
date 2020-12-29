@@ -35,7 +35,7 @@ public class SellerController {
 	BrandDBService brandDBService;
 	
 	@RequestMapping(value = "/ProductManage", method = RequestMethod.GET)
-	public String productManage(HttpSession session, HttpServletResponse response, ProductParentVO vo, BrandDBVO bo) throws IOException {
+	public String productManage(HttpSession session, HttpServletResponse response, ProductParentVO vo, BrandDBVO bvo) throws IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
@@ -53,14 +53,18 @@ public class SellerController {
 			out.flush();
 			return "Customer/login_form";
 		}
-//		customerVO.setBrandName("1");
+		//customerVO.getBrandName() 값으로 brandDB의 id값을 부른다 
+		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
+		System.out.println(loginBrand);
+		//값 보여주기식 
+//		customerVO.setBrandName(logindBrand.getBrandId());
 		ArrayList<ProductParentVO> listProductParent = new ArrayList<ProductParentVO>();
-		listProductParent = productParentService.listProductParent(customerVO);
+		listProductParent = productParentService.listProductParent(loginBrand);
 		System.out.println(listProductParent);
 		//가져온 후 세션에 저장하고,
 		session.setAttribute("productParentList", listProductParent);
 		//돌아갈 페이지 지정
-		return "ProductManage/ProductManage";
+		return "Seller/ProductManage";
 	}
 	
 	@RequestMapping(value = "/ProductAddParent", method = RequestMethod.GET)

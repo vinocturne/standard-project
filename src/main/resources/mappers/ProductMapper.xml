@@ -5,7 +5,7 @@
 <mapper namespace="org.standard.project.ProductMapper">
 
 	<select id="listProductParent" resultType="ProductParentVO">
-		SELECT * FROM productParent where pp_Brand= '${brandName}'
+		SELECT * FROM productParent where pp_Brand= '${brandId}'
 	</select>
 	
 </mapper>

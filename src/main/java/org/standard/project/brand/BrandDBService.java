@@ -3,6 +3,8 @@ package org.standard.project.brand;
 import java.util.List;
 import java.util.Map;
 
+import org.standard.project.customer.CustomerVO;
+
 public interface BrandDBService {
-	List<Map<String, Object>> getBrandName(Map<String, Object> map);
+	BrandDBVO getBrandId(CustomerVO customerVO);
 }

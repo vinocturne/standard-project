@@ -6,6 +6,7 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.standard.project.customer.CustomerVO;
 
 @Repository("brandDBDAO")
 public class BrandDBDAO {
@@ -14,7 +15,8 @@ public class BrandDBDAO {
 	
 	private String loc = "org.standard.project.BrandDBMapper.";
 	
-	public List<Map<String, Object>> getBrandName(Map<String, Object> map) {
-		return mySQL.selectList(loc+"getBrandName", map);
+	public BrandDBVO getBrandId(CustomerVO vo) {
+		return mySQL.selectOne(loc+"getBrandId", vo);
 	}
+	
 }
