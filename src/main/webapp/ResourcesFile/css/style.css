@@ -460,7 +460,6 @@ color: black;
     }
 
 
-
 /* Register */
 
 .title_area{
@@ -468,7 +467,7 @@ color: black;
 }
 .register_wrap {
     width: 100%;
-    padding: 15px 0;
+    padding: 50px 0;
 }   
 #customercheck{
 	font-size: 9pt;
@@ -481,7 +480,8 @@ color: black;
 
 .required{
     text-align: right;
-    font-size: 10pt;
+    font-size: 9pt;
+    font-family: 'Montserrat', sans-serif;
 }
 
 table.type12 {
@@ -586,7 +586,7 @@ table.type16 {
     vertical-align: middle;
     border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
-    background: none;
+    background: #eaeaea;
     text-align: left;
     margin: 0;
   }
@@ -608,6 +608,19 @@ table.type16 {
     padding: 0;
     font-family: 'Montserrat', sans-serif;
   }
+  
+  h4{  
+    font-size: 9pt;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: -5px;
+}
+
+
+ .c_Email input:read-only{
+ 	background-color:#eaeaea;
+ } 
 
 
 /* Modify */
