@@ -238,12 +238,12 @@ public class CustomerController {
 		}
 	}
 
-	@RequestMapping(value = "/order", method = RequestMethod.GET)
+	@RequestMapping(value = "/OrderHistory", method = RequestMethod.GET)
 	public String myOrder(HttpSession session) {
 		if (session.getAttribute("loginCustomer") == null) {
 			return "redirect:/Customer/login_form";
 		} else {
-			return "Customer/order";
+			return "Customer/OrderHistory";
 		}
 
 	}
