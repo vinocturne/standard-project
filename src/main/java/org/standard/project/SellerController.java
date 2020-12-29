@@ -1,5 +1,6 @@
 package org.standard.project;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -15,11 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.brand.BrandDBService;
 import org.standard.project.brand.BrandDBVO;
+import org.standard.project.common.UploadUtil;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.magazine.MagazineVO;
 import org.standard.project.order.OrderHistoryVO;
 import org.standard.project.product.ProductParentService;
 import org.standard.project.product.ProductParentVO;
@@ -33,6 +39,8 @@ public class SellerController {
 	CustomerService customerService;
 	@Resource(name = "BrandDBService")
 	BrandDBService brandDBService;
+	@Resource(name = "uploadPath")
+	private String uploadPath;
 	
 	@RequestMapping(value = "/ProductManage", method = RequestMethod.GET)
 	public ModelAndView productManage(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
@@ -74,14 +82,62 @@ public class SellerController {
 	public ModelAndView AddParent(Map<String, Object> map, CustomerVO vo) {
 		System.out.println("부모 상품 추가");
 		ModelAndView mav = new ModelAndView ("/Seller/ProductAddParent");
-		
-
 		return mav;
+	}
+	
+	@RequestMapping(value = "/ProductAddParent", method = RequestMethod.POST)
+	public String magazineWriteAction(HttpServletRequest req, MultipartHttpServletRequest mhsq, HttpServletResponse response) throws Exception {
+		System.out.println("상품 입력 액션");
+		ProductParentVO vo = new ProductParentVO();
+
+		String pp_Name = req.getParameter("pp_Name");
+		String parent_p_Id = req.getParameter("parent_p_Id");
+		String pp_Category1 = req.getParameter("pp_Category1");
+		String pp_Category2 = req.getParameter("pp_Category2");
+		vo.setPp_Name(pp_Name);
+		vo.setParent_p_Id(parent_p_Id);;
+		vo.setPp_Category1(pp_Category1);;
+		vo.setPp_Category2(pp_Category2);;
+		System.out.println(vo);
+		String imgUploadPath = uploadPath;
+		String fileName = null;
+		
+		List<MultipartFile> mf = mhsq.getFiles("m_Img");
+		
+		if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('꼭 이미지를 넣어주세요'); history.go(-1);</script>");
+			out.flush();
+        } else {
+            for (int i = 0; i < mf.size(); i++) {
+                if(i==0) {
+                	String ymdPath = UploadUtil.calcPath(imgUploadPath);
+        			fileName = UploadUtil.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
+        			vo.setPp_image(File.separator + "magazineImage" + ymdPath + File.separator + fileName);
+                }else if(i==1) {
+                	String ymdPath = UploadUtil.calcPath(imgUploadPath);
+        			fileName = UploadUtil.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
+        			vo.setPp_thumb(File.separator + "magazineImage" + ymdPath + File.separator + "long_"+ fileName);
+                }
+            }
+        }
+
+		int pp_Brand = Integer.parseInt(req.getParameter("pp_Brand"));
+		int pp_Price = Integer.parseInt(req.getParameter("pp_Price"));
+		
+//		vo.setPp_thumb(pp_thumb); 위에 이미 지정
+//		vo.setPp_image(pp_image); 위에 이미 지정
+		vo.setPp_Brand(pp_Brand);
+		vo.setPp_Price(pp_Price);
+		System.out.println(vo);
+//		magazineService.writeMagazine(vo);
+
+		return "redirect:/Seller/ProductAddParent";
 	}
 	
 	@RequestMapping(value = "/Delivery", method = RequestMethod.GET)
 	public ModelAndView deliveryManage(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
-		
 		mav = new ModelAndView ("/Seller/Delivery");
 		return mav;
 	}
