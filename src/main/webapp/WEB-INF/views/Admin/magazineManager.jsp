@@ -8,8 +8,9 @@
 	#Mag_thumbnail {
 		width: 150px;
 	}
-	 .table{
-        width: 1050px;
+	
+    .table{
+        width: 1200px;
     }
 	
 </style>

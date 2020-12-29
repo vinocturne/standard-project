@@ -6,10 +6,9 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 
-    .table{
-        width: 1000px;
+     .table{
+        width: 1200px;
     }
-
 </style>
 
 
@@ -115,7 +114,7 @@
 			<thead>
 				<tr>
 					<th style="width:3%; height:10%">번호</th>
-					<th style="width:8%; height:10%">고객아이디</th>
+					<th style="width:7%; height:10%">고객아이디</th>
 					<th style="width:7%; height:10%">고객이름</th>
 					<th style="width:7%; height:10%">출생년도</th>
 					<th style="width:7%; height:10%">우편번호</th>
