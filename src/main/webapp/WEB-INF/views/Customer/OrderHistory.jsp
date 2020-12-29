@@ -52,6 +52,44 @@
 				</thead>
 				
 				<tbody>
+				<tbody>
+					<tr>
+					<!-- OrderHistoryVO 구현되면 get xxx로연결하기  -->
+						<td><input type="checkbox" name="checkbox" value="1" style="border:0"></td> 
+						<td><img src="../ResourcesFile/img/logo2.png" style width="30px" height="20px"></th>
+						<td>트위드 플레어 스커트</th>
+						<td>38000원</th>
+						<td>
+							<form name="form" method="get">
+							<span class=""> 
+								<span class="ec-base-qty"> 
+								<input type="text" name="amount" value="1" size="3" onchange="change();"> 
+								<a onclick="add();"> 
+									<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가" class="up">
+								</a> 
+								<a onclick="del();"> 
+									<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소" class="down">
+								</a>
+								</span>
+							</span>
+							</td>
+						<td>
+							<input type="text" name="o_TotalPrice" id="o_TotalPrice" >원
+							</form>
+						</td>
+						<td class="cart_button">
+							<div>
+								<button href="order.html">주문하기</button>
+							</div>
+							<div>
+								<button href="#">찜하기</button>
+							</div>
+							<div>
+								<button href="#">삭제</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
 				<%for(int i=0; i<orderList.size();i++){ %>
 				
 					<tr>
@@ -73,7 +111,7 @@
 		</div>
 		<div class="order_index">
                     <button type="button" class="" onclick=""><button> << </button></a>
-                    <button type="button" class="" onclick="" ><button> < </button></a>
+                    <button type="button" class="" onclick=""><button> < </button></a>
                     <button type="button" class="" onclick=""><button> 1 </button></a>
                     <button type="button" class="" onclick=""><button> > </button></a>
                     <button type="button" class="" onclick=""><button> >> </button></a>

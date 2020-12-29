@@ -6,10 +6,22 @@
 
 
 <div class="content_wrap inner">
-             <!-- side_nav -->
-<%@ include file="/WEB-INF/views/side_nav.jsp"%>
-             
+             <!-- side_nav 수정됨: -->
 
+             
+             <div class="side_nav">
+                 <div class="side_nav_item">
+                     <p class="side_nav_title">My page</p>
+                     <ul>
+                     <li><a href="/project/Customer/login_form">Login</a></li>
+                    <li><a href="/project/Customer/Register">Register</a></li>
+              		<li><a href="/project/Customer/Modify">Modify</a></li>
+                    <li><a href="/project/Customer/cart">Cart</a></li>
+                    <li><a href="/project/order/OrderHistory">Order</a></li>
+                    <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
+					 </ul>
+                 </div>
+             </div>
              <!-- My page -->
 
              <div class="mypage_wrap">

@@ -23,7 +23,7 @@
                     <% } else { %>
                     <li><a href="/project/Customer/Modify">Modify</a></li>
                     <li><a href="/project/Customer/cart">Cart</a></li>
-                    <li><a href="/project/Customer/order">Order</a></li>
+                    <li><a href="/project/Customer/OrderHistory">Order</a></li>
                     <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
                     <%} %>
 			</ul>
