@@ -35,7 +35,7 @@ public class SellerController {
 	BrandDBService brandDBService;
 	
 	@RequestMapping(value = "/ProductManage", method = RequestMethod.GET)
-	public ModelAndView productManage(Map<String, Object> map, HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
+	public ModelAndView productManage(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
