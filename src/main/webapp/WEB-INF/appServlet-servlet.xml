@@ -36,5 +36,4 @@
 		<constructor-arg value="D:\Programming\workSpace\standard-project\src\main\webapp\uploadResources"/>
  		<!-- <constructor-arg value="D:\Programming\workSpace\project_bit\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\standard-project\uploadResources" /> -->
 	</bean>
-	
 </beans>

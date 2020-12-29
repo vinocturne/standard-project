@@ -5,6 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
+.btn btn-primary{
+}
 </style>
 </head>
 <%@ include file="../header.jsp"%>
