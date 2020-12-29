@@ -35,7 +35,7 @@ public class SellerController {
 	BrandDBService brandDBService;
 	
 	@RequestMapping(value = "/ProductManage", method = RequestMethod.GET)
-	public String productManage(HttpSession session, HttpServletResponse response, ProductParentVO vo, BrandDBVO bvo) throws IOException {
+	public ModelAndView productManage(Map<String, Object> map, HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
@@ -47,24 +47,25 @@ public class SellerController {
 		if(customerVO == null) {
 			out.println("<script>alert('로그인해주세요.');</script>");
 			out.flush();
-			return "Customer/login_form";
+			mav.setViewName("Customer/login_form");
+			return mav;
 		}else if (customerVO.getBrandName() ==null) {
 			out.println("<script>alert('기업회원으로 가입해주세요.');</script>");
 			out.flush();
-			return "Customer/login_form";
+			mav.setViewName("Customer/login_form");
+			return mav;
 		}
-		//customerVO.getBrandName() 값으로 brandDB의 id값을 부른다 
+		
 		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
 		System.out.println(loginBrand);
-		//값 보여주기식 
-//		customerVO.setBrandName(logindBrand.getBrandId());
+		
 		ArrayList<ProductParentVO> listProductParent = new ArrayList<ProductParentVO>();
 		listProductParent = productParentService.listProductParent(loginBrand);
 		System.out.println(listProductParent);
-		//가져온 후 세션에 저장하고,
-		session.setAttribute("productParentList", listProductParent);
-		//돌아갈 페이지 지정
-		return "Seller/ProductManage";
+		
+		mav = new ModelAndView ("/Seller/ProductManage");
+		mav.addObject("list", listProductParent);
+		return mav;
 	}
 	
 	@RequestMapping(value = "/ProductAddParent", method = RequestMethod.GET)
