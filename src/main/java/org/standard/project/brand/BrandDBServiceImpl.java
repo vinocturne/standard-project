@@ -18,4 +18,11 @@ public class BrandDBServiceImpl implements BrandDBService{
 		return brandDBDAO.getBrandId(vo);
 	}
 
+
+	@Override
+	public void insertBrand(BrandDBVO vo) {
+		brandDBDAO.insertBrand(vo);
+		
+	}
+
 }

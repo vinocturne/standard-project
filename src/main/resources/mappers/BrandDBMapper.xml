@@ -11,5 +11,7 @@
 	<select id="getBrandName" resultType="BrandDBVO">
 		SELECT brandName FROM branddb WHERE brandId ='${brandId}'
 	</select>
-
+<select id="insertBrand" resultType="BrandDBVO">
+		INSERT INTO branddb(brandName,businessNumber) VALUES("태훈","00213123")	
+	</select>
 </mapper>

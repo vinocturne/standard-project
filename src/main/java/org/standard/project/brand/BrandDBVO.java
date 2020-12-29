@@ -4,6 +4,14 @@ public class BrandDBVO {
 	//FK: brandName (reference Customer(brandName))
 	private int brandId;
     private String brandName;
+    private String businessNumber;
+    
+	public String getBusinessNumber() {
+		return businessNumber;
+	}
+	public void setBusinessNumber(String businessNumber) {
+		this.businessNumber = businessNumber;
+	}
 	public int getBrandId() {
 		return brandId;
 	}
@@ -16,9 +24,11 @@ public class BrandDBVO {
 	public void setBrandName(String brandName) {
 		this.brandName = brandName;
 	}
-	
 	@Override
 	public String toString() {
-		return "brandVO [brandId=" + brandId + ", brandName=" + brandName + "]";
+		return "BrandDBVO [brandId=" + brandId + ", brandName=" + brandName + ", businessNumber=" + businessNumber
+				+ "]";
 	}
+	
+
 }

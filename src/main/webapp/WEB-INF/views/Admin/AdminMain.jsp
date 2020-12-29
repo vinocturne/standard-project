@@ -86,16 +86,35 @@
 						var confirm_val = confirm("승인하시겠습니까?");
 
 						if (confirm_val) {
+							var ArrLength=0;
 							var checkArr = new Array();
+							console.log("승인 ajax 처리 시작-1차배열 생성후")
+							
 							$("input[class='chBox']:checked").each(function() {
-								checkArr.push($(this).attr("data-c_Id"));
+								//정보를 json포맷의 문자열 배열로 작성
+								checkArr.push({c_id: $(this).attr("data-c_Id"),businessNumber : $(this).attr("data-businessNumber"),
+								 brandName :$(this).attr("data-brandName")});
+								
+								
+								// checkArr[ArrLength].push($(this).attr("data-c_Id"));
+								// checkArr[ArrLength].push($(this).attr("data-businessNumber"));
+								// checkArr[ArrLength].push($(this).attr("data-brandName"));
+								// console.log(checkArr[ArrLength].length);
+								// ArrLength++;
 							});
+							//배열을 제이슨 포맷의 문자열로 변환
+							var json =JSON.stringify(checkArr);
+							 console.log(json);
+							//제이슨 포맷의 문자열을 배열로 만든다. 배열의 요소까지 객체로 변환한다.
+							// var parsed = JSON.parse(checkArr);
+							
 							if (!(checkArr == "")) {
+								console.log("checkArr이 빈값이 아님. ajax시작하겠음");
 								$.ajax({
 									url : "approveCustomer",
 									type : "post",
 									data : {
-										chBox : checkArr
+										data :json
 									},
 									success : function(result) {
 										alert("승인 성공");

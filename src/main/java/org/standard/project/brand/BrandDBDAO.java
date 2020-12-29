@@ -18,5 +18,8 @@ public class BrandDBDAO {
 	public BrandDBVO getBrandId(CustomerVO vo) {
 		return mySQL.selectOne(loc+"getBrandId", vo);
 	}
+	public void insertBrand(BrandDBVO vo) {
+		mySQL.insert(loc+"insertBrand", vo);
+	}
 	
 }

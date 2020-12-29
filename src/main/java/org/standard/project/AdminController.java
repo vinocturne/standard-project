@@ -1,6 +1,7 @@
 package org.standard.project;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +26,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import org.springframework.web.servlet.ModelAndView;
+import org.standard.project.brand.BrandDBService;
+import org.standard.project.brand.BrandDBVO;
 import org.standard.project.common.UploadUtil;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
@@ -35,6 +41,8 @@ public class AdminController {
 	CustomerService customerService;
 	@Resource(name = "MagazineService")
 	MagazineService magazineService;
+	@Resource(name="BrandDBService")
+	BrandDBService brandDBService;
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
@@ -61,18 +69,47 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/approveCustomer", method = RequestMethod.POST)
-	public String approveCustomer(@RequestParam(value = "chBox[]") String[] c_Id) throws Exception {
-		// 어차피 id 체크 되어 회원가입한것이라 체크 안하고 쿼리문을 통해 복사 붙혀널기 하고 삭제한다.
+	public String approveCustomer(HttpServletRequest req,BrandDBVO vo) throws Exception { 
+		//public String approveCustomer(@RequestParam(value = "chBox[]") String[] c_Info) throws Exception { 
+		// 어차피 id 체크 되어 회원가입한것이라 체크 안하고 쿼리문을 통해 복사 붙혀널기 하고 삭제한다. 
 		// 체크한 ID마다 반복해서 사용자 복붙 및 삭제
 		System.out.println("선택한 회원 승인 가동");
-		for (String user_id : c_Id) {
-			System.out.println("사용자 복사 붙혀놓기 = " + user_id);
-			customerService.approveCustomer(user_id);
-			System.out.println("사용자 삭제 = " + user_id);
-			customerService.deleteWaitingCustomer(user_id);
+		//ajax data에 들어있는 String 타입 JSONArray을 JSONArray타입으로 변환.
+		JSONParser parser = new JSONParser();
+		JSONArray arr = new JSONArray();
+		arr=(JSONArray)parser.parse(req.getParameter("data"));
+		//JSONArray에서 JSONObject를 추출해서 가입승인(웨이팅리스트의 값을 가져와서 고객리스트에 삽입후 웨이팅리스트 삭제, 브랜드 정보에 추가)
+		for(int i=0; i<arr.size();i++) {
+			JSONObject object = (JSONObject)arr.get(i);
+			System.out.println(object.get("brandName"));
+			System.out.println(object.get("c_id"));
+			System.out.println(object.get("businessNumber"));
+			//고객리스트에 복사
+			String user_id =(String)object.get("c_id"); 
+			//customerService.approveCustomer(user_id);
+			
+			String brandName = (String)object.get("brandName");
+			String businessNumber = (String)object.get("businessNumber");
+			//ALTER TABLE brandDB add businessNumber varchar(20) not null;
+			vo.setBrandName(brandName);
+			vo.setBusinessNumber(businessNumber);
+			System.out.println(vo.toString());
+			brandDBService.insertBrand(vo);
+			//웨이팅리스트에서 삭제
+			//customerService.deleteWaitingCustomer(user_id);
 		}
+			
 
-		return "redirect:/Admin/AdminMain";
+		
+		/*
+		 * for (String user_id : c_Info) { System.out.println("사용자 복사 붙혀놓기 = " +
+		 * user_id); customerService.approveCustomer(user_id);
+		 * System.out.println("사업자번호 : "+c_Info[1]);
+		 * System.out.println("브랜드네임 :"+c_Info[2]); System.out.println("사용자 삭제 = " +
+		 * user_id); customerService.deleteWaitingCustomer(user_id); }
+		 */
+		
+		return "redirect:/Admin/AdminMain"; 
 	}
 
 	@RequestMapping(value = "/magazineManager", method = RequestMethod.GET)

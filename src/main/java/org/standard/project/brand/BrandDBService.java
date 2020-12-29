@@ -7,4 +7,5 @@ import org.standard.project.customer.CustomerVO;
 
 public interface BrandDBService {
 	BrandDBVO getBrandId(CustomerVO customerVO);
+	void insertBrand(BrandDBVO vo);
 }
