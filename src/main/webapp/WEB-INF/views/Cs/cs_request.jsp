@@ -48,7 +48,7 @@
 						if (confirm_val) {
 							var checkArr = new Array();
 							$("input[class='chBox']:checked").each(function() {
-								checkArr.push($(this).attr("data-p_Id"));
+								checkArr.push($(this).attr("data-cs_Seq"));
 							});
 							if (!(checkArr == "")) {
 								$.ajax({
