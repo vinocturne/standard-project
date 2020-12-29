@@ -186,8 +186,8 @@
                             <tr class="c_Email">
                             <th scope="row"> 이메일 <img src= "<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수" ></th>
                             <td>
-                                <input name="email1" type="text" class="box" id="email1" size="15" value="<%=mail1%>" onclick="mk_phoneNumber()"> @ <input name="email2" type="text" class="box" id="email2" size="20" value="<%=mail2%>">
-                                <select name="email_select" class="box" id="email_select" onChange="checkemailaddy();">
+                                <input name="email1" type="text" class="box" id="email1" size="15" value="<%=mail1%>" onclick="mk_phoneNumber()"> @ <input name="email2" class="email2" type="text" class="box" id="email2" size="20" value="<%=mail2%>">
+                                <select name="email_select" class="box" id="email_select" onChange="checkemailaddy(this);">
                                     <option value="<%=mail2%>" selected><%=mail2%></option>
                                     <option value="naver.com">naver.com</option>
                                     <option value="yahoo.co.kr">gmail.com</option>
@@ -241,4 +241,10 @@
             </div>
         </div>
      </form>
+     
+           <script>
+            function checkemailaddy(ele){ var $ele = $(ele); var $email2 = $('input[name=email2]'); 
+              if($ele.val() == "1"){ $email2.attr('readonly', false); 
+              $email2.val(''); } else { $email2.attr('readonly', true); $email2.val($ele.val()); } } 
+         </script>
         <%@ include file="../footer.jsp"%>
