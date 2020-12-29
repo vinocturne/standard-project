@@ -5,7 +5,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-
+	#Mag_thumbnail {
+		width: 150px;
+	}
 </style>
 </head>
 <%@ include file="../header.jsp"%>
@@ -76,14 +78,14 @@
 	<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
-					<th>선택</th>
-					<th>매거진    번호</th>
-					<th>제목</th>
-					<th>내용</th>
-					<th>등록일</th>
-					<th>조회수</th>
-					<th>좋아요</th>
-					<th>이미지</th>
+					<th style="width:5%">선택</th>
+					<th style="width:5%">번호</th>
+					<th style="width:20%">썸네일</th>
+					<th style="width:30%">제목</th>
+					<th style="width:15%">내용</th>
+					<th style="width:15%">등록일</th>
+					<th style="width:10%">조회수</th>
+					<th style="width:10%">좋아요</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -105,14 +107,13 @@
 										</script>
 									</div>
 								</td>
-								<td><input type="checkbox" name=""> 1</td>
 								<td name="m_Seq">${magazine.m_Seq}</td>
+								<td><img src ="${pageContext.request.contextPath }${magazine.m_Thumb}" id="Mag_thumbnail"></td>
 								<td>${magazine.m_Title}</td>
 								<td>${magazine.m_Content}</td>
 								<td>${magazine.m_Date}</td>
 								<td>${magazine.m_Hit}</td>
 								<td>${magazine.m_Like}</td>
-								<td>${magazine.m_Thumb}</td>
 							</tr>
 						</c:forEach>
 					</c:when>
@@ -125,9 +126,6 @@
 
 			</tbody>
 		</table>
-	
-	목록을 불러줄 테이블 필요.
-	체크박스가 있다면 삭제가 좀 더 편리할 것 같습니다.
 	<br>
 	
 	<!-- 매거진 추가 버튼 -->

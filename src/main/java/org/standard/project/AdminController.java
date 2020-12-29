@@ -76,10 +76,11 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/magazineManager", method = RequestMethod.GET)
-	public ModelAndView magazineManager() {
+	public ModelAndView magazineManager(MagazineVO vo) {
 		System.out.println("매거진 매니저");
 		ModelAndView mav = new ModelAndView("/Admin/magazineManager");
-
+		List<MagazineVO> list = magazineService.getMagazineList(vo);
+		mav.addObject("list", list);
 		return mav;
 	}
 

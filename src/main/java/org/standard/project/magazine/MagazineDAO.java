@@ -15,10 +15,10 @@ public class MagazineDAO {
 	
 	private String loc = "org.standard.project.MagazineMapper.";
 	
-//	magazineList 불러오기
-//	public List<MagazineVO> getMagazineList(MagazineVO vo) {
-//		return mySQL.selectOne(loc+"", vo);
-//	}
+
+	public List<MagazineVO> getMagazineList(MagazineVO vo) {
+		return mySQL.selectList(loc+"adminMagazineViewList", vo);
+	}
 		
 	public void writeMagazine(MagazineVO vo) {
 		mySQL.insert(loc+"writeMagazine", vo);

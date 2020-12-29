@@ -8,10 +8,12 @@
 		INSERT INTO magazine(m_Title, m_Content, m_Date, m_Thumb, m_Img, m_Hit, m_Like) VALUES(#{m_Title}, #{m_Content}, CURDATE(), #{m_Thumb}, #{m_Img}, 0, 0);
 	</select>
 	<!-- 어드민 매거진 뷰 리스트 불러오기 -->
+	<!-- 리스트로 전체를 보여줘야하기 때문에 img가 아닌 thumbnail을 가져옴 -->
 	<select id="adminMagazineViewList" resultType="MagazineVO">
 		SELECT m_Seq, m_Title, m_Content, m_Date, m_Thumb, m_Hit, m_Like FROM magazine
 	</select>
 	<!-- 시퀀스로 매거진 상세보기 불러오기 -->
+	<!-- 본문내용이기 때문에 img를 가져옴 -->
 	<select id="magazineView" resultType="MagazineVO">
 		SELECT m_Seq, m_Title, m_Content, m_Date, m_Img, m_Hit, m_Like FROM magazine where m_Seq=#{m_Seq}
 	</select>
