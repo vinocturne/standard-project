@@ -4,8 +4,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/ResourcesFile/css/seller.css">
+<style>
+
+     .table{
+        width: 1200px;
+    }
+</style>
 </head>
 
 <%@ include file="../header.jsp"%>
@@ -19,7 +23,7 @@
 				<p class="side_nav_title" font_size="100px">브랜드 관리페이지</p>
 				<ul>
 					<li><a href="/project/Seller/ProductManage">상품관리</a></li>
-					<li><a href="/project/Seller/Delivery">배송관리</a></li>
+					<li><a href="/project/Seller/BuyList">구매관리</a></li>
 					<li><a href="/project/Seller/Review">리뷰관리</a></li>
 
 				</ul>
@@ -56,6 +60,7 @@
 									<option value="Acc">Acc</option>
 							</select></td>
 						</tr>
+						
 						<tr class="Category2">
 							<th scope="row">카테고리2</th>
 							<td><select id="pp_Category2" name="pp_Category2">
@@ -71,7 +76,7 @@
 							<td><input type="file" name="m_Img">
 							</td>
 						</tr>
-						<tr class="pd_image ">
+						<tr class="pd_image">
 							<th scope="row">롱이미지</th>
 							<td><input type="file" name="m_Img"></td>
 						</tr>

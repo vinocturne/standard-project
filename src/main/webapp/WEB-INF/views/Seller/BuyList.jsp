@@ -5,36 +5,34 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-	#Mag_thumbnail {
-		width: 150px;
-	}
-	
-    .table{
-        width: 1200px;
-    }
-	
+.table {
+	width: 1200px;
+}
 </style>
 </head>
 <%@ include file="../header.jsp"%>
+<!-- CONTENT -->
 <div class="content_wrap inner">
 	<!-- side_nav -->
+
 	<div class="col-auto p-0">
 		<div class="side_nav">
 			<div class="side_nav_item">
-				<p class="side_nav_title">관리자페이지</p>
+				<p class="side_nav_title" font_size="100px">브랜드 관리페이지</p>
 				<ul>
-					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
-					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
-					<li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
+					<li><a href="/project/Seller/ProductManage">상품관리</a></li>
+					<li><a href="/project/Seller/BuyList">구매관리</a></li>
+					<li><a href="/project/Seller/Review">리뷰관리</a></li>
+
 				</ul>
 			</div>
 		</div>
 	</div>
+
 	<div class="content">
-	<!-- 여기 안에 list를 불러올 테이블 필요 -->
-	<h3>Magazine 관리</h3>
-	<br>
-	<div class="allCheck">
+		<h3>구매관리</h3>
+		<br>
+		<div class="allCheck">
 			<input type="checkbox" name="allCheck" id="allCheck" /><label
 				for="allCheck">모두 선택</label>
 			<script>
@@ -48,8 +46,7 @@
 				});
 			</script>
 			<a class="delBtn">
-				<button type="button" class="selectDelete_btn">삭제하기</button>
-				<script>
+				<button type="button" class="selectDelete_btn">삭제하기</button> <script>
 					$(".selectDelete_btn").click(function() {
 						var confirm_val = confirm("정말 삭제 하시겠습니까?");
 
@@ -67,40 +64,41 @@
 									},
 									success : function(result) {
 										alert("삭제 성공");
-										location.href = "magazineManager";
+										location.href = "BuyList";
 									}
 								});
-							}else{
-								alert("삭제할 게시글을 선택해주세요");
+							} else {
+								alert("삭제할 상품을 선택해주세요");
 							}
 						}
 					});
 				</script>
 			</a>
-			
+
 		</div>
-	<table class="table table-hover" height="100" width="1100">
+		<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
 					<th style="width:5%; height:10%">선택</th>
-					<th style="width:5%; height:10%">번호</th>
-					<th style="width:20%; height:10%">썸네일</th>
-					<th style="width:28%; height:10%">제목</th>
-					<th style="width:15%; height:10%">내용</th>
-					<th style="width:13%; height:10%">등록일</th>
-					<th style="width:7%; height:10%">조회수</th>
-					<th style="width:7%; height:10%">좋아요</th>
+					<th style="width:5%; height:10%">고객아이디</th>
+					<th style="width:5%; height:10%">상품아이디</th>
+					<th style="width:5%; height:10%">주문일자</th>
+					<th style="width:5%; height:10%">주문번호</th>
+					<th style="width:5%; height:10%">단가</th>
+					<th style="width:5%; height:10%">수량</th>
+					<th style="width:5%; height:10%">주문금액</th>
+					<th style="width:5%; height:10%">배송상태</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:choose>
 					<c:when test="${fn:length(list)>0}">
-						<c:forEach var="magazine" items="${list}">
+						<c:forEach var="orderHistory" items="${list}">
 							<tr>
 								<td>
 									<div class="checkBox">
 										<input type="checkbox" name="chBox" class="chBox"
-											data-m_Seq="${magazine.m_Seq}" />
+											data-o_Num="${orderHistory.o_Num}" />
 										<script>
 											$(".chBox").click(
 													function() {
@@ -111,33 +109,31 @@
 										</script>
 									</div>
 								</td>
-								<td name="m_Seq">${magazine.m_Seq}</td>
-								<td><img src ="${pageContext.request.contextPath }${magazine.m_Thumb}" id="Mag_thumbnail"></td>
-								<td>${magazine.m_Title}</td>
-								<td>${magazine.m_Content}</td>
-								<td>${magazine.m_Date}</td>
-								<td>${magazine.m_Hit}</td>
-								<td>${magazine.m_Like}</td>
+								<td>${orderHistory.c_Id}</td>
+								<td>${orderHistory.p_Id}</td>
+								<td>${orderHistory.o_Date}</td>
+								<td name="o_Num">${orderHistory.o_Num}</td>
+								<td>${orderHistory.p_Price}</td>
+								<td>${orderHistory.o_Quantity}</td>
+								<td>${orderHistory.o_TotalPrce}</td>
+								<td>${orderHistory.o_Delivery}</td>
 							</tr>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="8">조회된 결과가 없습니다.</td>
+							<td colspan="9">조회된 결과가 없습니다.</td>
 						</tr>
 					</c:otherwise>
 				</c:choose>
 
 			</tbody>
 		</table>
-	<br>
-	
-	<!-- 매거진 추가 버튼 -->
-	<input type="button" value="매거진 추가하기" onClick="location.href='/project/Admin/magazineWrite'">
+		<br>
 	</div>
-	
-	
+
+
 </div>
-	
-	
+
+
 <%@ include file="../footer.jsp"%>

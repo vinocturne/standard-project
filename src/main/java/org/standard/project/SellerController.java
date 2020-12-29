@@ -135,9 +135,9 @@ public class SellerController {
 		return "redirect:/Seller/ProductAddParent";
 	}
 	
-	@RequestMapping(value = "/Delivery", method = RequestMethod.GET)
+	@RequestMapping(value = "/BuyList", method = RequestMethod.GET)
 	public ModelAndView deliveryManage(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
-		mav = new ModelAndView ("/Seller/Delivery");
+		mav = new ModelAndView ("/Seller/BuyList");
 		return mav;
 	}
 

@@ -10,21 +10,19 @@
         width: 1200px;
     }
 </style>
-
 </head>
 
 <%@ include file="../header.jsp"%>
 <!-- CONTENT -->
 <div class="content_wrap inner">
 	<!-- side_nav -->
-
         <div class="col-auto p-0"> 
             <div class="side_nav">
                 <div class="side_nav_item">
                     <p class="side_nav_title">브랜드 관리페이지</p>
                     <ul>
                         <li><a href="/project/Seller/ProductManage">상품관리</a></li>
-                        <li><a href="/project/Seller/Delivery">구매관리</a></li>
+                        <li><a href="/project/Seller/BuyList">구매관리</a></li>
                         <li><a href="/project/Seller/Review">리뷰관리</a></li>
                         
                     </ul>
@@ -34,16 +32,56 @@
      
         <div class="content">
             <h3>리뷰 관리</h3>
-            
-            <p><input type="date">~<input type="date"><input type="submit" value="검색"></p>
-            
             <br>
-         
-          
-            <table class="table table-hover">
+         	<div class="allCheck">
+			<input type="checkbox" name="allCheck" id="allCheck" /><label
+				for="allCheck">모두 선택</label>
+			<script>
+				$("#allCheck").click(function() {
+					var chk = $("#allCheck").prop("checked");
+					if (chk) {
+						$(".chBox").prop("checked", true);
+					} else {
+						$(".chBox").prop("checked", false);
+					}
+				});
+			</script>
+			<a class="delBtn">
+				<button type="button" class="selectDelete_btn">삭제하기</button>
+				<script>
+					$(".selectDelete_btn").click(function() {
+						var confirm_val = confirm("정말 삭제 하시겠습니까?");
+
+						if (confirm_val) {
+							var checkArr = new Array();
+							$("input[class='chBox']:checked").each(function() {
+								checkArr.push($(this).attr("data-r_Seq"));
+							});
+							if (!(checkArr == "")) {
+								$.ajax({
+									url : "deleteWaitingMagazine",
+									type : "post",
+									data : {
+										chBox : checkArr
+									},
+									success : function(result) {
+										alert("삭제 성공");
+										location.href = "Review";
+									}
+								});
+							}else{
+								alert("삭제할 게시물을 선택해주세요");
+							}
+						}
+					});
+				</script>
+			</a>
+
+		</div>    
+          <table class="table table-hover" height="100" width="1100">
                 <thead>
-                   
                   <tr>
+                    <th style="width:1%; height:10%">선택</th>
                     <th style="width:1%; height:10%">상품아이디</th>
                     <th style="width:1%; height:10%">리뷰번호</th>
                     <th style="width:1%; height:10%">제목</th>
@@ -81,7 +119,7 @@
 								<td>${review.r_Date}</td>
 								<td>${review.r_Star}</td>
 								<td>${review.r_Coment}</td>
-						</tr>
+							</tr>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
@@ -90,8 +128,7 @@
 						</tr>
 					</c:otherwise>
                  </c:choose>   
-
-                  </tbody>
+              </tbody>
 		</table>
 	</div>
 </div>
