@@ -6,10 +6,11 @@ import java.util.Map;
 
 import org.standard.project.brand.BrandDBVO;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.magazine.MagazineVO;
 import org.standard.project.order.OrderHistoryVO;
 
 public interface ProductParentService {
 	
 	ArrayList<ProductParentVO> listProductParent(BrandDBVO loginBrand);
-	
+	void registProductParent(ProductParentVO vo);
 }

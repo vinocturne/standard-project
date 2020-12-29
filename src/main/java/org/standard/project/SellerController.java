@@ -99,7 +99,7 @@ public class SellerController {
 		vo.setPp_Category1(pp_Category1);;
 		vo.setPp_Category2(pp_Category2);;
 		System.out.println(vo);
-		String imgUploadPath = uploadPath;
+		String imgUploadPath = uploadPath+ File.separator + "productImage" ;
 		String fileName = null;
 		
 		List<MultipartFile> mf = mhsq.getFiles("m_Img");
@@ -114,11 +114,11 @@ public class SellerController {
                 if(i==0) {
                 	String ymdPath = UploadUtil.calcPath(imgUploadPath);
         			fileName = UploadUtil.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-        			vo.setPp_image(File.separator + "magazineImage" + ymdPath + File.separator + fileName);
+        			vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator + fileName);
                 }else if(i==1) {
                 	String ymdPath = UploadUtil.calcPath(imgUploadPath);
         			fileName = UploadUtil.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-        			vo.setPp_thumb(File.separator + "magazineImage" + ymdPath + File.separator + "long_"+ fileName);
+        			vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + "long_"+ fileName);
                 }
             }
         }
@@ -126,12 +126,11 @@ public class SellerController {
 		int pp_Brand = Integer.parseInt(req.getParameter("pp_Brand"));
 		int pp_Price = Integer.parseInt(req.getParameter("pp_Price"));
 		
-//		vo.setPp_thumb(pp_thumb); 위에 이미 지정
-//		vo.setPp_image(pp_image); 위에 이미 지정
 		vo.setPp_Brand(pp_Brand);
 		vo.setPp_Price(pp_Price);
 		System.out.println(vo);
-//		magazineService.writeMagazine(vo);
+		
+		productParentService.registProductParent(vo);
 
 		return "redirect:/Seller/ProductAddParent";
 	}

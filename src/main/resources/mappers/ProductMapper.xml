@@ -8,4 +8,8 @@
 		SELECT * FROM productParent where pp_Brand= '${brandId}'
 	</select>
 	
+	<select id="registProductParent" resultType="ProductParentVO">
+		INSERT INTO productParent(pp_Name, parent_p_Id, pp_Category1, pp_Category2, pp_thumb, pp_image, pp_Brand, pp_Price) VALUES(#{pp_Name}, #{parent_p_Id}, #{pp_Category1}, #{pp_Category2}, #{pp_thumb}, #{pp_image}, #{pp_Brand}, #{pp_Price});
+	</select>
+	
 </mapper>

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.standard.project.brand.BrandDBVO;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.magazine.MagazineVO;
 import org.standard.project.order.OrderHistoryVO;
 
 @Repository("productParentDAO")
@@ -22,6 +23,10 @@ public class ProductParentDAO {
 		ArrayList<ProductParentVO> listProductParent = new ArrayList<ProductParentVO>();
 		listProductParent =(ArrayList) mySQL.selectList(loc+"listProductParent",loginBrand);
 		return listProductParent;
+	}
+	
+	public void registProductParent(ProductParentVO vo) {
+		mySQL.insert(loc+"registProductParent", vo);
 	}
 
 }
