@@ -84,21 +84,53 @@
 						</tr>
 					</thead>
 					<tbody>
+						<c:choose>
+							<c:when test="${fn:length(list)>0}">
+								<c:forEach var="user" items="${list}">
+								<tr>
+								<td>
+									<div class="checkBox">
+										<input type="checkbox" name="chBox" class="chBox"
+											data-c_Id="${user.c_Id}" />
+										<script>
+											$(".chBox").click(
+													function() {
+														$("#allCheck").prop(
+																"checked",
+																false);
+													});
+										</script>
+									</div>
+								</td>
+								
+							<td name="cs_Seq">${user.cs_Seq}</td>
+								<td>${user.cs_Title}</td>
+								<td>${user.cs_Writer}</td>
+								<td>${user.cs_Content}</td>
+								<td>${user.cs_Date}</td>
+								<td>${user.cs_viewCnt}</td>
+								<td>${user.cs_Coment}</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
 						<tr>
-						<td name="c_Id">${user.c_Id}</td>
-							<td>1</td>
-							<td><a href="">후드</a></td>
-							<td>내용</td>
-							<td>100</td>
-							<td>
-								<div class="starRev">
+							<td colspan="7">조회된 결과가 없습니다.</td>
+						</tr>
+					</c:otherwise>
+					</c:choose>
+			</tbody>
+		</table>
+	</div>
+</div>
+								<!-- <div class="starRev">
 									<span class="starR1 on">별1_왼쪽</span> <span class="starR2">별1_오른쪽</span>
 									<span class="starR1">별2_왼쪽</span> <span class="starR2">별2_오른쪽</span>
 									<span class="starR1">별3_왼쪽</span> <span class="starR2">별3_오른쪽</span>
 									<span class="starR1">별4_왼쪽</span> <span class="starR2">별4_오른쪽</span>
 									<span class="starR1">별5_왼쪽</span> <span class="starR2">별5_오른쪽</span>
 								</div> 
-								
+								 별 만들기 내용~! 
 								<script>
 									$('.starRev span').click(
 											function() {
@@ -109,29 +141,6 @@
 														'span').addClass('on');
 												return false;
 											});
-								</script>
-						</tr>
-						<tr>
-						<td name="c_Id">${user.c_Id}</td>
-							<td>2</td>
-							<td>바지</td>
-							<td>내용</td>
-							<td>200</td>
-							<td>별별별별별</td>
+								</script> -->
 
-						</tr>
-						<tr>
-						<td name="c_Id">${user.c_Id}</td>
-							<td>3</td>
-							<td>티셔츠</td>
-							<td>내용</td>
-							<td>10</td>
-							<td>별별별별별</td>
-
-						</tr>
-					</tbody>
-				</table>
-
-			</div>
-</div>
 		<%@ include file="../footer.jsp"%>
