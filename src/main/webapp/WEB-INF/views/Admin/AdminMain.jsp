@@ -9,6 +9,15 @@
      .table{
         width: 1200px;
     }
+    
+    content_wrap inner{
+    max-width: 1200px;
+    margin: 0 ;
+    width: calc(100% - 60%);
+    box-sizing: border-box;
+    position: relative;
+    }
+    
 </style>
 
 
