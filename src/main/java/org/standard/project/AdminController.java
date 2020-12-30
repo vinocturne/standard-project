@@ -201,8 +201,9 @@ public class AdminController {
 			String originalImagePath = req.getParameter("m_Img");
 			String originalThumbPath = req.getParameter("m_Thumb");
 			//오리지널 폴더에 있던 사진 삭제
-			DeleteUtil.deleteImg(originalImagePath);
-			DeleteUtil.deleteImg(originalThumbPath);
+			DeleteUtil.deleteImg(uploadPath + File.separator + originalImagePath);
+			DeleteUtil.deleteImg(uploadPath + File.separator + originalThumbPath);
+			System.out.println(uploadPath + File.separator + originalImagePath);
 			//multipartFile로 받은 이미지 경로 set
 			String imgUploadPath = uploadPath + File.separator + "magazineImage";
 			String fileName = null;
