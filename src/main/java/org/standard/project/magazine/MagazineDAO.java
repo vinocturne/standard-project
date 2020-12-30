@@ -23,5 +23,9 @@ public class MagazineDAO {
 	public void writeMagazine(MagazineVO vo) {
 		mySQL.insert(loc+"writeMagazine", vo);
 	}
+
+	public MagazineVO getMagazine(String m_Seq) {
+		return mySQL.selectOne(loc+"selectOneForModify", m_Seq);
+	}
 	
 }

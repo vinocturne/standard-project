@@ -22,4 +22,9 @@ public class MagazineServiceImpl implements MagazineService {
 		magazineDAO.writeMagazine(vo);
 	}
 
+	@Override
+	public MagazineVO getMagazine(String m_Seq) {
+		return magazineDAO.getMagazine(m_Seq);
+	}
+
 }

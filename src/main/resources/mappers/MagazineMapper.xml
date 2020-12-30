@@ -17,4 +17,7 @@
 	<select id="magazineView" resultType="MagazineVO">
 		SELECT m_Seq, m_Title, m_Content, m_Date, m_Img, m_Hit, m_Like FROM magazine where m_Seq=#{m_Seq}
 	</select>
+	<select id="selectOneForModify" resultType="MagazineVO">
+		SELECT m_Title, m_Content, m_Img FROM magazine where m_Seq=#{m_Seq}
+	</select>
 </mapper>

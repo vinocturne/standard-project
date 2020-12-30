@@ -159,4 +159,16 @@ public class AdminController {
 
 		return "redirect:/Admin/magazineManager";
 	}
+	
+	@RequestMapping(value = "/magazineModify", method = RequestMethod.GET)
+	public ModelAndView magazineModify_form(HttpServletRequest req) {
+		// 체크한 ID마다 반복해서 사용자 삭제
+		System.out.println("선택한 회원 수정 가동");
+		String m_Seq = req.getParameter("seq");
+		System.out.println(m_Seq);
+		ModelAndView mav = new ModelAndView("/Admin/magazineModify?");
+		
+		
+		return mav;
+	}
 }
