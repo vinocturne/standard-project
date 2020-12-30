@@ -65,7 +65,7 @@ public class SellerController {
 		}
 		
 		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
-		System.out.println(loginBrand);
+//		System.out.println(loginBrand);
 		
 		ArrayList<ProductParentVO> listProductParent = new ArrayList<ProductParentVO>();
 		listProductParent = productParentService.listProductParent(loginBrand);
@@ -86,22 +86,39 @@ public class SellerController {
 	}
 	
 	@RequestMapping(value = "/ProductAddParent", method = RequestMethod.POST)
-	public String magazineWriteAction(HttpServletRequest req, MultipartHttpServletRequest mhsq, HttpServletResponse response) throws Exception {
+	public String magazineWriteAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq, HttpServletResponse response) throws Exception {
 		System.out.println("상품 입력 액션");
 		ProductParentVO vo = new ProductParentVO();
 
 		String pp_Name = req.getParameter("pp_Name");
-		String parent_p_Id = req.getParameter("parent_p_Id");
+		
+//		이것을 어떻게 가져올까,, 아이디 값 가져와서 0001만들어주고 
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("loginCustomer");
+		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
+		System.out.println(loginBrand);
+		
+		int int_first_parent_p_Id = loginBrand.getBrandId();
+		String string_first_parent_p_Id = String.format("%04d", int_first_parent_p_Id);
+		int int_second_parent_p_Id = productParentService.cntBrandProductParent(loginBrand);
+		System.out.println(int_second_parent_p_Id);
+		String string_second_parent_p_Id = String.format("%04d", int_second_parent_p_Id+1);
+		String parent_p_Id = string_first_parent_p_Id.concat(string_second_parent_p_Id);
+		
+		
 		String pp_Category1 = req.getParameter("pp_Category1");
 		String pp_Category2 = req.getParameter("pp_Category2");
 		vo.setPp_Name(pp_Name);
 		vo.setParent_p_Id(parent_p_Id);;
 		vo.setPp_Category1(pp_Category1);;
 		vo.setPp_Category2(pp_Category2);;
+		int pp_Price = Integer.parseInt(req.getParameter("pp_Price"));
+		
+		vo.setPp_Brand(loginBrand.getBrandId());
+		vo.setPp_Price(pp_Price);
 		System.out.println(vo);
+		
 		String imgUploadPath = uploadPath+ File.separator + "productImage" ;
 		String fileName = null;
-		
 		List<MultipartFile> mf = mhsq.getFiles("m_Img");
 		
 		if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
@@ -122,12 +139,7 @@ public class SellerController {
                 }
             }
         }
-
-		int pp_Brand = Integer.parseInt(req.getParameter("pp_Brand"));
-		int pp_Price = Integer.parseInt(req.getParameter("pp_Price"));
 		
-		vo.setPp_Brand(pp_Brand);
-		vo.setPp_Price(pp_Price);
 		System.out.println(vo);
 		
 		productParentService.registProductParent(vo);
