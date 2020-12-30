@@ -71,7 +71,7 @@
 								<button href="#">주문하기</button>
 							<div>
 								<input type="button" name="btn1" value="리뷰작성"
-								onclick="window.open('ReviewPopup.html','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
+								onclick="window.open('/project/Customer/ReviewPopup','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
 							</div>
 							<div>
 								<button href="#">삭제</button>

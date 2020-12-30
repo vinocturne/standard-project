@@ -28,6 +28,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.brand.BrandDBService;
 import org.standard.project.brand.BrandDBVO;
+import org.standard.project.common.DeleteUtil;
 import org.standard.project.common.UploadUtil;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
@@ -159,4 +160,67 @@ public class AdminController {
 
 		return "redirect:/Admin/magazineManager";
 	}
+	
+	@RequestMapping(value = "/magazineModify", method = RequestMethod.GET)
+	public ModelAndView magazineModify_form(HttpServletRequest req) {
+		// 체크한 ID마다 반복해서 사용자 삭제
+		System.out.println("선택한 회원 수정 가동");
+		String m_Seq = req.getParameter("seq");
+		MagazineVO vo = new MagazineVO();
+		vo = magazineService.getMagazine(m_Seq);
+		System.out.println(vo);
+		ModelAndView mav = new ModelAndView("/Admin/magazineModify");
+		mav.addObject("vo",vo);		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/magazineModify", method = RequestMethod.POST)
+	public String magazineModify_Action(HttpServletRequest req, MultipartFile modifyImage) throws IOException, Exception {
+		MagazineVO vo = new MagazineVO();
+//		System.out.println("m_Seq >> "+req.getParameter("m_Seq"));
+//		System.out.println("m_Title >> "+req.getParameter("m_Title"));
+//		System.out.println("m_Content >> "+req.getParameter("m_Content"));
+//		System.out.println("m_Img >> "+m_Img.getOriginalFilename() );
+//		System.out.println("m_Thumb URL >> "+req.getParameter("m_Thumb"));
+//		System.out.println("m_Hit>> "+req.getParameter("m_Hit"));
+//		System.out.println("m_Like>> "+req.getParameter("m_Like"));
+		
+		if(modifyImage.getOriginalFilename() == "") {
+		//따로 이미지 수정을 하지 않았을 때(Seq,Img,Thumb,Hit,Like빼고, Title, Content만 업로드)
+			System.out.println("이미지 변경 없는 수정");
+			vo.setM_Seq(Integer.parseInt(req.getParameter("m_Seq")));
+			vo.setM_Title(req.getParameter("m_Title"));
+			vo.setM_Content(req.getParameter("m_Content"));
+			magazineService.modifyMagazineWithoutImg(vo);
+		} else {
+			//이미지 수정을 했을 때
+			System.out.println("이미지 변경한 수정");
+			vo.setM_Seq(Integer.parseInt(req.getParameter("m_Seq")));
+			vo.setM_Title(req.getParameter("m_Title"));
+			vo.setM_Content(req.getParameter("m_Content"));
+			String originalImagePath = req.getParameter("m_Img");
+			String originalThumbPath = req.getParameter("m_Thumb");
+			//오리지널 폴더에 있던 사진 삭제
+			DeleteUtil.deleteImg(originalImagePath);
+			DeleteUtil.deleteImg(originalThumbPath);
+			//multipartFile로 받은 이미지 경로 set
+			String imgUploadPath = uploadPath + File.separator + "magazineImage";
+			String fileName = null;
+			//req.getParameter("m_Img") != null
+			if (modifyImage.getOriginalFilename() != null && modifyImage.getOriginalFilename() != "") {
+				String ymdPath = UploadUtil.calcPath(imgUploadPath);
+				fileName = UploadUtil.fileUpload(imgUploadPath, modifyImage.getOriginalFilename(), modifyImage.getBytes(), ymdPath);
+				vo.setM_Img(File.separator + "magazineImage" + ymdPath + File.separator + fileName);
+				vo.setM_Thumb(File.separator + "magazineImage" + ymdPath + File.separator + "s" + File.separator + "s_"
+						+ fileName);
+				System.out.println("값 세팅 완료");
+			}else {
+				System.out.println("수정 이미지 받지 못함");
+			}
+			//vo로 넘겨주는 값은 seq, title, content, img주소, thumb주소
+			magazineService.modifyMagazineWithImg(vo);
+		}
+		return "redirect:/Admin/magazineManager";
+	}
+	
 }

@@ -85,6 +85,12 @@ public class MagazineVO {
 	public void setM_Date(Date m_Date) {
 		this.m_Date = m_Date;
 	}
+
+	@Override
+	public String toString() {
+		return "MagazineVO [m_Seq=" + m_Seq + ", m_Hit=" + m_Hit + ", m_Like=" + m_Like + ", m_Title=" + m_Title
+				+ ", m_Content=" + m_Content + ", m_Thumb=" + m_Thumb + ", m_Img=" + m_Img + ", m_Date=" + m_Date + "]";
+	}
 	
 	
 	

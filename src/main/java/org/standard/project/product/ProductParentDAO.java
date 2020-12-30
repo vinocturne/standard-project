@@ -1,5 +1,6 @@
 package org.standard.project.product;
 
+import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,23 @@ public class ProductParentDAO {
 	
 	public void registProductParent(ProductParentVO vo) {
 		mySQL.insert(loc+"registProductParent", vo);
+	}
+	
+//	public int cntBrandProductParent(BrandDBVO vo) {
+//		return mySQL.selectOne(loc+"cntBrandProductParent", vo);
+//	}
+	
+	public int cntBrandProductParent(BrandDBVO vo) throws Exception {
+		int result = 0;
+		try {
+			result = mySQL.selectOne(loc+"cntBrandProductParent", vo);
+			System.out.println("개수"+result);
+		} catch (NullPointerException e) {
+			throw new Exception("cntBrandProductParent==>null.");
+		} catch (Exception e) {
+			throw new Exception("cntBrandProductParent==>exception.");
+		}
+		return  result;
 	}
 
 }

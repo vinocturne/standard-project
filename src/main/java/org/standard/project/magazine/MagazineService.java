@@ -6,4 +6,7 @@ import java.util.Map;
 public interface MagazineService {
 	List<MagazineVO> getMagazineList(MagazineVO vo);
 	void writeMagazine(MagazineVO vo);
+	MagazineVO getMagazine(String m_Seq);
+	void modifyMagazineWithoutImg(MagazineVO vo);
+	void modifyMagazineWithImg(MagazineVO vo);
 }

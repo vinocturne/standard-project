@@ -5,7 +5,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-
+   body{
+       margin-left: 100px;
+       margin-right: 10%;
+   }
     .table{
         width: 1200px;
     }
@@ -16,7 +19,7 @@
 
 
 <!-- CONTENT -->
-<div class="content_wrap inner">
+<div class="content_wrap">
 	<!-- side_nav -->
 	<div class="col-auto p-0">
 		<div class="side_nav">
@@ -25,7 +28,7 @@
 				<ul>
 					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
 					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
-					<li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
+					<li><a href="/project/Cs/cs_request">CS Review</a></li>
 
 				</ul>
 			</div>
@@ -34,7 +37,8 @@
 
 
 		<div class="content">
-			<h3>상품 문의</h3>
+			<br><br>
+			<h3>리뷰 관리</h3>
 			<br>
 			<div class="allCheck">
 				<input type="checkbox" name="allCheck" id="allCheck" /><label

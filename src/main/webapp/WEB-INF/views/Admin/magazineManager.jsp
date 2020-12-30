@@ -60,7 +60,7 @@
 							});
 							if (!(checkArr == "")) {
 								$.ajax({
-									url : "deleteWaitingMagazine",
+									url : "deleteMagazine",
 									type : "post",
 									data : {
 										chBox : checkArr
@@ -77,7 +77,6 @@
 					});
 				</script>
 			</a>
-			
 		</div>
 	<table class="table table-hover" height="100" width="1100">
 			<thead>
@@ -85,11 +84,12 @@
 					<th style="width:5%; height:10%">선택</th>
 					<th style="width:5%; height:10%">번호</th>
 					<th style="width:20%; height:10%">썸네일</th>
-					<th style="width:28%; height:10%">제목</th>
+					<th style="width:25%; height:10%">제목</th>
 					<th style="width:15%; height:10%">내용</th>
-					<th style="width:13%; height:10%">등록일</th>
+					<th style="width:11%; height:10%">등록일</th>
 					<th style="width:7%; height:10%">조회수</th>
 					<th style="width:7%; height:10%">좋아요</th>
+					<th style="width:5%; height:10%">수정</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -118,6 +118,7 @@
 								<td>${magazine.m_Date}</td>
 								<td>${magazine.m_Hit}</td>
 								<td>${magazine.m_Like}</td>
+								<td><button onclick="window.location.href='magazineModify?seq=${magazine.m_Seq}'">수정</button></td>
 							</tr>
 						</c:forEach>
 					</c:when>

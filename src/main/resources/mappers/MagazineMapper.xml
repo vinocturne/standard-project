@@ -14,7 +14,16 @@
 	</select>
 	<!-- 시퀀스로 매거진 상세보기 불러오기 -->
 	<!-- 본문내용이기 때문에 img를 가져옴 -->
-	<select id="magazineView" resultType="MagazineVO">
-		SELECT m_Seq, m_Title, m_Content, m_Date, m_Img, m_Hit, m_Like FROM magazine where m_Seq=#{m_Seq}
+	<select id="selectMagazine" resultType="MagazineVO">
+		SELECT m_Seq, m_Title, m_Content, m_Date, m_Thumb, m_Img, m_Date, m_Hit, m_Like FROM magazine where m_Seq=#{m_Seq}
+	</select>
+	<select id="selectOneForModify" resultType="MagazineVO">
+		SELECT m_Title, m_Content, m_Img FROM magazine where m_Seq=#{m_Seq}
+	</select>
+	<select id="modifyMagazineWithoutImage" resultType="MagazineVO">
+		UPDATE magazine SET m_Title=#{m_Title}, m_Content=#{m_Content} where m_Seq=#{m_Seq}
+	</select>
+	<select id="modifyMagazineWithImage" resultType="MagazineVO">
+		UPDATE magazine SET m_Title=#{m_Title}, m_Content=#{m_Content}, m_Thumb=#{m_Thumb}, m_Img=#{m_Img} where m_Seq=#{m_Seq}
 	</select>
 </mapper>
