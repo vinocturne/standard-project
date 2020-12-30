@@ -80,10 +80,6 @@
 							<th scope="row">롱이미지</th>
 							<td><input type="file" name="m_Img"></td>
 						</tr>
-						<tr class="p_Brand">
-							<th scope="row">브랜드</th>
-							<td><input name="pp_Brand" type="text" maxlength="14"></td>
-						</tr>
 						<tr class="p_Price">
 							<th scope="row">가격</th>
 							<td><input name="pp_Price" type="text" maxlength="14"></td>

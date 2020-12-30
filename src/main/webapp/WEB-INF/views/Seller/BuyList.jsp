@@ -5,14 +5,18 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-.table {
-	width: 1200px;
-}
+   body{
+       margin-left: 100px;
+       margin-right: 10%;
+   }
+    .table{
+        width: 1200px;
+    }
 </style>
 </head>
 <%@ include file="../header.jsp"%>
 <!-- CONTENT -->
-<div class="content_wrap inner">
+<div class="content_wrap">
 	<!-- side_nav -->
 
 	<div class="col-auto p-0">
@@ -30,6 +34,7 @@
 	</div>
 
 	<div class="content">
+		<br><br>
 		<h3>구매관리</h3>
 		<br>
 		<div class="allCheck">
