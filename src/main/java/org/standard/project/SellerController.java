@@ -161,4 +161,11 @@ public class SellerController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/ProductAddChild", method = RequestMethod.GET)
+	public ModelAndView ProductAddChild(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
+		
+		mav = new ModelAndView ("/Seller/ProductAddChild");
+		return mav;
+	}
+	
 }
