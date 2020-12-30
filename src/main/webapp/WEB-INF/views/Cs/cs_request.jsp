@@ -5,7 +5,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-
+   body{
+       margin-left: 100px;
+       margin-right: 10%;
+   }
     .table{
         width: 1200px;
     }
@@ -16,7 +19,7 @@
 
 
 <!-- CONTENT -->
-<div class="content_wrap inner">
+<div class="content_wrap">
 	<!-- side_nav -->
 	<div class="col-auto p-0">
 		<div class="side_nav">
@@ -34,6 +37,7 @@
 
 
 		<div class="content">
+			<br><br>
 			<h3>상품 문의</h3>
 			<br>
 			<div class="allCheck">
