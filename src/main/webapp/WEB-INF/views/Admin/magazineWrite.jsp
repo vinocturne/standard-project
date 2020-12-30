@@ -5,8 +5,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
-.btn btn-primary{
-}
+	.btn btn-primary{
+	}
+	#selectImg_pre {
+		width: 300px;
+	}
 </style>
 </head>
 <%@ include file="../header.jsp"%>
@@ -38,7 +41,7 @@
 			<textarea rows="5" cols="50" name="m_Content"></textarea>
 			<br>
 			<input type="file" id="m_Img" name="m_Img"/>
-			<div class="selectImg_pre"><img src=""/></div>
+			<div class="selectImg_pre"><img src="" id="selectImg_pre"/></div>
 			<script>
 				$("#m_Img").change(function() {
 					if(this.files && this.files[0]) {

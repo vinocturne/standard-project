@@ -9,6 +9,9 @@
 <style>
 .btn btn-primary{
 }
+	#selectImg_pre {
+		width: 300px;
+	}
 </style>
 </head>
 <%@ include file="../header.jsp"%>
@@ -40,17 +43,17 @@
 			<input type="hidden" id="m_Hit" name="m_Hit" value="<%=vo.getM_Hit() %>">
 			<input type="hidden" id="m_Like" name="m_Like" value="<%=vo.getM_Like() %>">
 			<input type="hidden" id="m_Date" name="m_Date" value="<%=vo.getM_Date() %>">
-			<input type="hidden" id="m_uploadedImg" name="m_uploadedImg" value="<%=vo.getM_Img() %>">
+			<input type="hidden" id="m_Img" name="m_Img" value="<%=vo.getM_Img() %>">
 			<input type="hidden" id="m_Thumb" name="m_Thumb" value="<%=vo.getM_Thumb() %>">
 			<label for="magazineTitle">매거진 제목</label> <input type="text" name="m_Title" value="<%=vo.getM_Title()%>"/><br>
 			<br>
 			<label for="magazineContent">매거진 내용</label>
 			<textarea rows="5" cols="50" name="m_Content"><%=vo.getM_Content()%></textarea>
 			<br>
-			<input type="file" id="m_Img" name="m_Img"/>
-			<div class="selectImg_pre"><img src="${pageContext.request.contextPath }<%=vo.getM_Img()%>"/></div>
+			<input type="file" id="modifyImage" name="modifyImage"/>
+			<div class="selectImg_pre"><img src="${pageContext.request.contextPath }<%=vo.getM_Img()%>" id="selectImg_pre"/></div>
 			<script>
-				$("#m_Img").change(function() {
+				$("#modifyImage").change(function() {
 					if(this.files && this.files[0]) {
 						var reader = new FileReader;
 						reader.onload = function(data) {
