@@ -54,7 +54,7 @@
 						if (confirm_val) {
 							var checkArr = new Array();
 							$("input[class='chBox']:checked").each(function() {
-								checkArr.push($(this).attr("data-p_Id"));
+								checkArr.push($(this).attr("data-parent_p_Id"));
 							});
 							if (!(checkArr == "")) {
 								$.ajax({
@@ -86,7 +86,7 @@
 					<th style="width:5%; height:10%">카테고리1</th>
 					<th style="width:5%; height:10%">카테고리2</th>
 					<th style="width:5%; height:10%">썸네일</th>
-					<th style="width:5%; height:10%">롱이미지</th>
+					<!-- <th style="width:5%; height:10%">롱이미지</th> --><!-- 긴 이미지 보여주는거 불필요 -->
 					<th style="width:5%; height:10%">브랜드</th>
 					<th style="width:5%; height:10%">가격</th>
 					<th style="width:5%; height:10%">수정</th>
@@ -100,7 +100,7 @@
 								<td>
 									<div class="checkBox">
 										<input type="checkbox" name="chBox" class="chBox"
-											data-p_Id="${product.p_Id}" />
+											data-p_Id="${product.parent_p_Id}" />
 										<script>
 											$(".chBox").click(
 													function() {
@@ -116,16 +116,16 @@
 								<td>${product.pp_Category1}</td>
 								<td>${product.pp_Category2}</td>
 								<td>${product.pp_thumb}</td>
-								<td>${product.pp_image}</td>
+								<%-- <td>${product.pp_image}</td> --%><!-- 긴 이미지 보여주는거 불필요 -->
 								<td><%=customer.getBrandName()%></td>
-								<td>${produt.pp_Price}</td>
+								<td>${product.pp_Price}</td>
 								<td><input type="button" value="수정" onClick="'location.href='/project/Seller/ProductModify"></td>
 							</tr>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="10">조회된 결과가 없습니다.</td>
+							<td colspan="9">조회된 결과가 없습니다.</td>
 						</tr>
 					</c:otherwise>
 				</c:choose>
