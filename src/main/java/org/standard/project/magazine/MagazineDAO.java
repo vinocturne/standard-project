@@ -35,5 +35,9 @@ public class MagazineDAO {
 	public void modifyMagazineWithImg(MagazineVO vo) {
 		mySQL.update(loc+"modifyMagazineWithImage", vo);
 	}
+
+	public void deleteMagazine(String m_Seq) {
+		mySQL.delete(loc+"deleteMagazine", m_Seq);
+	}
 	
 }

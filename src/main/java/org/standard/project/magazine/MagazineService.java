@@ -9,4 +9,5 @@ public interface MagazineService {
 	MagazineVO getMagazine(String m_Seq);
 	void modifyMagazineWithoutImg(MagazineVO vo);
 	void modifyMagazineWithImg(MagazineVO vo);
+	void deleteMagazine(String m_Seq);
 }

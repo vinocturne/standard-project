@@ -37,4 +37,9 @@ public class MagazineServiceImpl implements MagazineService {
 		magazineDAO.modifyMagazineWithImg(vo);
 	}
 
+	@Override
+	public void deleteMagazine(String m_Seq) {
+		magazineDAO.deleteMagazine(m_Seq);
+	}
+
 }

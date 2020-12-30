@@ -224,4 +224,20 @@ public class AdminController {
 		return "redirect:/Admin/magazineManager";
 	}
 	
+	@RequestMapping(value = "/deleteMagazine", method = RequestMethod.POST)
+	public String deleteMagazine(@RequestParam(value = "chBox[]") String[] m_Seq) {
+		// 체크한 ID마다 반복해서 사용자 삭제
+				System.out.println("선택한 매거진 삭제 가동");
+				for (String magazineSeq : m_Seq) {
+					MagazineVO vo = magazineService.getMagazine(magazineSeq);
+					String originalImagePath = vo.getM_Img();
+					String originalThumbPath = vo.getM_Thumb() ;
+					DeleteUtil.deleteImg(uploadPath + File.separator + originalImagePath);
+					DeleteUtil.deleteImg(uploadPath + File.separator + originalThumbPath);
+					System.out.println(magazineSeq + "번 매거진 삭제");
+					magazineService.deleteMagazine(magazineSeq);
+				}
+		return "redirect:/Admin/magazineManager";
+	}
+	
 }
