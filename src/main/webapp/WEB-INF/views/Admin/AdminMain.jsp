@@ -31,7 +31,7 @@
 				<ul>
 					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
 					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
-					<li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
+					<li><a href="/project/Cs/cs_request">CS Review</a></li>
 
 				</ul>
 			</div>
