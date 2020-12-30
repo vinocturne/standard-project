@@ -2,12 +2,17 @@ package org.standard.project;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -261,7 +266,17 @@ public class CustomerController {
 		} else {
 			return "Customer/Mypage";
 		}
-
 	}
-
+	@RequestMapping(value="/checkBrandInfo", method = RequestMethod.POST)
+	public void brandInfoCheck(HttpServletRequest req,HttpServletResponse resp) throws Exception {
+		//JSON stringfy된 데이터를 JSONObject로 변환(JSONParser 사용)
+		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObject =(JSONObject)jsonParser.parse(req.getParameter("jsonInfo"));
+		String bName = (String)jsonObject.get("bName");
+		String bNumber =(String)jsonObject.get("bNumber");
+		System.out.println(bName);
+		System.out.println(bNumber);
+		PrintWriter out = resp.getWriter();
+		out.print("성공했습니다");
+	}
 }
