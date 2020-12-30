@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="org.standard.project.customer.*" %>
+<%@ page import="org.standard.project.ProductController" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 <body>
 
 <div class="wrap">
-        <h1>상품 후기작성</h1>
+        <h2>상품 후기작성</h2>
         <div class="content_wrap">
             <div class="mypage_wrap">
                
@@ -23,12 +23,15 @@
                         <thead>
                             <tr class="welcome">
                             <th> 
-                                <img src="../ResourcesFile/img/person.png" width="100px" height="100px" alt="">    
+                                <img src="../ResourcesFile/img/people.png" width="100px" height="100px" alt="">    
                             </th>
                                 <td class="textbox"> 
-                                  <%--  <%=customer.getp_Id()%>%>  --%>
-                                    
-                                </h2>
+                                  
+                                   <%-- <%=ProductController.getp_Name()--%>
+                                   <%-- <%=ProductController.getp_Brand()--%>
+                                   <%-- <%=ProductController.getp_Size()--%>
+                                   <%-- <%=ProductController.getp_Price()--%>
+                                   
                                 </td>    
                             </tr>
                         </thead>
@@ -39,9 +42,11 @@
         </div>
         <form name="reviewform" class="reviewform" method="post" action="/save">
             <input type="hidden" name="rate" id="rate" value="0"/>
-            <p class="title_star">별점과 이용경험을 남겨주세요.</p>
      
-            <div class="review_rating rating_point">
+            <div class="review_rating">
+            	<div>
+            		<p style="text-align:center">별점과 리뷰를 남겨주세요</p>
+            	</div>
                 <div class="warning_msg">별점을 선택해 주세요.</div>
                 <div class="rating">
                     <div class="ratefill"></div>

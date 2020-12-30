@@ -64,7 +64,7 @@
 								<button href="order.html">주문하기</button>
 							</div>
 							<div>
-								<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">후기작성</button>
+								<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=480px,height=620px,location=no,left=200 top=100 status=no,scrollbars=yes');">후기작성</button>
 								
 							</div>
 							<div>

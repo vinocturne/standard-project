@@ -14,4 +14,7 @@
 <select id="insertBrand" resultType="BrandDBVO">
 		INSERT INTO branddb(brandName,businessNumber) VALUES(#{brandName},#{businessNumber})	
 	</select>
+	<select id="getBrandList" resultType="BrandDBVO">
+		SELECT * FROM branddb;
+	</select>
 </mapper>
