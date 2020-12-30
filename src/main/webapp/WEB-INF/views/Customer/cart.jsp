@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="org.standard.project.order.OrderHistoryVO"%>
 <%@ include file="../head.jsp"%>
+
 </head>
 
 	<!-- HEADER -->
@@ -63,7 +64,8 @@
 								<button href="order.html">주문하기</button>
 							</div>
 							<div>
-								<button href="/project/Customer/ReviewPopup">후기작성</button>
+								<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">후기작성</button>
+								
 							</div>
 							<div>
 								<button href="#">삭제</button>
