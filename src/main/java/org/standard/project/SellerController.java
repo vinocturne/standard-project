@@ -111,7 +111,10 @@ public class SellerController {
 		vo.setParent_p_Id(parent_p_Id);;
 		vo.setPp_Category1(pp_Category1);;
 		vo.setPp_Category2(pp_Category2);;
+		int pp_Price = Integer.parseInt(req.getParameter("pp_Price"));
 		
+		vo.setPp_Brand(loginBrand.getBrandId());
+		vo.setPp_Price(pp_Price);
 		System.out.println(vo);
 		
 		String imgUploadPath = uploadPath+ File.separator + "productImage" ;
@@ -136,12 +139,7 @@ public class SellerController {
                 }
             }
         }
-
-		int pp_Brand = Integer.parseInt(req.getParameter("pp_Brand"));
-		int pp_Price = Integer.parseInt(req.getParameter("pp_Price"));
 		
-		vo.setPp_Brand(pp_Brand);
-		vo.setPp_Price(pp_Price);
 		System.out.println(vo);
 		
 		productParentService.registProductParent(vo);
