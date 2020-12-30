@@ -114,11 +114,11 @@ public class SellerController {
                 if(i==0) {
                 	String ymdPath = UploadUtil.calcPath(imgUploadPath);
         			fileName = UploadUtil.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-        			vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator + fileName);
+        			vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
                 }else if(i==1) {
                 	String ymdPath = UploadUtil.calcPath(imgUploadPath);
         			fileName = UploadUtil.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-        			vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + "long_"+ fileName);
+        			vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator+ "long" +File.separator + "long_"+ fileName);
                 }
             }
         }
