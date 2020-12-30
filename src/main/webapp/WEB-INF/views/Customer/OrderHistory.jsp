@@ -69,9 +69,9 @@
 						<td class="cart_button">
 							<div>
 								<button href="#">주문하기</button>
+							</div>
 							<div>
-								<input type="button" name="btn1" value="리뷰작성"
-								onclick="window.open('/project/Customer/ReviewPopup','window_name','width=430,height=500,location=no,status=no,scrollbars=yes');">
+								<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');">후기작성</button>
 							</div>
 							<div>
 								<button href="#">삭제</button>
