@@ -1,14 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<style>
 
-<script defer src="../js/main.js"></script>
+   body{
+       margin-left: 100px;
+       margin-right: 10%;
+   }
+    .table{
+        width: 1200px;
+    }
+    .magazine{
+	float : left;
+	    }
+    
+</style>
+
 </head>
 <%@ include file="../header.jsp"%>
+
+<div class="content_wrap">
 <div class="col-auto p-0">
 	<div class="side_nav">
 		<div class="side_nav_item">
-			<p class="/project/product">Shop</p>
+			<p class="side_nav_title">Store</p>
 			<ul>
 				<li><a href="#">Men`s</a></li>
 				<li><a href="#">
@@ -24,7 +42,63 @@
 		</div>
 	</div>
 </div>
-<div id="Magazine">
+<div class="Magazine">
+  <div class="card" style="width:300px">
+    <img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/1.jpg"  alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">내일 뭐입을까 </h4>
+      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
+      <a href="#" class="btn btn-primary">자세히 보기</a>
+    </div>
+  </div>
+  
+    <div class="card" style="width:300px">
+    <img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/1.jpg"  alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">내일 뭐입을까 </h4>
+      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
+      <a href="#" class="btn btn-primary">자세히 보기</a>
+    </div>
+  </div>
+  
+    <div class="card" style="width:300px">
+    <img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/1.jpg"  alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">내일 뭐입을까 </h4>
+      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
+      <a href="#" class="btn btn-primary">자세히 보기</a>
+    </div>
+  </div>
 
+<div class="card" style="width:300px">
+    <div class="card-body">
+      <h4 class="card-title">모레는 뭐 입을까</h4>
+      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
+      <a href="#" class="btn btn-primary">자세히 보기</a>
+    </div>
+    <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/2.jpg" alt="Card image" style="width:100%">
+  </div>
+  
+  <div class="card" style="width:300px">
+    <div class="card-body">
+      <h4 class="card-title">모레는 뭐 입을까</h4>
+      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
+      <a href="#" class="btn btn-primary">자세히 보기</a>
+    </div>
+    <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/2.jpg" alt="Card image" style="width:100%">
+  </div>
+  
+  <div class="card" style="width:300px">
+    <div class="card-body">
+      <h4 class="card-title">모레는 뭐 입을까</h4>
+      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
+      <a href="#" class="btn btn-primary">자세히 보기</a>
+    </div>
+    <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/2.jpg" alt="Card image" style="width:100%">
+  </div>
+
+
+
+</div>
 </div>
 <%@ include file="../footer.jsp"%>
