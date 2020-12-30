@@ -8,6 +8,10 @@
 	#Mag_thumbnail {
 		width: 150px;
 	}
+	   body{
+       margin-left: 100px;
+       margin-right: 10%;
+   }
 	
     .table{
         width: 1200px;
@@ -16,22 +20,23 @@
 </style>
 </head>
 <%@ include file="../header.jsp"%>
-<div class="content_wrap inner">
+<div class="content_wrap">
 	<!-- side_nav -->
 	<div class="col-auto p-0">
 		<div class="side_nav">
 			<div class="side_nav_item">
-				<p class="side_nav_title">관리자페이지</p>
+				<p class="side_nav_title" font_size="100px">관리자페이지</p>
 				<ul>
 					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
 					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
-					<li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
+					<li><a href="/project/Cs/cs_request">CS Review</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="content">
 	<!-- 여기 안에 list를 불러올 테이블 필요 -->
+	<br><br>
 	<h3>Magazine 관리</h3>
 	<br>
 	<div class="allCheck">

@@ -10,10 +10,17 @@
 	#selectImg_pre {
 		width: 300px;
 	}
+	   body{
+       margin-left: 100px;
+       margin-right: 10%;
+   }
+    .table{
+        width: 1200px;
+    }
 </style>
 </head>
 <%@ include file="../header.jsp"%>
-<div class="content_wrap inner">
+<div class="content_wrap">
 	<!-- side_nav -->
 	<div class="col-auto p-0">
 		<div class="side_nav">
@@ -22,7 +29,7 @@
 				<ul>
 					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
 					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
-					<li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
+					<li><a href="/project/Cs/cs_request">CS Review</a></li>
 
 				</ul>
 			</div>
@@ -30,6 +37,7 @@
 	</div>
 	
 	<div class="content">
+	<br><br>
 	<h3>Magazine 추가</h3>
 	<br>
 	

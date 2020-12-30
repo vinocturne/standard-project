@@ -6,16 +6,12 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 
-     .table{
+   body{
+       margin-left: 100px;
+       margin-right: 10%;
+   }
+    .table{
         width: 1200px;
-    }
-    
-    content_wrap inner{
-    max-width: 1200px;
-    margin: 0 ;
-    width: calc(100% - 60%);
-    box-sizing: border-box;
-    position: relative;
     }
     
 </style>
@@ -25,7 +21,7 @@
 
 <%@ include file="../header.jsp"%>
 
-<div class="content_wrap inner">
+<div class="content_wrap">
 	<!-- side_nav -->
 
 	<div class="col-auto p-0">
@@ -35,7 +31,7 @@
 				<ul>
 					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
 					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
-					<li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
+					<li><a href="/project/Cs/cs_request">CS Review</a></li>
 
 				</ul>
 			</div>
@@ -43,6 +39,7 @@
 	</div>
 
 	<div class="content">
+		<br><br>
 		<h3>가입 대기 목록</h3>
 		<br>
 		<div class="allCheck">
