@@ -44,7 +44,6 @@
 					<th style="width:5%; height:10%"><input type="text" id="color"></th>
 					<th style="width:5%; height:10%"><input type="text" id="size"></th>
 					<th style="width:5%; height:10%"><input type="text" id="stock"></th>
-					<th style="width:13%; height:5%">${product.pp_Brand}pp_Brand</th>
 				</tr>
 				
 			</thead>
@@ -61,9 +60,8 @@
 					<th style="width:5%; height:10%">색상</th>
 					<th style="width:5%; height:10%">사이즈</th>
 					<th style="width:5%; height:10%">재고</th>
-					<th style="width:5%; height:10%">브랜드</th>
-					<th style="width:5%; height:10%">수정</th>
-					<th style="width:5%; height:10%">삭제</th>
+					<th style="width:5%; height:10%">수정 | 삭제</th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -89,7 +87,6 @@
 								<td>${color}</td>
 								<td>${size}</td>
 								<td>${stock}</td>
-								<td>${product.pp_Brand}</td>
 								<td><input type="button" value="수정" onClick="'location.href='/project/Seller/ProductModify"></td>
 								<td><input type="button" value="삭제" onClick="'location.href='/project/Seller/ProductAddChild"></td>
 							</tr>
