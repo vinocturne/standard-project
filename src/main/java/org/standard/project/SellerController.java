@@ -145,7 +145,18 @@ public class SellerController {
 		
 		productParentService.registProductParent(vo);
 
-		return "redirect:/Seller/ProductAddParent";
+		return "redirect:/Seller/ProductManage";
+	}
+	
+	@RequestMapping(value = "/DeleteParentProduct", method = RequestMethod.POST)
+	public String deleteParentProduct(@RequestParam(value = "chBox[]") String[] parent_p_Id) throws Exception {
+		// 체크한 상품 ID마다 반복해서 사용자 삭제
+		System.out.println("선택한 상품 삭제 가동");
+		for (String del_Id : parent_p_Id) {
+			System.out.println("사용자 삭제 = " + del_Id);
+			productParentService.deleteParentProduct(del_Id);
+		}
+		return "redirect:/Seller/ProductManage";
 	}
 	
 	@RequestMapping(value = "/BuyList", method = RequestMethod.GET)
@@ -158,13 +169,6 @@ public class SellerController {
 	public ModelAndView sellerReview(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
 		
 		mav = new ModelAndView ("/Seller/Review");
-		return mav;
-	}
-	
-	@RequestMapping(value = "/ProductAddChild", method = RequestMethod.GET)
-	public ModelAndView ProductAddChild(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
-		
-		mav = new ModelAndView ("/Seller/ProductAddChild");
 		return mav;
 	}
 	

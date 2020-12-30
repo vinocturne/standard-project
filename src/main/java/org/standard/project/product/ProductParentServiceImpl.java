@@ -29,4 +29,10 @@ public class ProductParentServiceImpl implements ProductParentService{
 	public int cntBrandProductParent(BrandDBVO vo) throws Exception {
 		return productParentDAO.cntBrandProductParent(vo);
 	}
+
+	@Override
+	public void deleteParentProduct(String parent_p_Id) {
+		productParentDAO.deleteParentProduct(parent_p_Id);
+		
+	}
 }

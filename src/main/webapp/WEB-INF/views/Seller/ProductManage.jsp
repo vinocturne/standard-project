@@ -65,7 +65,7 @@
 							});
 							if (!(checkArr == "")) {
 								$.ajax({
-									url : "deleteWaitingMagazine",
+									url : "DeleteParentProduct",
 									type : "post",
 									data : {
 										chBox : checkArr
@@ -107,7 +107,7 @@
 								<td>
 									<div class="checkBox">
 										<input type="checkbox" name="chBox" class="chBox"
-											data-p_Id="${product.parent_p_Id}" />
+											data-parent_p_Id="${product.parent_p_Id}" />
 										<script>
 											$(".chBox").click(
 													function() {

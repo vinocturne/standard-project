@@ -30,10 +30,6 @@ public class ProductParentDAO {
 		mySQL.insert(loc+"registProductParent", vo);
 	}
 	
-//	public int cntBrandProductParent(BrandDBVO vo) {
-//		return mySQL.selectOne(loc+"cntBrandProductParent", vo);
-//	}
-	
 	public int cntBrandProductParent(BrandDBVO vo) throws Exception {
 		int result = 0;
 		try {
@@ -45,6 +41,10 @@ public class ProductParentDAO {
 			throw new Exception("cntBrandProductParent==>exception.");
 		}
 		return  result;
+	}
+	
+	public void deleteParentProduct(String parent_p_Id) {
+		mySQL.delete(loc+"deleteParentProduct", parent_p_Id);
 	}
 
 }

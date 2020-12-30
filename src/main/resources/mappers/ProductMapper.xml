@@ -16,4 +16,8 @@
 		SELECT COUNT(*) FROM productParent WHERE pp_Brand = #{brandId}
 	</select>
 	
+	<select id="deleteParentProduct" resultType="ProductParentVO">
+		DELETE FROM productParent WHERE parent_p_Id=#{parent_p_Id}
+	</select>
+	
 </mapper>

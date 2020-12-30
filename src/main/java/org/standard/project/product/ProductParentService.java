@@ -14,4 +14,6 @@ public interface ProductParentService {
 	ArrayList<ProductParentVO> listProductParent(BrandDBVO loginBrand);
 	void registProductParent(ProductParentVO vo);
 	int cntBrandProductParent(BrandDBVO vo) throws Exception;
+	void deleteParentProduct(String parent_p_Id);
+	
 }

@@ -60,7 +60,6 @@
 				<script>
 					$(".selectDelete_btn").click(function() {
 						var confirm_val = confirm("정말 탈퇴 하시겠습니까?");
-
 						if (confirm_val) {
 							var checkArr = new Array();
 							$("input[class='chBox']:checked").each(function() {
