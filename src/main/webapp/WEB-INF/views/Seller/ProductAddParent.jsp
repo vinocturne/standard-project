@@ -46,10 +46,10 @@
 							<th scope="row">상품명</th>
 							<td><input name="pp_Name" type="text"></td>
 						</tr>
-						<tr class="Id">
+						<!-- <tr class="Id">
 							<th scope="row">상품아이디</th>
 							<td><input name="parent_p_Id" type="text"></td>
-						</tr>
+						</tr> --><!-- 상품아이디는 자동부여 -->
 						<tr class="Category1">
 							<th scope="row">카테고리1</th>
 							<td><select id="pp_Category1" name="pp_Category1">

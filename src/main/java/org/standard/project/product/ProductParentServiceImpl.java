@@ -25,5 +25,8 @@ public class ProductParentServiceImpl implements ProductParentService{
 	public void registProductParent(ProductParentVO vo) {
 		productParentDAO.registProductParent(vo);
 	}
-
+	
+	public int cntBrandProductParent(BrandDBVO vo) throws Exception {
+		return productParentDAO.cntBrandProductParent(vo);
+	}
 }
