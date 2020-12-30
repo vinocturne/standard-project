@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="org.standard.project.customer.*" %>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../../ResourcesFile/css/star.css"/>
 
-<script type="text/javascript" src="../../ResourcesFile/js/star.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/star.css">
+<script defer src="<%=request.getContextPath()%>/ResourcesFile/js/star.js"></script>
+
 </head>
 <body>
 
 <div class="wrap">
-        <h1>상품성후기작</h1>
+        <h1>상품 후기작성</h1>
         <div class="content_wrap">
             <div class="mypage_wrap">
                
@@ -26,7 +26,7 @@
                                 <img src="../ResourcesFile/img/person.png" width="100px" height="100px" alt="">    
                             </th>
                                 <td class="textbox"> 
-                                    <%-- <%=customer.getp_Id()%>%> --%>
+                                  <%--  <%=customer.getp_Id()%>%>  --%>
                                     
                                 </h2>
                                 </td>    
