@@ -21,5 +21,8 @@ public class BrandDBDAO {
 	public void insertBrand(BrandDBVO vo) {
 		mySQL.insert(loc+"insertBrand", vo);
 	}
+	public List<BrandDBVO> getBrandList() {
+		return mySQL.selectList(loc+"getBrandList");
+	}
 	
 }

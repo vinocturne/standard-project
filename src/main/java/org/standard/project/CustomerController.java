@@ -2,6 +2,7 @@ package org.standard.project;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 import javax.annotation.Resource;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.standard.project.brand.BrandDBService;
+import org.standard.project.brand.BrandDBVO;
 import org.standard.project.common.Encrypt;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
@@ -29,6 +32,8 @@ import org.standard.project.customer.CustomerVO;
 public class CustomerController {
 	@Resource(name = "CustomerService")
 	CustomerService customerService;
+	@Resource(name ="BrandDBService")
+	BrandDBService brandDBService;
 
 	@RequestMapping(value = "/login_form", method = RequestMethod.GET)
 	public void login() {
@@ -274,9 +279,30 @@ public class CustomerController {
 		JSONObject jsonObject =(JSONObject)jsonParser.parse(req.getParameter("jsonInfo"));
 		String bName = (String)jsonObject.get("bName");
 		String bNumber =(String)jsonObject.get("bNumber");
-		System.out.println(bName);
-		System.out.println(bNumber);
 		PrintWriter out = resp.getWriter();
-		out.print("성공했습니다");
+		//중복체크처리
+		//브랜드네임만 있을수도, 사업자번호만 있을수도 있기 때문에 리스트를 가져와서 비교한다.
+		ArrayList<BrandDBVO> brandList = (ArrayList<BrandDBVO>)brandDBService.getBrandList();
+		if(brandList!=null) {
+		for(int i=0;i<brandList.size();i++) {
+			if(brandList.get(i).getBrandName().equals(bName)&&brandList.get(i).getBusinessNumber().equals(bNumber)) {
+				out.print("<strong style='color :red'>이미 등록된 업체입니다.</strong>");
+				break;
+			}else if(brandList.get(i).getBrandName().equals(bName)) {
+				out.print("<strong style='color :red'>이미 등록된 브랜드명입니다. 다른 이름을 사용해주세요</strong>");
+				break;
+			}else if(brandList.get(i).getBusinessNumber().equals(bNumber)) {
+				out.print("<strong style='color :red'>이미 등록된 사업자번호입니다.</strong>");
+				break;
+			}else if(i==brandList.size()-1){
+				out.print("<strong style='color :green'>등록 가능한 브랜드입니다.</strong>");
+			}
+		}//for
+		}//if
+		else {
+			//brandDB에 아무것도 등록되어있지 않을때
+			out.print("<strong style='color :green'>등록 가능한 브랜드입니다.</strong>");
+			 
+		}
 	}
 }

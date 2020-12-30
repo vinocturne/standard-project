@@ -1,5 +1,6 @@
 package org.standard.project.brand;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,13 @@ public class BrandDBServiceImpl implements BrandDBService{
 	public void insertBrand(BrandDBVO vo) {
 		brandDBDAO.insertBrand(vo);
 		
+	}
+
+
+	@Override
+	public List<BrandDBVO> getBrandList() {
+		
+		return brandDBDAO.getBrandList();
 	}
 
 }
