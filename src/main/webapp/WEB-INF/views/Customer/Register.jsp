@@ -2,6 +2,7 @@
 <%@ include file="../head.jsp" %>
 <!-- daum 우편번호 찾기를 위한 라이브러리 호출 -->
 <script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     /* 아이디 중복검사 */
     function check_Id() {
@@ -9,7 +10,7 @@
         $.ajax({
             type: "POST",
             dataType: "text",
-            async: true,
+            async: false,
             url: "/project/Customer/check_Id",
             data: {
                 param: ID
@@ -20,6 +21,34 @@
             error: function (data, textStatus) {
                 console.log("에러 발생");
             }
+        });
+    }
+    // 브랜드정보(브랜드명&사업자 명 중복 체크)
+    function fn_brandInfoCheck(){
+        //let brandNameCheck = document.getElementById("brandName").value;
+       // let businessNumberCheck = document.getElementById("businessNumber").value;
+        //json ajax로 서버로 전송
+        var _jsonInfo ={"bName": document.getElementById("brandName").value, "bNumber" : document.getElementById("businessNumber").value};
+
+        //let info = [{bName: document.getElementById("brandName").value},{ bNumber : document.getElementById("businessNumber").value}];
+        // JSON.parse(info);
+        // console.log("JSON PARSER변환 : "+info);
+        console.log(_jsonInfo);
+        JSON.stringify(_jsonInfo);
+        $.ajax({
+           type:"post",
+           async:true,
+           url:"checkBrandInfo",
+           data:{
+                jsonInfo: JSON.stringify(_jsonInfo)
+           },
+           success:function(data,textStatus){
+                var resultStr = document.getElementById("brandInfoCheckResult");
+                resultStr.innerHTML ="중복체크완료";
+           },
+           error:function(data,textStatus){
+               console.log("에러발생");
+           }
         });
     }
 
@@ -189,14 +218,20 @@
                 <div id="companycheck"><span></span></div>
             <!--</form>  -->
         </fieldset>
-    
         <script type="text/javascript">
             $(document).ready(function () {
                 $('input[name="radiocheck"]').change(function () {
                     var value = $(this).val();
                     if (value == "기업회원") {
                         $('#companycheck span').html(
-                            '<hr><h4>※ 기업회원 필수 입력 영역</h4><table class="type16"> <thead> <tr class="businessNumber"><th scope="row"> 사업자번호 </th><td><input id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10"></span></td></tr><br><tr class="brandName"><th scope="row"> 브랜드명 </th><td><input id="brandName" name="brandName" type="text" class="inputTypeText"></td></tr></thead></table>'
+                            `<hr><h4>※ 기업회원 필수 입력 영역</h4>
+                            <table class="type16"> <thead> <tr class="businessNumber">
+                            <th scope="row"> 사업자번호 </th>
+                            <td><input id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10"></span></td></tr><br>
+                            <tr class="brandName"><th scope="row"> 브랜드명 </th><td><input id="brandName" name="brandName" type="text" class="inputTypeText"></td></tr></thead>
+                            </table>
+                            <input type="button" value="중복체크" onclick="fn_brandInfoCheck()">
+                            <span id="brandInfoCheckResult">브랜드 가입 여부를 확인해주세요</span>`
                             );
                     } else {
                         $('#companycheck span').html('');
