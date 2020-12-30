@@ -28,7 +28,7 @@
 				<ul>
 					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
 					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
-					<li><a href="/project/Cs/cs_request">Customer Q&A</a></li>
+					<li><a href="/project/Cs/cs_request">CS Review</a></li>
 
 				</ul>
 			</div>
@@ -38,7 +38,7 @@
 
 		<div class="content">
 			<br><br>
-			<h3>상품 문의</h3>
+			<h3>리뷰 관리</h3>
 			<br>
 			<div class="allCheck">
 				<input type="checkbox" name="allCheck" id="allCheck" /><label
