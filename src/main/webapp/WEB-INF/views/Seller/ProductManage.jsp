@@ -5,6 +5,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
+	#product_thumbnail {
+		width: 150px;
+	}
    body{
        margin-left: 100px;
        margin-right: 10%;
@@ -119,7 +122,7 @@
 								<td>${product.parent_p_Id}</td>
 								<td>${product.pp_Category1}</td>
 								<td>${product.pp_Category2}</td>
-								<td>${product.pp_thumb}</td>
+								<td><img src ="${pageContext.request.contextPath }${product.pp_thumb}" id="product_thumbnail"></td>
 								<%-- <td>${product.pp_image}</td> --%><!-- 긴 이미지 보여주는거 불필요 -->
 								<td><%=customer.getBrandName()%></td>
 								<td>${product.pp_Price}</td>

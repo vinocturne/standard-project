@@ -23,6 +23,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.brand.BrandDBService;
 import org.standard.project.brand.BrandDBVO;
 import org.standard.project.common.UploadUtil;
+import org.standard.project.common.UploadUtilProductLong;
+import org.standard.project.common.UploadUtilProductThumb;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.magazine.MagazineVO;
@@ -127,14 +129,13 @@ public class SellerController {
 			out.println("<script>alert('꼭 이미지를 넣어주세요'); history.go(-1);</script>");
 			out.flush();
         } else {
+        	String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
             for (int i = 0; i < mf.size(); i++) {
                 if(i==0) {
-                	String ymdPath = UploadUtil.calcPath(imgUploadPath);
-        			fileName = UploadUtil.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
+        			fileName = UploadUtilProductThumb.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
         			vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
                 }else if(i==1) {
-                	String ymdPath = UploadUtil.calcPath(imgUploadPath);
-        			fileName = UploadUtil.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
+        			fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
         			vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator+ "long" +File.separator + "long_"+ fileName);
                 }
             }
