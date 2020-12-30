@@ -140,6 +140,8 @@
 		</table>
 		<a href="/project/Seller/ProductAddParent"><button
 				class="add-product">상품 추가하기</button></a>
+					<a href="/project/Seller/ProductAddChild"><button
+				class="add-product">옵션 추가하기test</button></a>
 	</div>
 </div>
 
