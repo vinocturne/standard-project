@@ -172,4 +172,31 @@ public class AdminController {
 		mav.addObject("vo",vo);		
 		return mav;
 	}
+	
+	@RequestMapping(value = "/magazineModify", method = RequestMethod.POST)
+	public String magazineModify_Action(HttpServletRequest req, MultipartFile m_Img) {
+		MagazineVO vo = new MagazineVO();
+//		System.out.println("m_Seq >> "+req.getParameter("m_Seq"));
+//		System.out.println("m_Title >> "+req.getParameter("m_Title"));
+//		System.out.println("m_Content >> "+req.getParameter("m_Content"));
+//		System.out.println("m_Img >> "+m_Img.getOriginalFilename() );
+//		System.out.println("m_Thumb URL >> "+req.getParameter("m_Thumb"));
+//		System.out.println("m_Hit>> "+req.getParameter("m_Hit"));
+//		System.out.println("m_Like>> "+req.getParameter("m_Like"));
+		
+		if(m_Img.getOriginalFilename() == "") {
+		//따로 이미지 수정을 하지 않았을 때(Seq,Img,Thumb,Hit,Like빼고, Title, Content만 업로드)
+			System.out.println("이미지 변경 없는 수정");
+			vo.setM_Seq(Integer.parseInt(req.getParameter("m_Seq")));
+			vo.setM_Title(req.getParameter("m_Title"));
+			vo.setM_Content(req.getParameter("m_Content"));
+			magazineService.modifyMagazineWithoutImg(vo);
+		} else {
+			//이미지 수정을 했을 때
+			System.out.println("이미지 변경한 수정");
+			String uploadedImgPath = req.getParameter("m_uploadedImg");
+		}
+		return "redirect:/Admin/magazineManager";
+	}
+	
 }

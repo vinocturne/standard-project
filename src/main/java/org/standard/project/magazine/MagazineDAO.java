@@ -27,5 +27,13 @@ public class MagazineDAO {
 	public MagazineVO selectMagazine(String m_Seq) {
 		return mySQL.selectOne(loc+"selectMagazine", m_Seq);
 	}
+
+	public void modifyMagazineWithoutImg(MagazineVO vo) {
+		mySQL.update(loc+"modifyMagazineWithoutImage", vo);
+	}
+
+	public void modifyMagazineWithImg(MagazineVO vo) {
+		mySQL.update(loc+"modifyMagazineWithImage", vo);
+	}
 	
 }

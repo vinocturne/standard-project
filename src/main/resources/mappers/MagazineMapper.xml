@@ -20,7 +20,10 @@
 	<select id="selectOneForModify" resultType="MagazineVO">
 		SELECT m_Title, m_Content, m_Img FROM magazine where m_Seq=#{m_Seq}
 	</select>
-	<select id="modifyMagazine" resultType="MagazineVO">
+	<select id="modifyMagazineWithoutImage" resultType="MagazineVO">
+		UPDATE magazine SET m_Title=#{m_Title}, m_Content=#{m_Content} where m_Seq=#{m_Seq}
+	</select>
+	<select id="modifyMagazineWithImage" resultType="MagazineVO">
 		UPDATE magazine SET m_Title=#{m_Title}, m_Content=#{m_Content}, m_Thumb=#{m_Thumb}, m_Img=#{m_Img} where m_Seq=#{m_Seq}
 	</select>
 </mapper>
