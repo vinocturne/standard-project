@@ -13,7 +13,8 @@
 	<mvc:resources mapping="/ResourcesFile/css/**" location="/ResourcesFile/css/"/>
 	<mvc:resources mapping="/ResourcesFile/js/**" location="/ResourcesFile/js/"/>
 	<mvc:resources mapping="/ResourcesFile/img/**" location="/ResourcesFile/img/"/>
-	<mvc:resources mapping="/magazineImage/**" location="/uploadResources/magazineImage/"/>
+	<!--  <mvc:resources mapping="/magazineImage/**" location="/uploadResources/magazineImage/"/> -->
+	<mvc:resources mapping="/magazineImage/**" location="file:///C:/projectLocal/uploadResources"/>
 	<mvc:resources mapping="/productImage/**" location="/uploadResources/productImage/"/>
 	<!-- .jsp를 입력하지 않고, 또 전체 루트를 입력하지 않고 해당 페이지의 이름만으로 연결 시켜주기 위한 초석.
 		 jsp에서 링크를 연결할 때 .jsp 빼도 가능. -->
