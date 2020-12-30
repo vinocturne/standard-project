@@ -165,7 +165,9 @@ public class AdminController {
 		// 체크한 ID마다 반복해서 사용자 삭제
 		System.out.println("선택한 회원 수정 가동");
 		String m_Seq = req.getParameter("seq");
-		System.out.println(m_Seq);
+		MagazineVO vo = new MagazineVO();
+		
+		
 		ModelAndView mav = new ModelAndView("/Admin/magazineModify?");
 		
 		
