@@ -24,7 +24,7 @@ public class MagazineServiceImpl implements MagazineService {
 
 	@Override
 	public MagazineVO getMagazine(String m_Seq) {
-		return magazineDAO.getMagazine(m_Seq);
+		return magazineDAO.selectMagazine(m_Seq);
 	}
 
 }

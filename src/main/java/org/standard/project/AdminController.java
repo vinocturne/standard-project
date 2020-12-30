@@ -166,11 +166,10 @@ public class AdminController {
 		System.out.println("선택한 회원 수정 가동");
 		String m_Seq = req.getParameter("seq");
 		MagazineVO vo = new MagazineVO();
-		
-		
-		ModelAndView mav = new ModelAndView("/Admin/magazineModify?");
-		
-		
+		vo = magazineService.getMagazine(m_Seq);
+		System.out.println(vo);
+		ModelAndView mav = new ModelAndView("/Admin/magazineModify");
+		mav.addObject("vo",vo);		
 		return mav;
 	}
 }
