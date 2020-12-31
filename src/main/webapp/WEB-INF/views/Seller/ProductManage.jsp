@@ -126,7 +126,7 @@
 								<%-- <td>${product.pp_image}</td> --%><!-- 긴 이미지 보여주는거 불필요 -->
 								<td><%=customer.getBrandName()%></td>
 								<td>${product.pp_Price}</td>
-								<td><input type="button" value="수정" onClick="'location.href='/project/Seller/ProductModify"></td>
+								<td><button onclick="window.location.href='ModifyParentProduct?seq=${product.parent_p_Id}'">수정</button></td>
 							</tr>
 						</c:forEach>
 					</c:when>

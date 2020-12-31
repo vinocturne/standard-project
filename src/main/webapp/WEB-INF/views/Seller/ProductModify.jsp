@@ -1,3 +1,4 @@
+<%@page import="org.standard.project.product.ProductParentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
@@ -38,9 +39,16 @@
 	<div class="register_wrap">
 		<div class="title_area">
 			<div class="title_area1">
-				<h1>신규 상품 카테고리 등록</h1>
+				<h1>상품 수정</h1>
 			</div>
 		</div>
+		
+		<%
+			ProductParentVO vo = (ProductParentVO)request.getAttribute("vo");
+			String Category1 = (String)vo.getPp_Category1();
+			String Category2 = (String)vo.getPp_Category2();
+		%>
+		
 		<form action="/project/Seller/ProductAddParent" method="POST" enctype="multipart/form-data">
 			<div class="Register_table">
 				<table class="type12">
@@ -48,7 +56,7 @@
 						<br>
 						<tr class="Name">
 							<th scope="row">상품명</th>
-							<td><input name="pp_Name" type="text"></td>
+							<td><input name="pp_Name" type="text" value="<%=vo.getPp_Name() %>"></td>
 						</tr>
 						<!-- <tr class="Id">
 							<th scope="row">상품아이디</th>
@@ -57,6 +65,7 @@
 						<tr class="Category1">
 							<th scope="row">카테고리1</th>
 							<td><select id="pp_Category1" name="pp_Category1">
+									<option value="<%=Category1%>"><%=Category1%></option>
 									<option value="Top">Top</option>
 									<option value="Bottom">Bottom</option>
 									<option value="Dress">Dress</option>
@@ -68,6 +77,7 @@
 						<tr class="Category2">
 							<th scope="row">카테고리2</th>
 							<td><select id="pp_Category2" name="pp_Category2">
+									<option value="<%=Category2%>"><%=Category2%></option>
 									<option value="Top">Top</option>
 									<option value="Bottom">Bottom</option>
 									<option value="Dress">Dress</option>
@@ -82,13 +92,13 @@
 						</tr>
 						<tr class="pd_image">
 							<th scope="row">롱이미지</th>
-							<td><input type="file" name="m_Img"></td>
+							<td><input type="file" name="m_Img">
+							</td>
 						</tr>
 						<tr class="p_Price">
 							<th scope="row">가격</th>
-							<td><input name="pp_Price" type="text" maxlength="14"></td>
+							<td><input name="pp_Price" type="text" maxlength="14" value="<%=vo.getPp_Price() %>" ></td>
 						</tr>
-
 					</thead>
 				</table>
 			</div>

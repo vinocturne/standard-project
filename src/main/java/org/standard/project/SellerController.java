@@ -159,6 +159,18 @@ public class SellerController {
 		return "redirect:/Seller/ProductManage";
 	}
 	
+	@RequestMapping(value = "/ModifyParentProduct", method = RequestMethod.GET)
+	public ModelAndView selectParentProduct(HttpServletRequest req) {
+		System.out.println("선택한 부모상품 수정 가동");
+		String parent_p_Id = req.getParameter("seq");
+		ProductParentVO vo = new ProductParentVO();
+		vo = productParentService.selectParentProduct(parent_p_Id);
+		System.out.println(vo);
+		ModelAndView mav = new ModelAndView("/Seller/ProductModify");
+		mav.addObject("vo",vo);		
+		return mav;
+	}
+	
 	@RequestMapping(value = "/BuyList", method = RequestMethod.GET)
 	public ModelAndView deliveryManage(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
 		mav = new ModelAndView ("/Seller/BuyList");

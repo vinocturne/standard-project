@@ -46,5 +46,9 @@ public class ProductParentDAO {
 	public void deleteParentProduct(String parent_p_Id) {
 		mySQL.delete(loc+"deleteParentProduct", parent_p_Id);
 	}
+	
+	public ProductParentVO selectParentProduct(String parent_p_Id) {
+		return mySQL.selectOne(loc+"selectParentProduct", parent_p_Id);
+	}
 
 }
