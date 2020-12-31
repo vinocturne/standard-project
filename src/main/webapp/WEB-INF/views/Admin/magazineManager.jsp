@@ -119,7 +119,7 @@
 								<td name="m_Seq">${magazine.m_Seq}</td>
 								<!-- 서버에 프로젝트를 올릴때에는 
 									<img src ="${pageContext.request.contextPath }${magazine.m_Thumb}" id="Mag_thumbnail"> 사용해야함. -->
-								<td><img src ="${pageContext.request.contextPath }${magazine.m_Thumb}" id="Mag_thumbnail"></td>
+								<td><img src ="${pageContext.request.contextPath}${magazine.m_Thumb}" id="Mag_thumbnail"></td>
 								<td>${magazine.m_Title}</td>
 								<td>${magazine.m_Content}</td>
 								<td>${magazine.m_Date}</td>
