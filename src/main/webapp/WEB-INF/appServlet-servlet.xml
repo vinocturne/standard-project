@@ -16,7 +16,7 @@
 	<!-- 바로 아래 리소스 매핑의 경우에는 상대경로로 프로젝트 내에서 리소스파일이 있는경우에 사용 -->
 	<!-- <mvc:resources mapping="/magazineImage/**" location="/uploadResources/magazineImage/"/> -->
 	<mvc:resources mapping="/magazineImage/**" location="file:\\\C:\projectLocal\uploadResources\magazineImage\"/>
-	<mvc:resources mapping="/productImage/**" location="/uploadResources/productImage/"/>
+	<mvc:resources mapping="/productImage/**" location="file:\\\C:\projectLocal\uploadResources\productImage\"/>
 	<!-- .jsp를 입력하지 않고, 또 전체 루트를 입력하지 않고 해당 페이지의 이름만으로 연결 시켜주기 위한 초석.
 		 jsp에서 링크를 연결할 때 .jsp 빼도 가능. -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
