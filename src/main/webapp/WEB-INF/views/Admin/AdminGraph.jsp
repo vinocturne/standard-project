@@ -11,7 +11,7 @@
 <script src="<%=request.getContextPath()%>/ResourcesFile/js/billboard.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/billboard.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/insight.css">
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
 <style>
 
    body{
@@ -50,10 +50,12 @@
 		<br><br>
 		<h3>그래프</h3>
 		<br>
-
+	<canvas id="line-chart"></canvas>
 	</div>
+
 </div>
 <div id="lineChart"></div>
+
 
 <script>
 	var list =JSON.stringify(${list});
@@ -61,6 +63,7 @@
 	var parsed = JSON.parse(list);
 	console.log(parsed[0].totalPrice);
 	console.log(parsed[0].orderDate);
+	
 
 
 	var chart = bb.generate({
@@ -82,6 +85,20 @@
   },
   bindto: "#timeseriesChart"
 });
+
+var ctx = $("#line-chart");
+	var lineChart = new Chart(ctx, {
+	  type: 'line',
+	  data: {
+	    labels: [parsed[2].orderDate, parsed[1].orderDate, parsed[0].orderDate],
+	    datasets: [
+	      {
+	        label: "2020",
+	        data: [parsed[2].totalPrice,parsed[1].totalPrice, parsed[0].totalPrice]
+	      }
+	    ]
+	  }
+	});
 
 </script>
 
