@@ -258,9 +258,14 @@ public class CustomerController {
 
 	}
 	
-	@RequestMapping(value = "ReviewPopup", method=RequestMethod.GET)
+	@RequestMapping(value = "/ReviewPopup", method=RequestMethod.GET)
 	public String reviewpopup(HttpSession session) {
 	return "Customer/ReviewPopup";
+	}
+	
+	@RequestMapping(value = "/ReviewModify", method=RequestMethod.GET)
+	public String reviewmodify(HttpSession session) {
+	return "Customer/ReviewModify";
 	}
 	
 	

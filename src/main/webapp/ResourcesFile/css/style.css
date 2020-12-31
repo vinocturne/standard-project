@@ -756,9 +756,10 @@ h2{
     font-size: 9pt;
     border: 1px solid #eaeaea;
     width: 130pt;
-    height: 70pt;
+    height: 30px;
     text-align: center;
     vertical-align: middle;
+    font-weight:bold;
   }
 
   .type14 td {
