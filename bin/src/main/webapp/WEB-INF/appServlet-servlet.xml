@@ -19,6 +19,14 @@
 		<!-- 확장자명 -->
 		<property name="suffix" value=".jsp"></property>
 	</bean>
+	<!-- CommonsMultipartResolver클래스를 빈으로 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<property name ="maxUploadSize" value ="52428800"/>
+	<property name ="maxInMemorySize" value="1000000" />
+	<property name ="defaultEncoding" value="utf-8" />
+	</bean>
+
+
 	<!-- controller 메인 어디로 연결되는지 -->
 	<context:component-scan base-package="org.standard.project"/>
 	
