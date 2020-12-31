@@ -240,4 +240,25 @@ public class AdminController {
 		return "redirect:/Admin/magazineManager";
 	}
 	
+//	@RequestMapping(value = "/magazineList" , method = RequestMethod.GET)
+//	public ModelAndView magazineList(HttpServletRequest req) {
+//		System.out.println("선택한 회원 수정 가동");
+//		MagazineVO vo = new MagazineVO();
+//		System.out.println(vo);
+//		ModelAndView mav = new ModelAndView("/Magazine/Magazine");
+//		mav.addObject("vo",vo);		
+//		return mav;
+//
+////		return "Magazine/Magazine";
+//	}
+	
+	@RequestMapping(value = "/magazineList", method = RequestMethod.GET)
+	public ModelAndView magazineList(MagazineVO vo) {
+		System.out.println("매거진 매니저");
+		ModelAndView mav = new ModelAndView("/Magazine/Magazine");
+		List<MagazineVO> list = magazineService.getMagazineList(vo);
+		mav.addObject("list", list);
+		return mav;
+	}
+	
 }
