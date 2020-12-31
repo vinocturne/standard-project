@@ -50,5 +50,13 @@ public class ProductParentDAO {
 	public ProductParentVO selectParentProduct(String parent_p_Id) {
 		return mySQL.selectOne(loc+"selectParentProduct", parent_p_Id);
 	}
+	
+	public void modifyParentProductWithoutImage(ProductParentVO vo) {
+		mySQL.update(loc+"modifyParentProductWithoutImage", vo);
+	}
+
+	public void modifyParentProductWithImage(ProductParentVO vo) {
+		mySQL.update(loc+"modifyParentProductWithImage", vo);
+	}
 
 }
