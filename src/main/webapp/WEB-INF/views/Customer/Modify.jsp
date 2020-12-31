@@ -206,14 +206,7 @@
                             </tr>
                     </table>
                 </div>
-                <div class="confirm-button modify">
                 
-                    <a>
-                        <input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/modify.png" width="135" height="40" alt="회원정보수정">
-                    </a>
-                    <a href="/project">
-                        <img src="<%=request.getContextPath()%>/ResourcesFile/img/cancel.png" width="135" height="40" alt="취소">
-                    </a>
                     <span class="withdrawal">
                         <a class="delCus">
                         	<img src="<%=request.getContextPath()%>/ResourcesFile/img/withdrawal.png"  class="delCus_btn" width="100" height="30">
@@ -230,6 +223,14 @@
 				</script>
                         </a>
                     </span>
+                <div class="confirm-button modify">
+                
+                    <a>
+                        <input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/modify.png" width="135" height="40" alt="회원정보수정">
+                    </a>
+                    <a href="/project">
+                        <img src="<%=request.getContextPath()%>/ResourcesFile/img/cancel.png" width="135" height="40" alt="취소">
+                    </a>
                 </div>
             </div>
         </div>

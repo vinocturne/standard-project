@@ -617,123 +617,50 @@ table.type16 {
     margin-bottom: -5px;
 }
 
-
  .c_Email input:read-only{
  	background-color:#eaeaea;
  } 
+
+#brandInfoCheckResult {
+   font-size: 9pt;
+   margin:6px 2px;
+   font-family: 'Montserrat', sans-serif;
+}
+
+.repetition_check {
+   width: 70px;
+   font-size: 9pt;
+   margin: 6px 2px;
+   padding: 2px;
+   font-family: 'Montserrat', sans-serif;
+}
+
+ .c_Email input:read-only{
+    background-color:#eaeaea;
+ } 
+
 
 
 /* Modify */
 
 .confirm-button {
     cursor: pointer;
-    float: center;
+    display: flex;
+    justify-content: center;
+    align-content: center; 
     text-align: center;
-    padding: 15px;
-    
+    margin-top: -25px;  
 }
 
-.confirm-button .withdrawal {
+
+.withdrawal {
     cursor: pointer;
-    float: right;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center; 
+    margin-top: 5px;
 }
 
-/* Wish List */
-
-
-.wishList_wrap {
-    width: 100%;
-    padding: 100px 0;
-}   
-
-.type13 table, th {
-    font-size: 9pt;
-    border: 1px solid #eaeaea;
-    padding: 10px 0 10px;
-    width: 650px;
-    text-align: center;
-  }
-
-  .type13 td {
-    font-size: 9pt;
-    border: 1px solid #eaeaea;
-    border-left: 0;
-    border-right: 0;
-    padding: 5pt;
-    width: 650px;
-    text-align: center;
-    color: #353535;
-    vertical-align: middle;
-  }
-
-  input[type=checkbox] {
-    width: 13px;
-    height: 13px;
-    border: 0;
-}
-
-input, select, textarea {
-    font-size: 100%;
-    color: #353535;
-    vertical-align: middle;
-}
-
-input[type=radio], input[type=checkbox] {
-    width: 13px;
-    height: 13px;
-    border: 0;
-}
-.button > input{
-    color: white;
-    background-color: #5D5D5D;
-    cursor: pointer;
-    width: 65pt;
-    padding: 1pt;
-    margin: 1pt;
-}
-
-.button :hover {
-    background-color: #002266;
-}
-
-
-.delete_cart .gLeft {
-    cursor: pointer;
-    float: left;
-    text-align: left;
-}
-
-.delete_cart .gRight {
-    cursor: pointer;
-    float: right;
-    text-align: right;
-}
-
-
-.wishlist_index {
-    position: relative;
-    margin: 30px 0;
-    text-align: center;
-}
-
-.wishlist_index button {
-    text-align: center;
-    border: none;
-    display: inline-block;
-    cursor: pointer;
-    font-weight: bold;
-    padding: 10px 10px;
-    background-color: transparent;
-    font-size: 9pt;
-    color:#707070;
-    font-family: Verdana,Dotum,AppleGothic,sans-serif;
-}
-
-.wishlist_index button :focus{ 	
-    border: none;
-    outline: none;
-    }
 
 
 /*My page*/
@@ -749,13 +676,12 @@ h2{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     text-align: left;
-    margin-bottom:10px
 }
 
 .type14 table, th {
     font-size: 9pt;
     border: 1px solid #eaeaea;
-    width: 130pt;
+    width: 150px;
     height: 30px;
     text-align: center;
     vertical-align: middle;
@@ -765,7 +691,6 @@ h2{
   .type14 td {
     font-size: 9pt;
     border: 1px solid #eaeaea;
-    padding: 5pt 0;
     width: 650px;
     text-align: center;
     color: #353535;

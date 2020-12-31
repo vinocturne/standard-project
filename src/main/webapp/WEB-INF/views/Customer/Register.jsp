@@ -25,8 +25,16 @@
     }
     // 브랜드정보(브랜드명&사업자 명 중복 체크)
     function fn_brandInfoCheck(){
-        //json ajax로 서버로 전송(CustomerController 하단부에 위치)
+        //let brandNameCheck = document.getElementById("brandName").value;
+       // let businessNumberCheck = document.getElementById("businessNumber").value;
+        //json ajax로 서버로 전송
         var _jsonInfo ={"bName": document.getElementById("brandName").value, "bNumber" : document.getElementById("businessNumber").value};
+
+        //let info = [{bName: document.getElementById("brandName").value},{ bNumber : document.getElementById("businessNumber").value}];
+        // JSON.parse(info);
+        // console.log("JSON PARSER변환 : "+info);
+        console.log(_jsonInfo);
+        JSON.stringify(_jsonInfo);
         $.ajax({
            type:"post",
            async:true,
@@ -35,9 +43,8 @@
                 jsonInfo: JSON.stringify(_jsonInfo)
            },
            success:function(data,textStatus){
-               //서버에서 data에 <strong style='color: 색깔'>안내문</strong> 처리 해서 넘겨준다.
                 var resultStr = document.getElementById("brandInfoCheckResult");
-                resultStr.innerHTML =data;
+                resultStr.innerHTML ="중복체크완료";
            },
            error:function(data,textStatus){
                console.log("에러발생");
@@ -217,20 +224,14 @@
                     var value = $(this).val();
                     if (value == "기업회원") {
                         $('#companycheck span').html(
-                            `<hr><h4>※ 기업회원 필수 입력 영역</h4>
-                            <table class="type16"> <thead> <tr class="businessNumber">
-                            <th scope="row"> 사업자번호 </th>
-                            <td><input id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10"></span></td></tr><br>
-                            <tr class="brandName"><th scope="row"> 브랜드명 </th><td><input id="brandName" name="brandName" type="text" class="inputTypeText"></td></tr></thead>
-                            </table>
-                            <input type="button" value="중복체크" onclick="fn_brandInfoCheck()">
-                            <span id="brandInfoCheckResult">브랜드 가입 여부를 확인해주세요</span>`
+                            `<hr><h4>※ 기업회원 필수 입력 영역</h4><table class="type16"> <thead> <tr class="businessNumber"><th scope="row"> 사업자번호 </th><td><input id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10"></span></td></tr><br><tr class="brandName"><th scope="row"> 브랜드명 </th><td><input id="brandName" name="brandName" type="text" class="inputTypeText"></td></tr></thead></table><input type="button" value="중복체크" class="repetition_check" onclick="fn_brandInfoCheck()"><span id="brandInfoCheckResult">브랜드 가입 여부를 확인해주세요</span>`
                             );
                     } else {
                         $('#companycheck span').html('');
                     }
                 })
             });
+            //span부분은 한 줄로 안해놓으면 자꾸 에러가 발생해서, 보기 불편해도 저렇게 놔뒀습니다
         </script>
 
                 <br>
