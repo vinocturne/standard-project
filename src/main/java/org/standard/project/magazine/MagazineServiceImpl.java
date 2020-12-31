@@ -42,4 +42,9 @@ public class MagazineServiceImpl implements MagazineService {
 		magazineDAO.deleteMagazine(m_Seq);
 	}
 
+	@Override
+	public void hitIncrease(String m_Seq) {
+		magazineDAO.hitIncrease(m_Seq);
+	}
+
 }

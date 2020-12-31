@@ -29,4 +29,7 @@
 	<select id="deleteMagazine" resultType="MagazineVO">
 		DELETE FROM magazine WHERE m_Seq=#{m_Seq}
 	</select>
+	<select id="hitIncrese" resultType="MagazineVO">
+		UPDATE magazine SET m_Hit=m_Hit + 1 WHERE m_Seq=#{m_Seq}
+	</select>
 </mapper>

@@ -39,5 +39,10 @@ public class MagazineDAO {
 	public void deleteMagazine(String m_Seq) {
 		mySQL.delete(loc+"deleteMagazine", m_Seq);
 	}
+
+	public void hitIncrease(String m_Seq) {
+		mySQL.update(loc+"hitIncrease",m_Seq);
+		
+	}
 	
 }
