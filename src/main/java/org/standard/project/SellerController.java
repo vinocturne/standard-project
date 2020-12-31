@@ -137,7 +137,7 @@ public class SellerController {
         			vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
                 }else if(i==1) {
         			fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-        			vo.setPp_image(File.separator + "productImage" + ymdPath +File.separator + "long_"+ fileName);
+        			vo.setPp_image(File.separator + "productImage" + ymdPath +File.separator + fileName);
                 }
             }
         }
@@ -199,10 +199,13 @@ public class SellerController {
 			if((mf.get(0).getOriginalFilename() != "" && mf.get(1).getOriginalFilename() != "")) {
 				String originalThumbPath = req.getParameter("pp_thumb");
 				String originalImagePath = req.getParameter("pp_image");
+				System.out.println(originalThumbPath);
+				System.out.println(originalImagePath);
 				//오리지널 폴더에 있던 사진 삭제
-				DeleteUtil.deleteImg(uploadPath + File.separator + originalThumbPath);
-				DeleteUtil.deleteImg(uploadPath + File.separator + originalImagePath);
-				System.out.println(uploadPath + File.separator + originalImagePath);
+				DeleteUtil.deleteImg(uploadPath + originalThumbPath);
+				DeleteUtil.deleteImg(uploadPath + originalImagePath);
+				System.out.println("pp_thumb"+ originalThumbPath);
+				System.out.println("pp_thumb"+ originalImagePath);
 				//multipartFile로 받은 이미지 경로 set
 				String imgUploadPath = uploadPath + File.separator + "productImage";
 				String fileName = null;
@@ -216,7 +219,7 @@ public class SellerController {
 		        		vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
 		            }else if(i==1) {
 		        		fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-		        		vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator + "long_"+ fileName);
+		        		vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator + fileName);
 		            }
 		        }
 			} else if((mf.get(0).getOriginalFilename() != "" && mf.get(1).getOriginalFilename() == "")) {
@@ -243,7 +246,7 @@ public class SellerController {
 				String fileName = null;
 		        String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
 		        fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(1).getOriginalFilename(), mf.get(1).getBytes(), ymdPath);
-    			vo.setPp_image(File.separator + "productImage" + ymdPath +File.separator + "long_"+ fileName);
+    			vo.setPp_image(File.separator + "productImage" + ymdPath +File.separator +  fileName);
 		            
 			} else {
 				System.out.println("이미지 문제");
