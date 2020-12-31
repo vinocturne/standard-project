@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +35,7 @@ import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.magazine.MagazineService;
 import org.standard.project.magazine.MagazineVO;
+import org.standard.project.order.OrderHistoryService;
 
 @Controller
 @RequestMapping(value = "/Admin")
@@ -46,6 +48,28 @@ public class AdminController {
 	BrandDBService brandDBService;
 	@Resource(name = "uploadPath")
 	private String uploadPath;
+	
+	@Resource(name="OrderHistoryService")
+	OrderHistoryService orderHistoryService;
+	
+	@RequestMapping(value="/AdminGraph")
+	public ModelAndView adminGraph() throws Exception  {
+		System.out.println("관리자 그래프 컨트롤러");
+		ModelAndView mav = new ModelAndView("/Admin/AdminGraph");
+		List<Map<String,Object>> list = orderHistoryService.getDailyIncome();
+		JSONArray jsonArr = new JSONArray();
+		//{날짜: 2020-12-24},{판매액:25000}
+		for(int i=0;i<list.size();i++) {
+			JSONObject jsonObject = new JSONObject();
+			//JSONObject jsonObject = new JSONObject(list.get(i)); Map으로 바로 넣으면 value값이 인트형이라 아니라 계산을 해버림
+			jsonObject.put("totalPrice", list.get(i).get("o_TotalPrice").toString());
+			jsonObject.put("orderDate", list.get(i).get("o_Date").toString());
+			jsonArr.add(jsonObject);
+		}
+		System.out.println("toJSONString() : "+jsonArr.toJSONString() );
+		mav.addObject("list",(Object)jsonArr.toString());
+		return mav;
+	}
 
 	@RequestMapping(value = "/AdminMain", method = RequestMethod.GET)
 	public ModelAndView adminMain(Map<String, Object> map, CustomerVO vo) {

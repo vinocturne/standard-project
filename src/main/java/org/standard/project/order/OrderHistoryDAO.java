@@ -1,6 +1,8 @@
 package org.standard.project.order;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,12 @@ public class OrderHistoryDAO {
 		ArrayList<OrderHistoryVO> orderHistoryList = new ArrayList<OrderHistoryVO>();
 		orderHistoryList =(ArrayList) mySQL.selectList(loc+"getList",customerVO);
 		return orderHistoryList;
+	}
+
+	public List<Map<String, Object>> getDailyIncome() {
+		List<Map<String, Object>> dailyIncomeList = new ArrayList<Map<String, Object>>();
+		dailyIncomeList = mySQL.selectList(loc+"getDailyIncomeList");
+		return dailyIncomeList;
 	}
 
 	/*

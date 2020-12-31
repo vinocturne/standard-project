@@ -6,6 +6,9 @@
 	<select id="getList" resultType="org.standard.project.order.OrderHistoryVO">
 		SELECT * FROM orderhistory where c_Id='${c_Id}'
 	</select>
+	<select id="getDailyIncomeList" resultType="HashMap">
+		SELECT o_Date,o_TotalPrice FROM orderhistory GROUP BY o_Date DESC LIMIT 30
+	</select>
 
 	
 </mapper>
