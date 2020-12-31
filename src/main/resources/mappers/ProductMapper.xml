@@ -20,4 +20,15 @@
 		DELETE FROM productParent WHERE parent_p_Id=#{parent_p_Id}
 	</select>
 	
+	<select id="selectParentProduct" resultType="ProductParentVO">
+		SELECT * FROM productParent where parent_p_Id=#{parent_p_Id}
+	</select>
+	
+	<select id="modifyParentProductWithoutImage" resultType="ProductParentVO">
+		UPDATE productParent SET pp_Name=#{pp_Name}, pp_Category1=#{pp_Category1}, pp_Category2=#{pp_Category2}, pp_Price=#{pp_Price} where parent_p_Id=#{parent_p_Id}
+	</select>
+	<select id="modifyParentProductWithImage" resultType="ProductParentVO">
+		UPDATE productParent SET pp_Name=#{pp_Name}, pp_Category1=#{pp_Category1}, pp_Category2=#{pp_Category2}, pp_Price=#{pp_Price} pp_thumb=#{pp_thumb}, pp_image=#{pp_image} where parent_p_Id=#{parent_p_Id}
+	</select>
+	
 </mapper>

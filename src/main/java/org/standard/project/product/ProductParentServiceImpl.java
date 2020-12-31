@@ -35,4 +35,19 @@ public class ProductParentServiceImpl implements ProductParentService{
 		productParentDAO.deleteParentProduct(parent_p_Id);
 		
 	}
+	
+	@Override
+	public ProductParentVO selectParentProduct(String parent_p_Id) {
+		return productParentDAO.selectParentProduct(parent_p_Id);
+	}
+	
+	@Override
+	public void modifyParentProductWithoutImage(ProductParentVO vo) {
+		productParentDAO.modifyParentProductWithoutImage(vo);
+	}
+
+	@Override
+	public void modifyParentProductWithImage(ProductParentVO vo) {
+		productParentDAO.modifyParentProductWithImage(vo);
+	}
 }

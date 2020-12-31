@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.brand.BrandDBService;
 import org.standard.project.brand.BrandDBVO;
+import org.standard.project.common.DeleteUtil;
 import org.standard.project.common.UploadUtil;
 import org.standard.project.common.UploadUtilProductLong;
 import org.standard.project.common.UploadUtilProductThumb;
@@ -157,6 +158,96 @@ public class SellerController {
 			productParentService.deleteParentProduct(del_Id);
 		}
 		return "redirect:/Seller/ProductManage";
+	}
+	
+	@RequestMapping(value = "/ModifyParentProduct", method = RequestMethod.GET)
+	public ModelAndView selectParentProduct(HttpServletRequest req) {
+		System.out.println("선택한 부모상품 수정 가동");
+		String parent_p_Id = req.getParameter("seq");
+		ProductParentVO vo = new ProductParentVO();
+		vo = productParentService.selectParentProduct(parent_p_Id);
+		System.out.println(vo);
+		ModelAndView mav = new ModelAndView("/Seller/ProductModify");
+		mav.addObject("vo",vo);		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/ModifyParentProduct", method = RequestMethod.POST)
+	public String modifyParentProduct (HttpServletRequest req, MultipartHttpServletRequest images) throws IOException, Exception {
+		ProductParentVO vo = new ProductParentVO();
+		
+		List<MultipartFile> mf = images.getFiles("m_Img");
+		if(mf.get(0).getOriginalFilename() == "" && mf.get(1).getOriginalFilename() == "") {
+		//따로 이미지 수정을 하지 않았을 때 text만
+			System.out.println("이미지 변경 없는 수정");
+			vo.setPp_Name(req.getParameter("pp_Name"));
+			vo.setPp_Category1(req.getParameter("pp_Category1"));
+			vo.setPp_Category2(req.getParameter("pp_Category2"));
+			vo.setPp_Price(Integer.parseInt(req.getParameter("pp_Price")));
+			productParentService.modifyParentProductWithoutImage(vo);
+		} else {
+			//이미지 수정을 했을 때
+			System.out.println("이미지 두개 수정");
+			vo.setPp_Name(req.getParameter("pp_Name"));
+			vo.setPp_Category1(req.getParameter("pp_Category1"));
+			vo.setPp_Category2(req.getParameter("pp_Category2"));
+			vo.setPp_Price(Integer.parseInt(req.getParameter("pp_Price")));
+			
+			if((mf.get(0).getOriginalFilename() != "" && mf.get(1).getOriginalFilename() != "")) {
+				String originalThumbPath = req.getParameter("pp_thumb");
+				String originalImagePath = req.getParameter("pp_image");
+				//오리지널 폴더에 있던 사진 삭제
+				DeleteUtil.deleteImg(uploadPath + File.separator + originalThumbPath);
+				DeleteUtil.deleteImg(uploadPath + File.separator + originalImagePath);
+				System.out.println(uploadPath + File.separator + originalImagePath);
+				//multipartFile로 받은 이미지 경로 set
+				String imgUploadPath = uploadPath + File.separator + "productImage";
+				String fileName = null;
+				//req.getParameter("m_Img") != null
+				
+				
+		        String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
+		        for (int i = 0; i < mf.size(); i++) {
+		            if(i==0) {
+		        		fileName = UploadUtilProductThumb.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
+		        		vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
+		            }else if(i==1) {
+		        		fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
+		        		vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator+ "long" +File.separator + "long_"+ fileName);
+		            }
+		        }
+			} else if((mf.get(0).getOriginalFilename() != "" && mf.get(1).getOriginalFilename() == "")) {
+				String originalThumbPath = req.getParameter("pp_thumb");
+				vo.setPp_image(req.getParameter("pp_image"));
+				//오리지널 폴더에 있던 사진 삭제
+				DeleteUtil.deleteImg(uploadPath + File.separator + originalThumbPath);
+				System.out.println(uploadPath + File.separator + originalThumbPath);
+				
+				String imgUploadPath = uploadPath + File.separator + "productImage";
+				String fileName = null;
+		        String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
+		        fileName = UploadUtilProductThumb.fileUpload(imgUploadPath, mf.get(0).getOriginalFilename(), mf.get(0).getBytes(), ymdPath);
+		        vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
+		            
+			} else if((mf.get(0).getOriginalFilename() == "" && mf.get(1).getOriginalFilename() != "")) {
+				vo.setPp_thumb(req.getParameter("pp_thumb"));
+				String originalImagePath = req.getParameter("pp_image");
+				//오리지널 폴더에 있던 사진 삭제
+				DeleteUtil.deleteImg(uploadPath + File.separator + originalImagePath);
+				System.out.println(uploadPath + File.separator + originalImagePath);
+				
+				String imgUploadPath = uploadPath + File.separator + "productImage";
+				String fileName = null;
+		        String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
+		        fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(1).getOriginalFilename(), mf.get(1).getBytes(), ymdPath);
+    			vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator+ "long" +File.separator + "long_"+ fileName);
+		            
+			} else {
+				System.out.println("이미지 문제");
+			}
+			productParentService.modifyParentProductWithImage(vo);
+		}
+		return "redirect:/Admin/magazineManager";
 	}
 	
 	@RequestMapping(value = "/BuyList", method = RequestMethod.GET)
