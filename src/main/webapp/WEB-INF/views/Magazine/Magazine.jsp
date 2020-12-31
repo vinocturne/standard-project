@@ -1,8 +1,11 @@
+<%@page import="org.standard.project.magazine.MagazineVO"%>
+<%@page import="java.io.Console"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<% pageContext.setAttribute("replaceChar","\n"); %>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 body {
@@ -17,6 +20,17 @@ body {
 .magazine {
 	float: left;
 }
+
+.card{
+margin-left:7px;
+margin-right:2px;
+margin-top:7px;
+margin-bottom:3px;
+}
+
+.line{
+margin-top:73px;
+}
 </style>
 
 </head>
@@ -29,199 +43,110 @@ body {
 			<div class="side_nav_item">
 				<p class="side_nav_title">Magazine</p>
 				<ul>
-					<li><a href="#">Men`s</a></li>
+					<li><a href="/project/Customer/myPage">My page</a></li>
 					<li><a href="#"> <!--줄띄우기 -->
 					</a></li>
 					<li><a href="/project/Customer/cart">Cart</a></li>
 					<li><a href="/project/Customer/order">Order</a></li>
-					<li><a href="Wishlist.html">Wish list</a></li>
-					<!--a태그는 wishList 수정되면 링크고쳐야함  -->
-					<li><a
-						href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
+					<li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	
-<div class="first_line">
+	<%-- <c:set var="i" value="0" /> <c:set var="j" value="4" />
+	<table>
+	<c:choose>
+	
+	<c:when test="${fn:length(list)>0}">
+	  	<c:forEach var="magazine" items="${list}">
+			<c:if test="${i%j == 0 }">		
+			<tr>
+			 </c:if>
+			 <td>${magazine.m_Title}</td>
+			 <td>${magazine.m_Content}</td>
+			 <td>${magazine.m_Content}</td>
+			  <a href="MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
+			 <c:if test="${i%j == j-1 }">
+			 </tr>
+			 </c:if>
+			 <c:set var="i" value="${i+1}"/>
+			 </c:forEach>
+			 </c:when>
+			 <c:otherwise>
+			 <tr>
+			 <td>존재하지않습니다</td>
+			 </tr>
+			 </c:otherwise>
+		 	 </c:choose>
+			 </table> --%>
+			 
+	
 
-<div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">모레는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
+<!--세로로 길게 나오는거  -->
+<%-- <div class="first line">
+	<c:set var="i" value="0" /> <c:set var="j" value="3" />
+	
+	<c:choose>
+	<c:when test="${fn:length(list)>0}">
+	  	
+		<c:forEach var="magazine" items="${list}">
+		
+	<div class="card" style="width:280px">
+	    <div class="card-body">
+	      <h4 class="card-title">${magazine.m_Title}</h4>
+	      <p class="card-text">${magazine.m_Content}</p>
+	      <p>하트하트</p>
+	    </div>
+	    <a href="/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
+  	</div>
+	
+		</c:forEach>
+		 
+	</c:when>
+			<c:otherwise>
+				<tr>
+					<td>조회된 결과가 없습니다.</td>
+				</tr>
+			</c:otherwise>
+	</c:choose>
+	
+</div> --%>
 
-    </div>
-    <a href="#"><img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/3.jpg" alt="Card image" style="width:100%"></a>
-  </div>
 
-<div class="card" style="width:300px">
-    <a href="magazine"><img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/1.jpg"  alt="Card image" style="width:100%"></a>
-    <div class="card-body">
-	  <h4 class="card-title">내일 뭐입을까 </h4>
-      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
-    </div>
-  </div>
+ <c:set var="i" value="0" />
+ <c:set var="j" value="4" />
 
-<div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">모레는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-    </div>
-    <a href="#"><img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/2.jpg" alt="Card image" style="width:100%"></a>
-  </div>
+  <c:choose>
+   <c:when test="${fn:length(list)>0}">
+    <c:forEach var="magazine" items="${list}">
+     <c:if test="{i%j == 0}">
+      <tr>
+     </c:if>
+     <div>
+    	 <div class="card" style="width:280px">
+		    <div class="card-body">
+		      <h4 class="card-title">${magazine.m_Title}</h4>
+		      <p class="card-text">${magazine.m_Content}</p>
+		      <p>하트하트</p>
+		    </div>
+		    <a href="/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
+  		</div>
+     </div>
+    <c:if test="${i%j == j-1}">
+     </tr>
+<%System.out.println("<br>"); %>
+    </c:if> 
+   <c:set var="i" value="${i+1}" />
+    </c:forEach>
+   </c:when>
+  <c:otherwise>
+   <tr>
+    <td>존재하지 않습니다.</td>
+   </tr>
+  </c:otherwise>
+  </c:choose>
 
-<div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">4는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-    </div>
-    <a href="#"><img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/4.jpg" alt="Card image" style="width:100%"></a>
-  </div>
-
-<div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">5는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-      
-    </div>
-    <a href="#"><img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/5.jpg" alt="Card image" style="width:100%"></a>
-  </div>
-  
-</div>
-
-<div class="second_line">
-
-<div class="card" style="width:300px">
-    <a href="#"><img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/6.jpg"  alt="Card image" style="width:100%"></a>
-    <div class="card-body">
-	  <h4 class="card-title">내일 뭐입을까 </h4>
-      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
-    </div>
-  </div>
-
-<div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">모레는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-    </div>
-    <a href="#"><img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/7.jpg" alt="Card image" style="width:100%"></a>
-  </div>
-
-<div class="card" style="width:300px">
-    <a href="#"><img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/8.jpg"  alt="Card image" style="width:100%"></a>
-    <div class="card-body">
-	  <h4 class="card-title">내일 뭐입을까 </h4>
-      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
-    </div>
-  </div>
-
-<div class="card" style="width:300px">
-    <a href="#"><img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/9.jpg"  alt="Card image" style="width:100%"></a>
-    <div class="card-body">
-	  <h4 class="card-title">내일 뭐입을까 </h4>
-      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
-    </div>
-  </div>
-
-<div class="card" style="width:300px">
-    <a href="#"><img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/10.jpg"  alt="Card image" style="width:100%"></a>
-    <div class="card-body">
-	  <h4 class="card-title">내일 뭐입을까 </h4>
-      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
-    </div>
-  </div>
-
-</div>
-
-<div class="third_line">
-
-<div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">모레는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-    </div>
-   <a href="#"><img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/11.jpg" alt="Card image" style="width:100%"></a>
-  </div>
-
-<div class="card" style="width:300px">
-    <a href="#"><img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/12.jpg"  alt="Card image" style="width:100%"></a>
-    <div class="card-body">
-	  <h4 class="card-title">내일 뭐입을까 </h4>
-      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
-    </div>
-  </div>
-
-<div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">모레는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-    </div>
-    <a href="#"><img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/13.jpg" alt="Card image" style="width:100%"></a>
-  </div>
-
-<div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">4는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-    </div>
-    <a href="#"><img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/14.jpg" alt="Card image" style="width:100%"></a>
-  </div>
-
-<br>
-
-<div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">5는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-    </div>
-    <a href="#"><img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/15.jpg" alt="Card image" style="width:100%"></a>
-  </div>
-  
-</div>
-
-<div class="four_line">
-
-<div class="card" style="width:300px">
-    <a href="#"><img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/16.jpg"  alt="Card image" style="width:100%"></a>
-    <div class="card-body">
-	  <h4 class="card-title">내일 뭐입을까 </h4>
-      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
-    </div>
-  </div>
-
-<div class="card" style="width:300px">
-    <div class="card-body">
-      <h4 class="card-title">모레는 뭐 입을까</h4>
-      <p class="card-text">모레 뭐 입어야 할지 모르겠다면 보는 기사</p>
-    </div>
-    <a href="#"><img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/17.jpg" alt="Card image" style="width:100%"></a>
-  </div>
-
-<div class="card" style="width:300px">
-    <a href="#"><img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/18.jpg"  alt="Card image" style="width:100%"></a>
-    <div class="card-body">
-	  <h4 class="card-title">내일 뭐입을까 </h4>
-      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
-    </div>
-  </div>
-
-<div class="card" style="width:300px">
-    <a href="#"><img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/19.jpg"  alt="Card image" style="width:100%"></a>
-    <div class="card-body">
-	  <h4 class="card-title">내일 뭐입을까 </h4>
-      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
-    </div>
-  </div>
-
-<div class="card" style="width:300px">
-    <a href="#"><img class="card-img-top" src="<%=request.getContextPath()%>/ResourcesFile/img/Magazin/20.jpg"  alt="Card image" style="width:100%"></a>
-    <div class="card-body">
-	  <h4 class="card-title">내일 뭐입을까 </h4>
-      <p class="card-text">내일 뭐 입어야 하는지 모르겠다면 봐야하는 기사</p>
-    </div>
-  </div>
-
-</div>
 
 
 
