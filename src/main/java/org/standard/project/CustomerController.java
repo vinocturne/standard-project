@@ -267,7 +267,7 @@ public class CustomerController {
 	public String reviewmodify(HttpSession session) {
 	return "Customer/ReviewModify";
 	}
-	
+	 
 	
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public String myPageMain(HttpSession session) {

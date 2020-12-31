@@ -13,7 +13,6 @@
 	<div class="content_wrap inner">
 	<!-- side_nav -->
 	<%@ include file="../side_nav.jsp"%>
-
 	    
 	<!-- Review -->
 	<div class="order_wrap">
