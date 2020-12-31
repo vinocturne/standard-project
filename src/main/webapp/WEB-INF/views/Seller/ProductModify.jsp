@@ -49,7 +49,10 @@
 			String Category2 = (String)vo.getPp_Category2();
 		%>
 		
-		<form action="/project/Seller/ProductAddParent" method="POST" enctype="multipart/form-data">
+		<form action="/project/Seller/ModifyParentProduct" method="POST" enctype="multipart/form-data">
+		<input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=vo.getParent_p_Id()%>">
+		<input type="hidden" id="pp_thumb" name="pp_thumb" value="<%=vo.getPp_thumb()%>">
+		<input type="hidden" id="pp_image" name="pp_image" value="<%=vo.getPp_image()%>">
 			<div class="Register_table">
 				<table class="type12">
 					<thead>
@@ -103,7 +106,7 @@
 				</table>
 			</div>
 			<br> <br>
-			<div class="ProductAddParent">
+			<div class="ModifyParentProduct">
 				<input type="submit" value="수정하기">
 			</div>
 		</form>

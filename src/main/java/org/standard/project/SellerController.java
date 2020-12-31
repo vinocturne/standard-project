@@ -137,7 +137,7 @@ public class SellerController {
         			vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
                 }else if(i==1) {
         			fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-        			vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator+ "long" +File.separator + "long_"+ fileName);
+        			vo.setPp_image(File.separator + "productImage" + ymdPath +File.separator + "long_"+ fileName);
                 }
             }
         }
@@ -180,14 +180,17 @@ public class SellerController {
 		if(mf.get(0).getOriginalFilename() == "" && mf.get(1).getOriginalFilename() == "") {
 		//따로 이미지 수정을 하지 않았을 때 text만
 			System.out.println("이미지 변경 없는 수정");
+			vo.setParent_p_Id(req.getParameter("parent_p_Id"));
 			vo.setPp_Name(req.getParameter("pp_Name"));
 			vo.setPp_Category1(req.getParameter("pp_Category1"));
 			vo.setPp_Category2(req.getParameter("pp_Category2"));
 			vo.setPp_Price(Integer.parseInt(req.getParameter("pp_Price")));
+			System.out.println(vo);
 			productParentService.modifyParentProductWithoutImage(vo);
 		} else {
 			//이미지 수정을 했을 때
 			System.out.println("이미지 두개 수정");
+			vo.setParent_p_Id(req.getParameter("parent_p_Id"));
 			vo.setPp_Name(req.getParameter("pp_Name"));
 			vo.setPp_Category1(req.getParameter("pp_Category1"));
 			vo.setPp_Category2(req.getParameter("pp_Category2"));
@@ -213,7 +216,7 @@ public class SellerController {
 		        		vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
 		            }else if(i==1) {
 		        		fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-		        		vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator+ "long" +File.separator + "long_"+ fileName);
+		        		vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator + "long_"+ fileName);
 		            }
 		        }
 			} else if((mf.get(0).getOriginalFilename() != "" && mf.get(1).getOriginalFilename() == "")) {
@@ -240,14 +243,15 @@ public class SellerController {
 				String fileName = null;
 		        String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
 		        fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(1).getOriginalFilename(), mf.get(1).getBytes(), ymdPath);
-    			vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator+ "long" +File.separator + "long_"+ fileName);
+    			vo.setPp_image(File.separator + "productImage" + ymdPath +File.separator + "long_"+ fileName);
 		            
 			} else {
 				System.out.println("이미지 문제");
 			}
+			System.out.println(vo);
 			productParentService.modifyParentProductWithImage(vo);
 		}
-		return "redirect:/Admin/magazineManager";
+		return "redirect:/Seller/ProductManage";
 	}
 	
 	@RequestMapping(value = "/BuyList", method = RequestMethod.GET)
