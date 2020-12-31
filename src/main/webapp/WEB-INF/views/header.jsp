@@ -12,7 +12,7 @@
 				<!-- </div> -->
 				<ul class="main-menu toggle">
 					<li><a href="/project/shop/shopMain">Store</a></li>
-					<li><a href="/project/magazine/magazineList">Magazine</a></li>
+					<li><a href="/project/Admin/magazineList">Magazine</a></li>
 					<li><a href="/project/Customer/myPage">My page</a></li>
 					
 				</ul>
