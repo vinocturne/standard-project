@@ -5,7 +5,8 @@
 <%@ include file="../head.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<% pageContext.setAttribute("replaceChar","\n"); %>
+<% pageContext.setAttribute("newLine", "\n"); %>
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 body {
@@ -135,7 +136,7 @@ margin-top:73px;
      </div>
     <c:if test="${i%j == j-1}">
      </tr>
-<%System.out.println("<br>"); %>
+ttt
     </c:if> 
    <c:set var="i" value="${i+1}" />
     </c:forEach>
