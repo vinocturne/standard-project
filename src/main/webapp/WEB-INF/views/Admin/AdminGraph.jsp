@@ -50,7 +50,6 @@
 		<br><br>
 		<h3>그래프</h3>
 		<br>
-	<canvas id="line-chart"></canvas>
 	</div>
 
 </div>
@@ -96,6 +95,11 @@ for(var i=0; i<parsed.length;i++){
   },
   bindto: "#timeseriesChart"
 });
+
+var charts =document.getElementsByClassName("bb");
+charts[0].append("일별 가입 고객수 현황");
+charts[0].append(document.createElement("span"));
+
 
 //일자별 등록 고객수 차트
 var regNumList =JSON.stringify(${regNumberList});
