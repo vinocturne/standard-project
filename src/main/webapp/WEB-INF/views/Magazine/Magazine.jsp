@@ -5,10 +5,15 @@
 <%@ include file="../head.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<% pageContext.setAttribute("newLine", "\n"); %>
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
+.secondbody{
+width:1200px;
+
+}
+
 body {
 	margin-left: 100px;
 	margin-right: 10%;
@@ -32,6 +37,7 @@ margin-bottom:3px;
 .line{
 margin-top:73px;
 }
+
 </style>
 
 </head>
@@ -124,7 +130,9 @@ margin-top:73px;
      <c:if test="{i%j == 0}">
       <tr>
      </c:if>
-     <div>
+     
+     <div class="secondbody"> 
+     <div class="mainbody"> 
     	 <div class="card" style="width:280px">
 		    <div class="card-body">
 		      <h4 class="card-title">${magazine.m_Title}</h4>
@@ -134,9 +142,10 @@ margin-top:73px;
 		    <a href="/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
   		</div>
      </div>
+     </div>
     <c:if test="${i%j == j-1}">
      </tr>
-ttt
+
     </c:if> 
    <c:set var="i" value="${i+1}" />
     </c:forEach>

@@ -42,11 +42,6 @@ public class MagazineController {
 		return "Magazine/MagazineIn";
 	}
 
-	@RequestMapping("/MagazineNew")
-	public String newmagazineList() {
-
-		return "Magazine/MagazineNew";
-	}
 
 	@RequestMapping("/MagazineDetail")
 	public String newmagazineDetail() {
