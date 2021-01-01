@@ -16,6 +16,7 @@
 			<div class="articleImg">
 			<img src=img alt="m_Img" style="display: inline;">
 			</div>
+			
 			<span class="m_Title">m_Title</span>
 			<br>
 			<div style="border:1px solid">
