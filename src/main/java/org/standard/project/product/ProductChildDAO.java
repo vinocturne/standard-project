@@ -14,9 +14,9 @@ public class ProductChildDAO {
 	
 	private String loc = "org.standard.project.ProductMapper.";
 	
-	public ArrayList<ProductChildVO> listProductChild(BrandDBVO loginBrand) {
+	public ArrayList<ProductChildVO> listProductChild(String parent_p_Id) {
 		ArrayList<ProductChildVO> listProductChild = new ArrayList<ProductChildVO>();
-		listProductChild =(ArrayList) mySQL.selectList(loc+"listProductChild",loginBrand);
+		listProductChild =(ArrayList) mySQL.selectList(loc+"listProductChild",parent_p_Id);
 		return listProductChild;
 	}
 }

@@ -5,5 +5,6 @@ import java.util.ArrayList;
 import org.standard.project.brand.BrandDBVO;
 
 public interface ProductChildService {
-	ArrayList<ProductChildVO> listProductChild(BrandDBVO loginBrand);
+
+	ArrayList<ProductChildVO> listProductChild(String parent_p_Id);
 }
