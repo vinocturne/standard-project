@@ -31,4 +31,8 @@
 		UPDATE productParent SET pp_Name=#{pp_Name}, pp_Category1=#{pp_Category1}, pp_Category2=#{pp_Category2}, pp_Price=#{pp_Price}, pp_thumb=#{pp_thumb}, pp_image=#{pp_image} where parent_p_Id=#{parent_p_Id}
 	</select>
 	
+<!-- 	<select id="listProductParent" resultType="ProductParentVO">
+		SELECT * FROM productParent WHERE pp_Brand= '${brandId}'
+	</select> -->
+	
 </mapper>

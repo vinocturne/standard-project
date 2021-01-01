@@ -84,9 +84,9 @@
 									</div>
 								</td>
 								<td>${product.parent_p_Id}</a></td>
-								<td>${color}</td>
-								<td>${size}</td>
-								<td>${stock}</td>
+								<td><input name="p_Color" type="text" value="${product.p_Color}"></td>
+								<td><input name="p_Size" type="text" value="${product.p_Size}"></td>
+								<td><input name="p_Stack" type="text" value="${product.p_Stack}"></td>
 								<td><input type="button" value="수정" onClick="'location.href='/project/Seller/ProductModify"></td>
 								<td><input type="button" value="삭제" onClick="'location.href='/project/Seller/ProductAddChild"></td>
 							</tr>

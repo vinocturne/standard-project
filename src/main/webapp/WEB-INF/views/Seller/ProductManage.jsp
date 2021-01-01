@@ -126,7 +126,10 @@
 								<%-- <td>${product.pp_image}</td> --%><!-- 긴 이미지 보여주는거 불필요 -->
 								<td><%=customer.getBrandName()%></td>
 								<td>${product.pp_Price}</td>
-								<td><button onclick="window.location.href='ModifyParentProduct?seq=${product.parent_p_Id}'">수정</button></td>
+								<td>
+								<button onclick="window.location.href='ModifyParentProduct?seq=${product.parent_p_Id}'">수정</button>
+								<button onclick="window.location.href='ProductAddChild?seq=${product.parent_p_Id}'">옵션</button>
+								</td>
 							</tr>
 						</c:forEach>
 					</c:when>
@@ -141,7 +144,7 @@
 		<a href="/project/Seller/ProductAddParent"><button
 				class="add-product">상품 추가하기</button></a>
 					<a href="/project/Seller/ProductAddChild"><button
-				class="add-product">옵션 추가하기test</button></a>
+				class="add-product">프론트 작업용. 옵션 추가하기test</button></a>
 	</div>
 </div>
 

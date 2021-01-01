@@ -272,8 +272,17 @@ public class SellerController {
 	
 	@RequestMapping(value = "/ProductAddChild", method = RequestMethod.GET)
 	public ModelAndView ProductAddChild(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
-
+		
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("loginCustomer");
+		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
+//		System.out.println(loginBrand);
+		
+		ArrayList<ProductParentVO> listProductParent = new ArrayList<ProductParentVO>();
+		listProductParent = productParentService.listProductParent(loginBrand);
+		System.out.println(listProductParent);
+		
 		mav = new ModelAndView ("/Seller/ProductAddChild");
+		mav.addObject("list", listProductParent);
 		return mav;
 	}
 }
