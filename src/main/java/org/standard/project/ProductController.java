@@ -10,9 +10,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/shop")
 public class ProductController {
 	
-	@RequestMapping(value="/shopMain")
+	@RequestMapping(value="/shopMain" )
 	public String shopMain() {
-		return "Store/StoreMain";
+		return "Store/StoreWomenMain";
 	}
 
+	
+	
+	/*
+	 * @RequestMapping(value="/shopMain" ) public String shopMain() { return
+	 * "Store/StoreMain"; }
+	 */
+	
 }

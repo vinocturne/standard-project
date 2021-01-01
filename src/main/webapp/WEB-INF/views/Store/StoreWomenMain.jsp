@@ -48,47 +48,19 @@ margin-top:73px;
 	<div class="col-auto p-0">
 		<div class="side_nav">
 			<div class="side_nav_item">
-				<p class="side_nav_title">Magazine</p>
+				<p class="side_nav_title">Store</p>
 				<ul>
-					<li><a href="/project/Customer/myPage">My page</a></li>
+					<li><a href="/project/Customer/myPage">Women</a></li>
 					<li><a href="#"> <!--줄띄우기 -->
 					</a></li>
-					<li><a href="/project/Customer/cart">Cart</a></li>
-					<li><a href="/project/Customer/order">Order</a></li>
-					<li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
+					<li><a href="/project/Customer/cart">TOP</a></li>
+					<li><a href="/project/Customer/order">BOTTOM</a></li>
+					<li><a href="">SHOES</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-	
-	<%-- <c:set var="i" value="0" /> <c:set var="j" value="4" />
-	<table>
-	<c:choose>
-	
-	<c:when test="${fn:length(list)>0}">
-	  	<c:forEach var="magazine" items="${list}">
-			<c:if test="${i%j == 0 }">		
-			<tr>
-			 </c:if>
-			 <td>${magazine.m_Title}</td>
-			 <td>${magazine.m_Content}</td>
-			 <td>${magazine.m_Content}</td>
-			  <a href="MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
-			 <c:if test="${i%j == j-1 }">
-			 </tr>
-			 </c:if>
-			 <c:set var="i" value="${i+1}"/>
-			 </c:forEach>
-			 </c:when>
-			 <c:otherwise>
-			 <tr>
-			 <td>존재하지않습니다</td>
-			 </tr>
-			 </c:otherwise>
-		 	 </c:choose>
-			 </table> --%>
-			 
-	
+
 
 <!--세로로 길게 나오는거  -->
 <%-- <div class="first line">
@@ -122,7 +94,7 @@ margin-top:73px;
 
 
  <c:set var="i" value="0" />
- <c:set var="j" value="4" />
+ <c:set var="j" value="3" />
 
   <c:choose>
    <c:when test="${fn:length(list)>0}">
@@ -133,7 +105,7 @@ margin-top:73px;
      
      <div class="secondbody"> 
      <div class="mainbody"> 
-    	 <div class="card" style="width:280px">
+    	 <div class="card" style="width:350px">
 		    <div class="card-body">
 		      <h4 class="card-title">${magazine.m_Title}</h4>
 		      <p class="card-text">${magazine.m_Content}</p>
@@ -157,9 +129,11 @@ margin-top:73px;
   </c:otherwise>
   </c:choose>
 
-
+<p>Store Women Page Test용</p>
 
 
 </div> <!--content_wrap 끝  -->
+
+
 
 <%@ include file="../footer.jsp"%>

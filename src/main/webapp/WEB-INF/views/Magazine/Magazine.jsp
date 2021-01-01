@@ -9,6 +9,7 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
+
 .secondbody{
 width:1200px;
 
@@ -17,25 +18,42 @@ width:1200px;
 body {
 	margin-left: 100px;
 	margin-right: 10%;
+	flex-wrap:rap;
+
 }
 
 .table {
 	width: 1200px;
+	
 }
 
-.magazine {
-	float: left;
-}
+/* .magazine {
+	flex-wrap:rap;
+} */
 
 .card{
 margin-left:7px;
 margin-right:2px;
 margin-top:7px;
 margin-bottom:3px;
+align-content:stretch;
+flex-wrap:rap;
 }
 
 .line{
 margin-top:73px;
+}
+
+
+
+.mainbody{
+display : grid;
+
+}
+
+.card-body{
+flex-wrap:rap;
+
 }
 
 </style>
@@ -60,33 +78,7 @@ margin-top:73px;
 			</div>
 		</div>
 	</div>
-	
-	<%-- <c:set var="i" value="0" /> <c:set var="j" value="4" />
-	<table>
-	<c:choose>
-	
-	<c:when test="${fn:length(list)>0}">
-	  	<c:forEach var="magazine" items="${list}">
-			<c:if test="${i%j == 0 }">		
-			<tr>
-			 </c:if>
-			 <td>${magazine.m_Title}</td>
-			 <td>${magazine.m_Content}</td>
-			 <td>${magazine.m_Content}</td>
-			  <a href="MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
-			 <c:if test="${i%j == j-1 }">
-			 </tr>
-			 </c:if>
-			 <c:set var="i" value="${i+1}"/>
-			 </c:forEach>
-			 </c:when>
-			 <c:otherwise>
-			 <tr>
-			 <td>존재하지않습니다</td>
-			 </tr>
-			 </c:otherwise>
-		 	 </c:choose>
-			 </table> --%>
+
 			 
 	
 
@@ -121,6 +113,7 @@ margin-top:73px;
 </div> --%>
 
 
+
  <c:set var="i" value="0" />
  <c:set var="j" value="4" />
 
@@ -132,21 +125,23 @@ margin-top:73px;
      </c:if>
      
      <div class="secondbody"> 
-     <div class="mainbody"> 
-    	 <div class="card" style="width:280px">
-		    <div class="card-body">
-		      <h4 class="card-title">${magazine.m_Title}</h4>
-		      <p class="card-text">${magazine.m_Content}</p>
-		      <p>하트하트</p>
-		    </div>
-		    <a href="/Admin/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
-  		</div>
-     </div>
+
+	    	 <div class="card" style="width:280px">
+			    <div class="card-body">
+			      <h4 class="card-title">${magazine.m_Title}</h4>
+			      <p class="card-text">${magazine.m_Content}</p>
+			      <p>하트하트</p>
+			    </div>
+			    <a href="/Admin/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
+	  		</div>
+
      </div>
     <c:if test="${i%j == j-1}">
      </tr>
-
-    </c:if> 
+     
+     넘어가라 넘어가라
+     
+    </c:if>
    <c:set var="i" value="${i+1}" />
     </c:forEach>
    </c:when>
@@ -156,6 +151,39 @@ margin-top:73px;
    </tr>
   </c:otherwise>
   </c:choose>
+
+
+<%-- 
+
+<c:set var="i" value="0" />
+<c:set var="j" value="4" />
+ 
+<div id="magazineList" class="bg-1">
+    <div class="container">
+        <c:forEach var="magazine" items="${list}" varStatus="status">
+            
+            <c:if test="{i%j == 0}">
+            
+           	</c:if>
+            
+                    <div class="col-sm-4">
+                        <div class="thumbnail">
+                            <h4 class="card-title">${magazine.m_Title}</h4>
+			     			<p class="card-text">${magazine.m_Content}</p>
+			     		    <p>하트하트</p>
+			    		</div>
+			    		<a href="/Admin/MagazineIn">
+			    		<img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
+                        </div>
+                   
+            <c:if test="${i%j == j-1}">
+    		
+            </c:if>        
+              </div>    
+        </c:forEach>
+   </div>
+ </div>     --%>
+
 
 
 
