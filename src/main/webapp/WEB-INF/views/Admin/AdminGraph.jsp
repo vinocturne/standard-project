@@ -59,19 +59,30 @@
 
 <script>
 	var list =JSON.stringify(${list});
-	console.log(list);
 	var parsed = JSON.parse(list);
-	console.log(parsed[0].totalPrice);
-	console.log(parsed[0].orderDate);
-	
+
+	//차트에 들어갈 배열1
+	var chartLabels= new Array();
+	chartLabels.push("x");
+for(var i=0; i<parsed.length;i++){
+	chartLabels.push(parsed[i].orderDate);
+}
+//차트에 들어갈 배열2
+var chartData = new Array();
+chartData.push("일별 주문액");
+for(var i=0; i<parsed.length;i++){
+	chartData.push(parsed[i].totalPrice);
+}
 
 
 	var chart = bb.generate({
   data: {
     x: "x",
     columns: [
-	["x",  parsed[2].orderDate, parsed[1].orderDate, parsed[0].orderDate],
-	["일별 주문액",   parsed[2].totalPrice,parsed[1].totalPrice, parsed[0].totalPrice]
+
+	chartLabels,
+	chartData 
+
     ],
     type: "line", // for ESM specify as: line()
   },
@@ -86,19 +97,19 @@
   bindto: "#timeseriesChart"
 });
 
-var ctx = $("#line-chart");
-	var lineChart = new Chart(ctx, {
-	  type: 'line',
-	  data: {
-	    labels: [parsed[2].orderDate, parsed[1].orderDate, parsed[0].orderDate],
-	    datasets: [
-	      {
-	        label: "2020",
-	        data: [parsed[2].totalPrice,parsed[1].totalPrice, parsed[0].totalPrice]
-	      }
-	    ]
-	  }
-	});
+// var ctx = $("#line-chart");
+// 	var lineChart = new Chart(ctx, {
+// 	  type: 'line',
+// 	  data: {
+// 	    labels : chartLabels,
+// 	    datasets: [
+// 	      {
+// 	        label: "2020",
+// 	        data : chartData
+// 	      }
+// 	    ]
+// 	  }
+// 	});
 
 </script>
 
