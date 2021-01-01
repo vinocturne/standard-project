@@ -8,6 +8,7 @@
       <typeAlias alias="CustomerVO" type="org.standard.project.customer.CustomerVO"/>
       <typeAlias alias="MagazineVO" type="org.standard.project.magazine.MagazineVO"/>
       <typeAlias alias="ProductParentVO" type="org.standard.project.product.ProductParentVO"/>
+      <typeAlias alias="ProductChildVO" type="org.standard.project.product.ProductChildVO"/>
       <typeAlias alias="BrandDBVO" type="org.standard.project.brand.BrandDBVO"/>
    </typeAliases>
    <environments default="development">
