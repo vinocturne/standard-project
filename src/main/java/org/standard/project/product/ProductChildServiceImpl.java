@@ -11,7 +11,9 @@ public class ProductChildServiceImpl implements ProductChildService {
 	@Autowired
 	private ProductChildDAO ProductChildDAO;
 	
-	public ArrayList<ProductChildVO> listProductChild(BrandDBVO loginBrand) {
-		return ProductChildDAO.listProductChild(loginBrand);
+
+	@Override
+	public ArrayList<ProductChildVO> listProductChild(String parent_p_Id) {
+		return ProductChildDAO.listProductChild(parent_p_Id);
 	}
 }

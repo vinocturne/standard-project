@@ -30,6 +30,8 @@ import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.magazine.MagazineVO;
 import org.standard.project.order.OrderHistoryVO;
+import org.standard.project.product.ProductChildService;
+import org.standard.project.product.ProductChildVO;
 import org.standard.project.product.ProductParentService;
 import org.standard.project.product.ProductParentVO;
 
@@ -42,6 +44,8 @@ public class SellerController {
 	CustomerService customerService;
 	@Resource(name = "BrandDBService")
 	BrandDBService brandDBService;
+	@Resource(name = "ProductChildService")
+	ProductChildService productChildService;
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 	
@@ -271,14 +275,12 @@ public class SellerController {
 	}
 	
 	@RequestMapping(value = "/ProductAddChild", method = RequestMethod.GET)
-	public ModelAndView ProductAddChild(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
+	public ModelAndView ProductAddChild(HttpSession session, HttpServletRequest req, ModelAndView mav, HttpServletResponse response) throws IOException {
+		System.out.println("선택한 상품의 옵션나열");
+		String parent_p_Id = req.getParameter("seq");
 		
-		CustomerVO customerVO = (CustomerVO)session.getAttribute("loginCustomer");
-		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
-//		System.out.println(loginBrand);
-		
-		ArrayList<ProductParentVO> listProductParent = new ArrayList<ProductParentVO>();
-		listProductParent = productParentService.listProductParent(loginBrand);
+		ArrayList<ProductChildVO> listProductParent = new ArrayList<ProductChildVO>();
+		listProductParent = productChildService.listProductChild(parent_p_Id);
 		System.out.println(listProductParent);
 		
 		mav = new ModelAndView ("/Seller/ProductAddChild");
