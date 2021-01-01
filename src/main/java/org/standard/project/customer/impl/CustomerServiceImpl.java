@@ -1,5 +1,6 @@
 package org.standard.project.customer.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -55,6 +56,13 @@ public class CustomerServiceImpl implements CustomerService {
 	public void approveCustomer(String c_Id) {
 		customerDAO.approveCustomer(c_Id);
 		
+	}
+
+	@Override
+	public List<Map<String, Object>> getDailyRegNumber() {
+		List<Map<String, Object>> regNumberList = new ArrayList<Map<String, Object>>();
+		regNumberList = customerDAO.getDailyRegNumber();
+		return regNumberList;
 	}
 
 }

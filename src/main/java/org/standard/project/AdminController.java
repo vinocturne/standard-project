@@ -68,6 +68,19 @@ public class AdminController {
 		}
 		System.out.println("toJSONString() : "+jsonArr.toJSONString() );
 		mav.addObject("list",(Object)jsonArr.toString());
+		
+		//날짜별 가입 고객수 그래프
+		List<Map<String,Object>> regNumberList = customerService.getDailyRegNumber();
+		System.out.println(regNumberList);
+		JSONArray RegCustomerjsonArr = new JSONArray();
+		for(int i=0;i<regNumberList.size();i++) {
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("registerDate", regNumberList.get(i).get("c_RegisterDate").toString());
+			jsonObject.put("regNum", regNumberList.get(i).get("COUNT(c_Id)").toString());
+			RegCustomerjsonArr.add(jsonObject);
+		}
+		System.out.println(RegCustomerjsonArr.toJSONString());
+		mav.addObject("regNumberList",RegCustomerjsonArr.toString());
 		return mav;
 	}
 

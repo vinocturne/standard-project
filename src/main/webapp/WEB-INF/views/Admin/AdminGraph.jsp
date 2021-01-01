@@ -97,20 +97,46 @@ for(var i=0; i<parsed.length;i++){
   bindto: "#timeseriesChart"
 });
 
-// var ctx = $("#line-chart");
-// 	var lineChart = new Chart(ctx, {
-// 	  type: 'line',
-// 	  data: {
-// 	    labels : chartLabels,
-// 	    datasets: [
-// 	      {
-// 	        label: "2020",
-// 	        data : chartData
-// 	      }
-// 	    ]
-// 	  }
-// 	});
+//일자별 등록 고객수 차트
+var regNumList =JSON.stringify(${regNumberList});
+var parsedRegNumList = JSON.parse(regNumList);
+
+	//차트에 들어갈 배열1
+	var chartLabels2= new Array();
+	chartLabels2.push("x");
+for(var i=0; i<parsedRegNumList.length;i++){
+	chartLabels2.push(parsedRegNumList[i].registerDate);
+}
+//차트에 들어갈 배열2
+var chartData2 = new Array();
+chartData2.push("일별 가입 고객 수");
+for(var i=0; i<parsedRegNumList.length;i++){
+	chartData2.push(parsedRegNumList[i].regNum);
+}
+
+var chart2 = bb.generate({
+  data: {
+    x: "x",
+    columns: [
+    chartLabels2,
+    chartData2
+    ],
+    type: "line", // for ESM specify as: line()
+  },
+  axis: {
+    x: {
+      type: "timeseries",
+      tick: {
+        format: "%m-%d"
+      }
+    }
+  },
+  bindto: "#timeseriesChart"
+});
+
 
 </script>
+
+
 
 <%@ include file="../footer.jsp"%>

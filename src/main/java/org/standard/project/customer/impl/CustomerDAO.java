@@ -1,5 +1,6 @@
 package org.standard.project.customer.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -49,5 +50,11 @@ public class CustomerDAO {
 		mySQL.delete(loc+"approveCustomer", c_Id);
 
 	}
-	
+
+	public List<Map<String, Object>> getDailyRegNumber() {
+		List<Map<String, Object>> regNumberList = new ArrayList<Map<String, Object>>();
+		regNumberList = mySQL.selectList(loc+"getDailyRegNumber");
+		return regNumberList;
+	}
+
 }

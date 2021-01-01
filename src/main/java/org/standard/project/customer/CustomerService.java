@@ -15,4 +15,5 @@ public interface CustomerService {
 	
 	void deleteWaitingCustomer(String c_Id);
 	void approveCustomer(String c_Id);
+	List<Map<String, Object>> getDailyRegNumber();
 }
