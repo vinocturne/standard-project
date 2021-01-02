@@ -40,17 +40,16 @@
 		<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
-					<th style="width:5%; height:10%" value="${product.p_Id}">${product.p_Id}</th>
+					<th style="width:5%; height:10%">옵션추가</th>
 					<th style="width:5%; height:10%"><input type="text" id="color"></th>
 					<th style="width:5%; height:10%"><input type="text" id="size"></th>
-					<th style="width:5%; height:10%"><input type="text" id="stock"></th>
+					<th style="width:5%; height:10%"><input type="text" id="stack"></th>
+					<th style="width:5%; height:10%"><input type="submit" style= "width:60%; height:25px" value=등록></th>
 				</tr>
 				
 			</thead>
 		</table>
 		
-		<input type="submit" value=등록>
-					
 					
 		<br><br><br>
 		<table class="table table-hover" height="100" width="1100">
@@ -69,26 +68,14 @@
 					<c:when test="${fn:length(list)>0}">
 						<c:forEach var="product" items="${list}">
 							<tr>
-								<td>
-									<div class="checkBox">
-										<input type="checkbox" name="chBox" class="chBox"
-											data-p_Id="${product.p_Id}" />
-										<script>
-											$(".chBox").click(
-													function() {
-														$("#allCheck").prop(
-																"checked",
-																false);
-													});
-										</script>
-									</div>
-								</td>
 								<td>${product.p_Id}</a></td>
 								<td><input name="p_Color" type="text" value="${product.p_Color}"></td>
 								<td><input name="p_Size" type="text" value="${product.p_Size}"></td>
 								<td><input name="p_Stack" type="text" value="${product.p_Stack}"></td>
-								<td><input type="button" value="수정" onClick="'location.href='/project/Seller/ProductModify"></td>
-								<td><input type="button" value="삭제" onClick="'location.href='/project/Seller/ProductAddChild"></td>
+								<td>
+								<input type="button" value="수정" onClick="'location.href='/project/Seller/ProductModify">
+								<input type="button" value="삭제" onClick="'location.href='/project/Seller/ProductAddChild">
+								</td>
 							</tr>
 						</c:forEach>
 					</c:when>
