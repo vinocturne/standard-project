@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("WishListService")
 public class WishListServiceImpl implements WishListService {
 	@Autowired
 	private WishListDAO wishListDAO;
