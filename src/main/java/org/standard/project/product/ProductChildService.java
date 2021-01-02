@@ -9,5 +9,6 @@ public interface ProductChildService {
 	ArrayList<ProductChildVO> listProductChild(String parent_p_Id);
 	void registProductChild(ProductChildVO vo);
 	void deleteChildProduct(String p_Id);
+	void modifyChildProduct(ProductChildVO vo);
 	
 }

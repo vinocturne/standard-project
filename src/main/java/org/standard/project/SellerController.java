@@ -49,111 +49,115 @@ public class SellerController {
 	ProductChildService productChildService;
 	@Resource(name = "uploadPath")
 	private String uploadPath;
-	
+
 	@RequestMapping(value = "/ProductManage", method = RequestMethod.GET)
-	public ModelAndView productManage(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
+	public ModelAndView productManage(HttpSession session, ModelAndView mav, HttpServletResponse response)
+			throws IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		
+
 		session.removeAttribute("productParentList");
 		System.out.println(session.getAttribute("productParentList"));
 		System.out.println("productParentList 보기");
-		//로그인후에 세션에 저장된 사용자 객체를 활용.
-		CustomerVO customerVO = (CustomerVO)session.getAttribute("loginCustomer");
-		if(customerVO == null) {
+		// 로그인후에 세션에 저장된 사용자 객체를 활용.
+		CustomerVO customerVO = (CustomerVO) session.getAttribute("loginCustomer");
+		if (customerVO == null) {
 			out.println("<script>alert('로그인해주세요.');</script>");
 			out.flush();
 			mav.setViewName("Customer/login_form");
 			return mav;
-		}else if (customerVO.getBrandName() ==null) {
+		} else if (customerVO.getBrandName() == null) {
 			out.println("<script>alert('기업회원으로 가입해주세요.');</script>");
 			out.flush();
 			mav.setViewName("Customer/login_form");
 			return mav;
 		}
-		
+
 		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
 //		System.out.println(loginBrand);
-		
+
 		ArrayList<ProductParentVO> listProductParent = new ArrayList<ProductParentVO>();
 		listProductParent = productParentService.listProductParent(loginBrand);
 		System.out.println(listProductParent);
-		
-		mav = new ModelAndView ("/Seller/ProductManage");
+
+		mav = new ModelAndView("/Seller/ProductManage");
 		mav.addObject("list", listProductParent);
 		return mav;
 	}
-	
-	
-	
+
 	@RequestMapping(value = "/ProductAddParent", method = RequestMethod.GET)
 	public ModelAndView addParent(Map<String, Object> map, CustomerVO vo) {
 		System.out.println("부모 상품 추가");
-		ModelAndView mav = new ModelAndView ("/Seller/ProductAddParent");
+		ModelAndView mav = new ModelAndView("/Seller/ProductAddParent");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/ProductAddParent", method = RequestMethod.POST)
-	public String addParentAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq, HttpServletResponse response) throws Exception {
+	public String addParentAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq,
+			HttpServletResponse response) throws Exception {
 		System.out.println("상품 입력 액션");
 		ProductParentVO vo = new ProductParentVO();
 
 		String pp_Name = req.getParameter("pp_Name");
-		
+
 //		이것을 어떻게 가져올까,, 아이디 값 가져와서 0001만들어주고 
-		CustomerVO customerVO = (CustomerVO)session.getAttribute("loginCustomer");
+		CustomerVO customerVO = (CustomerVO) session.getAttribute("loginCustomer");
 		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
 		System.out.println(loginBrand);
-		
+
 		int int_first_parent_p_Id = loginBrand.getBrandId();
 		String string_first_parent_p_Id = String.format("%04d", int_first_parent_p_Id);
 		int int_second_parent_p_Id = productParentService.cntBrandProductParent(loginBrand);
 		System.out.println(int_second_parent_p_Id);
-		String string_second_parent_p_Id = String.format("%04d", int_second_parent_p_Id+1);
+		String string_second_parent_p_Id = String.format("%04d", int_second_parent_p_Id + 1);
 		String parent_p_Id = string_first_parent_p_Id.concat(string_second_parent_p_Id);
-		
-		
+
 		String pp_Category1 = req.getParameter("pp_Category1");
 		String pp_Category2 = req.getParameter("pp_Category2");
 		vo.setPp_Name(pp_Name);
-		vo.setParent_p_Id(parent_p_Id);;
-		vo.setPp_Category1(pp_Category1);;
-		vo.setPp_Category2(pp_Category2);;
+		vo.setParent_p_Id(parent_p_Id);
+		;
+		vo.setPp_Category1(pp_Category1);
+		;
+		vo.setPp_Category2(pp_Category2);
+		;
 		int pp_Price = Integer.parseInt(req.getParameter("pp_Price"));
-		
+
 		vo.setPp_Brand(loginBrand.getBrandId());
 		vo.setPp_Price(pp_Price);
 		System.out.println(vo);
-		
-		String imgUploadPath = uploadPath+ File.separator + "productImage" ;
+
+		String imgUploadPath = uploadPath + File.separator + "productImage";
 		String fileName = null;
 		List<MultipartFile> mf = mhsq.getFiles("m_Img");
-		
+
 		if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('꼭 이미지를 넣어주세요'); history.go(-1);</script>");
 			out.flush();
-        } else {
-        	String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
-            for (int i = 0; i < mf.size(); i++) {
-                if(i==0) {
-        			fileName = UploadUtilProductThumb.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-        			vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
-                }else if(i==1) {
-        			fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-        			vo.setPp_image(File.separator + "productImage" + ymdPath +File.separator + fileName);
-                }
-            }
-        }
-		
+		} else {
+			String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
+			for (int i = 0; i < mf.size(); i++) {
+				if (i == 0) {
+					fileName = UploadUtilProductThumb.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(),
+							mf.get(i).getBytes(), ymdPath);
+					vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
+				} else if (i == 1) {
+					fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(),
+							mf.get(i).getBytes(), ymdPath);
+					vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator + fileName);
+				}
+			}
+		}
+
 		System.out.println(vo);
-		
+
 		productParentService.registProductParent(vo);
 
 		return "redirect:/Seller/ProductManage";
 	}
-	
+
 	@RequestMapping(value = "/DeleteParentProduct", method = RequestMethod.POST)
 	public String deleteParentProduct(@RequestParam(value = "chBox[]") String[] parent_p_Id) throws Exception {
 		// 체크한 상품 ID마다 반복해서 사용자 삭제
@@ -164,7 +168,7 @@ public class SellerController {
 		}
 		return "redirect:/Seller/ProductManage";
 	}
-	
+
 	@RequestMapping(value = "/ModifyParentProduct", method = RequestMethod.GET)
 	public ModelAndView selectParentProduct(HttpServletRequest req) {
 		System.out.println("선택한 부모상품 수정 가동");
@@ -173,17 +177,18 @@ public class SellerController {
 		vo = productParentService.selectParentProduct(parent_p_Id);
 		System.out.println(vo);
 		ModelAndView mav = new ModelAndView("/Seller/ProductModify");
-		mav.addObject("vo",vo);		
+		mav.addObject("vo", vo);
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/ModifyParentProduct", method = RequestMethod.POST)
-	public String modifyParentProduct (HttpServletRequest req, MultipartHttpServletRequest images) throws IOException, Exception {
+	public String modifyParentProduct(HttpServletRequest req, MultipartHttpServletRequest images)
+			throws IOException, Exception {
 		ProductParentVO vo = new ProductParentVO();
-		
+
 		List<MultipartFile> mf = images.getFiles("m_Img");
-		if(mf.get(0).getOriginalFilename() == "" && mf.get(1).getOriginalFilename() == "") {
-		//따로 이미지 수정을 하지 않았을 때 text만
+		if (mf.get(0).getOriginalFilename() == "" && mf.get(1).getOriginalFilename() == "") {
+			// 따로 이미지 수정을 하지 않았을 때 text만
 			System.out.println("이미지 변경 없는 수정");
 			vo.setParent_p_Id(req.getParameter("parent_p_Id"));
 			vo.setPp_Name(req.getParameter("pp_Name"));
@@ -193,66 +198,69 @@ public class SellerController {
 			System.out.println(vo);
 			productParentService.modifyParentProductWithoutImage(vo);
 		} else {
-			//이미지 수정을 했을 때
+			// 이미지 수정을 했을 때
 			System.out.println("이미지 두개 수정");
 			vo.setParent_p_Id(req.getParameter("parent_p_Id"));
 			vo.setPp_Name(req.getParameter("pp_Name"));
 			vo.setPp_Category1(req.getParameter("pp_Category1"));
 			vo.setPp_Category2(req.getParameter("pp_Category2"));
 			vo.setPp_Price(Integer.parseInt(req.getParameter("pp_Price")));
-			
-			if((mf.get(0).getOriginalFilename() != "" && mf.get(1).getOriginalFilename() != "")) {
+
+			if ((mf.get(0).getOriginalFilename() != "" && mf.get(1).getOriginalFilename() != "")) {
 				String originalThumbPath = req.getParameter("pp_thumb");
 				String originalImagePath = req.getParameter("pp_image");
 				System.out.println(originalThumbPath);
 				System.out.println(originalImagePath);
-				//오리지널 폴더에 있던 사진 삭제
+				// 오리지널 폴더에 있던 사진 삭제
 				DeleteUtil.deleteImg(uploadPath + originalThumbPath);
 				DeleteUtil.deleteImg(uploadPath + originalImagePath);
-				System.out.println("pp_thumb"+ originalThumbPath);
-				System.out.println("pp_thumb"+ originalImagePath);
-				//multipartFile로 받은 이미지 경로 set
+				System.out.println("pp_thumb" + originalThumbPath);
+				System.out.println("pp_thumb" + originalImagePath);
+				// multipartFile로 받은 이미지 경로 set
 				String imgUploadPath = uploadPath + File.separator + "productImage";
 				String fileName = null;
-				//req.getParameter("m_Img") != null
-				
-				
-		        String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
-		        for (int i = 0; i < mf.size(); i++) {
-		            if(i==0) {
-		        		fileName = UploadUtilProductThumb.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-		        		vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
-		            }else if(i==1) {
-		        		fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(), mf.get(i).getBytes(), ymdPath);
-		        		vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator + fileName);
-		            }
-		        }
-			} else if((mf.get(0).getOriginalFilename() != "" && mf.get(1).getOriginalFilename() == "")) {
+				// req.getParameter("m_Img") != null
+
+				String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
+				for (int i = 0; i < mf.size(); i++) {
+					if (i == 0) {
+						fileName = UploadUtilProductThumb.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(),
+								mf.get(i).getBytes(), ymdPath);
+						vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
+					} else if (i == 1) {
+						fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(i).getOriginalFilename(),
+								mf.get(i).getBytes(), ymdPath);
+						vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator + fileName);
+					}
+				}
+			} else if ((mf.get(0).getOriginalFilename() != "" && mf.get(1).getOriginalFilename() == "")) {
 				String originalThumbPath = req.getParameter("pp_thumb");
 				vo.setPp_image(req.getParameter("pp_image"));
-				//오리지널 폴더에 있던 사진 삭제
+				// 오리지널 폴더에 있던 사진 삭제
 				DeleteUtil.deleteImg(uploadPath + File.separator + originalThumbPath);
 				System.out.println(uploadPath + File.separator + originalThumbPath);
-				
+
 				String imgUploadPath = uploadPath + File.separator + "productImage";
 				String fileName = null;
-		        String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
-		        fileName = UploadUtilProductThumb.fileUpload(imgUploadPath, mf.get(0).getOriginalFilename(), mf.get(0).getBytes(), ymdPath);
-		        vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
-		            
-			} else if((mf.get(0).getOriginalFilename() == "" && mf.get(1).getOriginalFilename() != "")) {
+				String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
+				fileName = UploadUtilProductThumb.fileUpload(imgUploadPath, mf.get(0).getOriginalFilename(),
+						mf.get(0).getBytes(), ymdPath);
+				vo.setPp_thumb(File.separator + "productImage" + ymdPath + File.separator + fileName);
+
+			} else if ((mf.get(0).getOriginalFilename() == "" && mf.get(1).getOriginalFilename() != "")) {
 				vo.setPp_thumb(req.getParameter("pp_thumb"));
 				String originalImagePath = req.getParameter("pp_image");
-				//오리지널 폴더에 있던 사진 삭제
+				// 오리지널 폴더에 있던 사진 삭제
 				DeleteUtil.deleteImg(uploadPath + File.separator + originalImagePath);
 				System.out.println(uploadPath + File.separator + originalImagePath);
-				
+
 				String imgUploadPath = uploadPath + File.separator + "productImage";
 				String fileName = null;
-		        String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
-		        fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(1).getOriginalFilename(), mf.get(1).getBytes(), ymdPath);
-    			vo.setPp_image(File.separator + "productImage" + ymdPath +File.separator +  fileName);
-		            
+				String ymdPath = UploadUtilProductThumb.calcPath(imgUploadPath);
+				fileName = UploadUtilProductLong.fileUpload(imgUploadPath, mf.get(1).getOriginalFilename(),
+						mf.get(1).getBytes(), ymdPath);
+				vo.setPp_image(File.separator + "productImage" + ymdPath + File.separator + fileName);
+
 			} else {
 				System.out.println("이미지 문제");
 			}
@@ -261,51 +269,53 @@ public class SellerController {
 		}
 		return "redirect:/Seller/ProductManage";
 	}
-	
+
 	@RequestMapping(value = "/BuyList", method = RequestMethod.GET)
-	public ModelAndView deliveryManage(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
-		mav = new ModelAndView ("/Seller/BuyList");
+	public ModelAndView deliveryManage(HttpSession session, ModelAndView mav, HttpServletResponse response)
+			throws IOException {
+		mav = new ModelAndView("/Seller/BuyList");
 		return mav;
 	}
 
 	@RequestMapping(value = "/Review", method = RequestMethod.GET)
-	public ModelAndView sellerReview(HttpSession session, ModelAndView mav, HttpServletResponse response) throws IOException {
-		
-		mav = new ModelAndView ("/Seller/Review");
+	public ModelAndView sellerReview(HttpSession session, ModelAndView mav, HttpServletResponse response)
+			throws IOException {
+
+		mav = new ModelAndView("/Seller/Review");
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/ProductAddChild", method = RequestMethod.GET)
-	public ModelAndView ProductAddChild(HttpSession session, HttpServletRequest req, ModelAndView mav, HttpServletResponse response) throws IOException {
+	public ModelAndView ProductAddChild(HttpSession session, HttpServletRequest req, ModelAndView mav,
+			HttpServletResponse response) throws IOException {
 		System.out.println("선택한 상품의 옵션나열");
 		String parent_p_Id = req.getParameter("seq");
 		ProductParentVO vo = new ProductParentVO();
 		vo = productParentService.selectParentProduct(parent_p_Id);
-		
+
 		ArrayList<ProductChildVO> listProductParent = new ArrayList<ProductChildVO>();
 		listProductParent = productChildService.listProductChild(parent_p_Id);
 		System.out.println(listProductParent);
 		session.setAttribute("childList", vo);
-		mav = new ModelAndView ("/Seller/ProductAddChild");
-		mav.addObject("vo",vo);
+		mav = new ModelAndView("/Seller/ProductAddChild");
+		mav.addObject("vo", vo);
 		mav.addObject("list", listProductParent);
 		return mav;
 	}
-	
-	
+
 	@RequestMapping(value = "/AddChild", method = RequestMethod.POST)
-	public String addChildAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq, HttpServletResponse response, Model model) throws Exception {
+	public String addChildAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq,
+			HttpServletResponse response, Model model) throws Exception {
 		System.out.println("옵션 입력 액션");
 		ProductChildVO vo = new ProductChildVO();
 
 		String p_Color = req.getParameter("p_Color");
 		String p_Size = req.getParameter("p_Size");
 		int p_Stack = Integer.parseInt(req.getParameter("p_Stack"));
-		
+
 		String parent_p_Id = req.getParameter("parent_p_Id");
 		String p_Id = parent_p_Id.concat(p_Color).concat(p_Size);
 		int p_Brand = Integer.parseInt(req.getParameter("pp_Brand"));
-		
 
 		vo.setP_Color(p_Color);
 		vo.setP_Size(p_Size);
@@ -313,21 +323,30 @@ public class SellerController {
 		vo.setParent_p_Id(parent_p_Id);
 		vo.setP_Id(p_Id);
 		vo.setP_Brand(p_Brand);
-		
+
 		System.out.println(vo);
-		
+
 		productChildService.registProductChild(vo);
 		return "redirect:/Seller/ProductManage";
 	}
-	
+
 	@RequestMapping(value = "/DeleteChild", method = RequestMethod.GET)
 	public String deleteChildAction(HttpServletRequest req) throws Exception {
-		// 체크한 상품 ID마다 반복해서 사용자 삭제
 		String p_Id = req.getParameter("seq");
-		System.out.println("선택한 상품 삭제 가동");
-		System.out.println("사용자 삭제 = " + p_Id);
 		productChildService.deleteChildProduct(p_Id);
 		return "redirect:/Seller/ProductManage";
 	}
-	
+
+	@RequestMapping(value = "/ModifyChild", method = RequestMethod.POST)
+	public String modifyChildAction(HttpServletRequest req, MultipartHttpServletRequest images) {
+		System.out.println("옵션 수정 액션");
+		ProductChildVO vo = new ProductChildVO();
+		vo.setP_Id(req.getParameter("p_Id"));
+		vo.setP_Color(req.getParameter("p_Color"));
+		vo.setP_Size(req.getParameter("p_Size"));
+		vo.setP_Stack(Integer.parseInt(req.getParameter("p_Stack")));
+		System.out.println(vo);
+		productChildService.modifyChildProduct(vo);
+		return "redirect:/Seller/ProductManage";
+	}
 }

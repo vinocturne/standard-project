@@ -47,4 +47,8 @@
 		DELETE FROM product WHERE p_Id=#{p_Id}
 	</select>
 	
+	<select id="modifyChildProduct" resultType="ProductChildVO">
+		UPDATE product SET p_Color=#{p_Color}, p_Size=#{p_Size}, p_Stack=#{p_Stack} where p_Id=#{p_Id}
+	</select>
+	
 </mapper>

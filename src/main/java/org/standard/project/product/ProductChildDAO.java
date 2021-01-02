@@ -27,4 +27,8 @@ public class ProductChildDAO {
 	public void deleteChildProduct(String p_Id) {
 		mySQL.delete(loc+"deleteChildProduct", p_Id);
 	}
+	
+	public void modifyChildProduct(ProductChildVO vo) {
+		mySQL.update(loc+"modifyChildProduct", vo);
+	}
 }

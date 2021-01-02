@@ -75,16 +75,16 @@
 						<c:forEach var="product" items="${list}">
 							<!-- <form action="/project/Seller/ModifyParentProduct" method="POST" enctype="multipart/form-data"> -->
 							<tr>
-								<!-- <form action="/project/Seller/ModifyChild" method="POST" enctype="multipart/form-data"> -->
-								<td>${product.p_Id}</a></td>
+								<form action="/project/Seller/ModifyChild" method="POST" enctype="multipart/form-data">
+								<td><input style="background-color:pink" name="p_Id" type="hidden"  value="${product.p_Id}">${product.p_Id}</td>
 								<td><input name="p_Color" type="text" value="${product.p_Color}"></td>
 								<td><input name="p_Size" type="text" value="${product.p_Size}"></td>
 								<td><input name="p_Stack" type="text" value="${product.p_Stack}"></td>
 								<td>
-								<button onclick="window.location.href='ModifyChild?seq=${product.p_Id}'">수정</button>
+								<button type="submit">수정</button>
 								<button onclick="window.location.href='DeleteChild?seq=${product.p_Id}'">삭제</button>
 								</td>
-								<!-- </form> -->
+								</form>
 							</tr>
 							<!-- </form> -->
 						</c:forEach>
