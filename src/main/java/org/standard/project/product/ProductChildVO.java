@@ -2,12 +2,12 @@ package org.standard.project.product;
 
 public class ProductChildVO {
 	int p_Brand, p_Stack;
-	String p_Id, p_Color, p_Size, p_parent_Id;
-	public String getP_parent_Id() {
-		return p_parent_Id;
+	String p_Id, p_Color, p_Size, parent_p_Id;
+	public String getParent_p_Id() {
+		return parent_p_Id;
 	}
-	public void setP_parent_Id(String p_parent_Id) {
-		this.p_parent_Id = p_parent_Id;
+	public void setParent_p_Id(String parent_p_Id) {
+		this.parent_p_Id = parent_p_Id;
 	}
 	public int getP_Brand() {
 		return p_Brand;
@@ -43,7 +43,7 @@ public class ProductChildVO {
 	@Override
 	public String toString() {
 		return "ProductChildVO [p_Brand=" + p_Brand + ", p_Stack=" + p_Stack + ", p_Id=" + p_Id + ", p_Color=" + p_Color
-				+ ", p_Size=" + p_Size + ", p_parent_Id=" + p_parent_Id + "]";
+				+ ", p_Size=" + p_Size + ", p_parent_Id=" + parent_p_Id + "]";
 	} 
 	
 }

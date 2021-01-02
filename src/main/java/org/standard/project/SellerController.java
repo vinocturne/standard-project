@@ -314,7 +314,7 @@ public class SellerController {
 		vo.setP_Color(p_Color);
 		vo.setP_Size(p_Size);
 		vo.setP_Stack(p_Stack);
-		vo.setP_parent_Id(parent_p_Id);
+		vo.setParent_p_Id(parent_p_Id);
 		vo.setP_Id(p_Id);
 		vo.setP_Brand(p_Brand);
 		

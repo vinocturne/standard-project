@@ -106,7 +106,7 @@ margin-top:73px;
      <div class="secondbody"> 
      <div class="mainbody"> 
     	 <div class="card" style="width:350px">
-		    <a href="/Admin/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:100%"></a>
+		    <a href="/project/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:100%"></a>
   			<div class="card-body">
 		      <h4 class="card-title">${productParent.pp_Name}</h4>
 		      <p class="card-text">${productParent.pp_Price}</p>
