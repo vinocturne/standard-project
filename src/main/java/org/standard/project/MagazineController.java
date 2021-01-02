@@ -1,5 +1,6 @@
 package org.standard.project;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.annotation.Resource;
@@ -21,7 +22,14 @@ public class MagazineController {
 	@Resource(name = "MagazineService")
 	MagazineService magazineService;
 
-	
+	@RequestMapping(value = "/magazineList", method = RequestMethod.GET)
+	public ModelAndView magazineList(MagazineVO vo) {
+		System.out.println("매거진 매니저");
+		ModelAndView mav = new ModelAndView("/Magazine/Magazine");
+		List<MagazineVO> list = magazineService.getMagazineList(vo);
+		mav.addObject("list", list);
+		return mav;
+	}
 	
 	
 //	@RequestMapping(value = "/magazineList", method = RequestMethod.GET)
