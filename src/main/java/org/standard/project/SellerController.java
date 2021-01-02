@@ -302,13 +302,8 @@ public class SellerController {
 		int p_Stack = Integer.parseInt(req.getParameter("p_Stack"));
 		
 		String parent_p_Id = req.getParameter("parent_p_Id");
-		
-		
-		
-		String p_Id = req.getParameter("p_Id");
-		
-		
-		int p_Brand = Integer.parseInt(req.getParameter("p_Brand"));
+		String p_Id = parent_p_Id.concat(p_Color).concat(p_Size);
+		int p_Brand = Integer.parseInt(req.getParameter("pp_Brand"));
 		
 
 		vo.setP_Color(p_Color);
@@ -321,8 +316,7 @@ public class SellerController {
 		System.out.println(vo);
 		
 		productChildService.registProductChild(vo);
-
-		return "redirect:/Seller/ProductAddChild";
+		return "Seller/ProductAddChild";
 	}
 	
 }

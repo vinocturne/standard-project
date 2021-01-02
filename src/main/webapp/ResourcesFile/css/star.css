@@ -33,11 +33,11 @@ h2{
     box-sizing: border-box;
 }
 .review_msg{
-	width:100%;
-	text-align:center;
+   width:100%;
+   text-align:center;
 }
 .mypage_table{
-	border:1px solid #e5e5e5;
+   border:1px solid #e5e5e5;
 }
 
 .rating .rate_radio {
@@ -78,12 +78,14 @@ h2{
 .cmd input[type="button"]{
     padding: 10px 20px;
     border: 1px solid #e8e8e8;
+    border-radius:6px;
     background-color: #fff;
-    background-color:#000;  
+    background-color:#757575;  
     color: #fff;
+    
 }
 
-.warning_msg {
+.warning_msg1 {
     display: none;
     position: relative;
     text-align: center;
@@ -92,6 +94,19 @@ h2{
     width: 100%;
     color: red;
     padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+}
+.warning_msg2 {
+    display: none;
+    position: absolute;
+    text-align: center;
+    background: #ffffff;
+    line-height: 26px;
+    width: 70%;
+    color: red;
+    padding: 10px;
+    margin:5px
     box-sizing: border-box;
     border: 1px solid #e0e0e0;
 }
