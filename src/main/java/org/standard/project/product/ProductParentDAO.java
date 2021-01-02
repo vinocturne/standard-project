@@ -26,6 +26,11 @@ public class ProductParentDAO {
 		return listProductParent;
 	}
 	
+	public List<ProductParentVO> allProductList() {
+		List<ProductParentVO> allProductList = mySQL.selectList(loc+"showAllProductList");
+		return allProductList; 
+	}
+	
 	public void registProductParent(ProductParentVO vo) {
 		mySQL.insert(loc+"registProductParent", vo);
 	}
