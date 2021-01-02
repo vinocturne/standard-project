@@ -112,20 +112,16 @@ flex-wrap:rap;
 	
 </div> --%>
 
-
-
- <c:set var="i" value="0" />
- <c:set var="j" value="4" />
+ <c:set var="i" value="1" />
+ <c:set var="j" value="5" />
 
   <c:choose>
    <c:when test="${fn:length(list)>0}">
     <c:forEach var="magazine" items="${list}">
-     <c:if test="{i%j == 0}">
-      <tr>
-     </c:if>
-     
-     <div class="secondbody"> 
 
+
+     <div class="secondbody"> 
+     
 	    	 <div class="card" style="width:280px">
 			    <div class="card-body">
 			      <h4 class="card-title">${magazine.m_Title}</h4>
@@ -134,16 +130,18 @@ flex-wrap:rap;
 			    </div>
 			    <a href="/Admin/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
 	  		</div>
-
      </div>
-    <c:if test="${i%j == j-1}">
-     </tr>
-     
-     넘어가라 넘어가라
-     
-    </c:if>
+
+  	<c:if test="${i%j == j-1}">
+     ddd
+	</c:if>
+
    <c:set var="i" value="${i+1}" />
-    </c:forEach>
+
+
+   </c:forEach>
+
+
    </c:when>
   <c:otherwise>
    <tr>
