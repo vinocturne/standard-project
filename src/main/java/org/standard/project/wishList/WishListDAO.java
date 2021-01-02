@@ -15,6 +15,7 @@ public class WishListDAO {
 	private String loc = "org.standard.project.WishListMapper.";
 	
 	public List<WishListVO> getWishList(String c_Id) {
+		System.out.println("wishListDAO 의 c_Id : "+c_Id);
 		List<WishListVO> wishList = mySQL.selectList(loc+"getWishList",c_Id);
 		return wishList;
 	}

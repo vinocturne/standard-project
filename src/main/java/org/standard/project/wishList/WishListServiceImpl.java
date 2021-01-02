@@ -13,6 +13,7 @@ public class WishListServiceImpl implements WishListService {
 
 	@Override
 	public ArrayList<WishListVO> getWishList(String c_Id) {
+		System.out.println("wishListServiceImple의 c_Id : "+ c_Id);
 		ArrayList<WishListVO> wishList = new ArrayList<WishListVO>();
 		wishList = (ArrayList<WishListVO>)wishListDAO.getWishList(c_Id);
 		return wishList;

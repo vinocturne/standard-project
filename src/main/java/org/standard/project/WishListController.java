@@ -17,12 +17,12 @@ import org.standard.project.wishList.WishListService;
 import org.standard.project.wishList.WishListVO;
 
 @Controller
-@RequestMapping(value="/WishList")
+@RequestMapping(value="/wishList")
 public class WishListController {
 	@Resource(name = "WishListService")
 	WishListService wishListService;
 	
-	@RequestMapping(value = "/cart", method = RequestMethod.GET)
+	@RequestMapping(value = "/cart")
 	public ModelAndView myCart(HttpSession session) {
 		System.out.println("wishList컨트롤러");
 		if (session.getAttribute("loginCustomer") == null) {
@@ -34,7 +34,9 @@ public class WishListController {
 			CustomerVO customer =(CustomerVO) session.getAttribute("loginCustomer");
 			//가져온 아이디로 wishListVO를 불러온 후 저장.
 			ArrayList<WishListVO> wishListVOList =wishListService.getWishList(customer.getC_Id());
-			//wishList가 null이 아니면 p_Id로 상품 정보를 받아온다.
+			//wishList가 null이 아니면 p_Id로 상품 정보를 받아온다
+			System.out.println("c_Id : " +customer.getC_Id());
+			System.out.println("wishListVOList : "+ wishListVOList);
 			if(wishListVOList!=null) {
 				//product에서 부모아이디, 아이디, 브랜드, 컬러, 사이즈, 재고를 받아온다
 				
@@ -50,7 +52,7 @@ public class WishListController {
 					productInfoArr.add(productVO);
 					System.out.println(productInfoArr.get(i).toString());
 				}
-				
+				System.out.println("productInfoArr : "+productInfoArr);
 				mav.addObject("wishList", productInfoArr);
 				return mav;
 			}else {
