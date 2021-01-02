@@ -1,3 +1,4 @@
+<%@page import="org.standard.project.product.ProductParentVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
@@ -32,12 +33,16 @@
 			</div>
 		</div>
 	</div>
-
+	<%
+			ProductParentVO vo = (ProductParentVO)request.getAttribute("vo");
+		%>
 	<div class="content">
 		<br><br>
 		<h3>상품 옵션 관리</h3>
 		<br>
 		<form action="/project/Seller/AddChild" method="POST" enctype="multipart/form-data">
+		<input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=vo.getParent_p_Id()%>">
+		<input type="hidden" id="pp_Brand" name="pp_Brand" value="<%=vo.getPp_Brand()%>">
 		<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
@@ -45,7 +50,7 @@
 					<th style="width:5%; height:10%"><input type="text" name="p_Color"></th>
 					<th style="width:5%; height:10%"><input type="text" name="p_Size"></th>
 					<th style="width:5%; height:10%"><input type="text" name="p_Stack"></th>
-					<th style="width:5%; height:10%"><input type="submit" style= "width:60%; height:25px" value=등록></th>
+					<th style="width:5%; height:10%"><input type="submit" style= "width:60%; height:25px" onclick="window.location.href='ProductAddChild?seq=${vo.parent_p_Id}'" value=등록></th>
 				</tr>
 			</thead>
 		</table>
