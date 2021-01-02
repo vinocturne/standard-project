@@ -16,7 +16,7 @@
                 param: ID
             },
             success: function (data, textStatus) {
-                document.getElementById("idMsg").innerText = data;
+                document.getElementById("idMsg").innerHTML = data;
             },
             error: function (data, textStatus) {
                 console.log("에러 발생");

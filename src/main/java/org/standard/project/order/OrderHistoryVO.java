@@ -7,8 +7,45 @@ public class OrderHistoryVO {
 	private int o_Num, p_Price, o_Quantity, o_TotalPrice;
     private String c_Id, p_Id, o_Delivery;
     private Date o_Date;
+    private String zipcode,o_Address1,o_Address2,o_Name,o_Phone1,o_Phone2;
 	public int getO_Num() {
 		return o_Num;
+	}
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+	public String getO_Address1() {
+		return o_Address1;
+	}
+	public void setO_Address1(String o_Address1) {
+		this.o_Address1 = o_Address1;
+	}
+	public String getO_Address2() {
+		return o_Address2;
+	}
+	public void setO_Address2(String o_Address2) {
+		this.o_Address2 = o_Address2;
+	}
+	public String getO_Name() {
+		return o_Name;
+	}
+	public void setO_Name(String o_Name) {
+		this.o_Name = o_Name;
+	}
+	public String getO_Phone1() {
+		return o_Phone1;
+	}
+	public void setO_Phone1(String o_Phone1) {
+		this.o_Phone1 = o_Phone1;
+	}
+	public String getO_Phone2() {
+		return o_Phone2;
+	}
+	public void setO_Phone2(String o_Phone2) {
+		this.o_Phone2 = o_Phone2;
 	}
 	public void setO_Num(int o_Num) {
 		this.o_Num = o_Num;
@@ -59,7 +96,8 @@ public class OrderHistoryVO {
 	public String toString() {
 		return "OrderHistoryVO [o_Num=" + o_Num + ", p_Price=" + p_Price + ", o_Quantity=" + o_Quantity
 				+ ", o_TotalPrice=" + o_TotalPrice + ", c_Id=" + c_Id + ", p_Id=" + p_Id + ", o_Delivery=" + o_Delivery
-				+ ", o_Date=" + o_Date + "]";
+				+ ", o_Date=" + o_Date + ", zipcode=" + zipcode + ", o_Address1=" + o_Address1 + ", o_Address2="
+				+ o_Address2 + ", o_Name=" + o_Name + ", o_Phone1=" + o_Phone1 + ", o_Phone2=" + o_Phone2 + "]";
 	}
     
 }

@@ -53,10 +53,10 @@
 	</div>
 
 </div>
-<div id="lineChart"></div>
-
-
+<div id="daliyIncomeChart"></div>
+<div id="daliyRegCusNumChart"></div>
 <script>
+
 	var list =JSON.stringify(${list});
 	var parsed = JSON.parse(list);
 
@@ -72,7 +72,6 @@ chartData.push("일별 주문액");
 for(var i=0; i<parsed.length;i++){
 	chartData.push(parsed[i].totalPrice);
 }
-
 
 	var chart = bb.generate({
   data: {
@@ -93,14 +92,15 @@ for(var i=0; i<parsed.length;i++){
       }
     }
   },
-  bindto: "#timeseriesChart"
+  bindto: "#daliyIncomeChart"
 });
 
-var charts =document.getElementsByClassName("bb");
-charts[0].append("일별 가입 고객수 현황");
-charts[0].append(document.createElement("span"));
+
+</script>
 
 
+
+<script>
 //일자별 등록 고객수 차트
 var regNumList =JSON.stringify(${regNumberList});
 var parsedRegNumList = JSON.parse(regNumList);
@@ -135,7 +135,7 @@ var chart2 = bb.generate({
       }
     }
   },
-  bindto: "#timeseriesChart"
+  bindto: "#daliyRegCusNumChart"
 });
 
 

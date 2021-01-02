@@ -171,10 +171,10 @@ public class CustomerController {
 		CustomerVO waitingCustomer = customerService.getWaitingCustomer(vo);
 		if (customer == null && waitingCustomer == null) {
 			// 등록이 되었지 않은 경우
-			out.print("사용할 수 있는 아이디 입니다.");
+			out.print("<strong style='color :green'>사용할 수 있는 아이디 입니다.</strong>");
 		} else {
 			// 등록이 되어있는경우
-			out.print("이미 사용중인 아이디입니다.");
+			out.print("<strong style='color :red'>이미 사용중인 아이디입니다.</strong>");
 		}
 
 	}	
