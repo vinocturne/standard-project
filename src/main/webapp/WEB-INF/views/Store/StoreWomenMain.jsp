@@ -98,7 +98,7 @@ margin-top:73px;
 
   <c:choose>
    <c:when test="${fn:length(list)>0}">
-    <c:forEach var="magazine" items="${list}">
+    <c:forEach var="productParent" items="${list}">
      <c:if test="{i%j == 0}">
       <tr>
      </c:if>
@@ -106,12 +106,12 @@ margin-top:73px;
      <div class="secondbody"> 
      <div class="mainbody"> 
     	 <div class="card" style="width:350px">
-		    <div class="card-body">
-		      <h4 class="card-title">${magazine.m_Title}</h4>
-		      <p class="card-text">${magazine.m_Content}</p>
-		      <p>하트하트</p>
+		    <a href="/Admin/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:100%"></a>
+  			<div class="card-body">
+		      <h4 class="card-title">${productParent.pp_Name}</h4>
+		      <p class="card-text">${productParent.pp_Price}</p>
+		      <p></p>
 		    </div>
-		    <a href="/Admin/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
   		</div>
      </div>
      </div>
