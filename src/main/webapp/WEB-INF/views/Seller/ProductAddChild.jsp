@@ -50,7 +50,7 @@
 					<th style="width:5%; height:10%"><input type="text" name="p_Color"></th>
 					<th style="width:5%; height:10%"><input type="text" name="p_Size"></th>
 					<th style="width:5%; height:10%"><input type="text" name="p_Stack"></th>
-					<th style="width:5%; height:10%"><input type="submit" style= "width:60%; height:25px" onclick="window.location.href='ProductAddChild?seq=${vo.parent_p_Id}'" value=등록></th>
+					<th style="width:5%; height:10%"><input type="submit" style= "width:60%; height:25px" value=등록></th>
 				</tr>
 			</thead>
 		</table>
@@ -73,16 +73,20 @@
 				<c:choose>
 					<c:when test="${fn:length(list)>0}">
 						<c:forEach var="product" items="${list}">
+							<!-- <form action="/project/Seller/ModifyParentProduct" method="POST" enctype="multipart/form-data"> -->
 							<tr>
-								<td>${product.p_Id}</a></td>
+								<form action="/project/Seller/ModifyChild" method="POST" enctype="multipart/form-data">
+								<td><input style="background-color:pink" name="p_Id" type="hidden"  value="${product.p_Id}">${product.p_Id}</td>
 								<td><input name="p_Color" type="text" value="${product.p_Color}"></td>
 								<td><input name="p_Size" type="text" value="${product.p_Size}"></td>
 								<td><input name="p_Stack" type="text" value="${product.p_Stack}"></td>
 								<td>
-								<input type="button" value="수정" onClick="'location.href='/project/Seller/ProductModify">
-								<input type="button" value="삭제" onClick="'location.href='/project/Seller/ProductAddChild">
+								<button type="submit">수정</button>
+								<button onclick="window.location.href='DeleteChild?seq=${product.p_Id}'">삭제</button>
 								</td>
+								</form>
 							</tr>
+							<!-- </form> -->
 						</c:forEach>
 					</c:when>
 					<c:otherwise>

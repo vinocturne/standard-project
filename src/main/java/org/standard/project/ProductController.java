@@ -60,6 +60,23 @@ public class ProductController {
 		  return "Store/DamStoreMain"; 
 		  
 	  }
-	 
+	  
+	  @RequestMapping(value="/StoreWomenMain", method = RequestMethod.GET)
+		public ModelAndView StoreWomenMain(ModelAndView mav) {
+			List<ProductParentVO> allProductList = productParentService.allProductList();
+				
+			mav = new ModelAndView ("/Store/StoreWomenMain");
+			mav.addObject("list", allProductList);
+			return mav;
+		}
 	
+	  @RequestMapping(value="/StoreManMain", method = RequestMethod.GET)
+	  public ModelAndView StoreManMain(ModelAndView mav) {
+		  List<ProductParentVO> allProductList = productParentService.allProductList();
+		  
+		  mav = new ModelAndView ("/Store/StoreManMain");
+		  mav.addObject("list", allProductList);
+		  return mav;
+	  }
+	  
 }

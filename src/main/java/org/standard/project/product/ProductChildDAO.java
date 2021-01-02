@@ -23,4 +23,12 @@ public class ProductChildDAO {
 	public void registProductChild(ProductChildVO vo) {
 		mySQL.insert(loc+"registProductChild", vo);
 	}
+	
+	public void deleteChildProduct(String p_Id) {
+		mySQL.delete(loc+"deleteChildProduct", p_Id);
+	}
+	
+	public void modifyChildProduct(ProductChildVO vo) {
+		mySQL.update(loc+"modifyChildProduct", vo);
+	}
 }
