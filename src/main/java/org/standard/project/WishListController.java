@@ -16,7 +16,7 @@ import org.standard.project.wishList.WishListProductVO;
 import org.standard.project.wishList.WishListService;
 import org.standard.project.wishList.WishListVO;
 
-//@Controller
+@Controller
 @RequestMapping(value="/WishList")
 public class WishListController {
 	@Resource(name = "WishListService")
