@@ -52,6 +52,7 @@
 			<div class="side_nav_item">
 				<p class="side_nav_title">Store</p>
 				<ul>
+				
 					<li><a href="/project/shop/StoreManMain" class="side_nav_title">Man</a></li>
 					<li><a href="#"> <!--줄띄우기 -->
 					</a></li>
