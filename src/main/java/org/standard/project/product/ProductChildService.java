@@ -7,4 +7,6 @@ import org.standard.project.brand.BrandDBVO;
 public interface ProductChildService {
 
 	ArrayList<ProductChildVO> listProductChild(String parent_p_Id);
+	void registProductChild(ProductChildVO vo);
+	
 }

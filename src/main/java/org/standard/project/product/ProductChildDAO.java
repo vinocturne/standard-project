@@ -19,4 +19,8 @@ public class ProductChildDAO {
 		listProductChild =(ArrayList) mySQL.selectList(loc+"listProductChild",parent_p_Id);
 		return listProductChild;
 	}
+	
+	public void registProductChild(ProductChildVO vo) {
+		mySQL.insert(loc+"registProductChild", vo);
+	}
 }

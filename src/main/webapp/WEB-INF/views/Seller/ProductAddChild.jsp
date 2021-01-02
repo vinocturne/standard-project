@@ -37,18 +37,19 @@
 		<br><br>
 		<h3>상품 옵션 관리</h3>
 		<br>
+		<form action="/project/Seller/AddChild" method="POST" enctype="multipart/form-data">
 		<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
 					<th style="width:5%; height:10%">옵션추가</th>
-					<th style="width:5%; height:10%"><input type="text" id="color"></th>
-					<th style="width:5%; height:10%"><input type="text" id="size"></th>
-					<th style="width:5%; height:10%"><input type="text" id="stack"></th>
+					<th style="width:5%; height:10%"><input type="text" name="p_Color"></th>
+					<th style="width:5%; height:10%"><input type="text" name="p_Size"></th>
+					<th style="width:5%; height:10%"><input type="text" name="p_Stack"></th>
 					<th style="width:5%; height:10%"><input type="submit" style= "width:60%; height:25px" value=등록></th>
 				</tr>
-				
 			</thead>
 		</table>
+		</form>
 		
 					
 		<br><br><br>

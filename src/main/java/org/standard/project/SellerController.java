@@ -86,14 +86,14 @@ public class SellerController {
 	
 	
 	@RequestMapping(value = "/ProductAddParent", method = RequestMethod.GET)
-	public ModelAndView AddParent(Map<String, Object> map, CustomerVO vo) {
+	public ModelAndView addParent(Map<String, Object> map, CustomerVO vo) {
 		System.out.println("부모 상품 추가");
 		ModelAndView mav = new ModelAndView ("/Seller/ProductAddParent");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/ProductAddParent", method = RequestMethod.POST)
-	public String magazineWriteAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq, HttpServletResponse response) throws Exception {
+	public String addParentAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq, HttpServletResponse response) throws Exception {
 		System.out.println("상품 입력 액션");
 		ProductParentVO vo = new ProductParentVO();
 
@@ -278,13 +278,51 @@ public class SellerController {
 	public ModelAndView ProductAddChild(HttpSession session, HttpServletRequest req, ModelAndView mav, HttpServletResponse response) throws IOException {
 		System.out.println("선택한 상품의 옵션나열");
 		String parent_p_Id = req.getParameter("seq");
+		ProductParentVO vo = new ProductParentVO();
+		vo = productParentService.selectParentProduct(parent_p_Id);
 		
 		ArrayList<ProductChildVO> listProductParent = new ArrayList<ProductChildVO>();
 		listProductParent = productChildService.listProductChild(parent_p_Id);
 		System.out.println(listProductParent);
 		
 		mav = new ModelAndView ("/Seller/ProductAddChild");
+		mav.addObject("vo",vo);
 		mav.addObject("list", listProductParent);
 		return mav;
 	}
+	
+	
+	@RequestMapping(value = "/AddChild", method = RequestMethod.POST)
+	public String addChildAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq, HttpServletResponse response) throws Exception {
+		System.out.println("옵션 입력 액션");
+		ProductChildVO vo = new ProductChildVO();
+
+		String p_Color = req.getParameter("p_Color");
+		String p_Size = req.getParameter("p_Size");
+		int p_Stack = Integer.parseInt(req.getParameter("p_Stack"));
+		
+		String parent_p_Id = req.getParameter("parent_p_Id");
+		
+		
+		
+		String p_Id = req.getParameter("p_Id");
+		
+		
+		int p_Brand = Integer.parseInt(req.getParameter("p_Brand"));
+		
+
+		vo.setP_Color(p_Color);
+		vo.setP_Size(p_Size);
+		vo.setP_Stack(p_Stack);
+		vo.setP_parent_Id(parent_p_Id);
+		vo.setP_Id(p_Id);
+		vo.setP_Brand(p_Brand);
+		
+		System.out.println(vo);
+		
+		productChildService.registProductChild(vo);
+
+		return "redirect:/Seller/ProductAddChild";
+	}
+	
 }
