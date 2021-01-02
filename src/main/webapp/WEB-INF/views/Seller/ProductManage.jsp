@@ -93,7 +93,6 @@
 					<th style="width:5%; height:10%">카테고리1</th>
 					<th style="width:5%; height:10%">카테고리2</th>
 					<th style="width:5%; height:10%">썸네일</th>
-					<!-- <th style="width:5%; height:10%">롱이미지</th> --><!-- 긴 이미지 보여주는거 불필요 -->
 					<th style="width:5%; height:10%">브랜드</th>
 					<th style="width:5%; height:10%">가격</th>
 					<th style="width:5%; height:10%">수정</th>
@@ -123,7 +122,6 @@
 								<td>${product.pp_Category1}</td>
 								<td>${product.pp_Category2}</td>
 								<td><img src ="${pageContext.request.contextPath }${product.pp_thumb}" id="product_thumbnail"></td>
-								<%-- <td>${product.pp_image}</td> --%><!-- 긴 이미지 보여주는거 불필요 -->
 								<td><%=customer.getBrandName()%></td>
 								<td>${product.pp_Price}</td>
 								<td>
@@ -143,8 +141,7 @@
 		</table>
 		<a href="/project/Seller/ProductAddParent"><button
 				class="add-product">상품 추가하기</button></a>
-					<a href="/project/Seller/ProductAddChild"><button
-				class="add-product">프론트 작업용. 옵션 추가하기test</button></a>
+				
 	</div>
 </div>
 
