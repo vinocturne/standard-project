@@ -18,7 +18,7 @@ public class ProductController {
 	@Resource(name = "ProductParentService")
 	ProductParentService productParentService;
 	
-	@RequestMapping(value="/shopMain" )
+	@RequestMapping(value="/shopMain", method = RequestMethod.GET)
 	public ModelAndView shopMain(ModelAndView mav) {
 		List<ProductParentVO> allProductList = productParentService.allProductList();
 			
