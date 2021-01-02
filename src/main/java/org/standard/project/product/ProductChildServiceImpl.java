@@ -21,4 +21,10 @@ public class ProductChildServiceImpl implements ProductChildService {
 	public void registProductChild(ProductChildVO vo) {
 		productChildDAO.registProductChild(vo);
 	}
+	
+	@Override
+	public void deleteChildProduct(String p_Id) {
+		productChildDAO.deleteChildProduct(p_Id);
+		
+	}
 }

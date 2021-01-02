@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -284,7 +285,7 @@ public class SellerController {
 		ArrayList<ProductChildVO> listProductParent = new ArrayList<ProductChildVO>();
 		listProductParent = productChildService.listProductChild(parent_p_Id);
 		System.out.println(listProductParent);
-		
+		session.setAttribute("childList", vo);
 		mav = new ModelAndView ("/Seller/ProductAddChild");
 		mav.addObject("vo",vo);
 		mav.addObject("list", listProductParent);
@@ -293,7 +294,7 @@ public class SellerController {
 	
 	
 	@RequestMapping(value = "/AddChild", method = RequestMethod.POST)
-	public String addChildAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq, HttpServletResponse response) throws Exception {
+	public String addChildAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq, HttpServletResponse response, Model model) throws Exception {
 		System.out.println("옵션 입력 액션");
 		ProductChildVO vo = new ProductChildVO();
 
@@ -316,7 +317,17 @@ public class SellerController {
 		System.out.println(vo);
 		
 		productChildService.registProductChild(vo);
-		return "Seller/ProductAddChild";
+		return "redirect:/Seller/ProductManage";
+	}
+	
+	@RequestMapping(value = "/DeleteChild", method = RequestMethod.GET)
+	public String deleteChildAction(HttpServletRequest req) throws Exception {
+		// 체크한 상품 ID마다 반복해서 사용자 삭제
+		String p_Id = req.getParameter("seq");
+		System.out.println("선택한 상품 삭제 가동");
+		System.out.println("사용자 삭제 = " + p_Id);
+		productChildService.deleteChildProduct(p_Id);
+		return "redirect:/Seller/ProductManage";
 	}
 	
 }
