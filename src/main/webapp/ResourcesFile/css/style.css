@@ -185,6 +185,7 @@ header .sub-menu li a:hover {
 }
 
 .carousel-item {
+	width:;
 	height: 600px;
 }
 .carousel-item:nth-child(1){
@@ -441,6 +442,14 @@ color: black;
     text-align: center;
 }
 
+.cart_button{
+	cursor: pointer;
+    display: flex;
+    margin-left:-30px;
+    align-content: center; 
+    text-align: center;  
+    justify-content: flex-end;
+}
 .cart_index button {
     text-align: center;
     border: none;

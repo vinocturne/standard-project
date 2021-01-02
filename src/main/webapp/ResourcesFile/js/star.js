@@ -59,18 +59,18 @@ Rating.prototype.showMessage = function(type){//경고메시지 표시
     switch(type){
         case 'rate':
             //안내메시지 표시
-            document.querySelector('.review_rating .warning_msg').style.display = 'block';
+            document.querySelector('.review_rating .warning_msg1').style.display = 'block';
             //지정된 시간 후 안내 메시지 감춤
             setTimeout(function(){
-                document.querySelector('.review_rating .warning_msg').style.display = 'none';
+                document.querySelector('.review_rating .warning_msg1').style.display = 'none';
             },1000);            
             break;
         case 'review':
             //안내메시지 표시
-            document.querySelector('.review_contents .warning_msg').style.display = 'block';
+            document.querySelector('.review_contents .warning_msg2').style.display = 'block';
             //지정된 시간 후 안내 메시지 감춤
             setTimeout(function(){
-                document.querySelector('.review_contents .warning_msg').style.display = 'none';
+                document.querySelector('.review_contents .warning_msg2').style.display = 'none';
             },1000);    
             break;
     }

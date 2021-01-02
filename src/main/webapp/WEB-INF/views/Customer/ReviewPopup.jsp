@@ -39,7 +39,7 @@
                     </table>
                 </div>
             </div>
-
+     
         </div>
         <form name="reviewform" class="reviewform" method="post" action="/save">
             <input type="hidden" name="rate" id="rate" value="0"/>
@@ -48,7 +48,8 @@
             	<div>
             		<p style="text-align:center">별점과 리뷰를 남겨주세요</p>
             	</div>
-                <div class="warning_msg">별점을 선택해 주세요.</div>
+                <div class="warning_msg1">별점을 선택해 주세요.</div>
+                
                 <div class="rating">
                     <div class="ratefill"></div>
                     <!-- [D] 해당 별점이 선택될 때 그 점수 이하의 input엘리먼트에 checked 클래스 추가 -->
@@ -65,10 +66,10 @@
                 </div>
             </div> 
             
-            <div class="review_contents">
-                <div class="warning_msg">5자 이상의 리뷰 내용을 작성해 주세요.</div>
+            <div class="review_contents"> 
+                <div class="warning_msg2">5자 이상의 리뷰 내용을 작성해 주세요.</div>
                 <textarea rows="10" class="review_textarea"></textarea>
-            </div>   
+          </div>
             <div class="cmd">
                 <input type="button" name="save" id="save" value="등록">
             </div>
