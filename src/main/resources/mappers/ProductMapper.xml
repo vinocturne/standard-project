@@ -35,4 +35,8 @@
 		SELECT * FROM product WHERE parent_p_Id= #{parent_p_Id}
 	</select>
 	
+	<select id="showAllProductList" resultType = "ProductParentVO">
+		SELECT * FROM productParent; 
+	</select>
+	
 </mapper>
