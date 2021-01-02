@@ -32,8 +32,8 @@ body {
 
 
 <div class="leftbox" style="width: 500px; height: 800px">
- <a href="/project/shop/shopList">
- <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/main01.jpg" style="width:100%">
+ <a href="/project/shop/StoreWomenMain">
+ <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/StoreMain/2man.PNG" style="width:100%">
  </a>
 WOMEN 이건 나중에 지울거 
 </div>
@@ -41,8 +41,8 @@ WOMEN 이건 나중에 지울거
 
 
 <div class="rightbox" style="width: 500px; height: 800px">
-<a href="/project/shop/shopList">
- <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/main01.jpg" style="width:100%">
+<a href="/project/shop/StoreManMain">
+ <img class="card-img-bottom" src="<%=request.getContextPath()%>/ResourcesFile/img/StoreMain/2women.PNG" style="width:100%">
  </a>
 MEN 이건 나중에 지울거
 </div>
