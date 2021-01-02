@@ -29,6 +29,7 @@
       <mapper resource ="mappers/MagazineMapper.xml"/>
       <mapper resource ="mappers/ProductMapper.xml"/>
       <mapper resource ="mappers/BrandDBMapper.xml"/>
+      <mapper resource ="mappers/WishListMapper.xml"/>
    </mappers>
    
 </configuration>
