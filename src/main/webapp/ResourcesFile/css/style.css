@@ -445,9 +445,10 @@ color: black;
 .cart_button{
 	cursor: pointer;
     display: flex;
-    justify-content: center;
+    margin-left:-30px;
     align-content: center; 
     text-align: center;  
+    justify-content: flex-end;
 }
 .cart_index button {
     text-align: center;
