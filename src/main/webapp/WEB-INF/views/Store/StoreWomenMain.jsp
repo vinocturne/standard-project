@@ -55,42 +55,11 @@ margin-top:73px;
 					</a></li>
 					<li><a href="/project/Customer/cart">TOP</a></li>
 					<li><a href="/project/Customer/order">BOTTOM</a></li>
-					<li><a href="">SHOES</a></li>
+					<li><a href="/project/shop/DamStoreMain">SHOES</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
-
-<!--세로로 길게 나오는거  -->
-<%-- <div class="first line">
-	<c:set var="i" value="0" /> <c:set var="j" value="3" />
-	
-	<c:choose>
-	<c:when test="${fn:length(list)>0}">
-	  	
-		<c:forEach var="magazine" items="${list}">
-		
-	<div class="card" style="width:280px">
-	    <div class="card-body">
-	      <h4 class="card-title">${magazine.m_Title}</h4>
-	      <p class="card-text">${magazine.m_Content}</p>
-	      <p>하트하트</p>
-	    </div>
-	    <a href="/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
-  	</div>
-	
-		</c:forEach>
-		 
-	</c:when>
-			<c:otherwise>
-				<tr>
-					<td>조회된 결과가 없습니다.</td>
-				</tr>
-			</c:otherwise>
-	</c:choose>
-	
-</div> --%>
 
 
  <c:set var="i" value="0" />
@@ -99,13 +68,10 @@ margin-top:73px;
   <c:choose>
    <c:when test="${fn:length(list)>0}">
     <c:forEach var="productParent" items="${list}">
-     <c:if test="{i%j == 0}">
-      <tr>
-     </c:if>
      
      <div class="secondbody"> 
      <div class="mainbody"> 
-    	 <div class="card" style="width:350px">
+    	 <div class="card" style="width:350px; height:370px">
 		    <a href="/project/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:100%"></a>
   			<div class="card-body">
 		      <h4 class="card-title">${productParent.pp_Name}</h4>
@@ -115,10 +81,12 @@ margin-top:73px;
   		</div>
      </div>
      </div>
+    
     <c:if test="${i%j == j-1}">
      </tr>
      넘어가라 넘어가라
     </c:if>
+    
    <c:set var="i" value="${i+1}" />
     </c:forEach>
    </c:when>
@@ -129,7 +97,6 @@ margin-top:73px;
   </c:otherwise>
   </c:choose>
 
-<p>Store Women Page Test용</p>
 
 
 </div> <!--content_wrap 끝  -->

@@ -52,9 +52,14 @@ public class ProductController {
 	}
 	
 	
-	/*
-	 * @RequestMapping(value="/shopMain" ) public String shopMain() { return
-	 * "Store/StoreMain"; }
-	 */
+	
+	  @RequestMapping(value="/DamStoreMain") 
+	  	public String shopMain() { 
+		  
+		  
+		  return "Store/DamStoreMain"; 
+		  
+	  }
+	 
 	
 }

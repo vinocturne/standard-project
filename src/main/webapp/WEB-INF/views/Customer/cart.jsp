@@ -31,7 +31,7 @@
 						<th scope="cols">가격</th>
 						<th scope="cols">수량</th>
 						<th scope="cols">주문금액</th>
-						<th scope="cols">선택</th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -59,21 +59,17 @@
 							<input type="text" name="o_TotalPrice" id="o_TotalPrice" >원
 							</form>
 						</td>
-						<td class="cart_button">
+					</tr>
+				</tbody>
+			</table>
+						<div class="cart_button">
 							<div>
-								<button href="order.html">주문하기</button>
-							</div>
-							<div>
-								<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=480px,height=620px,location=no,left=200 top=100 status=no,scrollbars=yes');">후기작성</button>
-								
+								<button href="#">주문하기</button>
 							</div>
 							<div>
 								<button href="#">삭제</button>
 							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+						</div>
 		</div>
 		
 		<div class="cart_index">
