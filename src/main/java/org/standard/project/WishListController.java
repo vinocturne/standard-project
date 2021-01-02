@@ -16,8 +16,8 @@ import org.standard.project.wishList.WishListProductVO;
 import org.standard.project.wishList.WishListService;
 import org.standard.project.wishList.WishListVO;
 
-@Controller
-@RequestMapping(value="/wishList")
+//@Controller
+@RequestMapping(value="/WishList")
 public class WishListController {
 	@Resource(name = "WishListService")
 	WishListService wishListService;
@@ -48,7 +48,9 @@ public class WishListController {
 					WishListProductVO productVO = new WishListProductVO();
 					productVO = wishListService.getProductInfo(wishListVOList.get(i).getP_Id());
 					productInfoArr.add(productVO);
+					System.out.println(productInfoArr.get(i).toString());
 				}
+				
 				mav.addObject("wishList", productInfoArr);
 				return mav;
 			}else {
