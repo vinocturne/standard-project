@@ -291,8 +291,18 @@ public class SellerController {
 		System.out.println("선택한 상품의 옵션나열");
 		String parent_p_Id = req.getParameter("seq");
 		ProductParentVO vo = new ProductParentVO();
-		vo = productParentService.selectParentProduct(parent_p_Id);
-
+		
+		if(parent_p_Id == "" || parent_p_Id == null) {
+			vo = (ProductParentVO) session.getAttribute("parent_session");
+			System.out.println("넘어왔을떄"+vo);
+			parent_p_Id = vo.getParent_p_Id();
+			vo = productParentService.selectParentProduct(parent_p_Id);
+		} else {
+			vo = productParentService.selectParentProduct(parent_p_Id);
+			System.out.println("첫접속때"+vo);
+		}
+		session.setAttribute("parent_session", vo);
+		
 		ArrayList<ProductChildVO> listProductParent = new ArrayList<ProductChildVO>();
 		listProductParent = productChildService.listProductChild(parent_p_Id);
 		System.out.println(listProductParent);
@@ -327,14 +337,14 @@ public class SellerController {
 		System.out.println(vo);
 
 		productChildService.registProductChild(vo);
-		return "redirect:/Seller/ProductManage";
+		return "redirect:/Seller/ProductAddChild";
 	}
 
 	@RequestMapping(value = "/DeleteChild", method = RequestMethod.GET)
 	public String deleteChildAction(HttpServletRequest req) throws Exception {
 		String p_Id = req.getParameter("seq");
 		productChildService.deleteChildProduct(p_Id);
-		return "redirect:/Seller/ProductManage";
+		return "redirect:/Seller/ProductAddChild";
 	}
 
 	@RequestMapping(value = "/ModifyChild", method = RequestMethod.POST)
@@ -347,6 +357,6 @@ public class SellerController {
 		vo.setP_Stack(Integer.parseInt(req.getParameter("p_Stack")));
 		System.out.println(vo);
 		productChildService.modifyChildProduct(vo);
-		return "redirect:/Seller/ProductManage";
+		return "redirect:/Seller/ProductAddChild";
 	}
 }
