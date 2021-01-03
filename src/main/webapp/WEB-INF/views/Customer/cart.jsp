@@ -43,55 +43,45 @@
 			<table class="type15">
 				<thead>
 					<tr>
-						<th scope="cols">선택</th>
-						<th scope="cols">이미지</th>
-						<th scope="cols">상품정보</th>
-						<th scope="cols">가격</th>
-						<th scope="cols">수량</th>
-						<th scope="cols">주문금액</th>
-						
+						<th><input type="checkbox" id="sAgreeAllChecked" class="sAgreeAllChecked">선택</th>
+						<th>이미지</th>
+						<th>상품명</th>
+						<th>상품옵션</th>
+						<th>판매가</th>
+						<th>수량</th>
+						<th>합계</th>
 					</tr>
 				</thead>
 				<tbody>
-<!-- 					<tr>
-					OrderHistoryVO 구현되면 get xxx로연결하기 
-						<td><input type="checkbox" name="checkbox" value="1" style="border:0"></td> 
-						<td><img src="../ResourcesFile/img/logo2.png" style width="30px" height="20px"></th>
-						<td>트위드 플레어 스커트</th>
-						<td>38000원</th>
-						<td>
-							<form name="form" method="get">
-							<span class=""> 
-								<span class="ec-base-qty"> 
-								<input type="text" name="amount" value="1" size="3" onchange="change();"> 
-								<a onclick="add();"> 
-									<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가" class="up">
-								</a> 
-								<a onclick="del();"> 
-									<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소" class="down">
-								</a>
-								</span>
+				<form name="ck_form" method="get">
+				<% ArrayList<WishListVO> wishListVO = (ArrayList<WishListVO>)session.getAttribute("wishListVO");%>
+	            <% ArrayList<WishListProductVO> wishListProductVO = (ArrayList<WishListProductVO>)session.getAttribute("wishListProductVO");%>
+				
+				<%for(int i=0;i<wishListVO.size();i++) { %>
+					<tr>
+					<td><input type="checkbox" name="checkbox" value="1" style="border: 0"></td>
+					<td><img src="<%=wishListProductVO.get(i).getPp_thumb()%>"></td>
+					<td><%=wishListProductVO.get(i).getPp_Name() %></td>
+					<td>색상: <%=wishListProductVO.get(i).getP_Color() %><br>
+						사이즈: <%=wishListProductVO.get(i).getP_Size() %></td> 
+					<td><%=wishListVO.get(i).getP_Price() %></td>
+					<td>
+						<span class=""> 
+							<span class="ec-base-qty"> 
+							<input type="text" name="amount" value="<%=wishListVO.get(i).getW_Quantity() %>" size="3" onchange="change();"> 
+							<a onclick="add();"> 
+								<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가" class="up">
+							</a> 
+							<a onclick="del();"> 
+								<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소" class="down">
+							</a>
 							</span>
-							</td>
-						<td>
-							<input type="text" name="o_TotalPrice" id="o_TotalPrice" >원
-							</form>
-						</td>
-					</tr> -->
-					<% ArrayList<WishListVO> wishListVO = (ArrayList<WishListVO>)session.getAttribute("wishListVO");%>
-		            <% ArrayList<WishListProductVO> wishListProductVO = (ArrayList<WishListProductVO>)session.getAttribute("wishListProductVO");%>
-					
-					<%for(int i=0;i<wishListVO.size();i++) { %>
-						<tr>
-						<td><input type="checkbox" name="checkbox" value="1" style="border: 0"></td>
-					<td><%=wishListProductVO.get(i).getPp_thumb()%></td>
-						<td><%=wishListProductVO.get(i).getPp_Name() %></td>
-						<td><%=wishListProductVO.get(i).getP_Color() %></td> 
-						<td><%=wishListProductVO.get(i).getP_Size() %></td>
- 						<td><%=wishListVO.get(i).getP_Price() %></td>
-						<td><%=wishListVO.get(i).getW_Quantity() %></td>
-						<tr> 
-						<% }%>
+						</span>
+					</td>
+					<td><%=wishListVO.get(i).getP_Price() %>원</td>
+					<!-- <input type="text" name="o_TotalPrice" id="o_TotalPrice" >	 -->
+					<% }%>
+					<tr> 
 				</tbody>
 			</table>
 						<div class="cart_button">
@@ -103,7 +93,7 @@
 							</div>
 						</div>
 		</div>
-		
+		</form>
 		<div class="cart_index">
                     <button type="button" class="" onclick=""><button> << </button></a>
                     <button type="button" class="" onclick=""><button> < </button></a>
@@ -114,6 +104,12 @@
 	</div>
 </div>
 
-
-<!-- FOOTER -->
+<script>
+            $( document ).ready( function() {
+              $( '.sAgreeAllChecked' ).click( function() {
+                $( '.ec-base-chk' ).prop( 'checked', this.checked );
+              } );
+            } );
+          </script>
+<!— FOOTER —>
 <%@ include file="../footer.jsp"%>
