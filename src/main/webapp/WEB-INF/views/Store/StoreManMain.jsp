@@ -53,9 +53,10 @@ margin-top:73px;
 					<li><a href="/project/shop/StoreManMain" class="side_nav_title">Man</a></li>
 					<li><a href="#"> <!--줄띄우기 -->
 					</a></li>
-					<li><a href="/project/shop/StoreManMain">TOP</a></li>
-					<li><a href="/project/shop/StoreManMain">BOTTOM</a></li>
-					<li><a href="/project/shop/StoreManMain">SHOES</a></li>
+					<li><a href="/project/shop/StoreManMain?category=Top">TOP</a></li>
+					<li><a href="/project/shop/StoreManMain?category=Bottom">BOTTOM</a></li>
+					<li><a href="/project/shop/StoreManMain?category=Shoes">SHOES</a></li>
+					<li><a href="/project/shop/StoreManMain?category=Acc">Acc</a></li>
 				</ul>
 			</div>
 		</div>

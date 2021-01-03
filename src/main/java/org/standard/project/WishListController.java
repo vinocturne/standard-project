@@ -22,6 +22,15 @@ public class WishListController {
 	@Resource(name = "WishListService")
 	WishListService wishListService;
 	
+	@RequestMapping(value="/order" )
+	public String orderForm(HttpSession session) {
+		//orderForm에 기본으로 있어야할 목록 정보.
+		//1.고객정보(이미 세션에 저장되어있음) 제이슨으로 넘겨주기.
+		//2.장바구니로부터 받아온 p_Id, p_Price, o_Quantity,pp_Name,p_Color,p_Size,pp_thumb 정보.(JSON으로 받아서 바로 제이슨으로 넘기기?)
+		//2번은 최종 주문 수량과 주문할 품목을 장바구니 페이지로부터 받아야하기때문에 디비에서 가져오지 않는다.
+		return "Customer/OrderForm";
+	}
+	
 	@RequestMapping(value = "/cart")
 	public ModelAndView myCart(HttpSession session) {
 		System.out.println("wishList컨트롤러");
