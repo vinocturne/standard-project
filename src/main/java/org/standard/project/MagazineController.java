@@ -51,10 +51,15 @@ public class MagazineController {
 	}
 
 
-	@RequestMapping("/MagazineDetail")
-	public String newmagazineDetail() {
+	@RequestMapping(value = "/MagazineDetail" , method = RequestMethod.GET)
+	public ModelAndView newmagazineDetail(MagazineVO vo) {
+		System.out.println("매거진 디테일 에 들어왔어요");
+		ModelAndView mav = new ModelAndView("/Magazine/MagazineDetail");
+		List<MagazineVO> list = magazineService.getMagazineList(vo);
+		mav.addObject("list", list);
+		return mav;
+		
 
-		return "Magazine/MagazineDetail";
 	}
 
 }
