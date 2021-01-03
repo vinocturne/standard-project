@@ -24,9 +24,14 @@ public class ProductController {
 	@Resource(name = "ProductChildService")
 	ProductChildService productChildService;
 	
+	//	남자, 여자 전체 상품 보여주는 매퍼 추가.
+	// 남자의 경우 productParentService.showManProductList();를 리스트로 받아오면 되고
+	// 여자의 경우 productParentService.showWomanProductList();로 설정하면 됩니다.
+	
+	
 	@RequestMapping(value="/shopList", method = RequestMethod.GET)
 	public ModelAndView shopMain(ModelAndView mav) {
-		List<ProductParentVO> allProductList = productParentService.allProductList();
+		List<ProductParentVO> allProductList = productParentService.showManProductList();
 			
 		mav = new ModelAndView ("/Store/StoreWomenMain");
 		mav.addObject("list", allProductList);
@@ -63,7 +68,7 @@ public class ProductController {
 	  
 	  @RequestMapping(value="/StoreWomenMain", method = RequestMethod.GET)
 		public ModelAndView StoreWomenMain(ModelAndView mav) {
-			List<ProductParentVO> allProductList = productParentService.allProductList();
+			List<ProductParentVO> allProductList = productParentService.showWomanProductList();
 				
 			mav = new ModelAndView ("/Store/StoreWomenMain");
 			mav.addObject("list", allProductList);
@@ -72,7 +77,7 @@ public class ProductController {
 	
 	  @RequestMapping(value="/StoreManMain", method = RequestMethod.GET)
 	  public ModelAndView StoreManMain(ModelAndView mav) {
-		  List<ProductParentVO> allProductList = productParentService.allProductList();
+		  List<ProductParentVO> allProductList = productParentService.showManProductList();
 		  
 		  mav = new ModelAndView ("/Store/StoreManMain");
 		  mav.addObject("list", allProductList);
