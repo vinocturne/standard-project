@@ -9,8 +9,6 @@
     
     <style>
     
-    
-      
     .productside{
      display:flex;
     }
@@ -41,7 +39,6 @@
     }
     
 
-    
     .buyclass:hover {
      background-color:black;
      color:white;
