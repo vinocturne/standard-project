@@ -277,17 +277,15 @@ public class AdminController {
 		return "redirect:/Admin/magazineManager";
 	}
 	
-//	@RequestMapping(value = "/magazineList" , method = RequestMethod.GET)
-//	public ModelAndView magazineList(HttpServletRequest req) {
-//		System.out.println("선택한 회원 수정 가동");
+//	@RequestMapping(value = "/MagazineDetail" , method = RequestMethod.GET)
+//	public ModelAndView MagazineDetail(HttpServletRequest req) {
+//		System.out.println("매거진디테일");
 //		MagazineVO vo = new MagazineVO();
 //		System.out.println(vo);
-//		ModelAndView mav = new ModelAndView("/Magazine/Magazine");
+//		ModelAndView mav = new ModelAndView("/Magazine/MagazineDetail");
 //		mav.addObject("vo",vo);		
 //		return mav;
-//
-////		return "Magazine/Magazine";
 //	}
-	
+
 	
 }
