@@ -13,7 +13,7 @@
 	</select>
 	
 	<select id="cntBrandProductParent" resultType="_int">
-		SELECT COUNT(*) FROM productParent WHERE pp_Brand = #{brandId}
+		SELECT MAX(pp_Num) FROM productParent
 	</select>
 	
 	<select id="deleteParentProduct" resultType="ProductParentVO">
