@@ -82,9 +82,9 @@
 								<td><input name="p_Stack" type="text" value="${product.p_Stack}"></td>
 								<td>
 								<button type="submit">수정</button>
+								</form>
 								<button onclick="window.location.href='DeleteChild?seq=${product.p_Id}'">삭제</button>
 								</td>
-								</form>
 							</tr>
 							<!-- </form> -->
 						</c:forEach>

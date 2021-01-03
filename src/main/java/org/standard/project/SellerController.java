@@ -114,6 +114,7 @@ public class SellerController {
 
 		String pp_Category1 = req.getParameter("pp_Category1");
 		String pp_Category2 = req.getParameter("pp_Category2");
+		vo.setPp_Num(int_second_parent_p_Id+1);
 		vo.setPp_Name(pp_Name);
 		vo.setParent_p_Id(parent_p_Id);
 		;
@@ -131,7 +132,7 @@ public class SellerController {
 		String fileName = null;
 		List<MultipartFile> mf = mhsq.getFiles("m_Img");
 
-		if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
+		if (mf.get(0).getOriginalFilename().equals("") || mf.get(1).getOriginalFilename().equals("")) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('꼭 이미지를 넣어주세요'); history.go(-1);</script>");
@@ -291,8 +292,16 @@ public class SellerController {
 		System.out.println("선택한 상품의 옵션나열");
 		String parent_p_Id = req.getParameter("seq");
 		ProductParentVO vo = new ProductParentVO();
+		
+		if(parent_p_Id == "" || parent_p_Id == null) {
+			vo = (ProductParentVO) session.getAttribute("parent_session");
+			System.out.println("수정,삭제,등록으로 넘어왔을때");
+			parent_p_Id = vo.getParent_p_Id();
+		} 
+		
 		vo = productParentService.selectParentProduct(parent_p_Id);
-
+		session.setAttribute("parent_session", vo);
+		
 		ArrayList<ProductChildVO> listProductParent = new ArrayList<ProductChildVO>();
 		listProductParent = productChildService.listProductChild(parent_p_Id);
 		System.out.println(listProductParent);
@@ -304,15 +313,13 @@ public class SellerController {
 	}
 
 	@RequestMapping(value = "/AddChild", method = RequestMethod.POST)
-	public String addChildAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq,
-			HttpServletResponse response, Model model) throws Exception {
+	public String addChildAction(HttpSession session, HttpServletRequest req) throws Exception {
 		System.out.println("옵션 입력 액션");
 		ProductChildVO vo = new ProductChildVO();
 
 		String p_Color = req.getParameter("p_Color");
 		String p_Size = req.getParameter("p_Size");
 		int p_Stack = Integer.parseInt(req.getParameter("p_Stack"));
-
 		String parent_p_Id = req.getParameter("parent_p_Id");
 		String p_Id = parent_p_Id.concat(p_Color).concat(p_Size);
 		int p_Brand = Integer.parseInt(req.getParameter("pp_Brand"));
@@ -324,29 +331,26 @@ public class SellerController {
 		vo.setP_Id(p_Id);
 		vo.setP_Brand(p_Brand);
 
-		System.out.println(vo);
-
 		productChildService.registProductChild(vo);
-		return "redirect:/Seller/ProductManage";
+		return "redirect:/Seller/ProductAddChild";
 	}
 
 	@RequestMapping(value = "/DeleteChild", method = RequestMethod.GET)
 	public String deleteChildAction(HttpServletRequest req) throws Exception {
 		String p_Id = req.getParameter("seq");
 		productChildService.deleteChildProduct(p_Id);
-		return "redirect:/Seller/ProductManage";
+		return "redirect:/Seller/ProductAddChild";
 	}
 
 	@RequestMapping(value = "/ModifyChild", method = RequestMethod.POST)
-	public String modifyChildAction(HttpServletRequest req, MultipartHttpServletRequest images) {
+	public String modifyChildAction(HttpServletRequest req) throws IOException {
 		System.out.println("옵션 수정 액션");
 		ProductChildVO vo = new ProductChildVO();
 		vo.setP_Id(req.getParameter("p_Id"));
 		vo.setP_Color(req.getParameter("p_Color"));
 		vo.setP_Size(req.getParameter("p_Size"));
 		vo.setP_Stack(Integer.parseInt(req.getParameter("p_Stack")));
-		System.out.println(vo);
 		productChildService.modifyChildProduct(vo);
-		return "redirect:/Seller/ProductManage";
+		return "redirect:/Seller/ProductAddChild";
 	}
 }

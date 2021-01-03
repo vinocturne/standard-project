@@ -24,23 +24,106 @@
     
     }
     
-    .buyclass{
-
-     border: solid 1px black;
-      padding-left:30px;
-
-          margine:0;
+    .review{
+     float:left;
     }
     
-    .listclass{
-
-    border: solid 1px black;
-     padding-left:30px;
-
-         margine:0;
+    .choiceButton1{
+ 	 padding-top:50px;
+     padding-left:40px;
+     margine:0;
+	 float:right;
     }
+    
+
+    
+    .buyclass:hover {
+     background-color:black;
+     color:white;
+     
+    }
+    
+    .listclass:hover {
+	    background-color:black;
+	    color:white;
+    }
+    
+
+
+    .detailExplain{
+    padding-top:30px;
+    padding-bottom:30px;
+    
+    }
+    #topMenu ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	}
+
+	#topMenu ul li {
+	color: white;
+	background-color: #2d2d2d;
+	float: left;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: center;
+	position: relative;
+	}
+
+.menuLink, .submenuLink {
+display: block; 
+width: 150px;
+font-weight: bold; 
+font-family: "Trebuchet MS", Dotum;
+}
+
+
+
+.topMenuLi:hover .menuLink {
+color: white; 
+background-color: grey;
+}
+
+
+.submenuLink {
+color: #2d2d2d;
+background-color: white;
+border: solid 1px black;
+margin-top: -1px;
+}
+
+/* .longLink {
+width: 190px;
+} */
+
+.submenu {
+position: absolute;
+height: 0px;
+overflow: hidden;
+transition: height .2s;
+webkit-transition: height .2s;
+-moz-transition: height .2s;
+-o-transition: height .2s;
+}
+
+.topMenuLi:hover .submenu {
+height: 93px;
+
+}
+
+.bottomClass{
+padding-top:5px;
+}
+
+.submenuLink:hover {
+
+background-color: #grey;
+
+}
     
     </style>
+    
 </head>
 <%@ include file="../header.jsp" %> 
 
@@ -51,18 +134,31 @@
 		<div class="side_nav">
 			<div class="side_nav_item">
 				<p class="side_nav_title">Store</p>
-				<ul>
-					<li><a href="/project/shop/StoreManMain" class="side_nav_title">Man</a></li>
-					<li><a href="#"> <!--줄띄우기 -->
-					</a></li>
-					<li><a href="/project/Customer/cart">TOP</a></li>
-					<li><a href="/project/Customer/order">BOTTOM</a></li>
-					<li><a href="/project/shop/DamStoreMain">SHOES</a></li>
+
+					<a href="/project/shop/StoreManMain" 
+						 class="side_nav_title" id="topMenu">Man</a>
+						
+					<a href="#"> <!--줄띄우기 --></a>
+					 <ul>
+					<li class="topMenuLi">
+						<a class="menuLink" href="/project/Customer/cart">TOP</a>
+							<ul class="submenu"> 
+								<li><a class="submenuLink longLink">티셔츠</a></li> 
+								<li><a class="submenuLink longLink">맨투맨</a></li>
+								<li><a class="submenuLink longLink">셔츠</a></li> 
+							</ul>
+					
+				
+				
+					<a class="bottomClass" href="/project/Customer/order">BOTTOM</a>
+					<a href="/project/shop/DamStoreMain">SHOES</a>
+					
+					
+					</li>
 				</ul>
 			</div>
 		</div>
 	</div>
-
 
 
 
@@ -93,20 +189,42 @@
 				<%
 				}
 				%>
-			</div>
-			<br>
-			
-			<div class="buyclass">
-			구매하기
-			</div>
-			
-			<br>
-			<div class="listclass">
-			장바구니
+				
+				
+				<div class="detailExplain">
+					여기엔 상품 설명이 들어갈거에요 
+				</div>
+				
 			</div>
 			
+			<div class="choiceButton1">
+				<button class="buyclass"><a href="/project/Customer/cart">구매하기</a></button>
+			
+		
+			
+			
+				<button class="listclass"><a href="/project/Customer/cart">장바구니</a></button>
+			</div>
+
 		</div>
 		
- </div>
+		 <div class="review" style=padding-top:100px>
+	 
+		 여기엔 리뷰가 들어갈거에요 근데 얘도 밑으로 안내려가네요 환장 뭐지
+		 갑자기
+		 
+		 
+		 </div>
+		
+		
+		
+				
+		
+ </div>  <!-- Product class 끝 -->
+ 
+ 
+ 
+
+ 
 </div>
 <%@ include file="../footer.jsp"%>
