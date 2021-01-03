@@ -132,7 +132,7 @@ public class SellerController {
 		String fileName = null;
 		List<MultipartFile> mf = mhsq.getFiles("m_Img");
 
-		if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
+		if (mf.get(0).getOriginalFilename().equals("") || mf.get(1).getOriginalFilename().equals("")) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>alert('꼭 이미지를 넣어주세요'); history.go(-1);</script>");
