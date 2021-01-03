@@ -179,7 +179,7 @@ public class SellerController {
 	}
 
 	@RequestMapping(value = "/ModifyParentProduct", method = RequestMethod.GET)
-	public ModelAndView selectParentProduct(HttpServletRequest req) {
+	public ModelAndView selectParentProduct(HttpServletRequest req, HttpSession session) {
 		System.out.println("선택한 부모상품 수정 가동");
 		String parent_p_Id = req.getParameter("seq");
 		ProductParentVO vo = new ProductParentVO();
@@ -191,10 +191,11 @@ public class SellerController {
 	}
 
 	@RequestMapping(value = "/ModifyParentProduct", method = RequestMethod.POST)
-	public String modifyParentProduct(HttpServletRequest req, MultipartHttpServletRequest images)
+	public ModelAndView modifyParentProduct(HttpServletRequest req, MultipartHttpServletRequest images, HttpServletResponse response, ModelAndView mav, HttpSession session)
 			throws IOException, Exception {
 		ProductParentVO vo = new ProductParentVO();
-
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		List<MultipartFile> mf = images.getFiles("m_Img");
 		if (mf.get(0).getOriginalFilename() == "" && mf.get(1).getOriginalFilename() == "") {
 			// 따로 이미지 수정을 하지 않았을 때 text만
@@ -203,7 +204,13 @@ public class SellerController {
 			vo.setPp_Name(req.getParameter("pp_Name"));
 			vo.setPp_Category1(req.getParameter("pp_Category1"));
 			vo.setPp_Category2(req.getParameter("pp_Category2"));
-			vo.setPp_Price(Integer.parseInt(req.getParameter("pp_Price")));
+			try {
+				int pp_Price = Integer.parseInt(req.getParameter("pp_Price"));
+				vo.setPp_Price(pp_Price);
+			} catch (NumberFormatException e) {
+				out.println("<script>alert('가격에는 숫자를 넣어주세요');history.go(-1);</script>");
+				out.flush();
+			}
 			System.out.println(vo);
 			productParentService.modifyParentProductWithoutImage(vo);
 		} else {
@@ -276,7 +283,8 @@ public class SellerController {
 			System.out.println(vo);
 			productParentService.modifyParentProductWithImage(vo);
 		}
-		return "redirect:/Seller/ProductManage";
+		mav.setViewName("redirect:/Seller/ProductManage");
+		return mav;
 	}
 
 	@RequestMapping(value = "/BuyList", method = RequestMethod.GET)
@@ -321,26 +329,37 @@ public class SellerController {
 	}
 
 	@RequestMapping(value = "/AddChild", method = RequestMethod.POST)
-	public String addChildAction(HttpSession session, HttpServletRequest req) throws Exception {
+	public ModelAndView addChildAction(HttpSession session, HttpServletRequest req, HttpServletResponse response, ModelAndView mav) throws Exception {
 		System.out.println("옵션 입력 액션");
 		ProductChildVO vo = new ProductChildVO();
-
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
 		String p_Color = req.getParameter("p_Color");
 		String p_Size = req.getParameter("p_Size");
-		int p_Stack = Integer.parseInt(req.getParameter("p_Stack"));
 		String parent_p_Id = req.getParameter("parent_p_Id");
 		String p_Id = parent_p_Id.concat(p_Color).concat(p_Size);
 		int p_Brand = Integer.parseInt(req.getParameter("pp_Brand"));
-
+		
+		try {
+			int p_Stack = Integer.parseInt(req.getParameter("p_Stack"));
+			vo.setP_Stack(p_Stack);
+		} catch (NumberFormatException e) {
+			out.println("<script>alert('가격에는 숫자를 넣어주세요'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("Seller/ProductAddChild");
+			return mav;
+		}
+		
 		vo.setP_Color(p_Color);
 		vo.setP_Size(p_Size);
-		vo.setP_Stack(p_Stack);
 		vo.setParent_p_Id(parent_p_Id);
 		vo.setP_Id(p_Id);
 		vo.setP_Brand(p_Brand);
-
+		
 		productChildService.registProductChild(vo);
-		return "redirect:/Seller/ProductAddChild";
+		mav.setViewName("redirect:/Seller/ProductAddChild");
+		return mav;
 	}
 
 	@RequestMapping(value = "/DeleteChild", method = RequestMethod.GET)
@@ -351,14 +370,26 @@ public class SellerController {
 	}
 
 	@RequestMapping(value = "/ModifyChild", method = RequestMethod.POST)
-	public String modifyChildAction(HttpServletRequest req) throws IOException {
+	public ModelAndView modifyChildAction(HttpServletRequest req, ModelAndView mav, HttpServletResponse response) throws IOException {
 		System.out.println("옵션 수정 액션");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		ProductChildVO vo = new ProductChildVO();
 		vo.setP_Id(req.getParameter("p_Id"));
 		vo.setP_Color(req.getParameter("p_Color"));
 		vo.setP_Size(req.getParameter("p_Size"));
-		vo.setP_Stack(Integer.parseInt(req.getParameter("p_Stack")));
+		try {
+			int p_Stack = Integer.parseInt(req.getParameter("p_Stack"));
+			vo.setP_Stack(p_Stack);
+		} catch (NumberFormatException e) {
+			out.println("<script>alert('가격에는 숫자를 넣어주세요'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("Seller/ProductAddChild");
+			return mav;
+		}
 		productChildService.modifyChildProduct(vo);
-		return "redirect:/Seller/ProductAddChild";
+		
+		mav.setViewName("redirect:/Seller/ProductAddChild");
+		return mav;
 	}
 }
