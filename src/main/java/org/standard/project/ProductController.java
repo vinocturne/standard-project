@@ -57,14 +57,6 @@ public class ProductController {
 	}
 	
 	
-	
-	  @RequestMapping(value="/DamStoreMain") 
-	  	public String shopMain() { 
-		  
-		  
-		  return "Store/DamStoreMain"; 
-		  
-	  }
 	  
 	  @RequestMapping(value="/StoreWomenMain", method = RequestMethod.GET)
 		public ModelAndView StoreWomenMain(ModelAndView mav) {
