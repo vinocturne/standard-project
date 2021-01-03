@@ -44,5 +44,9 @@ public class MagazineDAO {
 		mySQL.update(loc+"hitIncrease",m_Seq);
 		
 	}
+
+	public MagazineVO selectMagazine(int m_Seq) {
+		return mySQL.selectOne(loc+"selectMagazine",m_Seq);
+	}
 	
 }

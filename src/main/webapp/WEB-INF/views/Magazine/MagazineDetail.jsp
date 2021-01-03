@@ -6,6 +6,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
+
+<style>
+
+.explain{
+padding-top:50px;
+padding-bottom:50px;
+}
+
+</style>
 </head>
 
 <%@ include file="../header.jsp" %>
@@ -32,45 +41,31 @@
 
 <div class="Product" style = padding-top:57px;>
 		
-
-		<c:choose>
-					<c:when test="${fn:length(list)>0}">
-						<c:forEach var="magazine" items="${list}">
-							<tr>
-								<td name="m_Seq">${magazine.m_Seq}</td>
-						
-								<td><img src ="${pageContext.request.contextPath}${magazine.m_Thumb}" id="Mag_thumbnail"></td>
-								<td>${magazine.m_Title}</td>
-								<td>${magazine.m_Content}</td>
-								<td>${magazine.m_Date}</td>
-								<td>${magazine.m_Hit}</td>
-								<td>${magazine.m_Like}</td>
-								
-							</tr>
-						</c:forEach>
-					</c:when>
-
-
-				</c:choose>
+			<%
+			MagazineVO m_Seq = (MagazineVO)request.getAttribute("m_Seq");
+			
+			%>
+		
+		<div class="image">
+		<img src = "${pageContext.request.contextPath}<%=m_Seq.getM_Thumb() %>" 
+		style="width:700px; height:500px" class="picture">
+		</div>
 		
 		
-				
-				
-				<div class="detailExplain">
-					여기엔 상품 설명이 들어갈거에요 
-				</div>
-				
+		<div class="productside">
+			<div class="explain">
+				<h1><%=m_Seq.getM_Title() %></h1><br>
+					
+				<h1><%=m_Seq.getM_Content() %></h1><br>
+
 			</div>
-
 
 		</div>
 
-
-
-
-
+</div>
 
 
 </div>
+
 
 <%@ include file="../footer.jsp"%>

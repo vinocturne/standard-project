@@ -128,7 +128,8 @@ flex-wrap:rap;
 			      <p class="card-text">${magazine.m_Content}</p>
 			      <p>하트하트</p>
 			    </div>
-			    <a href="/project/magazine/MagazineDetail"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
+			    <a href="/project/magazine/MagazineDetail?m_Seq=${magazine.m_Seq }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
+			    
 	  		</div>
      </div>
 

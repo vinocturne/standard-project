@@ -47,4 +47,9 @@ public class MagazineServiceImpl implements MagazineService {
 		magazineDAO.hitIncrease(m_Seq);
 	}
 
+	@Override
+	public MagazineVO selectMagazine(int m_Seq) {
+		return magazineDAO.selectMagazine(m_Seq);
+	}
+
 }
