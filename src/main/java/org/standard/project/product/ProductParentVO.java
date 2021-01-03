@@ -2,8 +2,14 @@ package org.standard.project.product;
 
 public class ProductParentVO {
 	//상품등록문제 때문에 테이블 다시 설정하고 만듬
-	private int pp_Brand, pp_Price;
+	private int pp_Brand, pp_Price, pp_Num;
 	private String pp_Name, parent_p_Id, pp_Category1, pp_Category2, pp_thumb, pp_image;
+	public int getPp_Num() {
+		return pp_Num;
+	}
+	public void setPp_Num(int pp_Num) {
+		this.pp_Num = pp_Num;
+	}
 	public int getPp_Brand() {
 		return pp_Brand;
 	}
@@ -55,8 +61,8 @@ public class ProductParentVO {
 	
 	@Override
 	public String toString() {
-		return "ProductParentVO [pp_Brand=" + pp_Brand + ", pp_Price=" + pp_Price + ", pp_Name=" + pp_Name
-				+ ", parent_p_Id=" + parent_p_Id + ", pp_Category1=" + pp_Category1 + ", pp_Category2=" + pp_Category2
-				+ ", pp_thumb=" + pp_thumb + ", pp_image=" + pp_image + "]";
+		return "ProductParentVO [pp_Brand=" + pp_Brand + ", pp_Price=" + pp_Price + ", pp_Num=" + pp_Num + ", pp_Name="
+				+ pp_Name + ", parent_p_Id=" + parent_p_Id + ", pp_Category1=" + pp_Category1 + ", pp_Category2="
+				+ pp_Category2 + ", pp_thumb=" + pp_thumb + ", pp_image=" + pp_image + "]";
 	}
 }
