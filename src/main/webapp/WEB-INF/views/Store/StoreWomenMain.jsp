@@ -50,7 +50,7 @@ margin-bottom:3px;
 					<li><a href="/project/shop/StoreWomenMain" class="side_nav_title">Women</a></li>
 					<li><a href="#"> <!--줄띄우기 -->
 					</a></li>
-					<li><a href="/project/shop/StoreWomenMain">TOP</a></li>
+					<li><a href="/project/shop/StoreWomenMain?category=Top">TOP</a></li>
 					<li><a href="/project/shop/StoreWomenMain">BOTTOM</a></li>
 					<li><a href="/project/shop/StoreWomenMain">SHOES</a></li>
 				</ul>

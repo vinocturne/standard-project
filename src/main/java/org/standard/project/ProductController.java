@@ -59,11 +59,23 @@ public class ProductController {
 	
 	  
 	  @RequestMapping(value="/StoreWomenMain", method = RequestMethod.GET)
-		public ModelAndView StoreWomenMain(ModelAndView mav) {
-			List<ProductParentVO> allProductList = productParentService.showWomanProductList();
-				
-			mav = new ModelAndView ("/Store/StoreWomenMain");
-			mav.addObject("list", allProductList);
+		public ModelAndView StoreWomenMain(ModelAndView mav, HttpServletRequest req) {
+		  String gender = "woman";
+		  String category = req.getParameter("category");
+		  ProductParentVO ppVO = new ProductParentVO();
+		  
+			if(req.getParameter("category")==null) {
+				List<ProductParentVO> showWomanProductList = productParentService.showWomanProductList();
+				mav = new ModelAndView ("/Store/StoreWomenMain");
+				mav.addObject("list", showWomanProductList);
+			}
+			else {
+				ppVO.setPp_Category1(gender);
+				ppVO.setPp_Category2(category);
+				List<ProductParentVO> showCategoryList = productParentService.showCategoryList(ppVO);
+				mav = new ModelAndView ("/Store/StoreWomenMain");
+				mav.addObject("list", showCategoryList);
+			}
 			return mav;
 		}
 	
@@ -75,5 +87,6 @@ public class ProductController {
 		  mav.addObject("list", allProductList);
 		  return mav;
 	  }
+	  
 	  
 }

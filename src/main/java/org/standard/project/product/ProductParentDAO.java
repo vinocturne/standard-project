@@ -69,4 +69,9 @@ public class ProductParentDAO {
 		mySQL.update(loc+"modifyParentProductWithImage", vo);
 	}
 
+	public List<ProductParentVO> showCategoryList(ProductParentVO vo) {
+		List<ProductParentVO> showCategoryList = mySQL.selectList(loc+"showCategoryList", vo);
+		return showCategoryList;
+	}
+
 }
