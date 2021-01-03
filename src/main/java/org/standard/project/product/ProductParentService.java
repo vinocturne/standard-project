@@ -12,7 +12,8 @@ import org.standard.project.order.OrderHistoryVO;
 public interface ProductParentService {
 	
 	ArrayList<ProductParentVO> listProductParent(BrandDBVO loginBrand);
-	List<ProductParentVO> allProductList();
+	List<ProductParentVO> showManProductList();
+	List<ProductParentVO> showWomanProductList();
 	void registProductParent(ProductParentVO vo);
 	int cntBrandProductParent(BrandDBVO vo) throws Exception;
 	void deleteParentProduct(String parent_p_Id);

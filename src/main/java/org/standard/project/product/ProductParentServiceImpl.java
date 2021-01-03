@@ -51,8 +51,14 @@ public class ProductParentServiceImpl implements ProductParentService{
 		productParentDAO.modifyParentProductWithImage(vo);
 	}
 
+
 	@Override
-	public List<ProductParentVO> allProductList() {
-		return productParentDAO.allProductList();
+	public List<ProductParentVO> showManProductList() {
+		return productParentDAO.showManProductList();
+	}
+
+	@Override
+	public List<ProductParentVO> showWomanProductList() {
+		return productParentDAO.showWomanProductList();
 	}
 }

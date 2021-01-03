@@ -35,9 +35,10 @@ public class WishListController {
 			//가져온 아이디로 wishListVO를 불러온 후 저장.
 			ArrayList<WishListVO> wishListVOList =wishListService.getWishList(customer.getC_Id());
 			//wishList가 null이 아니면 p_Id로 상품 정보를 받아온다
-			System.out.println("c_Id : " +customer.getC_Id());
-			System.out.println("wishListVOList : "+ wishListVOList);
-			mav.addObject("wishListVO", wishListVOList);
+			//System.out.println("c_Id : " +customer.getC_Id());
+			//System.out.println("wishListVOList : "+ wishListVOList);
+			//mav.addObject("wishListVO", wishListVOList);
+			session.setAttribute("wishListVO", wishListVOList);
 			//	private int w_Quantity, p_Price; private String c_Id, p_Id;
 			if(wishListVOList!=null) {
 				//product에서 부모아이디, 아이디, 브랜드, 컬러, 사이즈, 재고를 받아온다
@@ -52,10 +53,10 @@ public class WishListController {
 					WishListProductVO productVO = new WishListProductVO();
 					productVO = wishListService.getProductInfo(wishListVOList.get(i).getP_Id());
 					productInfoArr.add(productVO);
-					System.out.println(productInfoArr.get(i).toString());
 				}
 				System.out.println("productInfoArr : "+productInfoArr);
-				mav.addObject("wishListProductVO", productInfoArr);
+				session.setAttribute("wishListProductVO", productInfoArr);
+				//mav.addObject("wishListProductVO", productInfoArr);
 				//	private String p_Id, parent_p_Id, pp_Name,p_Color,p_Size,pp_thumb; private int p_Stack,p_Price;
 				
 				return mav;

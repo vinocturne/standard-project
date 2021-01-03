@@ -26,9 +26,14 @@ public class ProductParentDAO {
 		return listProductParent;
 	}
 	
-	public List<ProductParentVO> allProductList() {
-		List<ProductParentVO> allProductList = mySQL.selectList(loc+"showAllProductList");
-		return allProductList; 
+	public List<ProductParentVO> showManProductList() {
+		List<ProductParentVO> showManProductList = mySQL.selectList(loc+"showManProductList");
+		return showManProductList; 
+	}
+	
+	public List<ProductParentVO> showWomanProductList() {
+		List<ProductParentVO> showWomanProductList = mySQL.selectList(loc+"showWomanProductList");
+		return showWomanProductList; 
 	}
 	
 	public void registProductParent(ProductParentVO vo) {

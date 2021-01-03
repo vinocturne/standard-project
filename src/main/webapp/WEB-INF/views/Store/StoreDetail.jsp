@@ -12,7 +12,7 @@
     
       
     .productside{
-     float:left;
+     display:flex;
     }
     
     .image{
@@ -100,7 +100,7 @@
 		</div>
 		
 		
-		<div class="productside">
+		<div class="productside" style = border : solid 1px red;>
 			<div class="explain">
 				<h1>StoreDetail 테스트</h1><br>
 					
@@ -109,7 +109,8 @@
 				<%
 				for(int i=0; i<c_VO.size(); i++) {
 				%>
-				<h4><%=c_VO.get(i) %></h4>
+				<br>
+				<h4>상품 상세정보 <br><%=c_VO.get(i) %></h4>
 				<%
 				}
 				%>
@@ -121,16 +122,18 @@
 				
 			</div>
 			
-			<div class="choiceButton1">
+			
+
+		</div>
+		
+		<div class="choiceButton1">
 				<button class="buyclass"><a href="/project/Customer/cart">구매하기</a></button>
 			
-		
-			
+
 			
 				<button class="listclass"><a href="/project/Customer/cart">장바구니</a></button>
 			</div>
-
-		</div>
+		
 		
 	 <div class="review">
 	 
