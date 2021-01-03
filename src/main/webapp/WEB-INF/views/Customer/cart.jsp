@@ -1,3 +1,4 @@
+<%@page import="org.standard.project.wishList.WishListProductVO"%>
 <%@page import="javax.mail.Session"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -52,8 +53,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-					<!-- OrderHistoryVO 구현되면 get xxx로연결하기  -->
+<!-- 					<tr>
+					OrderHistoryVO 구현되면 get xxx로연결하기 
 						<td><input type="checkbox" name="checkbox" value="1" style="border:0"></td> 
 						<td><img src="../ResourcesFile/img/logo2.png" style width="30px" height="20px"></th>
 						<td>트위드 플레어 스커트</th>
@@ -76,7 +77,21 @@
 							<input type="text" name="o_TotalPrice" id="o_TotalPrice" >원
 							</form>
 						</td>
-					</tr>
+					</tr> -->
+					<% ArrayList<WishListVO> wishListVO = (ArrayList<WishListVO>)session.getAttribute("wishListVO");%>
+		            <% ArrayList<WishListProductVO> wishListProductVO = (ArrayList<WishListProductVO>)session.getAttribute("wishListProductVO");%>
+					
+					<%for(int i=0;i<wishListVO.size();i++) { %>
+						<tr>
+						<td><input type="checkbox" name="checkbox" value="1" style="border: 0"></td>
+					<td><%=wishListProductVO.get(i).getPp_thumb()%></td>
+						<td><%=wishListProductVO.get(i).getPp_Name() %></td>
+						<td><%=wishListProductVO.get(i).getP_Color() %></td> 
+						<td><%=wishListProductVO.get(i).getP_Size() %></td>
+ 						<td><%=wishListVO.get(i).getP_Price() %></td>
+						<td><%=wishListVO.get(i).getW_Quantity() %></td>
+						<tr> 
+						<% }%>
 				</tbody>
 			</table>
 						<div class="cart_button">
@@ -99,7 +114,6 @@
 	</div>
 </div>
 
-	
 
 <!-- FOOTER -->
 <%@ include file="../footer.jsp"%>

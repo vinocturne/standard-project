@@ -55,7 +55,7 @@ public class WishListController {
 					productInfoArr.add(productVO);
 				}
 				System.out.println("productInfoArr : "+productInfoArr);
-				//session.setAttribute("wishListProductVO", productInfoArr);
+				session.setAttribute("wishListProductVO", productInfoArr);
 				//mav.addObject("wishListProductVO", productInfoArr);
 				//	private String p_Id, parent_p_Id, pp_Name,p_Color,p_Size,pp_thumb; private int p_Stack,p_Price;
 				
