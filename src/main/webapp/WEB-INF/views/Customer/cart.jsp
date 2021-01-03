@@ -1,3 +1,7 @@
+<%@page import="javax.mail.Session"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.standard.project.wishList.WishListVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="org.standard.project.order.OrderHistoryVO"%>
@@ -94,6 +98,7 @@
         </div>
 	</div>
 </div>
+
 	
 
 <!-- FOOTER -->
