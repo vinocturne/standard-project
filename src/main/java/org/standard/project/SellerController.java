@@ -294,13 +294,11 @@ public class SellerController {
 		
 		if(parent_p_Id == "" || parent_p_Id == null) {
 			vo = (ProductParentVO) session.getAttribute("parent_session");
-			System.out.println("넘어왔을떄"+vo);
+			System.out.println("수정,삭제,등록으로 넘어왔을때");
 			parent_p_Id = vo.getParent_p_Id();
-			vo = productParentService.selectParentProduct(parent_p_Id);
-		} else {
-			vo = productParentService.selectParentProduct(parent_p_Id);
-			System.out.println("첫접속때"+vo);
-		}
+		} 
+		
+		vo = productParentService.selectParentProduct(parent_p_Id);
 		session.setAttribute("parent_session", vo);
 		
 		ArrayList<ProductChildVO> listProductParent = new ArrayList<ProductChildVO>();
@@ -314,15 +312,13 @@ public class SellerController {
 	}
 
 	@RequestMapping(value = "/AddChild", method = RequestMethod.POST)
-	public String addChildAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq,
-			HttpServletResponse response, Model model) throws Exception {
+	public String addChildAction(HttpSession session, HttpServletRequest req) throws Exception {
 		System.out.println("옵션 입력 액션");
 		ProductChildVO vo = new ProductChildVO();
 
 		String p_Color = req.getParameter("p_Color");
 		String p_Size = req.getParameter("p_Size");
 		int p_Stack = Integer.parseInt(req.getParameter("p_Stack"));
-
 		String parent_p_Id = req.getParameter("parent_p_Id");
 		String p_Id = parent_p_Id.concat(p_Color).concat(p_Size);
 		int p_Brand = Integer.parseInt(req.getParameter("pp_Brand"));
@@ -333,8 +329,6 @@ public class SellerController {
 		vo.setParent_p_Id(parent_p_Id);
 		vo.setP_Id(p_Id);
 		vo.setP_Brand(p_Brand);
-
-		System.out.println(vo);
 
 		productChildService.registProductChild(vo);
 		return "redirect:/Seller/ProductAddChild";
@@ -348,14 +342,13 @@ public class SellerController {
 	}
 
 	@RequestMapping(value = "/ModifyChild", method = RequestMethod.POST)
-	public String modifyChildAction(HttpServletRequest req, MultipartHttpServletRequest images) {
+	public String modifyChildAction(HttpServletRequest req) throws IOException {
 		System.out.println("옵션 수정 액션");
 		ProductChildVO vo = new ProductChildVO();
 		vo.setP_Id(req.getParameter("p_Id"));
 		vo.setP_Color(req.getParameter("p_Color"));
 		vo.setP_Size(req.getParameter("p_Size"));
 		vo.setP_Stack(Integer.parseInt(req.getParameter("p_Stack")));
-		System.out.println(vo);
 		productChildService.modifyChildProduct(vo);
 		return "redirect:/Seller/ProductAddChild";
 	}
