@@ -24,6 +24,10 @@
     
     }
     
+    .review{
+     float:left;
+    }
+    
     .choiceButton1{
  	 padding-top:50px;
      padding-left:40px;
@@ -204,6 +208,23 @@ background-color: #grey;
 
 		</div>
 		
- </div>
+		 <div class="review" style=padding-top:100px>
+	 
+		 여기엔 리뷰가 들어갈거에요 근데 얘도 밑으로 안내려가네요 환장 뭐지
+		 갑자기
+		 
+		 
+		 </div>
+		
+		
+		
+				
+		
+ </div>  <!-- Product class 끝 -->
+ 
+ 
+ 
+
+ 
 </div>
 <%@ include file="../footer.jsp"%>
