@@ -93,11 +93,13 @@ public class SellerController {
 	}
 
 	@RequestMapping(value = "/ProductAddParent", method = RequestMethod.POST)
-	public String addParentAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq,
-			HttpServletResponse response) throws Exception {
+	public ModelAndView addParentAction(HttpSession session, HttpServletRequest req, MultipartHttpServletRequest mhsq,
+			HttpServletResponse response, ModelAndView mav) throws Exception {
 		System.out.println("상품 입력 액션");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		ProductParentVO vo = new ProductParentVO();
-
+		
 		String pp_Name = req.getParameter("pp_Name");
 
 //		이것을 어떻게 가져올까,, 아이디 값 가져와서 0001만들어주고 
@@ -122,10 +124,18 @@ public class SellerController {
 		;
 		vo.setPp_Category2(pp_Category2);
 		;
+		
+		try {
 		int pp_Price = Integer.parseInt(req.getParameter("pp_Price"));
-
-		vo.setPp_Brand(loginBrand.getBrandId());
 		vo.setPp_Price(pp_Price);
+		} catch (NumberFormatException e) {
+			out.println("<script>alert('가격에는 숫자를 넣어주세요'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("Seller/ProductAddParent");
+			return mav;
+		}
+		
+		vo.setPp_Brand(loginBrand.getBrandId());
 		System.out.println(vo);
 
 		String imgUploadPath = uploadPath + File.separator + "productImage";
@@ -133,8 +143,6 @@ public class SellerController {
 		List<MultipartFile> mf = mhsq.getFiles("m_Img");
 
 		if (mf.get(0).getOriginalFilename().equals("") || mf.get(1).getOriginalFilename().equals("")) {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
 			out.println("<script>alert('꼭 이미지를 넣어주세요'); history.go(-1);</script>");
 			out.flush();
 		} else {
@@ -155,8 +163,8 @@ public class SellerController {
 		System.out.println(vo);
 
 		productParentService.registProductParent(vo);
-
-		return "redirect:/Seller/ProductManage";
+		mav.setViewName("redirect:/Seller/ProductManage");
+		return mav;
 	}
 
 	@RequestMapping(value = "/DeleteParentProduct", method = RequestMethod.POST)
