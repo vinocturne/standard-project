@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.magazine.MagazineService;
 import org.standard.project.magazine.MagazineVO;
+import org.standard.project.product.ProductChildVO;
+import org.standard.project.product.ProductParentVO;
 
 @Controller
 @RequestMapping(value = "/magazine")
@@ -52,14 +54,24 @@ public class MagazineController {
 
 
 	@RequestMapping(value = "/MagazineDetail" , method = RequestMethod.GET)
-	public ModelAndView newmagazineDetail(MagazineVO vo) {
+	public ModelAndView newmagazineDetail(ModelAndView mav, HttpServletRequest req) {
 		System.out.println("매거진 디테일 에 들어왔어요");
-		ModelAndView mav = new ModelAndView("/Magazine/MagazineDetail");
-		List<MagazineVO> list = magazineService.getMagazineList(vo);
-		mav.addObject("list", list);
-		return mav;
+		
+		int mm_Seq = Integer.parseInt(req.getParameter("m_Seq"));
+		System.out.println(mm_Seq);
+		
+		MagazineVO MagazineVO = magazineService.selectMagazine(mm_Seq);
+		
+		
+		mav = new ModelAndView("/Magazine/MagazineDetail");
+		mav.addObject("m_Seq", MagazineVO);
 		
 
+		
+		System.out.println(MagazineVO);
+
+		return mav;
+		
 	}
 
 }
