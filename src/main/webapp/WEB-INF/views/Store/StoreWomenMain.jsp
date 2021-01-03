@@ -59,6 +59,7 @@ margin-bottom:3px;
 	</div>
 
 
+
  <c:set var="i" value="0" />
  <c:set var="j" value="3" />
 
