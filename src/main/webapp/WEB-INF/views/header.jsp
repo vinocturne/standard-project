@@ -11,8 +11,8 @@
 					src="<%=request.getContextPath()%>/ResourcesFile/img/logo2.png" width="60" height="40"></a>
 				<!-- </div> -->
 				<ul class="main-menu toggle">
-					<li><a href="/project/shop/StoreWomenMain">Women'Store</a></li>
-					<li><a href="/project/shop/StoreManMain">Man'Store</a></li>
+					<li><a href="/project/shop/StoreWomenMain">W'Store</a></li>
+					<li><a href="/project/shop/StoreManMain">M'Store</a></li>
 					<li><a href="/project/magazine/magazineList">Magazine</a></li>
 					<li><a href="/project/Customer/myPage">My page</a></li>
 					
