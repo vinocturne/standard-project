@@ -24,19 +24,14 @@
     
     }
     
-    .buyclass{
-
-     padding-left:30px;
+    .choiceButton1{
+ 	 padding-top:50px;
+     padding-left:40px;
      margine:0;
-
+	 float:right;
     }
     
-    .listclass{
 
-    padding-left:30px;
-    margine:0;
-
-    }
     
     .buyclass:hover {
      background-color:black;
@@ -49,6 +44,13 @@
 	    color:white;
     }
     
+
+
+    .detailExplain{
+    padding-top:30px;
+    padding-bottom:30px;
+    
+    }
     #topMenu ul {
 	list-style-type: none;
 	margin: 0px;
@@ -103,6 +105,11 @@ webkit-transition: height .2s;
 
 .topMenuLi:hover .submenu {
 height: 93px;
+
+}
+
+.bottomClass{
+padding-top:5px;
 }
 
 .submenuLink:hover {
@@ -139,7 +146,7 @@ background-color: #grey;
 					
 				
 				
-					<a href="/project/Customer/order">BOTTOM</a>
+					<a class="bottomClass" href="/project/Customer/order">BOTTOM</a>
 					<a href="/project/shop/DamStoreMain">SHOES</a>
 					
 					
@@ -178,16 +185,23 @@ background-color: #grey;
 				<%
 				}
 				%>
+				
+				
+				<div class="detailExplain">
+					여기엔 상품 설명이 들어갈거에요 
+				</div>
+				
 			</div>
-			<br>
 			
-			<button class="buyclass"><a href=""></a>구매하기</button>
-			<br>
-			<button class="listclass"><a href=""></a>장바구니</button>
+			<div class="choiceButton1">
+				<button class="buyclass"><a href="/project/Customer/cart">구매하기</a></button>
 			
-			
+		
 			
 			
+				<button class="listclass"><a href="/project/Customer/cart">장바구니</a></button>
+			</div>
+
 		</div>
 		
  </div>
