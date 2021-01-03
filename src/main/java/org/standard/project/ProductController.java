@@ -80,11 +80,21 @@ public class ProductController {
 		}
 	
 	  @RequestMapping(value="/StoreManMain", method = RequestMethod.GET)
-	  public ModelAndView StoreManMain(ModelAndView mav) {
-		  List<ProductParentVO> allProductList = productParentService.showManProductList();
-		  
-		  mav = new ModelAndView ("/Store/StoreManMain");
-		  mav.addObject("list", allProductList);
+	  public ModelAndView StoreManMain(ModelAndView mav, HttpServletRequest req) {
+		  String gender = "man";
+		  String category = req.getParameter("category");
+		  ProductParentVO ppVO = new ProductParentVO();
+		  if(req.getParameter("category")==null) {
+			  List<ProductParentVO> showManProductList = productParentService.showManProductList();
+			  mav = new ModelAndView ("/Store/StoreManMain");
+			  mav.addObject("list", showManProductList);
+		  }else {
+			  ppVO.setPp_Category1(gender);
+			  ppVO.setPp_Category2(category);
+			  List<ProductParentVO> showCategoryList = productParentService.showCategoryList(ppVO);
+			  mav = new ModelAndView ("/Store/StoreManMain");
+			  mav.addObject("list", showCategoryList);
+		  } 
 		  return mav;
 	  }
 	  

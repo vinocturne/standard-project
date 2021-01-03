@@ -52,8 +52,10 @@ margin-bottom:3px;
 					<li><a href="#"> <!--줄띄우기 -->
 					</a></li>
 					<li><a href="/project/shop/StoreWomenMain?category=Top">TOP</a></li>
-					<li><a href="/project/shop/StoreWomenMain">BOTTOM</a></li>
-					<li><a href="/project/shop/StoreWomenMain">SHOES</a></li>
+					<li><a href="/project/shop/StoreWomenMain?category=Bottom">BOTTOM</a></li>
+					<li><a href="/project/shop/StoreWomenMain?category=Dress">DRESS</a></li>
+					<li><a href="/project/shop/StoreWomenMain?category=Shoes">SHOES</a></li>
+					<li><a href="/project/shop/StoreWomenMain?category=Acc">Acc</a></li>
 				</ul>
 			</div>
 		</div>
