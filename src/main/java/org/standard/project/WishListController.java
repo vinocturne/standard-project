@@ -54,6 +54,7 @@ public class WishListController {
 				}
 				System.out.println("productInfoArr : "+productInfoArr);
 				mav.addObject("wishList", productInfoArr);
+				
 				return mav;
 			}else {
 				return mav;
