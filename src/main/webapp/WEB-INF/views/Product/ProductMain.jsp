@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <title>MagazineMain</title>
+  <title>ProductMain</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
