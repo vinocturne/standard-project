@@ -316,6 +316,15 @@ public class CustomerController {
 	return "Customer/OrderForm";
 	}
 	
+	@RequestMapping(value = "/cartList", method = RequestMethod.GET)
+	public String myCartList(HttpSession session) {
+		if (session.getAttribute("loginCustomer") == null) {
+			return "redirect:/Customer/login_form";
+		} else {
+			return "Customer/cart";
+		}
+	}
+	
 	
 	
 }
