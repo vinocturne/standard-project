@@ -18,4 +18,7 @@ public interface MagazineService {
 	void makeLikeRow(MagazineLikeVO vo);
 	int getLikeCnt(int mm_Seq);
 	void updateLikeCntPlus(MagazineVO mVO);
+	void updateLikeCntMinus(MagazineVO mVO);
+	void likeCheckInit(MagazineLikeVO mlVO);
+	void likeCheckPlus(MagazineLikeVO mlVO);
 }

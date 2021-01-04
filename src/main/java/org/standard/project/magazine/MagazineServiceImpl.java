@@ -72,4 +72,20 @@ public class MagazineServiceImpl implements MagazineService {
 		magazineDAO.updateLikeCntPlus(mVO);
 	}
 
+	@Override
+	public void updateLikeCntMinus(MagazineVO mVO) {
+		magazineDAO.updateLikeCntMinus(mVO);
+	}
+
+	@Override
+	public void likeCheckInit(MagazineLikeVO mlVO) {
+		//좋아요 취소하면 다시 0으로 되돌려주는 기능
+		magazineDAO.likeCheckInit(mlVO);
+	}
+
+	@Override
+	public void likeCheckPlus(MagazineLikeVO mlVO) {
+		magazineDAO.likeCheckPlus(mlVO);
+	}
+
 }

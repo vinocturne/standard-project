@@ -64,5 +64,17 @@ public class MagazineDAO {
 	public void updateLikeCntPlus(MagazineVO mVO) {
 		mySQL.update(loc+"updateLikeCntPlus", mVO);
 	}
+
+	public void updateLikeCntMinus(MagazineVO mVO) {
+		mySQL.update(loc+"updateLikeCntMinus",mVO);
+	}
+
+	public void likeCheckInit(MagazineLikeVO mlVO) {
+		mySQL.update(loc+"likeCheckInit",mlVO);
+	}
+
+	public void likeCheckPlus(MagazineLikeVO mlVO) {
+		mySQL.update(loc+"likeCheckPlus",mlVO);
+	}
 	
 }

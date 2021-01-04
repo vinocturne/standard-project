@@ -10,14 +10,28 @@
 <script>
 	function changeHeart() {
 		$.ajax({
+			url: "/project/magazine/clickLike",
 			type:"POST",
+			dataType:"json",
 			data : {
 				"m_Seq": "${m_Seq.getM_Seq()}",
 				"c_Id": "${c_Id}"
 			},
-			url: "/project/magazine/clickLike",
-			success : function(data) {
-				alert(data);
+			success : function(jdata) {
+				if(jdata.resultCode == -1) {
+					alert("좋아요 오류");
+				}else {
+					if(jdata.likeCheck == 1) {
+						$("#btn_like").attr("src","${pageContext.request.contextPath}/ResourcesFile/img/like_after.png");
+						$("#likeCnt").empty();
+						$("#likeCnt").append(jdata.likeCnt);
+					}
+					else if(jdata.likeCheck == 0) {
+						$("#btn_like").attr("src","${pageContext.request.contextPath}/ResourcesFile/img/like_before.png");
+						$("#likeCnt").empty();
+						$("#likeCnt").append(jdata.likeCnt);
+					}
+				}
 			}
 		});
 	}
@@ -76,7 +90,7 @@
 
 				<h1><%=vo.getM_Content()%></h1>
 				<br>
-				<c:out value="${likecheck }" />
+				
 				<c:choose>
 					<c:when test="${likecheck eq '0' or empty likecheck}">
 						<!-- likecheck가0이면 빈하트-->
@@ -91,7 +105,7 @@
 							style="cursor: pointer; width: 20px;">
 					</c:otherwise>
 				</c:choose>
-				<span id="likecnt" style="margin-left: 5px;">${likeCnt}</span>
+				<span id="likeCnt" style="margin-left: 5px;">${likeCnt}</span>
 
 
 			</div>
