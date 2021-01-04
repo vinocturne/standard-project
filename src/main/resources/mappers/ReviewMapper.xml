@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.standard.project.ReviewMapper">
+	<select id="writeReview" resultType="ReviewVO">
+		INSERT INTO review (p_Id, r_Title, r_Writer, r_Date, r_Coment, parent_p_Id, pp_Name, r_ComentRe ) VALUES(#{p_Id}, #{r_Title}, #{r_Writer}, CURDATE(), #{r_Coment}, #{parent_p_Id}, #{pp_Name}, #{r_ComentRe});
+	</select>
+
+</mapper>
