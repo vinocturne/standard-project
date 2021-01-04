@@ -72,14 +72,13 @@
 							<td><div class="checkBox">
 									<input type="checkbox" name="chBox" class="chBox"
 										data-p_Id="<%=wishListVO.get(i).getP_Id() %>"
-										data-c_Id="<%=wishListVO.get(i).getC_Id() %>" 
+										data-c_Id="<%=wishListVO.get(i).getC_Id() %>"
 										data-p_Price="<%=wishListVO.get(i).getP_Price() %>"
 										data-w_Quantity="<%=wishListVO.get(i).getW_Quantity() %>"
 										data-pp_Name="<%=wishListProductVO.get(i).getPp_Name() %>"
 										data-p_Color="<%=wishListProductVO.get(i).getP_Color() %>"
 										data-p_Size="<%=wishListProductVO.get(i).getP_Size() %>"
-										data-pp_thumb="<%=wishListProductVO.get(i).getPp_thumb() %>"
-										/>
+										data-pp_thumb="<%=wishListProductVO.get(i).getPp_thumb() %>" />
 									<script>
 											$(".chBox").click(
 													function() {
@@ -117,7 +116,6 @@
 				<a class="orderBtn">
 					<button type="button" class="selectOrder_btn">주문하기</button> <script>
 					$(".selectOrder_btn").click(function() {
-						if (confirm_val) {
 							var checkArr01 = new Array();
 							var checkArr02 = new Array();
 							var checkArr03 = new Array();
@@ -156,7 +154,6 @@
 							}else{
 								alert("주문할 상품을 선택해주세요");
 							}
-						}
 					});
 				</script>
 				</a>
