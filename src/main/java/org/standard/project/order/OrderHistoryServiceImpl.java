@@ -45,6 +45,14 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	public void deleteDeliveryList(String o_Num) {
 		orderHistoryDAO.deleteDeliveryList(o_Num);
 	}
+
+	@Override
+	public void insertOrderHistory(OrderHistoryVO vo) {
+		orderHistoryDAO.insertOrderHistory(vo);
+		
+	}
+
+
 	
 	/*
 	 * public CustomerVO getCustomer(CustomerVO vo) { return

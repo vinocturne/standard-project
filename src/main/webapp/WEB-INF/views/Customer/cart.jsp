@@ -63,11 +63,11 @@
 					</tr>
 				</thead>
 				<tbody>
+					<form name="ck_form" method="get">
 						<% ArrayList<WishListVO> wishListVO = (ArrayList<WishListVO>)session.getAttribute("wishListVO");%>
 						<% ArrayList<WishListProductVO> wishListProductVO = (ArrayList<WishListProductVO>)session.getAttribute("wishListProductVO");%>
 
 						<%for(int i=0;i<wishListVO.size();i++) { %>
-						<form name="form" method="get">
 						<tr>
 							<td><div class="checkBox">
 									<input type="checkbox" name="chBox" class="chBox"
@@ -78,7 +78,8 @@
 										data-pp_Name="<%=wishListProductVO.get(i).getPp_Name() %>"
 										data-p_Color="<%=wishListProductVO.get(i).getP_Color() %>"
 										data-p_Size="<%=wishListProductVO.get(i).getP_Size() %>"
-										data-pp_thumb="<%=wishListProductVO.get(i).getPp_thumb() %>" />
+										data-pp_thumb="<%=wishListProductVO.get(i).getPp_thumb() %>" 
+										data-p_Brand ="<%=wishListProductVO.get(i).getP_Brand() %>"/>
 									<script>
 											$(".chBox").click(
 													function() {
@@ -92,8 +93,7 @@
 							<td><%=wishListProductVO.get(i).getPp_Name() %></td>
 							<td>색상: <%=wishListProductVO.get(i).getP_Color() %><br>
 								사이즈: <%=wishListProductVO.get(i).getP_Size() %></td>
-							<td><input type="text" name="sell_price"
-										value="<%=wishListVO.get(i).getP_Price() %>"onchange="change();"></td>
+							<td><%=wishListVO.get(i).getP_Price() %></td>
 							<td><span class=""> <span class="ec-base-qty">
 										<input type="text" name="amount"
 										value="<%=wishListVO.get(i).getW_Quantity() %>" size="3"
@@ -106,10 +106,11 @@
 									</a>
 								</span>
 							</span></td>
-							<td><input type="text" name="sum" id="sum">원</td>
-						</tr>
-						</form>
-						<% }%>
+							<td><%=wishListVO.get(i).getP_Price() %>원</td>
+							<!-- <input type="text" name="o_TotalPrice" id="o_TotalPrice" >	 -->
+							<% }%>
+						
+						<tr>
 				</tbody>
 			</table>
 			<div>
@@ -124,7 +125,7 @@
 								var jsonStr = {p_Id : $(this).attr("data-p_Id"),p_Price:$(this).attr("data-p_Price"),
 											w_Quantity:$(this).attr("data-w_Quantity"),pp_Name:$(this).attr("data-pp_Name"),
 											p_Color:$(this).attr("data-p_Color"),p_Size:$(this).attr("data-p_Size"),
-											pp_thumb:$(this).attr("data-pp_thumb")
+											pp_thumb:$(this).attr("data-pp_thumb"),p_Brand : $(this).attr("data-p_Brand")
 							}
 							jsonArr.push(jsonStr);
 							});

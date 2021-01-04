@@ -1,6 +1,8 @@
 package org.standard.project;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Map;
@@ -19,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.order.OrderHistoryService;
+import org.standard.project.order.OrderHistoryVO;
 import org.standard.project.wishList.WishListProductVO;
 import org.standard.project.wishList.WishListService;
 import org.standard.project.wishList.WishListVO;
@@ -28,6 +32,47 @@ import org.standard.project.wishList.WishListVO;
 public class WishListController {
 	@Resource(name = "WishListService")
 	WishListService wishListService;
+	@Resource(name="OrderHistoryService")
+	OrderHistoryService orderHistoryService;
+	
+	@RequestMapping(value ="purchase")
+	public String purchase(HttpSession session,HttpServletRequest req)throws Exception {
+		System.out.println("purchase 서버");
+		System.out.println(req.getParameter("data"));
+		JSONParser parser = new JSONParser(); 
+		JSONArray arr = new JSONArray();
+		arr=(JSONArray)parser.parse(req.getParameter("data")); 
+		for(int i=0; i<arr.size(); i++) { 
+			JSONObject object = (JSONObject)arr.get(i);
+			System.out.println(object.toString()); 
+			OrderHistoryVO vo = new OrderHistoryVO();
+			vo.setC_Id((String) object.get("c_Id"));
+			vo.setP_Id((String)object.get("p_Id"));
+
+			vo.setO_BrandId(Integer.valueOf((String)object.get("p_Brand")));
+			//날짜는 SQL로 처리
+			//o_Num = 는 자동증가.
+			vo.setO_Num(0);
+			vo.setP_Price(Integer.valueOf((String)object.get("p_Price")));
+			vo.setO_Quantity(Integer.valueOf((String)object.get("o_Quantity")));
+			System.out.println("토탈 가격 : "+object.get("o_TotalPrice"));
+			String totalPrice =object.get("o_TotalPrice").toString();
+			vo.setO_TotalPrice(Integer.valueOf(totalPrice.trim()));
+			vo.setO_Delivery("결제완료");
+			System.out.println("zipcode:"+object.get("zipcode"));
+			vo.setZipcode((String)object.get("zipcode"));
+			vo.setO_Address1((String)object.get("o_Address1"));
+			vo.setO_Address2((String)object.get("o_Address2"));
+			vo.setO_Name((String)object.get("o_Name"));
+			vo.setO_Phone1((String)object.get("o_Phone1"));
+			vo.setO_Phone2((String)object.get("o_Phone2"));
+			
+			orderHistoryService.insertOrderHistory(vo);
+			
+
+		} 
+		return "index";
+	}
 
 	@RequestMapping(value = "/order")
 	public ModelAndView orderForm(HttpSession session, HttpServletRequest req) throws Exception { // ,@RequestParam(value="chBox")
@@ -42,7 +87,7 @@ public class WishListController {
 		  arr=(JSONArray)parser.parse(req.getParameter("data")); 
 		  for(int i=0; i<arr.size(); i++) { 
 			  JSONObject object = (JSONObject)arr.get(i);
-			  System.out.println(object.toString()); 
+			  System.out.println("orderController 요청,카트에서 넘어온 데이터 : "+object.toString()); 
 		  } 
 		  mav.addObject("cartList",req.getParameter("data"));
 		  System.out.println(mav.getViewName());
@@ -91,7 +136,7 @@ public class WishListController {
 					productVO = wishListService.getProductInfo(wishListVOList.get(i).getP_Id());
 					productInfoArr.add(productVO);
 				}
-				System.out.println("productInfoArr : " + productInfoArr);
+				System.out.println("장바구니 컨트롤러 요청 , 모델에 저장될 정보 productInfoArr : " + productInfoArr);
 				session.setAttribute("wishListProductVO", productInfoArr);
 				// mav.addObject("wishListProductVO", productInfoArr);
 				// private String p_Id, parent_p_Id, pp_Name,p_Color,p_Size,pp_thumb; private

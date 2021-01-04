@@ -44,6 +44,12 @@ public class OrderHistoryDAO {
 		mySQL.delete(loc+"deleteDeliveryList", o_Num);
 	}
 
+
+	public void insertOrderHistory(OrderHistoryVO vo) {
+		mySQL.insert(loc+"insertOrderHistory", vo);
+		
+	}
+
 	/*
 	 * @Repository("customerDAO") public class CustomerDAO {
 	 * 
