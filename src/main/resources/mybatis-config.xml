@@ -11,6 +11,7 @@
       <typeAlias alias="ProductChildVO" type="org.standard.project.product.ProductChildVO"/>
       <typeAlias alias="BrandDBVO" type="org.standard.project.brand.BrandDBVO"/>
       <typeAlias alias="MagazineLikeVO" type="org.standard.project.magazine.MagazineLikeVO"/>
+      <typeAlias alias="ReviewVO" type="org.standard.project.magazine.ReviewVO"/>
    </typeAliases>
    <environments default="development">
       <environment id="development">
@@ -31,6 +32,7 @@
       <mapper resource ="mappers/ProductMapper.xml"/>
       <mapper resource ="mappers/BrandDBMapper.xml"/>
       <mapper resource ="mappers/WishListMapper.xml"/>
+      <mapper resource ="mappers/ReviewMapper.xml"/>
    </mappers>
    
 </configuration>
