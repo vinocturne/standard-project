@@ -84,15 +84,16 @@
 		<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
-					<th style="width:5%; height:10%">선택</th>
-					<th style="width:5%; height:10%">고객아이디</th>
-					<th style="width:5%; height:10%">상품아이디</th>
+					<th style="width:2%; height:10%">선택</th>
+					<th style="width:4%; height:10%">고객아이디</th>
+					<th style="width:4%; height:10%">상품아이디</th>
+					<th style="width:3%; height:10%">주문번호</th>
 					<th style="width:5%; height:10%">주문일자</th>
-					<th style="width:5%; height:10%">주문번호</th>
 					<th style="width:5%; height:10%">단가</th>
 					<th style="width:5%; height:10%">수량</th>
 					<th style="width:5%; height:10%">주문금액</th>
 					<th style="width:5%; height:10%">배송상태</th>
+					<th style="width:5%; height:10%">배송상태적용</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -100,6 +101,7 @@
 					<c:when test="${fn:length(list)>0}">
 						<c:forEach var="orderHistory" items="${list}">
 							<tr>
+							<form action="/project/Seller/ModifyDelivery" method="POST" enctype="multipart/form-data">
 								<td>
 									<div class="checkBox">
 										<input type="checkbox" name="chBox" class="chBox"
@@ -116,12 +118,23 @@
 								</td>
 								<td>${orderHistory.c_Id}</td>
 								<td>${orderHistory.p_Id}</td>
+								<td>${orderHistory.o_Num}</td>
 								<td>${orderHistory.o_Date}</td>
-								<td name="o_Num">${orderHistory.o_Num}</td>
 								<td>${orderHistory.p_Price}</td>
 								<td>${orderHistory.o_Quantity}</td>
-								<td>${orderHistory.o_TotalPrce}</td>
-								<td>${orderHistory.o_Delivery}</td>
+								<td>${orderHistory.o_TotalPrice}</td>
+								<td>
+								<select id="o_Delivery" name="o_Delivery">
+									<option value="${orderHistory.o_Delivery}">${orderHistory.o_Delivery}</option>
+									<option value="결제완료">결제완료</option>
+									<option value="상품준비중">상품준비중</option>
+									<option value="배송시작">배송시작</option>
+									<option value="배송중">배송중</option>
+									<option value="배송완료">배송완료</option>
+								</select>
+								</td>
+								<td><input type="submit" value="적용하기"></td>
+								</form>
 							</tr>
 						</c:forEach>
 					</c:when>
