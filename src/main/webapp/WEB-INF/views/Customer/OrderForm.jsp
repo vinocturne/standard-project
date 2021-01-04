@@ -3,6 +3,8 @@
 <!-- daum 우편번호 찾기를 위한 라이브러리 호출 -->
 <script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
 <script>
 
     function openDaumZipAddress() {
@@ -185,9 +187,9 @@ if(phone1.length() == 10){
     var o_Phone1_1 =document.getElementById("c_Phone1");//번호1-1
     var o_Phone1_2 =document.getElementById("mobile2");//번호1-2
     var o_Phone1_3 =document.getElementById("mobile3");//번호1-3
-    var o_Phone2_1 =document.getElementById("c_Phone1");//번호2-1
-    var o_Phone2_2 =document.getElementById("mobile2");//번호2-2
-    var o_Phone2_3 =document.getElementById("mobile3");//번호2-3
+    var o_Phone2_1 =document.getElementById("c_Phone2");//번호2-1
+    var o_Phone2_2 =document.getElementById("phone2");//번호2-2
+    var o_Phone2_3 =document.getElementById("phone3");//번호2-3
     const nameValue =o_Name.value;
     const zipcodeValue=o_Zipcode.value;
     const addressValue1=o_Address1.value;
@@ -233,25 +235,55 @@ function fn_select_newDes(){
 function fn_purchase(){
     console.log("결제 버튼");
     //orderHistoryVO 변수
-    //c_id,p_Id,o_Date,o_Num,p_Price,o_Quantity, o_TotalPrce,o_Delivery
+    //c_id,p_Id,o_Date,o_Num,p_Price,o_Quantity, o_TotalPrce,o_Delivery,p_Brand
     //zipcode, o_Address, o_Address, o_Name, o_Phone1, o_Phone
 
-    //여기서 전달해줘야 하는값.
-    //p_Id, p_Price, o_Quantity, o_Total 
+    //o_Delivery, o_Num, o_Date,(c_Id)빼고 보내주기
+    var c_Id = "<%=customer.getC_Id()%>"
+    var o_nameValue =o_Name.value;
+    var o_zipcodeValue=o_Zipcode.value;
+    var o_addressValue1=o_Address1.value;
+    var o_addressValue2=o_Address2.value;
+    var o_phone1_1=o_Phone1_1.value;
+    var o_phone1_2=o_Phone1_2.value;
+    var o_phone1_3=o_Phone1_3.value;
+    var o_phone2_1 =o_Phone2_1.value;
+    var o_phone2_2 =o_Phone2_2.value;
+    var o_phone2_3 =o_Phone2_3.value;
+    var o_phone2;
+    if(o_Phone2_1!=""&o_phone2_2!=""&o_phone2_3!=""){
+        o_phone2 = o_phone2_1+"-"+o_phone2_2+"-"+o_phone2_3;
+    }
+    var o_phone1 =o_phone1_1+"-"+o_phone1_2+"-"+o_phone1_3;
+    
+    console.log(o_phone1_1+"-"+o_phone1_2+"-"+o_phone1_3);
+    console.log("결제 버튼 클릭 시점 parsedJSON : "+parsedJSON);
+    
+    var purchaserDataArr = new Array();
+    for(let i=0;i<parsedJSON.length;i++){
+        console.log("p_Brand : "+parsedJSON[i].p_Brand);
+        var purchaserData ={"c_Id":c_Id, "p_Id":parsedJSON[i].p_Id,"p_Price":parsedJSON[i].p_Price,"o_Quantity":parsedJSON[i].w_Quantity,
+        "o_TotalPrice": ((parsedJSON[i].p_Price)*(parsedJSON[i].w_Quantity)),"p_Brand":parsedJSON[i].p_Brand,
+        "zipcode":o_zipcodeValue, "o_Address1":o_addressValue1,"o_Address2":o_addressValue2,"o_Name" :o_nameValue ,"o_Phone1":o_phone1, "o_Phone2":o_phone2};
+
+        purchaserDataArr.push(purchaserData);
+   }
+   var purchaseData = JSON.stringify(purchaserDataArr);
+
     var form = document.createElement('form');
     form.setAttribute('method', 'post'); //GET 전환 가능
-    form.setAttribute('action', '/project/wishList/order');
+    form.setAttribute('action', '/project/wishList/purchase');
     document.charset = "utf-8";
     
         var hiddenField = document.createElement('input');
         hiddenField.setAttribute('type', 'hidden'); //값 입력
-        hiddenField.setAttribute('name', "");
-        hiddenField.setAttribute('value', );
+        hiddenField.setAttribute('name', "data");
+        hiddenField.setAttribute('value', purchaseData);
         form.appendChild(hiddenField);
     
     document.body.appendChild(form);
     form.submit();
-    
+	
     
 }
 

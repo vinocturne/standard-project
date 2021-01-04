@@ -19,5 +19,8 @@ public interface OrderHistoryService {
 	ArrayList<ProductParentVO> getBrandOrderList(BrandDBVO loginBrand);
 	void modifyDeliveryList(OrderHistoryVO vo);
 	void deleteDeliveryList(String o_Num);
+
+	void insertOrderHistory(OrderHistoryVO vo);
+	
 	
 }

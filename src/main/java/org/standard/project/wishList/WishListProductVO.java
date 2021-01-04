@@ -3,7 +3,13 @@ package org.standard.project.wishList;
 public class WishListProductVO {
 	//상품아이디, 부모아이디, 상품명, 컬러, 사이즈, 이미지, 재고,가격
 	private String p_Id, parent_p_Id, pp_Name,p_Color,p_Size,pp_thumb;
-	private int p_Stack,p_Price;
+	private int p_Stack,p_Price,p_Brand;
+	public int getP_Brand() {
+		return p_Brand;
+	}
+	public void setP_Brand(int p_Brand) {
+		this.p_Brand = p_Brand;
+	}
 	public String getP_Id() {
 		return p_Id;
 	}
@@ -56,7 +62,7 @@ public class WishListProductVO {
 	public String toString() {
 		return "WishListProductVO [p_Id=" + p_Id + ", parent_p_Id=" + parent_p_Id + ", pp_Name=" + pp_Name
 				+ ", p_Color=" + p_Color + ", p_Size=" + p_Size + ", pp_thumb=" + pp_thumb + ", p_Stack=" + p_Stack
-				+ ", p_Price=" + p_Price + "]";
+				+ ", p_Price=" + p_Price + ", p_Brand=" + p_Brand + "]";
 	}
 	
 	

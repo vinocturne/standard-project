@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.standard.project.OrderHistoryMapper">
 	<select id="getList" resultType="org.standard.project.order.OrderHistoryVO">
-		SELECT * FROM orderhistory where c_Id='${c_Id}'
+		SELECT * FROM orderhistory where c_Id=#{c_Id}
 	</select>
 	<select id="getDailyIncomeList" resultType="HashMap">
 		SELECT o_Date,o_TotalPrice FROM orderhistory GROUP BY o_Date DESC LIMIT 30
@@ -17,5 +17,8 @@
 	</select>
 	<select id="deleteDeliveryList" resultType="org.standard.project.order.OrderHistoryVO">
 		DELETE FROM orderhistory WHERE o_Num=#{o_Num}
+	</select>
+	<select id="insertOrderHistory" resultType="org.standard.project.order.OrderHistoryVO">
+		INSERT INTO orderhistory(c_Id,p_Id,o_BrandId,o_Date,o_Num,p_Price,o_Quantity,o_TotalPrice,o_Delivery,zipcode,o_Address1,o_Address2,o_Name,o_Phone1,o_Phone2) values(#{c_Id},#{p_Id},#{o_BrandId},CURDATE(),NULL,#{p_Price},#{o_Quantity},#{o_TotalPrice},#{o_Delivery},#{zipcode},#{o_Address1},#{o_Address2},#{o_Name}, #{o_Phone1}, #{o_Phone2})
 	</select>
 </mapper>
