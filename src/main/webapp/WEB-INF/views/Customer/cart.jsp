@@ -93,7 +93,7 @@
 							<td>색상: <%=wishListProductVO.get(i).getP_Color() %><br>
 								사이즈: <%=wishListProductVO.get(i).getP_Size() %></td>
 							<td><input type="text" name="sell_price"
-										value="<%=wishListVO.get(i).getP_Price() %>"></td>
+										value="<%=wishListVO.get(i).getP_Price() %>"onchange="change();"></td>
 							<td><span class=""> <span class="ec-base-qty">
 										<input type="text" name="amount"
 										value="<%=wishListVO.get(i).getW_Quantity() %>" size="3"
