@@ -1,7 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="org.standard.project.customer.*" %>
+<style>
 
+ul { list-style:none; cursor:pointer }
+li { 
+  float:left; 
+  margin-right:10px;
+  transition:all .3s ease 
+}
+li:hover { color:purple; transition:all .3s ease }
+li > a { position:relative }
+
+/*밑줄넣기 부분*/
+li > a::after {
+  content: '';
+  left: 50%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  border-bottom: 2px solid purple;
+  transition:all .3s ease;
+}
+li:hover > a::after {
+  content: '';
+  width: 100%;
+  left: 0px;
+  display: block;
+  position: absolute;
+  border-bottom: 2px solid purple;
+  transition:all .3s ease;
+}
+
+
+
+</style>
 	<!-- HEADER -->
 	<header class="section">
 		<div class="inner clearfix">
