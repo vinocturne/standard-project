@@ -137,7 +137,7 @@
 							
 							if (!(checkArr == "")) {
 								$.ajax({
-									url : "DeleteParentProduct",/* 보낼곳 */
+									url : "/project/wishlist/order",/* 보낼곳 */
 									type : "post",
 									data : {
 										chBox : checkArr01,
