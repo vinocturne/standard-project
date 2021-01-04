@@ -28,7 +28,7 @@
 			error : function() {
 				Rnd.alert("몬가..몬가오류났다...","error","확인",function(){});
 			},
-			success : fuction(jdata) {
+			success : function(jdata) {
 				if(jdata.resultCode == -1){
 					Rnd.alert("종아요에서..몬가..몬가오류났다..","error","확인",function(){});
 				}
