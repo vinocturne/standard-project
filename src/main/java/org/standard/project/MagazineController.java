@@ -76,7 +76,7 @@ public class MagazineController {
 				magazineLikeVO.setC_Id(c_Id);
 				magazineLikeVO.setM_Seq(mm_Seq);
 				if (magazineService.magazineLikeCheck(magazineLikeVO) == null) {
-					magazineService.makeLikeRow(magazineLikeVO);
+//					magazineService.makeLikeRow(magazineLikeVO);
 				} else {
 					userLikeCheck = magazineService.magazineLikeCheck(magazineLikeVO);
 					System.out.println(magazineLikeVO);
@@ -107,24 +107,42 @@ public class MagazineController {
 		return mav;
 
 	}
-	@RequestMapping(value = "/clickLike")
-	@ResponseBody
-	public Map<String,Object> clickLike(@RequestParam Map<String,Object> commandMap) {
-		Map<String,Object> resultMap = new HashMap<String, Object>();
-		int m_Seq = (Integer) commandMap.get("m_Seq");
-		String c_Id = (String) commandMap.get("c_Id");
-		int resultCode = 0;
-		System.out.println(m_Seq);
-		int likeCnt = magazineService.getLikeCnt(m_Seq);
-		if(likeCnt == 1) {
-			System.out.println("like 눌렀음");
-			resultCode = 0;
-		}else if(likeCnt == 0) {
-			System.out.println("like 누른적 없음");
-			resultCode = 1;
-		}
-		resultMap.put("resultCode", resultCode);
-		//resultCode가 1이면 불이 들어오고 0이면 불이 꺼진다.
-		return resultMap;
-	}
+//	@RequestMapping(value = "/clickLike", method = RequestMethod.POST)
+//	public Map<String,Object> clickLike(@RequestParam Map<String,Object> commandMap) {
+//		Map<String,Object> resultMap = new HashMap<String, Object>();
+//		int m_Seq = (Integer) commandMap.get("m_Seq");
+//		String c_Id = (String) commandMap.get("c_Id");
+//		int resultCode = 0;
+//		System.out.println(m_Seq);
+//		MagazineVO mVO = new MagazineVO();
+//		MagazineLikeVO mlVO = new MagazineLikeVO();
+//		Map<String, Object> map = new HashMap<String, Object>();
+//		mVO.setM_Seq(m_Seq);
+//		mlVO.setM_Seq(m_Seq);
+//		mlVO.setC_Id(c_Id);
+//		try {
+//			map.put("likeCheck", magazineService.magazineLikeCheck(mlVO));
+//			if(map == null) {
+//				magazineService.makeLikeRow(mlVO);
+//				magazineService.updateLikeCntPlus(mVO);			
+//			} else if (Integer.parseInt(map.get("likeCheck").toString()) == 0) {
+//				
+//			}
+//		}catch(Exception e) {
+//			resultCode = -1;
+//		}
+//		
+//		
+//		int likeCnt = magazineService.getLikeCnt(m_Seq);
+//		if(likeCnt == 1) {
+//			System.out.println("like 눌렀음");
+//			resultCode = 0;
+//		}else if(likeCnt == 0) {
+//			System.out.println("like 누른적 없음");
+//			resultCode = 1;
+//		}
+//		resultMap.put("resultCode", resultCode);
+//		//resultCode가 1이면 불이 들어오고 0이면 불이 꺼진다.
+//		return resultMap;
+//	}
 }

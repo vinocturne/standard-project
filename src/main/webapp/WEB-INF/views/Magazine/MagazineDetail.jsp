@@ -9,40 +9,30 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 	function changeHeart() {
-		alert("change버튼");
-		var btn_like = document.getElementById("btn_like");
-		var m_Seq = ${m_Seq};
-		var c_Id = ${c_Id};
-		$(document).ready(function() {
+		let btn_like = document.getElementById("btn_like");
 		$.ajax({
-			type : "POST",
-			url : "/clickLike",
-			dataType : "json",
-			data : "m_Seq="+m_Seq+"&c_Id="+c_Id,
-			error : function() {
-				Rnd.alert("몬가..몬가오류났다...","error","확인",function(){});
-			},
-			success : function(jdata) {
-				if(jdata.resultCode == -1){
-					Rnd.alert("종아요에서..몬가..몬가오류났다..","error","확인",function(){});
-				}
-				else {
+			type: "POST",
+			dataType:"json",
+			url: "${pageContext.request.contextPath}/magazine/clickLike",
+			data: "m_Seq="+m_Seq+"&c_Id="+c_Id,
+			sucess: function(jdata) {
+				if(jdata.resultCode == -1) {
+					Rnd.alert("오류","error","확인",function(){});
+				} else {
 					if(jdata.likecheck == 1) {
-						$("#btn_like").attr("src","<%=request.getContextPath()%>/ResourcesFile/img/like_after.png");
-						$("#likecnt").empty();
-						$("#likecnt").append(jdata.likecnt);
-					}
-					else if (jdata.likecheck == null) {
-						$("#btn_like").attr("src","<%=request.getContextPath()%>/ResourcesFile/img/like_before.png");
-						$("#likecnt").empty();
-						$("#likecnt").append(jdata.likecnt);
+						$("#btn_like").attr("src","${pageContext.request.contextPath}/ResourcesFile/img/like_after.png")
+						$("#likeCnt").empty();
+						$("#likeCnt").append(jdata.likeCnt);
+					} else if(jdata.likecheck == 0) {
+						$("#btn_like").attr("src","${pageContext.request.contextPath}/ResourcesFile/img/like_before.png")
+						$("#likeCnt").empty();
+						$("#likeCnt").append(jdata.likeCnt);
 					}
 				}
-			},
-			error : function(xhr, status, error) {
-				alert("에러 발생");
+						
+				}
+				
 			}
-		});
 		});
 	}
 </script>

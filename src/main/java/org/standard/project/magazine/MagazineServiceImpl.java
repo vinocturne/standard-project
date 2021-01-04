@@ -67,4 +67,9 @@ public class MagazineServiceImpl implements MagazineService {
 		return magazineDAO.getLikecnt(m_Seq);
 	}
 
+	@Override
+	public void updateLikeCntPlus(MagazineVO mVO) {
+		magazineDAO.updateLikeCntPlus(mVO);
+	}
+
 }
