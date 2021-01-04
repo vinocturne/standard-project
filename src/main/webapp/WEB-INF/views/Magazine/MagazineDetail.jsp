@@ -38,7 +38,7 @@
 						$("#likecnt").empty();
 						$("#likecnt").append(jdata.likecnt);
 					}
-					else if (jdata.likecheck == 0) {
+					else if (jdata.likecheck == null) {
 						$("#btn_like").attr("src","<%=request.getContextPath()%>/ResourcesFile/img/like_before.png");
 						$("#likecnt").empty();
 						$("#likecnt").append(jdata.likecnt);
