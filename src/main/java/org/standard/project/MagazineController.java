@@ -1,5 +1,6 @@
 package org.standard.project;
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -88,7 +89,6 @@ public class MagazineController {
 				if (userLikeCheck.contentEquals("1")) {
 					System.out.println("좋아요를 누른 게시물");
 					mav.addObject("likecheck", userLikeCheck);
-					
 
 				} else {
 					System.out.println("좋아요를 누르지 않은 게시물");
@@ -107,42 +107,22 @@ public class MagazineController {
 		return mav;
 
 	}
-//	@RequestMapping(value = "/clickLike", method = RequestMethod.POST)
-//	public Map<String,Object> clickLike(@RequestParam Map<String,Object> commandMap) {
-//		Map<String,Object> resultMap = new HashMap<String, Object>();
-//		int m_Seq = (Integer) commandMap.get("m_Seq");
-//		String c_Id = (String) commandMap.get("c_Id");
-//		int resultCode = 0;
-//		System.out.println(m_Seq);
-//		MagazineVO mVO = new MagazineVO();
-//		MagazineLikeVO mlVO = new MagazineLikeVO();
-//		Map<String, Object> map = new HashMap<String, Object>();
-//		mVO.setM_Seq(m_Seq);
-//		mlVO.setM_Seq(m_Seq);
-//		mlVO.setC_Id(c_Id);
-//		try {
-//			map.put("likeCheck", magazineService.magazineLikeCheck(mlVO));
-//			if(map == null) {
-//				magazineService.makeLikeRow(mlVO);
-//				magazineService.updateLikeCntPlus(mVO);			
-//			} else if (Integer.parseInt(map.get("likeCheck").toString()) == 0) {
-//				
-//			}
-//		}catch(Exception e) {
-//			resultCode = -1;
-//		}
-//		
-//		
-//		int likeCnt = magazineService.getLikeCnt(m_Seq);
-//		if(likeCnt == 1) {
-//			System.out.println("like 눌렀음");
-//			resultCode = 0;
-//		}else if(likeCnt == 0) {
-//			System.out.println("like 누른적 없음");
-//			resultCode = 1;
-//		}
-//		resultMap.put("resultCode", resultCode);
-//		//resultCode가 1이면 불이 들어오고 0이면 불이 꺼진다.
-//		return resultMap;
-//	}
+	@RequestMapping(value = "/clickLike", method = RequestMethod.POST)
+	public void clickLike(HttpServletRequest req,HttpServletResponse resp) throws Exception {
+		//필요한 파트들 다 불러오기
+		MagazineVO mVO = new MagazineVO();
+		MagazineLikeVO mlVO = new MagazineLikeVO();
+		
+		//m_Seq, c_Id 불러오기
+		String m_Seq = req.getParameter("m_Seq");
+		String c_Id = req.getParameter("c_Id");
+		int likeCheck = 1;
+		
+		
+		
+		//alert 테스트용
+		PrintWriter out = resp.getWriter();
+		out.print("m_Seq >> " + m_Seq);
+		out.print("c_Id >> " + c_Id);
+	}
 }
