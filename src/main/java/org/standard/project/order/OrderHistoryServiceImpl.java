@@ -6,7 +6,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.standard.project.brand.BrandDBVO;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.product.ProductParentVO;
 
 @Service("OrderHistoryService")
 public class OrderHistoryServiceImpl implements OrderHistoryService {
@@ -27,6 +29,21 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 		List<Map<String, Object>> dailyIncomeList = new ArrayList<Map<String, Object>>();
 		dailyIncomeList = orderHistoryDAO.getDailyIncome();
 		return dailyIncomeList;
+	}
+
+	@Override
+	public ArrayList<ProductParentVO> getBrandOrderList(BrandDBVO loginBrand) {
+		return orderHistoryDAO.getBrandOrderList(loginBrand);
+	}
+
+	@Override
+	public void modifyDeliveryList(OrderHistoryVO vo) {
+		orderHistoryDAO.modifyDeliveryList(vo);
+	}
+
+	@Override
+	public void deleteDeliveryList(String o_Num) {
+		orderHistoryDAO.deleteDeliveryList(o_Num);
 	}
 	
 	/*

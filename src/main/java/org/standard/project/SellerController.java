@@ -30,6 +30,7 @@ import org.standard.project.common.UploadUtilProductThumb;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.magazine.MagazineVO;
+import org.standard.project.order.OrderHistoryService;
 import org.standard.project.order.OrderHistoryVO;
 import org.standard.project.product.ProductChildService;
 import org.standard.project.product.ProductChildVO;
@@ -47,6 +48,8 @@ public class SellerController {
 	BrandDBService brandDBService;
 	@Resource(name = "ProductChildService")
 	ProductChildService productChildService;
+	@Resource(name = "OrderHistoryService")
+	OrderHistoryService orderHistoryService;
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
@@ -287,12 +290,12 @@ public class SellerController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/BuyList", method = RequestMethod.GET)
-	public ModelAndView deliveryManage(HttpSession session, ModelAndView mav, HttpServletResponse response)
-			throws IOException {
-		mav = new ModelAndView("/Seller/BuyList");
-		return mav;
-	}
+//	@RequestMapping(value = "/BuyList", method = RequestMethod.GET)
+//	public ModelAndView deliveryManage(HttpSession session, ModelAndView mav, HttpServletResponse response)
+//			throws IOException {
+//		mav = new ModelAndView("/Seller/BuyList");
+//		return mav;
+//	}
 
 	@RequestMapping(value = "/Review", method = RequestMethod.GET)
 	public ModelAndView sellerReview(HttpSession session, ModelAndView mav, HttpServletResponse response)
@@ -311,7 +314,7 @@ public class SellerController {
 		
 		if(parent_p_Id == "" || parent_p_Id == null) {
 			vo = (ProductParentVO) session.getAttribute("parent_session");
-			System.out.println("수정,삭제,등록으로 넘어왔을때");
+			System.out.println("수정,삭제로 넘어왔을때");
 			parent_p_Id = vo.getParent_p_Id();
 		} 
 		
@@ -392,4 +395,63 @@ public class SellerController {
 		mav.setViewName("redirect:/Seller/ProductAddChild");
 		return mav;
 	}
+	
+	@RequestMapping(value = "/BuyList", method = RequestMethod.GET)
+	public ModelAndView orderList(HttpSession session, ModelAndView mav, HttpServletResponse response)
+			throws IOException {
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		System.out.println("구매관리입니다");
+//		session.removeAttribute("productParentList");
+//		System.out.println(session.getAttribute("productParentList"));
+//		System.out.println("productParentList 보기");
+		
+		CustomerVO customerVO = (CustomerVO) session.getAttribute("loginCustomer");
+		if (customerVO == null) {
+			out.println("<script>alert('로그인해주세요.');</script>");
+			out.flush();
+			mav.setViewName("Customer/login_form");
+			return mav;
+		} else if (customerVO.getBrandName() == null) {
+			out.println("<script>alert('기업회원으로 가입해주세요.');</script>");
+			out.flush();
+			mav.setViewName("Customer/login_form");
+			return mav;
+		}
+		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
+		ArrayList<ProductParentVO> orderList = new ArrayList<ProductParentVO>();
+		orderList = orderHistoryService.getBrandOrderList(loginBrand);
+		System.out.println(orderList);
+		mav = new ModelAndView("Seller/BuyList");
+		mav.addObject("list", orderList);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/ModifyDelivery", method = RequestMethod.POST)
+	public ModelAndView modifyDeliveryAction(HttpServletRequest req, ModelAndView mav, HttpServletResponse response) throws IOException {
+		System.out.println("배송상태 수정 액션");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		OrderHistoryVO vo = new OrderHistoryVO();
+		vo.setO_Num(Integer.parseInt(req.getParameter("o_Num")));
+		vo.setO_Delivery(req.getParameter("o_Delivery"));
+		System.out.println(vo);
+		orderHistoryService.modifyDeliveryList(vo);
+		out.println("<script>alert('배송상태적용완료');</script>");
+		out.flush();
+		mav.setViewName("Seller/BuyList");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/DeleteDelivery", method = RequestMethod.POST)
+	public String deleteDeliveryAction(@RequestParam(value = "chBox[]") String[] o_Num) throws Exception {
+		
+		for (String del_Num : o_Num) {
+			System.out.println("사용자 삭제 = " + del_Num);
+			orderHistoryService.deleteDeliveryList(del_Num);
+		}
+		
+		return "Seller/BuyList";
+	}
+	
 }
