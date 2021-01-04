@@ -9,6 +9,13 @@
 	<select id="getDailyIncomeList" resultType="HashMap">
 		SELECT o_Date,o_TotalPrice FROM orderhistory GROUP BY o_Date DESC LIMIT 30
 	</select>
-
-	
+	<select id="getBrandOrderList" resultType="org.standard.project.order.OrderHistoryVO">
+		SELECT * FROM orderhistory where o_BrandId='${brandId}'
+	</select>
+	<select id="modifyDeliveryList" resultType="org.standard.project.order.OrderHistoryVO">
+		UPDATE orderhistory SET o_Delivery=#{o_Delivery} where o_Num=#{o_Num}
+	</select>
+	<select id="deleteDeliveryList" resultType="org.standard.project.order.OrderHistoryVO">
+		DELETE FROM orderhistory WHERE o_Num=#{o_Num}
+	</select>
 </mapper>

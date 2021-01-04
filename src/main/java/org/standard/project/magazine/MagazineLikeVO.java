@@ -1,12 +1,12 @@
 package org.standard.project.magazine;
 
 public class MagazineLikeVO {
-	private int ml_Seq, m_Seq, ml_Check;
-	private String c_Id;
+	private int ml_Seq, m_Seq;
+	private String c_Id, ml_Check;
 	
 	public MagazineLikeVO() {}
 
-	public MagazineLikeVO(int ml_Seq, int m_Seq, int ml_Check, String c_Id) {
+	public MagazineLikeVO(int ml_Seq, int m_Seq, String ml_Check, String c_Id) {
 		super();
 		this.ml_Seq = ml_Seq;
 		this.m_Seq = m_Seq;
@@ -30,11 +30,11 @@ public class MagazineLikeVO {
 		this.m_Seq = m_Seq;
 	}
 
-	public int getMl_Check() {
+	public String getMl_Check() {
 		return ml_Check;
 	}
 
-	public void setMl_Check(int ml_Check) {
+	public void setMl_Check(String ml_Check) {
 		this.ml_Check = ml_Check;
 	}
 

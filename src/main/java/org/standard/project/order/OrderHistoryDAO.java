@@ -7,7 +7,10 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.standard.project.brand.BrandDBVO;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.product.ProductChildVO;
+import org.standard.project.product.ProductParentVO;
 
 @Repository("orderHistoryDAO")
 public class OrderHistoryDAO {
@@ -25,6 +28,20 @@ public class OrderHistoryDAO {
 		List<Map<String, Object>> dailyIncomeList = new ArrayList<Map<String, Object>>();
 		dailyIncomeList = mySQL.selectList(loc+"getDailyIncomeList");
 		return dailyIncomeList;
+	}
+	
+	public ArrayList<ProductParentVO> getBrandOrderList(BrandDBVO loginBrand) {
+		ArrayList<ProductParentVO> getBrandOderList = new ArrayList<ProductParentVO>();
+		getBrandOderList =(ArrayList) mySQL.selectList(loc+"getBrandOrderList",loginBrand);
+		return getBrandOderList;
+	}
+	
+	public void modifyDeliveryList(OrderHistoryVO vo) {
+		mySQL.update(loc+"modifyDeliveryList", vo);
+	}
+	
+	public void deleteDeliveryList(String o_Num) {
+		mySQL.delete(loc+"deleteDeliveryList", o_Num);
 	}
 
 	/*

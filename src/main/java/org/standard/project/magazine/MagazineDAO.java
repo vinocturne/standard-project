@@ -40,13 +40,25 @@ public class MagazineDAO {
 		mySQL.delete(loc+"deleteMagazine", m_Seq);
 	}
 
-	public void hitIncrease(String m_Seq) {
+	public void hitIncrease(int m_Seq) {
 		mySQL.update(loc+"hitIncrease",m_Seq);
 		
 	}
 
 	public MagazineVO selectMagazine(int m_Seq) {
 		return mySQL.selectOne(loc+"selectMagazine",m_Seq);
+	}
+
+	public String magazineLikeCheck(MagazineLikeVO vo) {
+		return mySQL.selectOne(loc+"likecheck", vo);
+	}
+
+	public void makeLikeRow(MagazineLikeVO vo) {
+		mySQL.insert(loc+"makeLikeRow", vo);
+	}
+
+	public int getLikecnt(int m_Seq) {
+		return mySQL.selectOne(loc+"getLikeCnt", m_Seq);
 	}
 	
 }

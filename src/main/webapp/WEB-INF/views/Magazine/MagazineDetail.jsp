@@ -6,20 +6,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
-
-<style>
-.explain {
-	padding-top: 50px;
-	padding-bottom: 50px;
-}
-</style>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-	var m_Seq = ${m_Seq};
-	var c_Id = ${c_Id};
-	var btn_like = document.getElementById("btn_like");
-	btn_like.onclick = function() {changeHeart(); }
-	
-	function() {
+	function changeHeart() {
+		alert("change버튼");
+		var btn_like = document.getElementById("btn_like");
+		var m_Seq = ${m_Seq};
+		var c_Id = ${c_Id};
+		$(document).ready(function() {
 		$.ajax({
 			type : "POST",
 			url : "/clickLike",
@@ -38,18 +32,27 @@
 						$("#likecnt").empty();
 						$("#likecnt").append(jdata.likecnt);
 					}
-					else if (jdata.likecheck == 0) {
+					else if (jdata.likecheck == null) {
 						$("#btn_like").attr("src","<%=request.getContextPath()%>/ResourcesFile/img/like_before.png");
 						$("#likecnt").empty();
 						$("#likecnt").append(jdata.likecnt);
 					}
 				}
+			},
+			error : function(xhr, status, error) {
+				alert("에러 발생");
 			}
+		});
 		});
 	}
 </script>
 
-
+<style>
+.explain {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+</style>
 
 </head>
 
@@ -95,20 +98,25 @@
 
 				<h1><%=m_Seq.getM_Content()%></h1>
 				<br>
-
+				<c:out value="${likecheck }" />
 				<c:choose>
 					<c:when test="${likecheck eq '0' or empty likecheck}">
 						<!-- likecheck가0이면 빈하트-->
-						<img src="<%=request.getContextPath()%>/ResourcesFile/img/like_before.png" id="btn_like"
-							align="left" style="cursor: pointer; width: 20px;">
+						<img
+							src="<%=request.getContextPath()%>/ResourcesFile/img/like_before.png"
+							onClick="changeHeart();" id="btn_like" align="left"
+							style="cursor: pointer; width: 20px;">
 					</c:when>
 					<c:otherwise>
 						<!-- likecheck가1이면 빨간 하트-->
-						<img src="<%=request.getContextPath()%>/ResourcesFile/img/like_after.png" id="btn_like" align="left"
+						<img
+							src="<%=request.getContextPath()%>/ResourcesFile/img/like_after.png"
+							onClick="changeHeart();" id="btn_like" align="left"
 							style="cursor: pointer; width: 20px;">
 					</c:otherwise>
 				</c:choose>
-				<span id="likecnt" style="margin-left:5px;">${likecnt}</span> 
+				<span id="likecnt" style="margin-left: 5px;">${likeCnt}</span>
+
 
 			</div>
 
