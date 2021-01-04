@@ -91,7 +91,7 @@ public class WishListController {
 		  } 
 		  mav.addObject("cartList",req.getParameter("data"));
 		  System.out.println(mav.getViewName());
-		  
+		  //왜안되
 		return mav;
 		// orderForm에 기본으로 있어야할 목록 정보.
 		// 1.고객정보(이미 세션에 저장되어있음) 제이슨으로 넘겨주기.
