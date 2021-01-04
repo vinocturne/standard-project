@@ -14,5 +14,5 @@ public interface MagazineService {
 	void deleteMagazine(String m_Seq);
 	void hitIncrease(String m_Seq);
 	MagazineVO selectMagazine(int m_Seq);
-	int magazineLikeCheck(MagazineLikeVO vo);
+	String magazineLikeCheck(MagazineLikeVO vo);
 }

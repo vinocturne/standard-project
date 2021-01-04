@@ -53,7 +53,7 @@ public class MagazineServiceImpl implements MagazineService {
 	}
 
 	@Override
-	public int magazineLikeCheck(MagazineLikeVO vo) {
+	public String magazineLikeCheck(MagazineLikeVO vo) {
 		return magazineDAO.magazineLikeCheck(vo);
 	}
 
