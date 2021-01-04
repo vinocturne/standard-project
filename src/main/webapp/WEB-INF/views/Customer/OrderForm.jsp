@@ -19,6 +19,13 @@
 </head>
 
 <%@ include file="../header.jsp" %>
+
+	<!-- CONTENT -->
+<div class="content_wrap inner">
+     <!-- side_nav -->
+    <%@ include file="../side_nav.jsp"%>	 
+    
+    
 <% 
 
 //여긴 셀렉트박스에 02가 없다
@@ -38,11 +45,6 @@ if(phone1.length() == 10){
     phone1_3 = "";
 }
 %>
-
-	<!-- CONTENT -->
-	<div class="content_wrap inner">
-    <!-- side_nav -->
-    <%@ include file="../side_nav.jsp"%>	 	
 
     <!-- Register -->
     <div class="order_Wrap">
@@ -137,34 +139,37 @@ if(phone1.length() == 10){
                              </thead>
                         </table>
                 </div>
-                <div class="order_wrap">
-                    <div class="title_area">
-                        <div class="title_area1">
-                            <h1>Product Info</h1>
-                        </div>
-                    </div>
-                    <div class="order_table">
-                        <table class="type15">
-                            <thead>
-                                <tr>
-                                    <th scope="cols">선택</th>
-                                    <th scope="cols">이미지</th>
-                                    <th scope="cols">상품정보</th>
-                                    <th scope="cols">가격</th>
-                                    <th scope="cols">수량</th>
-                                    <th scope="cols">주문금액</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                            </table>
+	                <div class="order_wrap">
+	                
+	                    <div class="title_area">
+	                        <div class="title_area1">
+	                            <h1>Product Info</h1>
+	                        </div>
+	                    </div>
+	                    
+	                    <div class="order_table">
+	                        <table class="type15">
+	                            <thead>
+	                                <tr>
+	                                    <th scope="cols">선택</th>
+	                                    <th scope="cols">이미지</th>
+	                                    <th scope="cols">상품정보</th>
+	                                    <th scope="cols">가격</th>
+	                                    <th scope="cols">수량</th>
+	                                    <th scope="cols">주문금액</th>
+	                                    
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                            </tbody>
+	                            </table>
+	
+	
+	    
+	    				</div>
+					</div>
+		</div>
 
-
-    
-    </div>
-</div>
-</div>
 <script>
 //배송지 선택
     var o_Name = document.getElementById("c_Name");//이름
@@ -211,6 +216,9 @@ function fn_select_newDes(){
 }
 
 </script>
+
+</div>
+
 
 
 

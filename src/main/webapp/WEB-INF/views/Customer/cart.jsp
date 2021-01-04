@@ -10,11 +10,11 @@
 
 </head>
 
-	<!-- HEADER -->
-	<%@ include file="../header.jsp"%>
+<!-- HEADER -->
+<%@ include file="../header.jsp"%>
 
-	<!--COMTENT -->
-	<div class="content_wrap inner">
+<!--COMTENT -->
+<div class="content_wrap inner">
 	<!-- side_nav -->
 	<%@ include file="../side_nav.jsp"%>
 
@@ -43,7 +43,17 @@
 			<table class="type15">
 				<thead>
 					<tr>
-						<th><input type="checkbox" id="sAgreeAllChecked" class="sAgreeAllChecked">선택</th>
+						<th><input type="checkbox" name="allCheck" id="allCheck" /><label
+							for="allCheck">선택</label> <script>
+				$("#allCheck").click(function() {
+					var chk = $("#allCheck").prop("checked");
+					if (chk) {
+						$(".chBox").prop("checked", true);
+					} else {
+						$(".chBox").prop("checked", false);
+					}
+				});
+			</script></th>
 						<th>이미지</th>
 						<th>상품명</th>
 						<th>상품옵션</th>
@@ -53,54 +63,145 @@
 					</tr>
 				</thead>
 				<tbody>
-				<form name="ck_form" method="get">
-				<% ArrayList<WishListVO> wishListVO = (ArrayList<WishListVO>)session.getAttribute("wishListVO");%>
-	            <% ArrayList<WishListProductVO> wishListProductVO = (ArrayList<WishListProductVO>)session.getAttribute("wishListProductVO");%>
-				
-				<%for(int i=0;i<wishListVO.size();i++) { %>
-					<tr>
-					<td><input type="checkbox" name="checkbox" value="1" style="border: 0"></td>
-					<td><img src="<%=wishListProductVO.get(i).getPp_thumb()%>"></td>
-					<td><%=wishListProductVO.get(i).getPp_Name() %></td>
-					<td>색상: <%=wishListProductVO.get(i).getP_Color() %><br>
-						사이즈: <%=wishListProductVO.get(i).getP_Size() %></td> 
-					<td><%=wishListVO.get(i).getP_Price() %></td>
-					<td>
-						<span class=""> 
-							<span class="ec-base-qty"> 
-							<input type="text" name="amount" value="<%=wishListVO.get(i).getW_Quantity() %>" size="3" onchange="change();"> 
-							<a onclick="add();"> 
-								<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가" class="up">
-							</a> 
-							<a onclick="del();"> 
-								<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소" class="down">
-							</a>
-							</span>
-						</span>
-					</td>
-					<td><%=wishListVO.get(i).getP_Price() %>원</td>
-					<!-- <input type="text" name="o_TotalPrice" id="o_TotalPrice" >	 -->
-					<% }%>
-					<tr> 
+					<form name="ck_form" method="get">
+						<% ArrayList<WishListVO> wishListVO = (ArrayList<WishListVO>)session.getAttribute("wishListVO");%>
+						<% ArrayList<WishListProductVO> wishListProductVO = (ArrayList<WishListProductVO>)session.getAttribute("wishListProductVO");%>
+
+						<%for(int i=0;i<wishListVO.size();i++) { %>
+						<tr>
+							<td><div class="checkBox">
+									<input type="checkbox" name="chBox" class="chBox"
+										data-p_Id="<%=wishListVO.get(i).getP_Id() %>"
+										data-c_Id="<%=wishListVO.get(i).getC_Id() %>" 
+										data-p_Price="<%=wishListVO.get(i).getP_Price() %>"
+										data-w_Quantity="<%=wishListVO.get(i).getW_Quantity() %>"
+										data-pp_Name="<%=wishListProductVO.get(i).getPp_Name() %>"
+										data-p_Color="<%=wishListProductVO.get(i).getP_Color() %>"
+										data-p_Size="<%=wishListProductVO.get(i).getP_Size() %>"
+										data-pp_thumb="<%=wishListProductVO.get(i).getPp_thumb() %>"
+										/>
+									<script>
+											$(".chBox").click(
+													function() {
+														$("#allCheck").prop(
+																"checked",
+																false);
+													});
+										</script>
+								</div></td>
+							<td><img src="<%=wishListProductVO.get(i).getPp_thumb()%>"></td>
+							<td><%=wishListProductVO.get(i).getPp_Name() %></td>
+							<td>색상: <%=wishListProductVO.get(i).getP_Color() %><br>
+								사이즈: <%=wishListProductVO.get(i).getP_Size() %></td>
+							<td><%=wishListVO.get(i).getP_Price() %></td>
+							<td><span class=""> <span class="ec-base-qty">
+										<input type="text" name="amount"
+										value="<%=wishListVO.get(i).getW_Quantity() %>" size="3"
+										onchange="change();"> <a onclick="add();"> <img
+											src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif"
+											alt="수량증가" class="up">
+									</a> <a onclick="del();"> <img
+											src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif"
+											alt="수량감소" class="down">
+									</a>
+								</span>
+							</span></td>
+							<td><%=wishListVO.get(i).getP_Price() %>원</td>
+							<!-- <input type="text" name="o_TotalPrice" id="o_TotalPrice" >	 -->
+							<% }%>
+						
+						<tr>
 				</tbody>
 			</table>
-						<div class="cart_button">
-							<div>
-								<button href="#">주문하기</button>
-							</div>
-							<div>
-								<button href="#">삭제</button>
-							</div>
-						</div>
+			<div>
+				<a class="orderBtn">
+					<button type="button" class="selectOrder_btn">주문하기</button> <script>
+					$(".selectOrder_btn").click(function() {
+						var confirm_val = confirm("정말 삭제 하시겠습니까?");
+
+						if (confirm_val) {
+							var checkArr = new Array();
+							$("input[class='chBox']:checked").each(function() {
+								checkArr.push($(this).attr("data-p_Id"));
+								checkArr.push($(this).attr("data-p_Price"));
+								checkArr.push($(this).attr("data-w_Quantity"));
+								checkArr.push($(this).attr("data-pp_Name"));
+								checkArr.push($(this).attr("data-p_Color"));
+								checkArr.push($(this).attr("data-p_Size"));
+								checkArr.push($(this).attr("data-pp_thumb"));
+								
+							});
+							if (!(checkArr == "")) {
+								$.ajax({
+									url : "DeleteParentProduct",/* 보낼곳 */
+									type : "post",
+									data : {
+										chBox : checkArr
+									},
+									success : function(result) {
+										alert("주문하기로 이동 성공");
+										location.href = "ProductManage";/* 끝나고 갈곳 */
+									}
+								});
+							}else{
+								alert("주문할 상품을 선택해주세요");
+							}
+						}
+					});
+				</script>
+				</a>
+			</div>
+			<div>
+				<a class="delBtn">
+					<button type="button" class="selectDelete_btn">삭제하기</button> <script>
+					$(".selectDelete_btn").click(function() {
+						var confirm_val = confirm("정말 삭제 하시겠습니까?");
+
+						if (confirm_val) {
+							var checkArr = new Array();
+							$("input[class='chBox']:checked").each(function() {
+								checkArr.push($(this).attr("data-p_Id"));
+								checkArr.push($(this).attr("data-c_Id"));
+							});
+							if (!(checkArr == "")) {
+								$.ajax({
+									url : "DeleteParentProduct",/* 보낼곳 */
+									type : "post",
+									data : {
+										chBox : checkArr
+									},
+									success : function(result) {
+										alert("삭제 성공");
+										location.href = "ProductManage";/* 끝나고 갈곳 */
+									}
+								});
+							}else{
+								alert("삭제할 상품을 선택해주세요");
+							}
+						}
+					});
+				</script>
+				</a>
+			</div>
 		</div>
 		</form>
 		<div class="cart_index">
-                    <button type="button" class="" onclick=""><button> << </button></a>
-                    <button type="button" class="" onclick=""><button> < </button></a>
-                    <button type="button" class="" onclick=""><button> 1 </button></a>
-                    <button type="button" class="" onclick=""><button> > </button></a>
-                    <button type="button" class="" onclick=""><button> >> </button></a>
-        </div>
+			<button type="button" class="" onclick="">
+				<button><<</button>
+				</a>
+				<button type="button" class="" onclick="">
+					<button><</button>
+					</a>
+					<button type="button" class="" onclick="">
+						<button>1</button>
+						</a>
+						<button type="button" class="" onclick="">
+							<button>></button>
+							</a>
+							<button type="button" class="" onclick="">
+								<button>>></button>
+								</a>
+		</div>
 	</div>
 </div>
 
