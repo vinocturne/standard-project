@@ -1,4 +1,4 @@
-var sell_price=38000;
+var sell_price;
 var amount;
 
 function init () {
