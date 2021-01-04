@@ -63,11 +63,11 @@
 					</tr>
 				</thead>
 				<tbody>
-					<form name="ck_form" method="get">
 						<% ArrayList<WishListVO> wishListVO = (ArrayList<WishListVO>)session.getAttribute("wishListVO");%>
 						<% ArrayList<WishListProductVO> wishListProductVO = (ArrayList<WishListProductVO>)session.getAttribute("wishListProductVO");%>
 
 						<%for(int i=0;i<wishListVO.size();i++) { %>
+						<form name="form" method="get">
 						<tr>
 							<td><div class="checkBox">
 									<input type="checkbox" name="chBox" class="chBox"
@@ -92,7 +92,8 @@
 							<td><%=wishListProductVO.get(i).getPp_Name() %></td>
 							<td>색상: <%=wishListProductVO.get(i).getP_Color() %><br>
 								사이즈: <%=wishListProductVO.get(i).getP_Size() %></td>
-							<td><%=wishListVO.get(i).getP_Price() %></td>
+							<td><input type="text" name="sell_price"
+										value="<%=wishListVO.get(i).getP_Price() %>"></td>
 							<td><span class=""> <span class="ec-base-qty">
 										<input type="text" name="amount"
 										value="<%=wishListVO.get(i).getW_Quantity() %>" size="3"
@@ -105,11 +106,10 @@
 									</a>
 								</span>
 							</span></td>
-							<td><%=wishListVO.get(i).getP_Price() %>원</td>
-							<!-- <input type="text" name="o_TotalPrice" id="o_TotalPrice" >	 -->
-							<% }%>
-						
-						<tr>
+							<td><input type="text" name="sum" id="sum">원</td>
+						</tr>
+						</form>
+						<% }%>
 				</tbody>
 			</table>
 			<div>
