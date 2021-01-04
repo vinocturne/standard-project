@@ -35,6 +35,16 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	public ArrayList<ProductParentVO> getBrandOrderList(BrandDBVO loginBrand) {
 		return orderHistoryDAO.getBrandOrderList(loginBrand);
 	}
+
+	@Override
+	public void modifyDeliveryList(OrderHistoryVO vo) {
+		orderHistoryDAO.modifyDeliveryList(vo);
+	}
+
+	@Override
+	public void deleteDeliveryList(String o_Num) {
+		orderHistoryDAO.deleteDeliveryList(o_Num);
+	}
 	
 	/*
 	 * public CustomerVO getCustomer(CustomerVO vo) { return

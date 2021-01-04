@@ -58,11 +58,11 @@
 						if (confirm_val) {
 							var checkArr = new Array();
 							$("input[class='chBox']:checked").each(function() {
-								checkArr.push($(this).attr("data-m_Seq"));
+								checkArr.push($(this).attr("data-o_Num"));
 							});
 							if (!(checkArr == "")) {
 								$.ajax({
-									url : "deleteWaitingMagazine",
+									url : "DeleteDelivery",
 									type : "post",
 									data : {
 										chBox : checkArr
@@ -102,6 +102,7 @@
 						<c:forEach var="orderHistory" items="${list}">
 							<tr>
 							<form action="/project/Seller/ModifyDelivery" method="POST" enctype="multipart/form-data">
+							<input type="hidden" id="o_Num" name="o_Num" value="${orderHistory.o_Num}">
 								<td>
 									<div class="checkBox">
 										<input type="checkbox" name="chBox" class="chBox"
@@ -140,7 +141,7 @@
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="9">조회된 결과가 없습니다.</td>
+							<td colspan="10">조회된 결과가 없습니다.</td>
 						</tr>
 					</c:otherwise>
 				</c:choose>

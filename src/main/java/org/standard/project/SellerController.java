@@ -418,17 +418,40 @@ public class SellerController {
 			mav.setViewName("Customer/login_form");
 			return mav;
 		}
-
 		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
-//		System.out.println(loginBrand);
-
-		ArrayList<ProductParentVO> orderList = new ArrayList<ProductParentVO>();//이걸 변경쓰
+		ArrayList<ProductParentVO> orderList = new ArrayList<ProductParentVO>();
 		orderList = orderHistoryService.getBrandOrderList(loginBrand);
 		System.out.println(orderList);
-
-		mav = new ModelAndView("/Seller/BuyList");
+		mav = new ModelAndView("Seller/BuyList");
 		mav.addObject("list", orderList);
 		return mav;
+	}
+	
+	@RequestMapping(value = "/ModifyDelivery", method = RequestMethod.POST)
+	public ModelAndView modifyDeliveryAction(HttpServletRequest req, ModelAndView mav, HttpServletResponse response) throws IOException {
+		System.out.println("배송상태 수정 액션");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		OrderHistoryVO vo = new OrderHistoryVO();
+		vo.setO_Num(Integer.parseInt(req.getParameter("o_Num")));
+		vo.setO_Delivery(req.getParameter("o_Delivery"));
+		System.out.println(vo);
+		orderHistoryService.modifyDeliveryList(vo);
+		out.println("<script>alert('배송상태적용완료');</script>");
+		out.flush();
+		mav.setViewName("Seller/BuyList");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/DeleteDelivery", method = RequestMethod.POST)
+	public String deleteDeliveryAction(@RequestParam(value = "chBox[]") String[] o_Num) throws Exception {
+		
+		for (String del_Num : o_Num) {
+			System.out.println("사용자 삭제 = " + del_Num);
+			orderHistoryService.deleteDeliveryList(del_Num);
+		}
+		
+		return "Seller/BuyList";
 	}
 	
 }

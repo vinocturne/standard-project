@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.standard.project.brand.BrandDBVO;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.product.ProductChildVO;
 import org.standard.project.product.ProductParentVO;
 
 @Repository("orderHistoryDAO")
@@ -33,6 +34,14 @@ public class OrderHistoryDAO {
 		ArrayList<ProductParentVO> getBrandOderList = new ArrayList<ProductParentVO>();
 		getBrandOderList =(ArrayList) mySQL.selectList(loc+"getBrandOrderList",loginBrand);
 		return getBrandOderList;
+	}
+	
+	public void modifyDeliveryList(OrderHistoryVO vo) {
+		mySQL.update(loc+"modifyDeliveryList", vo);
+	}
+	
+	public void deleteDeliveryList(String o_Num) {
+		mySQL.delete(loc+"deleteDeliveryList", o_Num);
 	}
 
 	/*
