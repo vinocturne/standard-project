@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 </head>
 <%@ include file="../header.jsp" %> 
 <script type="text/JavaScript" src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -187,6 +189,7 @@
                                 </select>
                                 </td>
                             </tr>
+                            <div id="companycheck"><span></span></div>
                             <!-- <tr class="role">
                                 <th scope="row"> Role </th>
                                 <td><select name="role" id="role">
@@ -195,7 +198,8 @@
                                 </select>
                                 </td>
                             </tr> -->
-                           <tr class="brandName">
+                           	
+                           <%-- <tr class="brandName">
                                 <th scope="row"> 브랜드명 </th>
                                 <td><input  id="brandName" name="brandName" type="text" value="<%=customer.getBrandName()%>"></span>
                                 </td>
@@ -204,7 +208,29 @@
                                 <th scope="row"> 사업자번호 </th>
                                 <td><input  id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10" value="<%=customer.getBusinessNumber()%>"></span>
                                 </td>
+                            </tr> --%>
+                            
+
+							<script>
+     					 var jbNum = "<%=customer.getBrandName()%>";
+     					 if ( jbNum == null ) {
+       					 	document.write ( '' );
+      					} else {
+      						$('#companycheck span').html(
+      	                            `<tr class="brandName">
+                                <th scope="row"> 브랜드명 </th>
+                                <td><input  id="brandName" name="brandName" type="text" value="<%=customer.getBrandName()%>"></span>
+                                </td>
                             </tr>
+                            <tr class="businessNumber">
+                                <th scope="row"> 사업자번호 </th>
+                                <td><input  id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10" value="<%=customer.getBusinessNumber()%>"></span>
+                                </td>
+                            </tr>`
+      	                    );
+     					}
+   					 </script>
+
                     </table>
                 </div>
                 
