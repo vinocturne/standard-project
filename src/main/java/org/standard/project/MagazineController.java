@@ -1,7 +1,9 @@
 package org.standard.project;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
@@ -80,6 +84,7 @@ public class MagazineController {
 				}
 				System.out.println(userLikeCheck);
 				
+				mav.addObject("c_Id", c_Id);
 				if (userLikeCheck.contentEquals("1")) {
 					System.out.println("좋아요를 누른 게시물");
 					mav.addObject("likecheck", userLikeCheck);
@@ -102,5 +107,24 @@ public class MagazineController {
 		return mav;
 
 	}
-
+	@RequestMapping(value = "/clickLike")
+	@ResponseBody
+	public Map<String,Object> clickLike(@RequestParam Map<String,Object> commandMap) {
+		Map<String,Object> resultMap = new HashMap<String, Object>();
+		int m_Seq = (Integer) commandMap.get("m_Seq");
+		String c_Id = (String) commandMap.get("c_Id");
+		int resultCode = 0;
+		System.out.println(m_Seq);
+		int likeCnt = magazineService.getLikeCnt(m_Seq);
+		if(likeCnt == 1) {
+			System.out.println("like 눌렀음");
+			resultCode = 0;
+		}else if(likeCnt == 0) {
+			System.out.println("like 누른적 없음");
+			resultCode = 1;
+		}
+		resultMap.put("resultCode", resultCode);
+		//resultCode가 1이면 불이 들어오고 0이면 불이 꺼진다.
+		return resultMap;
+	}
 }
