@@ -28,6 +28,7 @@
     
 <% 
 
+
 //여긴 셀렉트박스에 02가 없다
 String phone1, phone1_1, phone1_2, phone1_3;
 phone1 = (String)customer.getC_Phone1();
@@ -151,18 +152,19 @@ if(phone1.length() == 10){
 	                        <table class="type15">
 	                            <thead>
 	                                <tr>
-	                                    <th scope="cols">선택</th>
-	                                    <th scope="cols">이미지</th>
-	                                    <th scope="cols">상품정보</th>
-	                                    <th scope="cols">가격</th>
-	                                    <th scope="cols">수량</th>
-	                                    <th scope="cols">주문금액</th>
-	                                    
+                                        <th>상품정보</th>
+                                        <th>상품가격</th>
+                                        <th>수량</th>
+                                        <th>주문금액</th>
 	                                </tr>
 	                            </thead>
-	                            <tbody>
-	                            </tbody>
-	                            </table>
+	                            <tbody id="cartListTableBody"></tbody>
+                                </table>
+                                <table>
+
+                                </table>
+
+                                <input type="button" value="결제하기" onclick="fn_purchase()">
 	
 	
 	    
@@ -171,37 +173,51 @@ if(phone1.length() == 10){
 		</div>
 
 <script>
+
+ 
+
+
 //배송지 선택
     var o_Name = document.getElementById("c_Name");//이름
     var o_Zipcode =document.getElementById("zipcode");//우편번호
     var o_Address1 =document.getElementById("c_Address1");//주소1
     var o_Address2 =document.getElementById("c_Address2");//주소2
-    var o_Phone1 =document.getElementById("c_Phone1");//번호1-1
-    var o_Phone2 =document.getElementById("mobile2");//번호1-2
-    var o_Phone3 =document.getElementById("mobile3");//번호1-3
+    var o_Phone1_1 =document.getElementById("c_Phone1");//번호1-1
+    var o_Phone1_2 =document.getElementById("mobile2");//번호1-2
+    var o_Phone1_3 =document.getElementById("mobile3");//번호1-3
+    var o_Phone2_1 =document.getElementById("c_Phone1");//번호2-1
+    var o_Phone2_2 =document.getElementById("mobile2");//번호2-2
+    var o_Phone2_3 =document.getElementById("mobile3");//번호2-3
     const nameValue =o_Name.value;
     const zipcodeValue=o_Zipcode.value;
     const addressValue1=o_Address1.value;
     const addressValue2=o_Address2.value;
-    const phone1_1=o_Phone1.value;
-    const phone1_2=o_Phone2.value;
-    const phone1_3=o_Phone3.value;
+    const phone1_1=o_Phone1_1.value;
+    const phone1_2=o_Phone1_2.value;
+    const phone1_3=o_Phone1_3.value;
 
+
+    var jsondata = ${cartList};
+    var stringfiedJSON = JSON.stringify(jsondata);
+    var parsedJSON = JSON.parse(stringfiedJSON);
+    var tableBody = document.getElementById("cartListTableBody");
+
+   for(let i=0;i<parsedJSON.length;i++){
+       var row ="<tr><td><img src="+parsedJSON[i].pp_thumb+" alt ='상품이미지'> "+parsedJSON[i].pp_Name+parsedJSON[i].p_Color+parsedJSON[i].p_Size+"</td><td>"+parsedJSON[i].p_Price+"</td><td>"+parsedJSON[i].w_Quantity+"</td><td>"+((parsedJSON[i].p_Price)*(parsedJSON[i].w_Quantity))+"</td></tr>";
+       tableBody.innerHTML +=row;
+   }
 window.onload = function(){
-    
     fn_select_defaultDes();
 }
+
 function fn_select_defaultDes(){
-    
-    
     o_Name.value=nameValue;
     o_Zipcode.value=zipcodeValue;
     o_Address1.value=addressValue1;
     o_Address2.value=addressValue2;
-    o_Phone1.value=phone1_1;
-    o_Phone2.value=phone1_2;
-    o_Phone3.value=phone1_3; 
-
+    o_Phone1_1.value=phone1_1;
+    o_Phone1_2.value=phone1_2;
+    o_Phone1_3.value=phone1_3; 
 }
 function fn_select_newDes(){
     console.log("새 배송지 선택");
@@ -209,10 +225,34 @@ function fn_select_newDes(){
     o_Zipcode.value="";
     o_Address1.value="";
     o_Address2.value="";
-    o_Phone1.value="";
-    o_Phone2.value="";
-    o_Phone3.value="";
+    o_Phone1_1.value="";
+    o_Phone1_2.value="";
+    o_Phone1_3.value="";
 
+}
+function fn_purchase(){
+    console.log("결제 버튼");
+    //orderHistoryVO 변수
+    //c_id,p_Id,o_Date,o_Num,p_Price,o_Quantity, o_TotalPrce,o_Delivery
+    //zipcode, o_Address, o_Address, o_Name, o_Phone1, o_Phone
+
+    //여기서 전달해줘야 하는값.
+    //p_Id, p_Price, o_Quantity, o_Total 
+    var form = document.createElement('form');
+    form.setAttribute('method', 'post'); //GET 전환 가능
+    form.setAttribute('action', '/project/wishList/order');
+    document.charset = "utf-8";
+    
+        var hiddenField = document.createElement('input');
+        hiddenField.setAttribute('type', 'hidden'); //값 입력
+        hiddenField.setAttribute('name', "");
+        hiddenField.setAttribute('value', );
+        form.appendChild(hiddenField);
+    
+    document.body.appendChild(form);
+    form.submit();
+    
+    
 }
 
 </script>

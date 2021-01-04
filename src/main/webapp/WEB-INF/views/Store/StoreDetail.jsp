@@ -26,19 +26,21 @@
     
     .review{
      float:left;
-     padding-top:100px;
+     padding-top:30px;
      padding-left:30px;
      padding-bottom:70px;
+     width:800px;
+     height:350px;
+     
     }
     
     .choiceButton1{
- 	 padding-top:50px;
+ 	 padding-top:260px;
      padding-left:40px;
      margine:0;
 	 float:right;
     }
     
-
     .buyclass:hover {
      background-color:black;
      color:white;
@@ -99,16 +101,19 @@
 		
 		<div class="productside" style = border : solid 1px red;>
 			<div class="explain">
-				<h1>StoreDetail 테스트</h1><br>
+				<h1><%=p_VO.getPp_Name() %></h1><br>
 					
 				
-				<h4><%=p_VO.getParent_p_Id() %></h4>
+				<h4><%=p_VO.getPp_Price() %></h4>
 				<%
 				for(int i=0; i<c_VO.size(); i++) {
 				%>
 				<br>
-				<h4 class="detailExplain">상품 상세정보 <br>
-					<%=c_VO.get(i) %></h4>
+				<h2 class="detailExplain">상품 상세정보 <br></h2>
+					<h4> 브랜드  :  <%=p_VO.getPp_Brand() %></h4>
+					<br>
+					<h4> 상품종류 :  <%=p_VO.getPp_Category2() %></h4>
+		
 					<%
 					}
 					%>
@@ -120,80 +125,85 @@
 		</div>
 		
 		<div class="choiceButton1">
-				<button class="buyclass"><a href="/project/Customer/cart">구매하기</a></button>
-				
+				<button class="buyclass"><a href="/project/Customer/OrderForm">구매하기</a></button>
+			
 
 			
 				<button class="listclass"><a href="/project/Customer/cart">장바구니</a></button>
-			</div>
+		</div>
 		
 		
 	 <div class="review">
 	 
-				<div class="title_area">
+
+				<div class="title_area" >
 					<div class="title_area1">
 						<h1>Review</h1>
 					</div>
 				</div>
-				<table class="table table-hover" height="100" width="1100">
+				<table class="table table-hover">
 					<thead>
 				<tr>
-					<th style="width:5%; height:10%">No.</th>
-					<th style="width:5%; height:10%">제목</th>
-					<th style="width:5%; height:10%">내용</th>
-					<th style="width:5%; height:10%">글쓴이</th>
-					<th style="width:5%; height:10%">작성일</th>
+					<th style="width:10%; height:10%">No.</th>
+					<th style="width:10%; height:10%">제목</th>
+					<th style="width:10%; height:10%">내용</th>
+					<th style="width:10%; height:10%">글쓴이</th>
+					<th style="width:10%; height:10%">작성일</th>
+					<th style="width:10%; height:10%">평점</th>
 					
 				</tr>
 			</thead>
+				<!-- <script>
+				window.onload(function(){
+					var r_Seq = ${r_Seq}
+					var r_Title = ${r_Title}
+					
+					var listclass = document.getElementById("listclass");
+					listclass.onclick = function(){
 				
+					}
+				}
+				</script> -->
 				<tbody>
-				<c:choose>
+				
+				<tr>
+								<td>1 ${review.r_Seq}</td>
+								<td>추천합니다.${review.r_Title}</td>
+								<td>좋아요 ${review.r_Content}</td>
+								<td>담${review.r_Writer}</td>
+								<td>2021.01.04${review.r_Date}</td>
+								<td>${review.r_Star}</td>
+				</tr>
+				
+				<tr>
+								<td>2 ${review.r_Seq}</td>
+								<td>이쁘네요.${review.r_Title}</td>
+								<td>괜찮아요 ${review.r_Content}</td>
+								<td>비트${review.r_Writer}</td>
+								<td>2021.01.04${review.r_Date}</td>
+								<td>${review.r_Star}</td>
+				</tr>
+				<%-- <c:choose>
 					<c:when test="${fn:length(list)>0}">
-						<c:forEach var="product" items="${list}">
+						<c:forEach var="review" items="${list}">
 							<tr>
-								<td>
-									<div class="checkBox">
-										<input type="checkbox" name="chBox" class="chBox"
-											data-parent_p_Id="${product.parent_p_Id}" />
-										<script>
-											$(".chBox").click(
-													function() {
-														$("#allCheck").prop(
-																"checked",
-																false);
-													});
-										</script>
-									</div>
-								</td>
-								<td><a href="project/Seller/ProductAddChild" name="pp_Name">${product.pp_Name}</a></td>
-								<td>${product.parent_p_Id}</td>
-								<td>${product.pp_Category1}</td>
-								<td>${product.pp_Category2}</td>
-								<td><img src ="${pageContext.request.contextPath }${product.pp_thumb}" id="product_thumbnail"></td>
-								<td><%=customer.getBrandName()%></td>
-								<td>${product.pp_Price}</td>
-								<td>
-								<button onclick="window.location.href='ModifyParentProduct?seq=${product.parent_p_Id}'">수정</button>
-								<button onclick="window.location.href='ProductAddChild?seq=${product.parent_p_Id}'">옵션</button>
-								</td>
+								<td>1 ${review.r_Seq}</td>
+								<td>추천합니다.${review.r_Title}</td>
+								<td>좋아요 ${review.r_Content}</td>
+								<td>담${review.r_Writer}</td>
+								<td>2021.01.04${review.r_Date}</td>
+								<td>${review.r_Star}</td>
 							</tr>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="9">조회된 결과가 없습니다.</td>
+							<td colspan="6">등록된 리뷰가 없습니다.</td>
 						</tr>
 					</c:otherwise>
-				</c:choose>
+				</c:choose> --%>
 			</tbody>
-				
-				
-				
-				
-				
-				
-				
+
 				
 				</table>
 				

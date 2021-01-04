@@ -171,11 +171,7 @@
                                 <option value="070">070</option>
                                 </select>-<input id="phone2" name="mobile2-2" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="" value ="<%=phone2_2%>" type="text" >-<input id="phone3" name="mobile2-3" maxlength="4" fw-filter="isNumber&amp;isNumber" fw-label="연락처2" fw-alone="N" fw-msg="" value ="<%=phone2_3%>" type="text"  ></td>
                                 </tr>
-                            <tr class="businessNumber">
-                                <th scope="row"> 사업자번호 </th>
-                                <td><input  id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10" value="<%=customer.getBusinessNumber()%>"></span>
-                                </td>
-                            </tr>
+              
                             <tr class="c_Email">
                             <th scope="row"> 이메일 <img src= "<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수" ></th>
                             <td>
@@ -199,9 +195,14 @@
                                 </select>
                                 </td>
                             </tr> -->
-                            <tr class="brandName">
+                           <tr class="brandName">
                                 <th scope="row"> 브랜드명 </th>
                                 <td><input  id="brandName" name="brandName" type="text" value="<%=customer.getBrandName()%>"></span>
+                                </td>
+                            </tr>
+                            <tr class="businessNumber">
+                                <th scope="row"> 사업자번호 </th>
+                                <td><input  id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10" value="<%=customer.getBusinessNumber()%>"></span>
                                 </td>
                             </tr>
                     </table>
@@ -240,5 +241,18 @@
             function checkemailaddy(ele){ var $ele = $(ele); var $email2 = $('input[name=email2]'); 
               if($ele.val() == "1"){ $email2.attr('readonly', false); 
               $email2.val(''); } else { $email2.attr('readonly', true); $email2.val($ele.val()); } } 
+            
+           
+          function (){
+        	 	var value = document.getElementById('businessNumber').value;
+        	  	console.log(value);
+        	  	if(value===null) {
+        	  		var businessNumber = document.getElementById('businessNumber');
+        	  		businessNumber.style.display = 'none';
+        	  	
+        	  		} 
+        	  	}
+        
          </script>
+                    
         <%@ include file="../footer.jsp"%>

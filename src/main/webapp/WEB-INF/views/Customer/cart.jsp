@@ -33,12 +33,53 @@
 	(추후 구현)상품 이미지나 상품명을 클릭하면 a href = /?/?/pp_Name이 되게해서 상품페이지로 이동할수 있도록한다.
 	-->
 	<!-- CART:주문조회-->
+<body onload="init();">
 	<div class="order_wrap">
 		<div class="title_area">
 			<div class="title_area1">
 				<h1>장바구니</h1>
 			</div>
 		</div>
+		<script language="JavaScript">
+
+var sell_price;
+var amount;
+
+function init () {
+	sell_price = document.form.sell_price.value;
+	amount = document.form.amount.value;
+	document.form.sum.value = sell_price;
+	change();
+}
+
+function add () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+	hm.value ++ ;
+
+	sum.value = parseInt(hm.value) * sell_price;
+}
+
+function del () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+		if (hm.value > 1) {
+			hm.value -- ;
+			sum.value = parseInt(hm.value) * sell_price;
+		}
+}
+
+function change () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+
+		if (hm.value < 0) {
+			hm.value = 0;
+		}
+	sum.value = parseInt(hm.value) * sell_price;
+}  
+
+</script>
 		<div class="order_table">
 			<table class="type15">
 				<thead>
@@ -67,7 +108,7 @@
 						<% ArrayList<WishListProductVO> wishListProductVO = (ArrayList<WishListProductVO>)session.getAttribute("wishListProductVO");%>
 
 						<%for(int i=0;i<wishListVO.size();i++) { %>
-						<form name="form" method="get">
+						
 						<tr>
 							<td><div class="checkBox">
 									<input type="checkbox" name="chBox" class="chBox"
@@ -92,23 +133,16 @@
 							<td><%=wishListProductVO.get(i).getPp_Name() %></td>
 							<td>색상: <%=wishListProductVO.get(i).getP_Color() %><br>
 								사이즈: <%=wishListProductVO.get(i).getP_Size() %></td>
-							<td><input type="text" name="sell_price"
-										value="<%=wishListVO.get(i).getP_Price() %>"onchange="change();"></td>
+								<form name="form" method="get">
+							<td><input type=hidden name="sell_price" value="<%=wishListVO.get(i).getP_Price() %>"><%=wishListVO.get(i).getP_Price() %></td>
 							<td><span class=""> <span class="ec-base-qty">
-										<input type="text" name="amount"
-										value="<%=wishListVO.get(i).getW_Quantity() %>" size="3"
-										onchange="change();"> <a onclick="add();"> <img
-											src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif"
-											alt="수량증가" class="up">
-									</a> <a onclick="del();"> <img
-											src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif"
-											alt="수량감소" class="down">
-									</a>
+							<input type="text" name="amount" value="<%=wishListVO.get(i).getW_Quantity() %>" size="3" onchange="change();">
+							<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
 								</span>
 							</span></td>
-							<td><input type="text" name="sum" id="sum">원</td>
+							<td> <input type="text" name="sum" size="11" readonly>원</td>
+							</form>
 						</tr>
-						</form>
 						<% }%>
 				</tbody>
 			</table>
@@ -116,41 +150,33 @@
 				<a class="orderBtn">
 					<button type="button" class="selectOrder_btn">주문하기</button> <script>
 					$(".selectOrder_btn").click(function() {
-							var checkArr01 = new Array();
-							var checkArr02 = new Array();
-							var checkArr03 = new Array();
-							var checkArr04 = new Array();
-							var checkArr05 = new Array();
-							var checkArr06 = new Array();
-							var checkArr07 = new Array();
+							var jsonArr = new Array();
 							$("input[class='chBox']:checked").each(function() {
-								checkArr01.push($(this).attr("data-p_Id"));
-								checkArr02.push($(this).attr("data-p_Price"));
-								checkArr03.push($(this).attr("data-w_Quantity"));
-								checkArr04.push($(this).attr("data-pp_Name"));
-								checkArr05.push($(this).attr("data-p_Color"));
-								checkArr06.push($(this).attr("data-p_Size"));
-								checkArr07.push($(this).attr("data-pp_thumb"));
+								var jsonStr = {p_Id : $(this).attr("data-p_Id"),p_Price:$(this).attr("data-p_Price"),
+											w_Quantity:$(this).attr("data-w_Quantity"),pp_Name:$(this).attr("data-pp_Name"),
+											p_Color:$(this).attr("data-p_Color"),p_Size:$(this).attr("data-p_Size"),
+											pp_thumb:$(this).attr("data-pp_thumb")
+							}
+							jsonArr.push(jsonStr);
 							});
-							
-							if (!(checkArr == "")) {
-								$.ajax({
-									url : "/project/wishlist/order",/* 보낼곳 */
-									type : "post",
-									data : {
-										chBox : checkArr01,
-										chBox : checkArr02,
-										chBox : checkArr03,
-										chBox : checkArr04,
-										chBox : checkArr05,
-										chBox : checkArr06,
-										chBox : checkArr07,
-									},
-									success : function(result) {
-										alert("주문하기로 이동 성공");
-										location.href = "ProductManage";/* 끝나고 갈곳 */
-									}
-								});
+							jsonStringfied = JSON.stringify(jsonArr);
+							console.log(jsonStringfied);
+							 if (!(jsonStringfied == "")) {
+								
+    							var form = document.createElement('form');
+    							form.setAttribute('method', 'post'); //GET 전환 가능
+    							form.setAttribute('action', '/project/wishList/order');
+    							document.charset = "utf-8";
+    							
+    							    var hiddenField = document.createElement('input');
+    							    hiddenField.setAttribute('type', 'hidden'); //값 입력
+    							    hiddenField.setAttribute('name', "data");
+    							    hiddenField.setAttribute('value', jsonStringfied);
+    							    form.appendChild(hiddenField);
+    							
+    							document.body.appendChild(form);
+    							form.submit();
+
 							}else{
 								alert("주문할 상품을 선택해주세요");
 							}
@@ -219,5 +245,6 @@
               } );
             } );
           </script>
+          </body>
 <!— FOOTER —>
 <%@ include file="../footer.jsp"%>
