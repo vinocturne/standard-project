@@ -16,4 +16,5 @@ public interface MagazineService {
 	MagazineVO selectMagazine(int m_Seq);
 	String magazineLikeCheck(MagazineLikeVO vo);
 	void makeLikeRow(MagazineLikeVO vo);
+	int getLikeCnt(int mm_Seq);
 }

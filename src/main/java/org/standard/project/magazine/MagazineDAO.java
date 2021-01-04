@@ -56,5 +56,9 @@ public class MagazineDAO {
 	public void makeLikeRow(MagazineLikeVO vo) {
 		mySQL.insert(loc+"makeLikeRow", vo);
 	}
+
+	public int getLikecnt(int m_Seq) {
+		return mySQL.selectOne(loc+"getLikeCnt", m_Seq);
+	}
 	
 }

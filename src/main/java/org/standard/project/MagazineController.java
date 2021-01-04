@@ -57,9 +57,12 @@ public class MagazineController {
 	@RequestMapping(value = "/MagazineDetail", method = RequestMethod.GET)
 	public ModelAndView newmagazineDetail(CustomerVO cvo, HttpSession session, ModelAndView mav,
 			HttpServletRequest req) {
+		mav = new ModelAndView("/Magazine/MagazineDetail");
 		MagazineLikeVO magazineLikeVO = new MagazineLikeVO();
 		String userLikeCheck = "";
 		int mm_Seq = Integer.parseInt(req.getParameter("m_Seq"));
+		int likeCnt = magazineService.getLikeCnt(mm_Seq);
+		System.out.println(">>likeNum >> "+likeCnt);
 		MagazineVO magazineVO = magazineService.selectMagazine(mm_Seq);
 		if (session.getAttribute("loginCustomer") != null) {
 			System.out.println(">> 세션에 login기록 남아있음");
@@ -68,16 +71,19 @@ public class MagazineController {
 				String c_Id = cvo.getC_Id();
 				magazineLikeVO.setC_Id(c_Id);
 				magazineLikeVO.setM_Seq(mm_Seq);
-				if(magazineService.magazineLikeCheck(magazineLikeVO) == null) {
-					magazineService.makeLikeRow(magazineLikeVO);					
-				}else {
-				userLikeCheck = magazineService.magazineLikeCheck(magazineLikeVO);
+				if (magazineService.magazineLikeCheck(magazineLikeVO) == null) {
+					magazineService.makeLikeRow(magazineLikeVO);
+				} else {
+					userLikeCheck = magazineService.magazineLikeCheck(magazineLikeVO);
 					System.out.println(magazineLikeVO);
 					System.out.println("userLikeCheck >> " + userLikeCheck);
 				}
-				if (userLikeCheck.equals("1")) {
+				System.out.println(userLikeCheck);
+				
+				if (userLikeCheck.contentEquals("1")) {
 					System.out.println("좋아요를 누른 게시물");
 					mav.addObject("likecheck", userLikeCheck);
+					
 
 				} else {
 					System.out.println("좋아요를 누르지 않은 게시물");
@@ -85,16 +91,13 @@ public class MagazineController {
 				}
 			} catch (Exception e) {
 				System.out.println("캐치오류");
-			} finally {
-				mav = new ModelAndView("/Magazine/MagazineDetail");
-				mav.addObject("m_Seq", magazineVO);
-				
 			}
 		} else {
 			System.out.println(">> 세션에 login기록 없음");
-			mav = new ModelAndView("/Magazine/MagazineDetail");
-			mav.addObject("m_Seq", magazineVO);
 		}
+
+		mav.addObject("likeCnt", likeCnt);
+		mav.addObject("m_Seq", magazineVO);
 		magazineService.hitIncrease(mm_Seq);
 		return mav;
 

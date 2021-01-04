@@ -95,7 +95,7 @@
 
 				<h1><%=m_Seq.getM_Content()%></h1>
 				<br>
-
+				<c:out value="${likecheck }"/>
 				<c:choose>
 					<c:when test="${likecheck eq '0' or empty likecheck}">
 						<!-- likecheck가0이면 빈하트-->
@@ -108,7 +108,7 @@
 							style="cursor: pointer; width: 20px;">
 					</c:otherwise>
 				</c:choose>
-				<span id="likecnt" style="margin-left:5px;">${likecnt}</span> 
+				<span id="likecnt" style="margin-left:5px;">${likeCnt}</span> 
 
 			</div>
 
