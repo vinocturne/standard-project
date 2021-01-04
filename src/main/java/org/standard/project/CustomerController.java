@@ -310,4 +310,12 @@ public class CustomerController {
 			 
 		}
 	}
+	
+	@RequestMapping(value = "/OrderForm", method=RequestMethod.GET)
+	public String orderForm(HttpSession session) {
+	return "Customer/OrderForm";
+	}
+	
+	
+	
 }
