@@ -137,7 +137,13 @@ function change () {
 							<td><input type=hidden name="sell_price" value="<%=wishListVO.get(i).getP_Price() %>"><%=wishListVO.get(i).getP_Price() %></td>
 							<td><span class=""> <span class="ec-base-qty">
 							<input type="text" name="amount" value="<%=wishListVO.get(i).getW_Quantity() %>" size="3" onchange="change();">
-							<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
+							<a onclick="add();"> <img
+											src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif"
+											alt="수량증가" class="up">
+									</a> <a onclick="del();"> <img
+											src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif"
+											alt="수량감소" class="down">
+									</a>
 								</span>
 							</span></td>
 							<td> <input type="text" name="sum" size="11" readonly>원</td>
