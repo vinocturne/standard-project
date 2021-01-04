@@ -117,26 +117,36 @@
 				<a class="orderBtn">
 					<button type="button" class="selectOrder_btn">주문하기</button> <script>
 					$(".selectOrder_btn").click(function() {
-						var confirm_val = confirm("정말 삭제 하시겠습니까?");
-
 						if (confirm_val) {
-							var checkArr = new Array();
+							var checkArr01 = new Array();
+							var checkArr02 = new Array();
+							var checkArr03 = new Array();
+							var checkArr04 = new Array();
+							var checkArr05 = new Array();
+							var checkArr06 = new Array();
+							var checkArr07 = new Array();
 							$("input[class='chBox']:checked").each(function() {
-								checkArr.push($(this).attr("data-p_Id"));
-								checkArr.push($(this).attr("data-p_Price"));
-								checkArr.push($(this).attr("data-w_Quantity"));
-								checkArr.push($(this).attr("data-pp_Name"));
-								checkArr.push($(this).attr("data-p_Color"));
-								checkArr.push($(this).attr("data-p_Size"));
-								checkArr.push($(this).attr("data-pp_thumb"));
-								
+								checkArr01.push($(this).attr("data-p_Id"));
+								checkArr02.push($(this).attr("data-p_Price"));
+								checkArr03.push($(this).attr("data-w_Quantity"));
+								checkArr04.push($(this).attr("data-pp_Name"));
+								checkArr05.push($(this).attr("data-p_Color"));
+								checkArr06.push($(this).attr("data-p_Size"));
+								checkArr07.push($(this).attr("data-pp_thumb"));
 							});
+							
 							if (!(checkArr == "")) {
 								$.ajax({
 									url : "DeleteParentProduct",/* 보낼곳 */
 									type : "post",
 									data : {
-										chBox : checkArr
+										chBox : checkArr01,
+										chBox : checkArr02,
+										chBox : checkArr03,
+										chBox : checkArr04,
+										chBox : checkArr05,
+										chBox : checkArr06,
+										chBox : checkArr07,
 									},
 									success : function(result) {
 										alert("주문하기로 이동 성공");
