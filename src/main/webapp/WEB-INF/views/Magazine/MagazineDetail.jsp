@@ -19,7 +19,7 @@
 	var btn_like = document.getElementById("btn_like");
 	btn_like.onclick = function() {changeHeart(); }
 	
-	function() {
+	function changeHeart() {
 		$.ajax({
 			type : "POST",
 			url : "/clickLike",

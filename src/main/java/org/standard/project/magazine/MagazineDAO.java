@@ -48,5 +48,9 @@ public class MagazineDAO {
 	public MagazineVO selectMagazine(int m_Seq) {
 		return mySQL.selectOne(loc+"selectMagazine",m_Seq);
 	}
+
+	public int magazineLikeCheck(MagazineLikeVO vo) {
+		return mySQL.selectOne(loc+"likecheck", vo);
+	}
 	
 }

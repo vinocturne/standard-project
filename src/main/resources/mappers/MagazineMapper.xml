@@ -33,7 +33,7 @@
 		UPDATE magazine SET m_Hit=m_Hit + 1 WHERE m_Seq=#{m_Seq}
 	</select>
 	<!-- 좋아요 눌렀는지 안눌렀는지 확인하는 매퍼 -->
-	<!-- <select id="likecheck" resultType="MagazineLikeVO">
+	<select id="likecheck" resultType="_int">
 		SELECT ml_Check From magazinelike WHERE m_Seq=#{m_Seq} and c_Id=#{c_Id}
-	</select> -->
+	</select>
 </mapper>

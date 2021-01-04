@@ -52,4 +52,9 @@ public class MagazineServiceImpl implements MagazineService {
 		return magazineDAO.selectMagazine(m_Seq);
 	}
 
+	@Override
+	public int magazineLikeCheck(MagazineLikeVO vo) {
+		return magazineDAO.magazineLikeCheck(vo);
+	}
+
 }
