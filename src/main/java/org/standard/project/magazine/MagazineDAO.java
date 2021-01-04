@@ -60,5 +60,9 @@ public class MagazineDAO {
 	public int getLikecnt(int m_Seq) {
 		return mySQL.selectOne(loc+"getLikeCnt", m_Seq);
 	}
+
+	public void updateLikeCntPlus(MagazineVO mVO) {
+		mySQL.update(loc+"updateLikeCntPlus", mVO);
+	}
 	
 }

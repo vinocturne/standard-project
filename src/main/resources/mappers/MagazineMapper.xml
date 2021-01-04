@@ -44,4 +44,8 @@
 	<select id="getLikeCnt" resultType="_int">
 		SELECT COUNT(*) FROM magazineLike WHERE m_Seq = #{m_Seq} AND ml_Check = 1 
 	</select>
+	<!-- 좋아요 누를 시 매거진 테이블의 좋아요 수 증가 -->
+	<select id="updateLikeCntPlus" resultType="MagazineVO">
+		UPDATE magazine SET m_Like = m_Like+1 WHERE m_Seq=#{m_Seq}
+	</select>
 </mapper>
