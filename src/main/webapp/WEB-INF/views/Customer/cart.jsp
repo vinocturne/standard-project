@@ -116,41 +116,36 @@
 				<a class="orderBtn">
 					<button type="button" class="selectOrder_btn">주문하기</button> <script>
 					$(".selectOrder_btn").click(function() {
-							var checkArr01 = new Array();
-							var checkArr02 = new Array();
-							var checkArr03 = new Array();
-							var checkArr04 = new Array();
-							var checkArr05 = new Array();
-							var checkArr06 = new Array();
-							var checkArr07 = new Array();
+						    
+
+
+							var jsonArr = new Array();
 							$("input[class='chBox']:checked").each(function() {
-								checkArr01.push($(this).attr("data-p_Id"));
-								checkArr02.push($(this).attr("data-p_Price"));
-								checkArr03.push($(this).attr("data-w_Quantity"));
-								checkArr04.push($(this).attr("data-pp_Name"));
-								checkArr05.push($(this).attr("data-p_Color"));
-								checkArr06.push($(this).attr("data-p_Size"));
-								checkArr07.push($(this).attr("data-pp_thumb"));
+								var jsonStr = {p_Id : $(this).attr("data-p_Id"),p_Price:$(this).attr("data-p_Price"),
+											w_Quantity:$(this).attr("data-w_Quantity"),pp_Name:$(this).attr("data-pp_Name"),
+											p_Color:$(this).attr("data-p_Color"),p_Size:$(this).attr("data-p_Size"),
+											pp_thumb:$(this).attr("data-pp_thumb")
+							}
+							jsonArr.push(jsonStr);
 							});
-							
-							if (!(checkArr == "")) {
-								$.ajax({
-									url : "/project/wishlist/order",/* 보낼곳 */
-									type : "post",
-									data : {
-										chBox : checkArr01,
-										chBox : checkArr02,
-										chBox : checkArr03,
-										chBox : checkArr04,
-										chBox : checkArr05,
-										chBox : checkArr06,
-										chBox : checkArr07,
-									},
-									success : function(result) {
-										alert("주문하기로 이동 성공");
-										location.href = "ProductManage";/* 끝나고 갈곳 */
-									}
-								});
+							jsonStringfied = JSON.stringify(jsonArr);
+							console.log(jsonStringfied);
+							 if (!(jsonStringfied == "")) {
+								
+    							var form = document.createElement('form');
+    							form.setAttribute('method', 'post'); //GET 전환 가능
+    							form.setAttribute('action', '/project/wishList/order');
+    							document.charset = "utf-8";
+    							
+    							    var hiddenField = document.createElement('input');
+    							    hiddenField.setAttribute('type', 'hidden'); //값 입력
+    							    hiddenField.setAttribute('name', "data");
+    							    hiddenField.setAttribute('value', jsonStringfied);
+    							    form.appendChild(hiddenField);
+    							
+    							document.body.appendChild(form);
+    							form.submit();
+
 							}else{
 								alert("주문할 상품을 선택해주세요");
 							}
