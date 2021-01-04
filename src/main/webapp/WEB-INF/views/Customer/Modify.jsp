@@ -117,7 +117,7 @@
                             </tr>
                             <tr class="c_Name">
                                 <th scope="row"> 이름 <img src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
-                                <td><input  id="c_Name" name="c_Name" style="background-color:pink" type="text"  maxlength="14"value="<%=customer.getC_Name()%>" readonly></span>
+                                <td><input  id="c_Name" name="c_Name" style="background-color:pink" type="text"  maxlength="14" value="<%=customer.getC_Name()%>" readonly></span>
                                 </td>
                             </tr>
                             <!-- <tr>

@@ -17,13 +17,33 @@
     }
 </script>
 </head>
+
 <%@ include file="../header.jsp" %>
+<% 
+
+//여긴 셀렉트박스에 02가 없다
+String phone1, phone1_1, phone1_2, phone1_3;
+phone1 = (String)customer.getC_Phone1();
+if(phone1.length() == 10){
+    phone1_1 = phone1.substring(0,3); 
+    phone1_2 = phone1.substring(3,6); 
+    phone1_3 = phone1.substring(6); 
+}else if (phone1.length() == 11){
+    phone1_1 = phone1.substring(0,3); 
+    phone1_2 = phone1.substring(3,7); 
+    phone1_3 = phone1.substring(7); 
+}else{
+    phone1_1 = ""; 
+    phone1_2 = ""; 
+    phone1_3 = "";
+}
+%>
 
 	<!-- CONTENT -->
 	<div class="content_wrap inner">
     <!-- side_nav -->
     <%@ include file="../side_nav.jsp"%>	 	
-			
+
     <!-- Register -->
     <div class="order_Wrap">
        
@@ -46,7 +66,7 @@
                                 <tr class="c_Name">
                                     <th scope="row"> 수취인 이름 <img
                                             src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8" height="8" alt="필수"></th>
-                                    <td><input id="c_Name" name="c_Name" type="text" maxlength="14"></span>
+                                    <td><input id="c_Name" name="c_Name" type="text" maxlength="14" value="<%=customer.getC_Name()%>"></span>
                                     </td>
                                 </tr>
                                 <tr class="c_Address">
@@ -57,21 +77,21 @@
                                     <td>
                                         <input id="zipcode" name="zipcode" fw-filter="isLengthRange[1][14]"
                                             fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder=""
-                                            readonly="readonly" maxlength="14" value="" type="text">
+                                            readonly="readonly" maxlength="14" value="<%=customer.getZipcode()%>" type="text">
                                         <input type="button" onClick="openDaumZipAddress();" class="Address_btn"
                                             name="Address_btn" value="우편번호 찾기"><br>
                                         <input id="c_Address1" name="c_Address1" fw-filter="isFill" fw-label="주소"
-                                            fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value=""
+                                            fw-msg="" class="inputTypeText" placeholder="" readonly="readonly" value="<%=customer.getC_Address1()%>"
                                             type="text"> 기본주소<br>
                                         <input id="c_Address2" name="c_Address2" fw-filter="" fw-label="주소" fw-msg=""
-                                            class="inputTypeText" placeholder="" value="" type="text"> 나머지주소 (선택입력가능)
+                                            class="inputTypeText" placeholder="" value="<%=customer.getC_Address2()%>" type="text"> 나머지주소 (선택입력가능)
                                     </td>
                                 </tr>
                                 <tr class="c_Phone1">
                                     <th scope="row"> 연락처 1 <img
                                             src="<%=request.getContextPath()%>/ResourcesFile/img/required.png" width="8"
                                             height="8" alt="필수"></th>
-                                    <td><select id="c_Phone1" name="mobile1-1" fw-filter="isNumber&amp;isFill"
+                                    <td><select id="c_Phone1" name="mobile1-1" value ="<%=phone1_1%>" fw-filter="isNumber&amp;isFill"
                                             fw-label="연락처1" fw-alone="N" fw-msg="">
                                             <option value="010">010</option>
                                             <option value="011">011</option>
@@ -79,9 +99,9 @@
                                             <option value="017">017</option>
                                             <option value="018">018</option>
                                             <option value="019">019</option>
-                                        </select>-<input id="mobile2" name="mobile1-2" maxlength="4"
+                                        </select>-<input id="mobile2" value ="<%=phone1_2%>" name="mobile1-2" maxlength="4"
                                             fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg=""
-                                            value="" type="text">-<input id="mobile3" name="mobile1-3" maxlength="4"
+                                            value="" type="text">-<input id="mobile3" value ="<%=phone1_3%>"name="mobile1-3" maxlength="4"
                                             fw-filter="isNumber&amp;isFill" fw-label="연락처1" fw-alone="N" fw-msg=""
                                             value="" type="text"></td>
                                 </tr>
@@ -144,30 +164,38 @@
     
     </div>
 </div>
-</div><%=customer.getC_Id()%>
+</div>
 <script>
 //배송지 선택
-window.onload = function(){
-    fn_select_defaultDes();
-}
-    // 컨트롤러에서 고객정보 넣어주면 넣기.(JSON?)
-    var o_Name = document.getElementById("c_Name") ;//이름
+    var o_Name = document.getElementById("c_Name");//이름
     var o_Zipcode =document.getElementById("zipcode");//우편번호
     var o_Address1 =document.getElementById("c_Address1");//주소1
     var o_Address2 =document.getElementById("c_Address2");//주소2
     var o_Phone1 =document.getElementById("c_Phone1");//번호1-1
     var o_Phone2 =document.getElementById("mobile2");//번호1-2
     var o_Phone3 =document.getElementById("mobile3");//번호1-3
+    const nameValue =o_Name.value;
+    const zipcodeValue=o_Zipcode.value;
+    const addressValue1=o_Address1.value;
+    const addressValue2=o_Address2.value;
+    const phone1_1=o_Phone1.value;
+    const phone1_2=o_Phone2.value;
+    const phone1_3=o_Phone3.value;
 
+window.onload = function(){
+    
+    fn_select_defaultDes();
+}
 function fn_select_defaultDes(){
-    console.log("기본 배송지 선택");
-    o_Name.value="${customer.c_Id()};";
-    o_Zipcode.value="000-000";
-    o_Address1.value="dtdt";
-    o_Address2.value="ddtd";
-    o_Phone1.value="010";
-    o_Phone2.value="2222";
-    o_Phone3.value="1111";
+    
+    
+    o_Name.value=nameValue;
+    o_Zipcode.value=zipcodeValue;
+    o_Address1.value=addressValue1;
+    o_Address2.value=addressValue2;
+    o_Phone1.value=phone1_1;
+    o_Phone2.value=phone1_2;
+    o_Phone3.value=phone1_3; 
 
 }
 function fn_select_newDes(){
