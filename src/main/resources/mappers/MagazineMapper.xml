@@ -29,11 +29,19 @@
 	<select id="deleteMagazine" resultType="MagazineVO">
 		DELETE FROM magazine WHERE m_Seq=#{m_Seq}
 	</select>
-	<select id="hitIncrese" resultType="MagazineVO">
+	<select id="hitIncrease" resultType="MagazineVO">
 		UPDATE magazine SET m_Hit=m_Hit + 1 WHERE m_Seq=#{m_Seq}
 	</select>
 	<!-- 좋아요 눌렀는지 안눌렀는지 확인하는 매퍼 -->
-	<select id="likecheck" resultType="_int">
-		SELECT ml_Check From magazinelike WHERE m_Seq=#{m_Seq} and c_Id=#{c_Id}
+	<select id="likecheck" resultType="String">
+		SELECT ml_Check From magazineLike WHERE m_Seq=#{m_Seq} and c_Id=#{c_Id}
+	</select>
+	<!-- 게시글 조회하면 해당 db에 좋아요 여부 생성 -->
+	<select id="makeLikeRow" resultType="MagazineLikeVO">
+		INSERT INTO magazineLike(m_Seq,c_Id) VALUES (#{m_Seq},#{c_Id})
+	</select>
+	<!-- 게시글 좋아요 수 가져오는 쿼리(ml_Check로 여부 확인) -->
+	<select id="getLikeCnt" resultType="_int">
+		SELECT COUNT(*) FROM magazineLike WHERE m_Seq = #{m_Seq} AND ml_Check = 1 
 	</select>
 </mapper>

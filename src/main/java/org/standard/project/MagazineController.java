@@ -35,8 +35,7 @@ public class MagazineController {
 		mav.addObject("list", list);
 		return mav;
 	}
-	
-	
+
 //	@RequestMapping(value = "/magazineList", method = RequestMethod.GET)
 //	public ModelAndView magazineList(HttpServletRequest req) {
 //		System.out.println("Magazine");
@@ -55,39 +54,53 @@ public class MagazineController {
 		return "Magazine/MagazineIn";
 	}
 
-
-	@RequestMapping(value = "/MagazineDetail" , method = RequestMethod.GET)
-	public ModelAndView newmagazineDetail(CustomerVO cvo, HttpSession session, ModelAndView mav, HttpServletRequest req) {
-		MagazineLikeVO magazineLikeVO = new MagazineLikeVO();
-		int userLikeCheck = 0;
-		int mm_Seq = Integer.parseInt(req.getParameter("m_Seq"));
-		MagazineVO magazineVO = magazineService.selectMagazine(mm_Seq);
-		
-		try {
-			cvo = (CustomerVO)session.getAttribute("loginCustomer");		
-			String c_Id = cvo.getC_Id();
-			magazineLikeVO.setC_Id(c_Id);
-			magazineLikeVO.setM_Seq(mm_Seq);
-			userLikeCheck = magazineService.magazineLikeCheck(magazineLikeVO); 
-		}catch(Exception e) {
-			System.out.println("캐치오류");
-		}
-		
-		System.out.println(magazineLikeVO);
-		System.out.println("userLikeCheck >> "+userLikeCheck);
-		if(userLikeCheck == 0) { 
-			System.out.println("좋아요를 누르지 않은 게시물");
-			mav.addObject("likecheck", 0);
-		} else { 
-			System.out.println("좋아요를 누른 게시물");
-			mav.addObject("likecheck", userLikeCheck);
-		}
-		
+	@RequestMapping(value = "/MagazineDetail", method = RequestMethod.GET)
+	public ModelAndView newmagazineDetail(CustomerVO cvo, HttpSession session, ModelAndView mav,
+			HttpServletRequest req) {
 		mav = new ModelAndView("/Magazine/MagazineDetail");
-		mav.addObject("m_Seq", magazineVO);
+		MagazineLikeVO magazineLikeVO = new MagazineLikeVO();
+		String userLikeCheck = "";
+		int mm_Seq = Integer.parseInt(req.getParameter("m_Seq"));
+		int likeCnt = magazineService.getLikeCnt(mm_Seq);
+		System.out.println(">>likeNum >> "+likeCnt);
+		MagazineVO magazineVO = magazineService.selectMagazine(mm_Seq);
+		if (session.getAttribute("loginCustomer") != null) {
+			System.out.println(">> 세션에 login기록 남아있음");
+			try {
+				cvo = (CustomerVO) session.getAttribute("loginCustomer");
+				String c_Id = cvo.getC_Id();
+				magazineLikeVO.setC_Id(c_Id);
+				magazineLikeVO.setM_Seq(mm_Seq);
+				if (magazineService.magazineLikeCheck(magazineLikeVO) == null) {
+					magazineService.makeLikeRow(magazineLikeVO);
+				} else {
+					userLikeCheck = magazineService.magazineLikeCheck(magazineLikeVO);
+					System.out.println(magazineLikeVO);
+					System.out.println("userLikeCheck >> " + userLikeCheck);
+				}
+				System.out.println(userLikeCheck);
+				
+				if (userLikeCheck.contentEquals("1")) {
+					System.out.println("좋아요를 누른 게시물");
+					mav.addObject("likecheck", userLikeCheck);
+					
 
+				} else {
+					System.out.println("좋아요를 누르지 않은 게시물");
+					mav.addObject("likecheck", 0);
+				}
+			} catch (Exception e) {
+				System.out.println("캐치오류");
+			}
+		} else {
+			System.out.println(">> 세션에 login기록 없음");
+		}
+
+		mav.addObject("likeCnt", likeCnt);
+		mav.addObject("m_Seq", magazineVO);
+		magazineService.hitIncrease(mm_Seq);
 		return mav;
-		
+
 	}
 
 }
