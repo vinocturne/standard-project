@@ -107,15 +107,11 @@
 				for(int i=0; i<c_VO.size(); i++) {
 				%>
 				<br>
-				<h4>상품 상세정보 <br><%=c_VO.get(i) %></h4>
-				<%
-				}
-				%>
-				
-				
-				<div class="detailExplain">
-					여기엔 상품 설명이 들어갈거에요 
-				</div>
+				<h4 class="detailExplain">상품 상세정보 <br>
+					<%=c_VO.get(i) %></h4>
+					<%
+					}
+					%>
 				
 			</div>
 			
@@ -125,7 +121,7 @@
 		
 		<div class="choiceButton1">
 				<button class="buyclass"><a href="/project/Customer/cart">구매하기</a></button>
-			
+				
 
 			
 				<button class="listclass"><a href="/project/Customer/cart">장바구니</a></button>
@@ -139,27 +135,67 @@
 						<h1>Review</h1>
 					</div>
 				</div>
-				<div class="order_table">
-					<table class="type15">
-						<thead>
+				<table class="table table-hover" height="100" width="1100">
+					<thead>
+				<tr>
+					<th style="width:5%; height:10%">No.</th>
+					<th style="width:5%; height:10%">제목</th>
+					<th style="width:5%; height:10%">내용</th>
+					<th style="width:5%; height:10%">글쓴이</th>
+					<th style="width:5%; height:10%">작성일</th>
+					
+				</tr>
+			</thead>
+				
+				<tbody>
+				<c:choose>
+					<c:when test="${fn:length(list)>0}">
+						<c:forEach var="product" items="${list}">
 							<tr>
-								<th style="width:10%">No.</th>
-								<th style="width:60%">질문</th>
-								<th style="width:15%">문의유형</th>
-								<th style="width:15%">작성일</th>
+								<td>
+									<div class="checkBox">
+										<input type="checkbox" name="chBox" class="chBox"
+											data-parent_p_Id="${product.parent_p_Id}" />
+										<script>
+											$(".chBox").click(
+													function() {
+														$("#allCheck").prop(
+																"checked",
+																false);
+													});
+										</script>
+									</div>
+								</td>
+								<td><a href="project/Seller/ProductAddChild" name="pp_Name">${product.pp_Name}</a></td>
+								<td>${product.parent_p_Id}</td>
+								<td>${product.pp_Category1}</td>
+								<td>${product.pp_Category2}</td>
+								<td><img src ="${pageContext.request.contextPath }${product.pp_thumb}" id="product_thumbnail"></td>
+								<td><%=customer.getBrandName()%></td>
+								<td>${product.pp_Price}</td>
+								<td>
+								<button onclick="window.location.href='ModifyParentProduct?seq=${product.parent_p_Id}'">수정</button>
+								<button onclick="window.location.href='ProductAddChild?seq=${product.parent_p_Id}'">옵션</button>
+								</td>
 							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<!-- 샘플  -->
-								<td>1</th>
-								<td>환불 부탁드립니다 </th>
-								<td>결제/환불 </th>
-								<td>2020-12-25</td> 
-							</tr>
-						</tbody>
-					</table>
-				</div>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<tr>
+							<td colspan="9">조회된 결과가 없습니다.</td>
+						</tr>
+					</c:otherwise>
+				</c:choose>
+			</tbody>
+				
+				
+				
+				
+				
+				
+				
+				
+				</table>
 				
 				<div class="cart_index">
 		                    <button type="button" class="" onclick=""><button> << </button></a>

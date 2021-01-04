@@ -8,6 +8,7 @@
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <style>
 .secondbody{
 width:1200px;
@@ -16,7 +17,7 @@ width:1200px;
 
 body {
 	margin-left: 100px;
-	margin-right: 10%;
+	margin-right: 7%;
 }
 
 .table {
@@ -34,9 +35,7 @@ margin-top:7px;
 margin-bottom:3px;
 }
 
-.line{
-margin-top:73px;
-}
+
 
 </style>
 
