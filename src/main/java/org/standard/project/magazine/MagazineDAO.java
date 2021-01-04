@@ -40,7 +40,7 @@ public class MagazineDAO {
 		mySQL.delete(loc+"deleteMagazine", m_Seq);
 	}
 
-	public void hitIncrease(String m_Seq) {
+	public void hitIncrease(int m_Seq) {
 		mySQL.update(loc+"hitIncrease",m_Seq);
 		
 	}
@@ -51,6 +51,10 @@ public class MagazineDAO {
 
 	public String magazineLikeCheck(MagazineLikeVO vo) {
 		return mySQL.selectOne(loc+"likecheck", vo);
+	}
+
+	public void makeLikeRow(MagazineLikeVO vo) {
+		mySQL.insert(loc+"makeLikeRow", vo);
 	}
 	
 }

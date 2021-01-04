@@ -12,7 +12,8 @@ public interface MagazineService {
 	void modifyMagazineWithoutImg(MagazineVO vo);
 	void modifyMagazineWithImg(MagazineVO vo);
 	void deleteMagazine(String m_Seq);
-	void hitIncrease(String m_Seq);
+	void hitIncrease(int mm_Seq);
 	MagazineVO selectMagazine(int m_Seq);
 	String magazineLikeCheck(MagazineLikeVO vo);
+	void makeLikeRow(MagazineLikeVO vo);
 }
