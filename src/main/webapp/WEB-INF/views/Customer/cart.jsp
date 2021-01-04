@@ -33,12 +33,53 @@
 	(추후 구현)상품 이미지나 상품명을 클릭하면 a href = /?/?/pp_Name이 되게해서 상품페이지로 이동할수 있도록한다.
 	-->
 	<!-- CART:주문조회-->
+<body onload="init();">
 	<div class="order_wrap">
 		<div class="title_area">
 			<div class="title_area1">
 				<h1>장바구니</h1>
 			</div>
 		</div>
+		<script language="JavaScript">
+
+var sell_price;
+var amount;
+
+function init () {
+	sell_price = document.form.sell_price.value;
+	amount = document.form.amount.value;
+	document.form.sum.value = sell_price;
+	change();
+}
+
+function add () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+	hm.value ++ ;
+
+	sum.value = parseInt(hm.value) * sell_price;
+}
+
+function del () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+		if (hm.value > 1) {
+			hm.value -- ;
+			sum.value = parseInt(hm.value) * sell_price;
+		}
+}
+
+function change () {
+	hm = document.form.amount;
+	sum = document.form.sum;
+
+		if (hm.value < 0) {
+			hm.value = 0;
+		}
+	sum.value = parseInt(hm.value) * sell_price;
+}  
+
+</script>
 		<div class="order_table">
 			<table class="type15">
 				<thead>
@@ -67,7 +108,7 @@
 						<% ArrayList<WishListProductVO> wishListProductVO = (ArrayList<WishListProductVO>)session.getAttribute("wishListProductVO");%>
 
 						<%for(int i=0;i<wishListVO.size();i++) { %>
-						<form name="form" method="get">
+						
 						<tr>
 							<td><div class="checkBox">
 									<input type="checkbox" name="chBox" class="chBox"
@@ -92,23 +133,16 @@
 							<td><%=wishListProductVO.get(i).getPp_Name() %></td>
 							<td>색상: <%=wishListProductVO.get(i).getP_Color() %><br>
 								사이즈: <%=wishListProductVO.get(i).getP_Size() %></td>
-							<td><input type="text" name="sell_price"
-										value="<%=wishListVO.get(i).getP_Price() %>"onchange="change();"></td>
+								<form name="form" method="get">
+							<td><input type=hidden name="sell_price" value="<%=wishListVO.get(i).getP_Price() %>"><%=wishListVO.get(i).getP_Price() %></td>
 							<td><span class=""> <span class="ec-base-qty">
-										<input type="text" name="amount"
-										value="<%=wishListVO.get(i).getW_Quantity() %>" size="3"
-										onchange="change();"> <a onclick="add();"> <img
-											src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif"
-											alt="수량증가" class="up">
-									</a> <a onclick="del();"> <img
-											src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif"
-											alt="수량감소" class="down">
-									</a>
+							<input type="text" name="amount" value="<%=wishListVO.get(i).getW_Quantity() %>" size="3" onchange="change();">
+							<input type="button" value=" + " onclick="add();"><input type="button" value=" - " onclick="del();">
 								</span>
 							</span></td>
-							<td><input type="text" name="sum" id="sum">원</td>
+							<td> <input type="text" name="sum" size="11" readonly>원</td>
+							</form>
 						</tr>
-						</form>
 						<% }%>
 				</tbody>
 			</table>
@@ -116,9 +150,6 @@
 				<a class="orderBtn">
 					<button type="button" class="selectOrder_btn">주문하기</button> <script>
 					$(".selectOrder_btn").click(function() {
-						    
-
-
 							var jsonArr = new Array();
 							$("input[class='chBox']:checked").each(function() {
 								var jsonStr = {p_Id : $(this).attr("data-p_Id"),p_Price:$(this).attr("data-p_Price"),
@@ -214,5 +245,6 @@
               } );
             } );
           </script>
+          </body>
 <!— FOOTER —>
 <%@ include file="../footer.jsp"%>
