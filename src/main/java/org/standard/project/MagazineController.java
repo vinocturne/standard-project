@@ -6,6 +6,7 @@ import java.util.Locale;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerService;
+import org.standard.project.customer.CustomerVO;
+import org.standard.project.magazine.MagazineLikeVO;
 import org.standard.project.magazine.MagazineService;
 import org.standard.project.magazine.MagazineVO;
 import org.standard.project.product.ProductChildVO;
@@ -54,21 +57,22 @@ public class MagazineController {
 
 
 	@RequestMapping(value = "/MagazineDetail" , method = RequestMethod.GET)
-	public ModelAndView newmagazineDetail(ModelAndView mav, HttpServletRequest req) {
-		System.out.println("매거진 디테일 에 들어왔어요");
+	public ModelAndView newmagazineDetail(HttpSession session, ModelAndView mav, HttpServletRequest req) {
+		MagazineLikeVO magazineLikeVO = new MagazineLikeVO();
 		
 		int mm_Seq = Integer.parseInt(req.getParameter("m_Seq"));
-		System.out.println(mm_Seq);
-		
-		MagazineVO MagazineVO = magazineService.selectMagazine(mm_Seq);
+		MagazineVO magazineVO = magazineService.selectMagazine(mm_Seq);
+		CustomerVO customerVO = (CustomerVO)session.getAttribute("loginCustomer");
+		String c_Id = customerVO.getC_Id();
+		magazineLikeVO.setC_Id(c_Id);
+		magazineLikeVO.setM_Seq(mm_Seq);
 		
 		
 		mav = new ModelAndView("/Magazine/MagazineDetail");
-		mav.addObject("m_Seq", MagazineVO);
+		mav.addObject("m_Seq", magazineVO);
 		
 
 		
-		System.out.println(MagazineVO);
 
 		return mav;
 		
