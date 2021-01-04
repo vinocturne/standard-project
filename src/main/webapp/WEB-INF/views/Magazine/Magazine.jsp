@@ -10,6 +10,10 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 
+.card :hover{
+opacity:90%;
+}
+
 .secondbody{
 width:1200px;
 
@@ -36,8 +40,7 @@ margin-left:7px;
 margin-right:2px;
 margin-top:7px;
 margin-bottom:3px;
-align-content:stretch;
-flex-wrap:rap;
+
 }
 
 .line{
@@ -55,6 +58,7 @@ display : grid;
 flex-wrap:rap;
 
 }
+
 
 </style>
 
