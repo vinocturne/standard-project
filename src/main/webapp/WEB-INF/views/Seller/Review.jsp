@@ -92,7 +92,6 @@
                     <th style="width:1%; height:10%">글쓴이</th>
                     <th style="width:1%; height:10%">내용</th> 
                     <th style="width:1%; height:10%">등록일</th>
-                    <th style="width:1%; height:10%">별점</th>
                     <th style="width:1%; height:10%">댓글</th>
                   </tr>
                 </thead>
@@ -119,10 +118,9 @@
 								<td name="r_Seq">${review.r_Seq}</td>
 								<td>${review.r_Title}</td>
 								<td>${review.r_Writer}</td>
-								<td>${review.r_Content}</td>
-								<td>${review.r_Date}</td>
-								<td>${review.r_Star}</td>
 								<td>${review.r_Coment}</td>
+								<td>${review.r_Date}</td>
+								<td>${review.r_ComentRe}</td>
 							</tr>
 						</c:forEach>
 					</c:when>
