@@ -13,7 +13,4 @@
 	<select id="reviewListForSeller" resultType="ReviewVO">
 		SELECT * FROM review where brandId=#{brandId}
 	</select>
-	<select id="cusOrder" resultType="OrderHistoryVO">
-		SELECT * FROM orderHistory WHERE c_Id = #{c_Id} AND parent_p_Id = #{pp_Id};
-	</select>
 </mapper>

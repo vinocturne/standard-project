@@ -21,4 +21,7 @@
 	<select id="insertOrderHistory" resultType="org.standard.project.order.OrderHistoryVO">
 		INSERT INTO orderhistory(c_Id,p_Id,o_BrandId,o_Date,o_Num,p_Price,o_Quantity,o_TotalPrice,o_Delivery,zipcode,o_Address1,o_Address2,o_Name,o_Phone1,o_Phone2) values(#{c_Id},#{p_Id},#{o_BrandId},CURDATE(),NULL,#{p_Price},#{o_Quantity},#{o_TotalPrice},#{o_Delivery},#{zipcode},#{o_Address1},#{o_Address2},#{o_Name}, #{o_Phone1}, #{o_Phone2})
 	</select>
+	<select id="cusOrder" resultType="org.standard.project.order.OrderHistoryVO">
+		SELECT * FROM orderhistory WHERE c_Id = #{c_Id} AND parent_p_Id = #{parent_p_Id};
+	</select>
 </mapper>

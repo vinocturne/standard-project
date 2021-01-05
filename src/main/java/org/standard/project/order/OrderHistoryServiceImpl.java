@@ -58,5 +58,10 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	 * public CustomerVO getCustomer(CustomerVO vo) { return
 	 * customerDAO.getCustomer(vo); }
 	 */
+	
+	@Override
+	public OrderHistoryVO cusOrder(OrderHistoryVO vo) {
+		return orderHistoryDAO.cusOrder(vo);
+	}
 
 }

@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.order.OrderHistoryService;
 import org.standard.project.order.OrderHistoryVO;
 import org.standard.project.product.ProductChildService;
-import org.standard.project.product.ProductChildVO;
 import org.standard.project.product.ProductParentService;
 import org.standard.project.product.ProductParentVO;
 import org.standard.project.review.ReviewService;
@@ -30,6 +30,9 @@ public class ProductController {
 	
 	@Resource(name = "ProductChildService")
 	ProductChildService productChildService;
+	
+	@Resource(name = "OrderHistoryService")
+	OrderHistoryService orderHistoryService;
 	
 	@Resource(name = "ReviewService")
 	ReviewService reviewService;
@@ -128,7 +131,7 @@ public class ProductController {
 		public ModelAndView writeReview(HttpSession session, HttpServletRequest req, HttpServletResponse response, ModelAndView mav) throws Exception {
 			System.out.println("리뷰작성한것, 저장");
 			ReviewVO vo = new ReviewVO();
-			OrderHistoryVO orVO = new OrderHistoryVO();
+			OrderHistoryVO orderVO = new OrderHistoryVO();
 			CustomerVO customerVO = (CustomerVO) session.getAttribute("loginCustomer");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -139,20 +142,23 @@ public class ProductController {
 				out.println("<script>alert('로그인해주세요.'); history.go(-1);</script>");
 				out.flush();
 			}
-			
 			//커스터머에서 여기 parent_p_Id로 해당 p_Id를 가지고 있는 계정 
 			String pp_Id = (String) session.getAttribute("productParent_session");
-			orVO.get
-			//오더 히스토리에서 아이디랑 pp_Id 넣어서  p_Id를 뽑는다. 
-			
-			vo.setP_Id("0001001white100");
+			orderVO.setParent_p_Id(pp_Id);
+			orderVO.setC_Id(customerVO.getC_Id());
+			try{
+				orderVO = orderHistoryService.cusOrder(orderVO);
+			}catch (NullPointerException e) {
+				out.println("<script>alert('구매자만 작성할 수 있습니다.'); history.go(-1);</script>");
+				out.flush();
+			}
+			vo.setP_Id(orderVO.getP_Id());
 			String parent_p_Id = req.getParameter("parent_p_Id");
 			String brandId = req.getParameter("brandId");
 			String pp_Name = req.getParameter("pp_Name");
 			String r_Title = req.getParameter("r_Title");
 			String r_Coment = req.getParameter("r_Coment");
 			int brandIntId = Integer.parseInt(brandId);
-			
 			
 			vo.setParent_p_Id(parent_p_Id);
 			vo.setBrandId(brandIntId);

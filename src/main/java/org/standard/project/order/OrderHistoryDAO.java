@@ -60,5 +60,9 @@ public class OrderHistoryDAO {
 	 * public CustomerVO getCustomer(CustomerVO vo) { return
 	 * mySQL.selectOne(loc+"getCustomer", vo); }
 	 */
+	
+	public OrderHistoryVO cusOrder(OrderHistoryVO vo) {
+		return mySQL.selectOne(loc+"cusOrder", vo);
+	}
 
 }

@@ -21,6 +21,6 @@ public interface OrderHistoryService {
 	void deleteDeliveryList(String o_Num);
 
 	void insertOrderHistory(OrderHistoryVO vo);
-	
+	OrderHistoryVO cusOrder(OrderHistoryVO vo);
 	
 }
