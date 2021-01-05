@@ -6,6 +6,8 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.standard.project.order.OrderHistoryVO;
+import org.standard.project.product.ProductParentVO;
 
 @Repository("reviewDAO")
 public class ReviewDAO {
@@ -26,4 +28,9 @@ public class ReviewDAO {
 	public void writeReview(ReviewVO vo) {
 		mySQL.insert(loc+"writeReview", vo);
 	}
+	public OrderHistoryVO cusOrder(OrderHistoryVO vo) {
+		return mySQL.selectOne(loc+"cusOrder", vo);
+	}
+	
+	
 }
