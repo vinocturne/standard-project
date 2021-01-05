@@ -62,4 +62,9 @@ public class ProductChildServiceImpl implements ProductChildService {
 	public ProductChildVO selectProductDetail(String parent_p_Id) {
 		return productChildDAO.selectProductDetail(parent_p_Id);
 	}
+
+	@Override
+	public ProductChildVO selectProductChildDetail(String p_Id) {
+		return productChildDAO.selectProductChildDetail(p_Id);
+	}
 }

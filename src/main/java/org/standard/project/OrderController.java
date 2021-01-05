@@ -3,6 +3,7 @@ package org.standard.project;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,10 @@ import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.order.OrderHistoryService;
 import org.standard.project.order.OrderHistoryVO;
+import org.standard.project.product.ProductChildService;
+import org.standard.project.product.ProductChildVO;
+import org.standard.project.product.ProductParentService;
+import org.standard.project.product.ProductParentVO;
 
 @Controller
 @RequestMapping(value = "/OrderHistory")
@@ -20,9 +25,14 @@ public class OrderController {
 	
 	@Resource(name = "OrderHistoryService")
 	OrderHistoryService orderService;
+	@Resource(name="ProductChildService")
+	ProductChildService proudctChildService;
+	@Resource(name="ProductParentService")
+	ProductParentService productParentService;
+	
 	
 	@RequestMapping("/OrderHistory")
-	public String getList(HttpSession session){
+	public String getList(HttpSession session, HttpServletRequest req){
 		session.removeAttribute("orderList");
 		System.out.println(session.getAttribute("orderList"));
 		System.out.println("order내역보기");
@@ -31,6 +41,17 @@ public class OrderController {
 		ArrayList<OrderHistoryVO> orderHistoryList = new ArrayList<OrderHistoryVO>();
 		orderHistoryList = orderService.getOrderHistoryList(customerVO);
 		System.out.println(orderHistoryList);
+		
+		ArrayList<ProductParentVO> productInfoList = new ArrayList<ProductParentVO>();//부모상품객체리스트를 넘겨줄 배열
+		for(int i=0;i<orderHistoryList.size();i++) {
+			System.out.println("p_Id로 product 객체 정보 가져오기 : "+proudctChildService.selectProductDetail(orderHistoryList.get(i).getP_Id()));
+			ProductChildVO pVO = proudctChildService.selectProductChildDetail(orderHistoryList.get(i).getP_Id());
+			productInfoList.add(productParentService.selectParentProduct(pVO.getParent_p_Id()));
+		}
+		System.out.println("어미상품객체리스트 정보 : "+productInfoList);
+		//request에 저장
+		req.setAttribute("productInfoList", productInfoList);
+
 		//가져온 후 세션에 저장하고,
 		session.setAttribute("orderList", orderHistoryList);
 		//돌아갈 페이지 지정

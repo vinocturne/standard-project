@@ -54,4 +54,10 @@ public class ProductChildDAO {
 	public ProductChildVO selectProductDetail(String parent_p_Id) {
 		return mySQL.selectOne(loc+"listProductChild", parent_p_Id);
 	}
+
+	public ProductChildVO selectProductChildDetail(String p_Id) {
+		System.out.println("DAO pId: "+p_Id);
+		System.out.println("DAO 자식정보 가져오기 : "+mySQL.selectOne(loc+"selectProductChildbyPId", p_Id));
+		return mySQL.selectOne(loc+"getProductChild", p_Id);
+	}
 }
