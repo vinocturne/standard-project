@@ -531,6 +531,11 @@ table.type12 {
     font-family: 'Montserrat', sans-serif;
   }
 
+table.type12 td > button {	
+	color: red;
+	width: 50px;
+}
+
   #mobile2, #mobile3, #phone2, #phone3 {
     width: 50px;
     height: 18px;
