@@ -42,13 +42,12 @@ public class OrderController {
 		orderHistoryList = orderService.getOrderHistoryList(customerVO);
 		System.out.println(orderHistoryList);
 		System.out.println("오더히스토리리스트 싸이즈 "+orderHistoryList.size());
-//		ArrayList<ProductParentVO> productInfoList = new ArrayList<ProductParentVO>();//부모상품객체리스트를 넘겨줄 배열
-//		for(int i=0;i<orderHistoryList.size();i++) {
-//			System.out.println("p_Id로 product 객체 정보 가져오기 : "+proudctChildService.selectProductDetail(orderHistoryList.get(i).getP_Id()));
-//			ProductChildVO pVO = proudctChildService.selectProductChildDetail(orderHistoryList.get(i).getP_Id());
-//			productInfoList.add(productParentService.selectParentProduct(pVO.getParent_p_Id()));
-//		}
-//		System.out.println("어미상품객체리스트 정보 : "+productInfoList);
+		ArrayList<ProductParentVO> productInfoList = new ArrayList<ProductParentVO>();//부모상품객체리스트를 넘겨줄 배열
+		for(int i=0;i<orderHistoryList.size();i++) {
+
+			//productInfoList.add(productParentService.selectParentProduct(pVO.getParent_p_Id()));
+		}
+		System.out.println("어미상품객체리스트 정보 : "+productInfoList);
 //		//request에 저장
 //		req.setAttribute("productInfoList", productInfoList);
 

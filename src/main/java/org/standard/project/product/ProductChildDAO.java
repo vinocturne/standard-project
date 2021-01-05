@@ -6,6 +6,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 import org.standard.project.brand.BrandDBVO;
+import org.standard.project.order.OrderHistoryVO;
 import org.standard.project.wishList.WishListVO;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -55,9 +56,5 @@ public class ProductChildDAO {
 		return mySQL.selectOne(loc+"listProductChild", parent_p_Id);
 	}
 
-	public ProductChildVO selectProductChildDetail(String p_Id) {
-		System.out.println("DAO pId: "+p_Id);
-		System.out.println("DAO 자식정보 가져오기 : "+mySQL.selectOne(loc+"selectProductChildbyPId", p_Id));
-		return mySQL.selectOne(loc+"getProductChild", p_Id);
-	}
+
 }
