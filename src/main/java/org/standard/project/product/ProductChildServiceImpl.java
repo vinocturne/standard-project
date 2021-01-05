@@ -57,4 +57,9 @@ public class ProductChildServiceImpl implements ProductChildService {
 	public List<String> optionSize(String parent_p_Id) {
 		return productChildDAO.optionSize(parent_p_Id);
 	}
+
+	@Override
+	public ProductChildVO selectProductDetail(String parent_p_Id) {
+		return productChildDAO.selectProductDetail(parent_p_Id);
+	}
 }

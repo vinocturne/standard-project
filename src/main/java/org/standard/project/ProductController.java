@@ -58,6 +58,7 @@ public class ProductController {
 //		List<ProductChildVO> childVO = productChildService.listProductChild(pp_Id);
 		List<String> optionColor = productChildService.optionColor(pp_Id);
 		List<String> optionSize = productChildService.optionSize(pp_Id);
+		ProductChildVO productVO = productChildService.selectProductDetail(pp_Id);
 		System.out.println("옵션 컬러 >>>>"+optionColor);
 		////
 		//pp_Id를 받아서 리스트 
@@ -68,6 +69,7 @@ public class ProductController {
 		
 		mav = new ModelAndView("/Store/StoreDetail");
 		mav.addObject("p_VO", parentVO);
+		mav.addObject("productVO", productVO);
 		mav.addObject("optionColor", optionColor);
 		mav.addObject("optionSize", optionSize);
 		mav.addObject("r_List", reviewList);

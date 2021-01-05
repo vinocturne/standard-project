@@ -90,29 +90,29 @@
 <div class="Product" style = padding-top:57px;>
 		
 			<%
-			ProductParentVO p_VO = (ProductParentVO)request.getAttribute("p_VO");
+			ProductParentVO pp_VO = (ProductParentVO)request.getAttribute("p_VO");
 			List<String> oC = (List<String>)request.getAttribute("optionColor");
 			List<String> oS = (List<String>)request.getAttribute("optionSize");
+			
 			%>
 		
 		<div class="image">
-		<img src = "${pageContext.request.contextPath}<%=p_VO.getPp_thumb() %>" 
+		<img src = "${pageContext.request.contextPath}<%=pp_VO.getPp_thumb() %>" 
 		style="width:500px; height:500px" class="picture">
 		</div>
 		
-		
+		<form method="PORT">
 		<div class="productside" style = border : solid 1px red;>
 			<div class="explain">
-				<h1><%=p_VO.getPp_Name() %></h1><br>
+				<h1><%=pp_VO.getPp_Name() %></h1><br>
 					
 				
-				<h4><%=p_VO.getPp_Price() %></h4>
+				<h4><%=pp_VO.getPp_Price() %></h4>
 				
 				<br>
 				<h2 class="detailExplain">상품 상세정보 <br></h2>
 					<h4>Color</h4><br>
-					<select id="ColorSelect">
-			
+					<select id="ColorSelect">			
 					<%
 						for(int i=0; i<oC.size(); i++) {
 					%>
@@ -131,14 +131,13 @@
 					<%
 					}
 					%>
-					
-				
 			</div>
-			
-			
-
+			<br>
+			<input type="hidden" name="p_Id" value="">
+			<input type="submit" value="장바구니" formaction="/project/wishList/addWishList">
+			<input type="submit" value="구매하기" formaction="/manage/delete">
 		</div>
-		
+		</form>		
 		<div class="choiceButton1">
 				<button class="buyclass"><a href="/project/Customer/OrderForm">구매하기</a></button>
 			

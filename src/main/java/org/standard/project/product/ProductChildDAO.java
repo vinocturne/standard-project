@@ -50,4 +50,8 @@ public class ProductChildDAO {
 	public List<String> optionSize(String parent_p_Id) {
 		return mySQL.selectList(loc+"optionSize", parent_p_Id);
 	}
+
+	public ProductChildVO selectProductDetail(String parent_p_Id) {
+		return mySQL.selectOne(loc+"listProductChild", parent_p_Id);
+	}
 }
