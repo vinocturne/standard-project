@@ -47,6 +47,7 @@ public class WishListController {
 		System.out.println("장바구니에 담기");
 		//필요정보 c_Id, p_Id,p_Price, w_Quantity
 		vo.setC_Id(customer.getC_Id());
+		System.out.println(vo);
 		wishListService.addWishList(vo);
 		return "redirect:/wishList/cart";
 	}
