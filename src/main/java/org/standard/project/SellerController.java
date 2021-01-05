@@ -123,7 +123,6 @@ public class SellerController {
 
 		String pp_Category1 = req.getParameter("pp_Category1");
 		String pp_Category2 = req.getParameter("pp_Category2");
-		vo.setPp_Num(int_second_parent_p_Id+1);
 		vo.setPp_Name(pp_Name);
 		vo.setParent_p_Id(parent_p_Id);
 		;

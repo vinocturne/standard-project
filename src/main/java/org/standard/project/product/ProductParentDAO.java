@@ -46,7 +46,7 @@ public class ProductParentDAO {
 			result = mySQL.selectOne(loc+"cntBrandProductParent", vo);
 			System.out.println("개수"+result);
 		} catch (NullPointerException e) {
-			throw new Exception("cntBrandProductParent==>null.");
+			return  result = 0;
 		} catch (Exception e) {
 			throw new Exception("cntBrandProductParent==>exception.");
 		}
