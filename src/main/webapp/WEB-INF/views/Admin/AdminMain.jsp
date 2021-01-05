@@ -14,6 +14,10 @@
         width: 1200px;
     }
     
+     .table td{
+    	text-align:center;
+    	vertical-align: middle;
+    }
 </style>
 
 

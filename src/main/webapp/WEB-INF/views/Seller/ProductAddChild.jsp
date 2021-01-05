@@ -13,6 +13,12 @@
     .table{
         width: 1200px;
     }
+    
+    .table td{
+    	text-align:center;
+    	vertical-align: middle;
+    }
+
 </style>
 </head>
 <%@ include file="../header.jsp"%>
@@ -50,7 +56,12 @@
 					<th style="width:5%; height:10%">색상  <input type="text" name="p_Color"></th>
 					<th style="width:5%; height:10%">사이즈  <input type="text" name="p_Size"></th>
 					<th style="width:5%; height:10%">재고  <input type="text" name="p_Stack"></th>
-					<th style="width:5%; height:10%"><input type="submit" style= "width:60%; height:25px" value=등록></th>
+					<th style="width:5%; height:10%"><%-- <input type="submit" src="<%=request.getContextPath()%>/ResourcesFile/img/add.PNG" width="25" height="25"> --%>
+					<input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/add.PNG" name="submit" value="submit" align="absmiddle"
+					width="25" height="25"
+					>
+					<%-- <img src="<%=request.getContextPath()%>/ResourcesFile/img/add.PNG" alt="cart" width="25" height="25"> --%>
+					</th>
 				</tr>
 			</thead>
 		</table>

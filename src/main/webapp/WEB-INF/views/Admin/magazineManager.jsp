@@ -16,6 +16,11 @@
     .table{
         width: 1200px;
     }
+    
+    .table td{
+    	text-align:center;
+    	vertical-align: middle;
+    }
 	
 </style>
 </head>
@@ -125,9 +130,10 @@
 								<td>${magazine.m_Date}</td>
 								<td>${magazine.m_Hit}</td>
 								<td>${magazine.m_Like}</td>
-	<%-- 							<td><button onclick="window.location.href='magazineModify?seq=${magazine.m_Seq}'">
+	<%-- 기존에 있던거 아이콘 바꾸면서 아래 코드로 바꿈
+				<td><button onclick="window.location.href='magazineModify?seq=${magazine.m_Seq}'">
 				<img src="<%=request.getContextPath()%>/ResourcesFile/img/magazinemodify.PNG" alt="cart" width="25" height="25">
-</button></td> --%>
+				</button></td> --%>
 
 <td>
 <a onclick="window.location.href='magazineModify?seq=${magazine.m_Seq}'">
