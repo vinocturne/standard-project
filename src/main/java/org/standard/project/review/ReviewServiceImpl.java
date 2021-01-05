@@ -19,5 +19,9 @@ public class ReviewServiceImpl implements ReviewService {
 	public ArrayList<ReviewVO> listProductReview(String pp_Id) {
 		return reviewDAO.listProductReview(pp_Id);
 	}
+	@Override
+	public void writeReview(ReviewVO vo) {
+		reviewDAO.writeReview(vo);
+	}
 
 }

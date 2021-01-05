@@ -188,6 +188,24 @@
 				</c:choose>
 			</tbody>
 		</table>
+		<form action="/project/shop/WriteReview" method="POST" enctype="multipart/form-data">
+		<input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=p_VO.getParent_p_Id()%>">
+		<input type="hidden" id="brandId" name="brandId" value="<%=p_VO.getPp_Brand()%>">
+		<input type="hidden" id="pp_Name" name="pp_Name" value="<%=p_VO.getPp_Name()%>">
+		<%-- <input type="hidden" id="p_Id" name="p_Id" value="<%=vo.getPp_Brand()%>"> --%>
+		<table class="table table-hover" height="100" width="1100">
+			<thead>
+				<tr>
+					<th style="width:4%; height:10%">제목</th>
+					<th style="width:20%; height:10%"><input type="text"  style= "width:86%;" name="r_Title"><button type="submit" style= "width:12%; height:25px">리뷰등록</button></th>
+				</tr>
+				<tr>
+					<th style="width:4%; height:10%">내용</th>
+					<th style="width:20%; height:10%"><textarea name="r_Coment" cols="90" rows="5"></textarea></th>
+				</tr>
+			</thead>
+		</table>
+		</form>
 				
 				<div class="cart_index">
 		                    <button type="button" class="" onclick=""><button> << </button></a>

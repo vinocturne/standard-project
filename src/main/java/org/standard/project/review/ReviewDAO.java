@@ -22,4 +22,8 @@ public class ReviewDAO {
 		listProductReview =(ArrayList) mySQL.selectList(loc+"listProductReview", pp_Id);
 		return listProductReview;
 	}
+	
+	public void writeReview(ReviewVO vo) {
+		mySQL.insert(loc+"writeReview", vo);
+	}
 }
