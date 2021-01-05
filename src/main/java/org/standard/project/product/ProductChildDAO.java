@@ -1,6 +1,7 @@
 package org.standard.project.product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -40,5 +41,13 @@ public class ProductChildDAO {
 
 	public int checkStack(String string) {
 		return mySQL.selectOne(loc+"checkStack",string);
+	}
+
+	public List<String> optionColor(String parent_p_Id) {
+		return mySQL.selectList(loc+"optionColor", parent_p_Id);
+	}
+
+	public List<String> optionSize(String parent_p_Id) {
+		return mySQL.selectList(loc+"optionSize", parent_p_Id);
 	}
 }

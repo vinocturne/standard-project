@@ -1,6 +1,7 @@
 package org.standard.project.product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,5 +46,15 @@ public class ProductChildServiceImpl implements ProductChildService {
 	@Override
 	public int checkStack(String string) {
 		return productChildDAO.checkStack(string);
+	}
+
+	@Override
+	public List<String> optionColor(String parent_p_Id) {
+		return productChildDAO.optionColor(parent_p_Id);
+	}
+
+	@Override
+	public List<String> optionSize(String parent_p_Id) {
+		return productChildDAO.optionSize(parent_p_Id);
 	}
 }

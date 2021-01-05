@@ -1,6 +1,7 @@
 package org.standard.project.product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.standard.project.brand.BrandDBVO;
 import org.standard.project.wishList.WishListVO;
@@ -14,5 +15,7 @@ public interface ProductChildService {
 
 	void purchase(WishListVO wishListVO);
 	int checkStack(String string);
+	List<String>optionColor(String parent_p_Id);
+	List<String>optionSize(String parent_p_Id);
 	
 }

@@ -68,4 +68,12 @@
 	<select id="checkStack" parameterType = "String" resultType="_int">
 		select p_Stack from product where p_Id=#{string}
 	</select>
+	<!-- 옵션 넘겨주기 위한 해당 상품의 Color option 중복 제외값 가져오기 (color)-->
+	<select id="optionColor" resultType="String">
+		select distinct p_Color from product WHERE parent_p_Id=#{parent_p_Id}
+	</select>
+	<!-- 옵션 넘겨주기 위한 해당 상품의 Size option 중복 제외값 가져오기 (color)-->
+	<select id="optionSize" resultType="String">
+		select distinct p_Size from product WHERE parent_p_Id=#{parent_p_Id}
+	</select>
 </mapper>
