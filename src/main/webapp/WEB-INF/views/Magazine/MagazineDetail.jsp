@@ -19,7 +19,7 @@
 			},
 			success : function(jdata) {
 				if(jdata.resultCode == -1) {
-					alert("좋아요 오류");
+					alert("로그인 후 이용해주세요 :)", "error", "확인", function(){});
 				}else {
 					if(jdata.likeCheck == 1) {
 						$("#btn_like").attr("src","${pageContext.request.contextPath}/ResourcesFile/img/like_after.png");
