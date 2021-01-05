@@ -1,5 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
+<<style>
+.side_nav ul li a{
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+.side_nav ul li a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  background: black;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.side_nav ul li a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+</style>
 </head>
 <%@ include file="../header.jsp" %> 
     <!-- CONTENT -->

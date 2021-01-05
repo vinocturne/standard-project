@@ -19,7 +19,7 @@ width:1200px;
 
 }
 
-body {
+.content_wrap {
 	margin-left: 100px;
 	margin-right: 7%;
 	flex-wrap:rap;
