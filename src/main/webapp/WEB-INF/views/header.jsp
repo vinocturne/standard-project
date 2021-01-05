@@ -2,35 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import="org.standard.project.customer.*" %>
 
-<style type="text/css">
-.main-menu li a{
-  color: black;
-  text-decoration: none;
-  display: inline-block;
-  position: relative;
-}
-.main-menu li a:after {    
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 1px;
-  left: 50%;
-  position: absolute;
-  background: black;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
-}
-.main-menu li a:hover:after { 
-  width: 100%; 
-  left: 0; 
-}
-
-a:hover{
- text-decoration:none;
- }
-
-</style>
 
 
 	<!-- HEADER -->

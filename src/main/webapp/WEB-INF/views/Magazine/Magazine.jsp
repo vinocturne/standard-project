@@ -16,7 +16,7 @@ opacity:90%;
 
 .secondbody{
 width:1200px;
-
+margin-top: 45px;
 }
 
 .content_wrap {
