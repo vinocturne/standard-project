@@ -10,7 +10,7 @@
 	}
 	   body{
        margin-left: 100px;
-       margin-right: 10%;
+       margin-right: 7%;
    }
 	
     .table{
