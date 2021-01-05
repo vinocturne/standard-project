@@ -81,7 +81,7 @@ public class WishListController {
 			//1.재고가 없으면 무시하고, 나머지 우선 결제되게하기.
 			//=> 재고확인 먼저?
 			int presentStack = productChildService.checkStack((String)object.get("p_Id"));
-			if(presentStack>0) {//재고 확인
+			if(presentStack>0&&presentStack>wishListVO.getW_Quantity()) {//재고 확인: 0보다 크고, 요청 수량보다 많은경우에 완료
 				productChildService.purchase(wishListVO); //재고-1
 				orderHistoryService.insertOrderHistory(vo);//구매내역에 입력
 				wishListService.deleteWishList(wishListVO); //장바구니에서 삭제

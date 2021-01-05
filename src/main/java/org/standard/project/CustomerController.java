@@ -239,15 +239,6 @@ public class CustomerController {
 
 	}
 
-	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public String myCart(HttpSession session) {
-		if (session.getAttribute("loginCustomer") == null) {
-			return "redirect:/Customer/login_form";
-		} else {
-			return "Customer/cart";
-		}
-	}
-
 	@RequestMapping(value = "/OrderHistory", method = RequestMethod.GET)
 	public String myOrder(HttpSession session) {
 		if (session.getAttribute("loginCustomer") == null) {
