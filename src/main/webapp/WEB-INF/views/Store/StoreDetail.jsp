@@ -7,61 +7,11 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
 
-    <style>
-    
-    .productside{
-     display:flex;
-    }
-    
-    .image{
-     float:left;
-    
-    }
-    .explain {
+<link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/StoreDetail.css">
 
-    padding-left:30px;
-    padding-top:50px;
-    
-    }
-    
-    .review{
-     float:left;
-     padding-top:30px;
-     padding-left:30px;
-     padding-bottom:70px;
-     width:800px;
-     height:350px;
-     
-    }
-    
-    .choiceButton1{
- 	 padding-top:260px;
-     padding-left:40px;
-     margine:0;
-	 float:right;
-    }
-    
-    .buyclass:hover {
-     background-color:black;
-     color:white;
-     
-    }
-    
-    .listclass:hover {
-	    background-color:black;
-	    color:white;
-    }
-    
-
-    .detailExplain{
-    padding-top:30px;
-    padding-bottom:30px;
-    
-    }
-    
-
-    </style>
 </head>
+
+
 <%@ include file="../header.jsp" %> 
 
 
@@ -96,12 +46,12 @@
 			%>
 		
 		<div class="image">
-		<img src = "${pageContext.request.contextPath}<%=pp_VO.getPp_thumb() %>" 
-		style="width:500px; height:500px" class="picture">
+			<img src = "${pageContext.request.contextPath}<%=pp_VO.getPp_thumb() %>" 
+			style="width:500px; height:500px" class="picture">
 		</div>
 		
 		<form method="POST">
-		<div class="productside" style = border : solid 1px red;>
+		<div class="productside">
 			<div class="explain">
 				<h1><%=pp_VO.getPp_Name() %></h1><br>
 					
@@ -110,28 +60,37 @@
 				
 				<br>
 				<h2 class="detailExplain">상품 상세정보 <br></h2>
+				
+				
 					<h4>Color</h4><br>
 					<select id="ColorSelect" name="p_Color">			
 					<%
 						for(int i=0; i<oC.size(); i++) {
 					%>
-						<option value="<%=oC.get(i)%>"><%=oC.get(i) %></option>
+						<option value="<%=oC.get(i)%>"> <%=oC.get(i) %></option>
 					<%
 					}
 					%>
 					</select><br><br>
+					
 					<h4>Size</h4><br>
 					<select id="SizeSelect" name="p_Size">
 			
 					<%
 						for(int i=0; i<oS.size(); i++) {
 					%>
-						<option value="<%=oS.get(i)%>"><%=oS.get(i) %></option>
+						<option value="<%=oS.get(i)%>"> <%=oS.get(i) %></option>
 					<%
 					}
 					%>
+					
 			</div>
+		</div>
+		
+		
 			<br>
+			
+		<div class="buttonClass">	
 			<!-- 장바구니 필요 데이터 -->
 			<input type="hidden" id="p_Id" name="p_Id" value="<%=pp_VO.getParent_p_Id()%>">
 			<input type="hidden" id="p_Price" name="p_Price" value="<%=pp_VO.getPp_Price() %>">
@@ -142,10 +101,18 @@
 			<input type="hidden" id="pp_thumb"name="pp_thumb" value="<%=pp_VO.getPp_thumb()%>">
 
 			
-			<input type="submit" value="장바구니" formaction="/project/wishList/addWishList">
+			<!-- <input type="submit" value="장바구니" formaction="/project/wishList/addWishList"> -->
+			<input type="image" class="orderList" src="<%=request.getContextPath()%>/ResourcesFile/img/cart.svg" formaction="/project/wishList/addWishList"
+			  >
+		<%-- 	<input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/buy-button.png"
+			width="25" height="25" class="orderNow" > --%>
+			<button type="button" class="orderNow"><img src="<%=request.getContextPath()%>/ResourcesFile/img/buy-button.png">
+			</button>			
 		</div>
-		</form>		
-			<button type="button" class="orderNow" value="구매하기">구매하기</button>
+		
+		</form>	
+			
+			
 		<script>
 			
 		    $(".orderNow").click(function() {
@@ -184,14 +151,17 @@
             </script>
 		
 	</div><!-- Product class 끝 -->
+	
+	
+	
 	<div class="review">
-	 
-
+	
 				<div class="title_area" >
 					<div class="title_area1">
 						<h1>Review</h1>
 					</div>
 				</div>
+				
 		<table class="table table-hover" height="100" width="1100">
 			<thead>
 				<tr>
@@ -202,6 +172,7 @@
 					<th style="width:5%; height:10%">답변</th>
 				</tr>
 			</thead>
+			
 			<tbody>
 				<c:choose>
 					<c:when test="${fn:length(reviewList)>0}">
@@ -225,31 +196,34 @@
 				</c:choose>
 			</tbody>
 		</table>
+		
 		<form action="/project/shop/WriteReview" method="POST" enctype="multipart/form-data">
 		<input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=pp_VO.getParent_p_Id()%>">
 		<input type="hidden" id="brandId" name="brandId" value="<%=pp_VO.getPp_Brand()%>">
 		<input type="hidden" id="pp_Name" name="pp_Name" value="<%=pp_VO.getPp_Name()%>">
 		<%-- <input type="hidden" id="p_Id" name="p_Id" value="<%=vo.getPp_Brand()%>"> --%>
-		<table class="table table-hover" height="100" width="1100">
+		
+		<table class="review_list" >
 			<thead>
 				<tr>
-					<th style="width:4%; height:10%">제목</th>
+					<th>제목</th>
 					<th style="width:20%; height:10%"><input type="text"  style= "width:86%;" name="r_Title"><button type="submit" style= "width:12%; height:25px">리뷰등록</button></th>
 				</tr>
 				<tr>
-					<th style="width:4%; height:10%">내용</th>
+					<th>내용</th>
 					<th style="width:20%; height:10%"><textarea name="r_Coment" cols="90" rows="5"></textarea></th>
 				</tr>
 			</thead>
 		</table>
+		
 		</form>
 				
 				<div class="cart_index">
-		                    <button type="button" class="" onclick=""><button> << </button></a>
-		                    <button type="button" class="" onclick=""><button> < </button></a>
-		                    <button type="button" class="" onclick=""><button> 1 </button></a>
-		                    <button type="button" class="" onclick=""><button> > </button></a>
-		                    <button type="button" class="" onclick=""><button> >> </button></a>
+		                    <button type="button" class="incart" onclick=""><button> << </button></a>
+		                    <button type="button" class="incart" onclick=""><button> < </button></a>
+		                    <button type="button" class="incart" onclick=""><button> 1 </button></a>
+		                    <button type="button" class="incart" onclick=""><button> > </button></a>
+		                    <button type="button" class="incart" onclick=""><button> >> </button></a>
 		        </div>
 		        
 		        
@@ -257,4 +231,6 @@
 				 
  
 </div><br>
+
+</div>
 <%@ include file="../footer.jsp"%>
