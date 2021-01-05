@@ -116,7 +116,7 @@
 					<%
 						for(int i=0; i<oC.size(); i++) {
 					%>
-						<option value="<%=oC.get(i)%>"><%=oC.get(i) %></option>
+						<option name="p_Color" value="<%=oC.get(i)%>"><%=oC.get(i) %></option>
 					<%
 					}
 					%>
@@ -127,22 +127,21 @@
 					<%
 						for(int i=0; i<oS.size(); i++) {
 					%>
-						<option value="<%=oS.get(i)%>"><%=oS.get(i) %></option>
+						<option name="p_Size" value="<%=oS.get(i)%>"><%=oS.get(i) %></option>
 					<%
 					}
 					%>
 			</div>
 			<br>
 			<!-- 장바구니 필요 데이터 -->
-			<input type="hidden" name="p_Id" value="">
-			<input type="hidden" name="p_Price" value="">
-			<input type="hidden" name="w_Quantity" value="">
+			<input type="hidden" name="p_Id" value="<%=pp_VO.getParent_p_Id()%>">
+			<input type="hidden" name="p_Price" value="<%=pp_VO.getPp_Price() %>">
+			<input type="hidden" name="w_Quantity" value="1">
 			<!-- 구매 필요 데이터 -->
-			<input type="hidden" name="pp_Name" value="">
-			<input type="hidden" name="p_Brand" value="">
-			<input type="hidden" name="pp_thumb" value="">
-			<input type="hidden" name="p_Color" value="">
-			<input type="hidden" name="p_Size" value="">
+			<input type="hidden" name="pp_Name" value="<%=pp_VO.getPp_Name() %>">
+			<input type="hidden" name="p_Brand" value="<%=pp_VO.getPp_Brand() %>">
+			<input type="hidden" name="pp_thumb" value="<%=pp_VO.getPp_thumb()%>">
+
 			
 			<input type="submit" value="장바구니" formaction="/project/wishList/addWishList">
 			<input type="submit" value="구매하기" formaction="/project/Customer/OrderForm">

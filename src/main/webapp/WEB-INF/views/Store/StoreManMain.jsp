@@ -12,7 +12,7 @@
 <style>
 .secondbody{
 width:1200px;
-
+margin-top: 45px;
 }
 
 .content_wrap {
@@ -71,8 +71,7 @@ margin-bottom:3px;
 				<p class="side_nav_title">Store</p>
 				<ul>
 					<li><a href="/project/shop/StoreManMain" class="side_nav_title">Man</a></li>
-					<li><a href="#"> <!--줄띄우기 -->
-					</a></li>
+				
 					<li><a href="/project/shop/StoreManMain?category=Top">TOP</a></li>
 					<li><a href="/project/shop/StoreManMain?category=Bottom">BOTTOM</a></li>
 					<li><a href="/project/shop/StoreManMain?category=Shoes">SHOES</a></li>
@@ -113,9 +112,9 @@ margin-bottom:3px;
     </c:forEach>
    </c:when>
   <c:otherwise>
-   <tr>
-    <td>존재하지 않습니다.</td>
-   </tr>
+  <div class="secondbody" style="padding-left:100px">
+	판매중인 상품이 없습니다.
+   </div>
   </c:otherwise>
   </c:choose>
 
