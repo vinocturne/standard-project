@@ -21,9 +21,7 @@
 				<h1>주문 조회</h1>
 			</div>
 			<div class="title_area2">
-				<h2>
-					<주문 상품 정보>
-				</h2>
+				<h2>주문 상품 정보</h2>
 			</div>
 		</div>
 		<div class="orderHistory">
@@ -31,54 +29,16 @@
 			<table class="type11">
 				<thead>
 					<tr>
-						<th scope="cols">선택</th>
-						<th scope="cols">주문일자</th>
-						<th scope="cols">상품정보</th>
-						<th scope="cols">가격</th>
-						<th scope="cols">수량</th>
-						<th scope="cols">주문금액</th>
-						<th scope="cols">주문상태</th>
+						<th style="width:25%">주문일자</th>
+						<th style="width:35%">상품정보</th>
+						<th style="width:10%">가격</th>
+						<th style="width:5%">수량</th>
+						<th style="width:10%">주문금액</th>
+						<th style="width:15%">주문상태</th>
 					</tr>
 				</thead>
 				
 				<tbody>
-				<tbody>
-					<tr>
-						<td><input type="checkbox" name="checkbox" value="1" style="border:0"></td> 
-						<td><img src="../ResourcesFile/img/logo2.png" style width="30px" height="20px"></th>
-						<td>트위드 플레어 스커트</th>
-						<td>38000원</th>
-						<td>
-							<form name="form" method="get">
-							<span class=""> 
-								<span class="ec-base-qty"> 
-								<input type="text" name="amount" value="1" size="3" onchange="change();"> 
-								<a onclick="add();"> 
-									<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가" class="up">
-								</a> 
-								<a onclick="del();"> 
-									<img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소" class="down">
-								</a>
-								</span>
-							</span>
-							</td>
-						<td>
-							<input type="text" name="o_TotalPrice" id="o_TotalPrice" >원
-							</form>
-						</td>
-						<td class="cart_button">
-							<div>
-								<button href="#">주문하기</button>
-							</div>
-							<div>
-								<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');">후기작성</button>
-							</div>
-							<div>
-								<button href="#">삭제</button>
-							</div>
-						</td>
-					</tr>
-				</tbody>
 				<%for(int i=0; i<orderList.size();i++){ %>
 				
 					<tr>

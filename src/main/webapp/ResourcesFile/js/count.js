@@ -11,7 +11,7 @@ function init () {
 function add () {
 	hm = document.form.amount;
 	sum = document.form.sum;
-	hm.value ++ ;
+	hm.value++ ;
 
 	sum.value = parseInt(hm.value) * sell_price;
 }
@@ -20,7 +20,7 @@ function del () {
 	hm = document.form.amount;
 	sum = document.form.sum;
 		if (hm.value > 1) {
-			hm.value -- ;
+			hm.value-- ;
 			sum.value = parseInt(hm.value) * sell_price;
 		}
 }

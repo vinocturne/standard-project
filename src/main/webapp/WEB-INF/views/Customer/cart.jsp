@@ -154,7 +154,7 @@ function change () {
             </tbody>
          </table>
          <div>
-            <a class="orderBtn">
+            <div class="orderBtn">
                <button type="button" class="selectOrder_btn">주문하기</button> <script>
                $(".selectOrder_btn").click(function() {
                      var jsonArr = new Array();
@@ -189,7 +189,7 @@ function change () {
                      }
                });
             </script>
-            </a>
+            </div>
          </div>
          <div>
             <a class="delBtn">
