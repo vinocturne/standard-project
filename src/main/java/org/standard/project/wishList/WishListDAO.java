@@ -25,4 +25,9 @@ public class WishListDAO {
 		return productVO;
 	}
 
+	public void deleteWishList(WishListVO wishListVO) {
+		mySQL.delete(loc+"deleteWishList",wishListVO);
+		
+	}
+
 }

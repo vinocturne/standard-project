@@ -66,8 +66,13 @@ public class WishListController {
 			vo.setO_Name((String)object.get("o_Name"));
 			vo.setO_Phone1((String)object.get("o_Phone1"));
 			vo.setO_Phone2((String)object.get("o_Phone2"));
-			
+			//구매 내역에 추가
 			orderHistoryService.insertOrderHistory(vo);
+			//구매가 완료된 상품은 장바구니에서 제거
+			WishListVO wishListVO = new WishListVO();
+			wishListVO.setC_Id((String) object.get("c_Id"));
+			wishListVO.setP_Id((String)object.get("p_Id"));
+			wishListService.deleteWishList(wishListVO);
 			
 
 		} 
@@ -87,11 +92,10 @@ public class WishListController {
 		  arr=(JSONArray)parser.parse(req.getParameter("data")); 
 		  for(int i=0; i<arr.size(); i++) { 
 			  JSONObject object = (JSONObject)arr.get(i);
-			  System.out.println("orderController 요청,카트에서 넘어온 데이터 : "+object.toString()); 
+			  System.out.println("orderController 요청,카트에서 넘어온 데이터 : "+object.toString());
 		  } 
 		  mav.addObject("cartList",req.getParameter("data"));
 		  System.out.println(mav.getViewName());
-		  //왜안되
 		return mav;
 		// orderForm에 기본으로 있어야할 목록 정보.
 		// 1.고객정보(이미 세션에 저장되어있음) 제이슨으로 넘겨주기.

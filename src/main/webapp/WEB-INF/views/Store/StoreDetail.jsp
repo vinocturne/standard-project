@@ -142,71 +142,39 @@
 						<h1>Review</h1>
 					</div>
 				</div>
-				<table class="table table-hover">
-					<thead>
+		<table class="table table-hover" height="100" width="1100">
+			<thead>
 				<tr>
-					<th style="width:10%; height:10%">No.</th>
-					<th style="width:10%; height:10%">제목</th>
-					<th style="width:10%; height:10%">내용</th>
-					<th style="width:10%; height:10%">글쓴이</th>
-					<th style="width:10%; height:10%">작성일</th>
-					<th style="width:10%; height:10%">평점</th>
-					
+					<th style="width:5%; height:10%">작성일</th>
+					<th style="width:5%; height:10%">글쓴이</th>
+					<th style="width:5%; height:10%">제목</th>
+					<th style="width:5%; height:10%">내용</th>
+					<th style="width:5%; height:10%">답변</th>
 				</tr>
 			</thead>
-				<!-- <script>
-				window.onload(function(){
-					var r_Seq = ${r_Seq}
-					var r_Title = ${r_Title}
-					
-					var listclass = document.getElementById("listclass");
-					listclass.onclick = function(){
-				
-					}
-				}
-				</script> -->
-				<tbody>
-				
-				<tr>
-								<td>1 ${review.r_Seq}</td>
-								<td>추천합니다.${review.r_Title}</td>
-								<td>좋아요 ${review.r_Content}</td>
-								<td>담${review.r_Writer}</td>
-								<td>2021.01.04${review.r_Date}</td>
-								<td>${review.r_Star}</td>
-				</tr>
-				
-				<tr>
-								<td>2 ${review.r_Seq}</td>
-								<td>이쁘네요.${review.r_Title}</td>
-								<td>괜찮아요 ${review.r_Content}</td>
-								<td>비트${review.r_Writer}</td>
-								<td>2021.01.04${review.r_Date}</td>
-								<td>${review.r_Star}</td>
-				</tr>
-				<%-- <c:choose>
-					<c:when test="${fn:length(list)>0}">
-						<c:forEach var="review" items="${list}">
+			<tbody>
+				<c:choose>
+					<c:when test="${fn:length(reviewList)>0}">
+						<c:forEach var="review" items="${reviewList}">
+							<!-- <form action="/project/Seller/ModifyParentProduct" method="POST" enctype="multipart/form-data"> -->
 							<tr>
-								<td>1 ${review.r_Seq}</td>
-								<td>추천합니다.${review.r_Title}</td>
-								<td>좋아요 ${review.r_Content}</td>
-								<td>담${review.r_Writer}</td>
-								<td>2021.01.04${review.r_Date}</td>
-								<td>${review.r_Star}</td>
+								<td><input name="p_Color" type="text" value="${review.r_Date}"></td>
+								<td><input name="p_Size" type="text" value="${review.r_Writer}"></td>
+								<td><input name="p_Stack" type="text" value="${review.r_Title}"></td>
+								<td><input name="p_Stack" type="text" value="${review.r_Coment}"></td>
+								<td><input name="p_Stack" type="text" value="${review.r_ComentRe}"></td>
 							</tr>
+							<!-- </form> -->
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="6">등록된 리뷰가 없습니다.</td>
+							<td colspan="7">여러분의 고마운 리뷰를 기다립니다.</td>
 						</tr>
 					</c:otherwise>
-				</c:choose> --%>
+				</c:choose>
 			</tbody>
-
-				
-				</table>
+		</table>
 				
 				<div class="cart_index">
 		                    <button type="button" class="" onclick=""><button> << </button></a>

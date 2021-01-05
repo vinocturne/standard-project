@@ -35,7 +35,28 @@ margin-top:7px;
 margin-bottom:3px;
 }
 
-
+.col-auto ul li a{
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+.col-auto ul li a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  background: black;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.col-auto ul li a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
 
 </style>
 

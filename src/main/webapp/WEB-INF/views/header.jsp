@@ -1,40 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="org.standard.project.customer.*" %>
-<style>
 
-.main-menu ul { list-style:none; cursor:pointer }
-.main-menu li { 
-  float:left; 
-  margin-right:10px;
-  transition:all .3s ease 
+<style type="text/css">
+.main-menu li a{
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
 }
-.main-menu li:hover { color:black; transition:all .3s ease }
-.main-menu li > a { position:relative }
-
-/*밑줄넣기 부분*/
-.main-menu li > a::after {
-  content: '';
-  left: 50%;
+.main-menu li a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
   height: 1px;
-  display: block;
+  left: 50%;
   position: absolute;
-  border-bottom: 2px solid black;
-  transition:all .3s ease;
+  background: black;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
 }
-.main-menu li:hover > a::after {
-  content: '';
-  width: 100%;
-  left: 0px;
-  display: block;
-  position: absolute;
-  border-bottom: 2px solid black;
-  transition:all .3s ease;
+.main-menu li a:hover:after { 
+  width: 100%; 
+  left: 0; 
 }
 
-
+a:hover{
+ text-decoration:none;
+ }
 
 </style>
+
+
 	<!-- HEADER -->
 	<header class="section">
 		<div class="inner clearfix">
@@ -51,6 +49,9 @@
 					
 				</ul>
 			</div>
+			
+			
+			
 			<div class="sign-group float--right toggle">
 				<ul class="sub-menu">
 					<%

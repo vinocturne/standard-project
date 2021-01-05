@@ -3,12 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.standard.project.ReviewMapper">
-<!-- 	<select id="listProductReview" resultType="ReviewVO">
-		SELECT * FROM review where parent_p_Id=#{parent_p_Id}
+	<select id="listProductReview" parameterType = "String" resultType="ReviewVO">
+		SELECT * FROM review where parent_p_Id=#{pp_Id}
 	</select>
-	<select id="writeReview" resultType="ReviewVO">
+	<!-- <select id="writeReview" resultType="ReviewVO">
 		INSERT INTO review (p_Id, r_Title, r_Writer, r_Date, r_Coment, parent_p_Id, pp_Name, r_ComentRe ) VALUES(#{p_Id}, #{r_Title}, #{r_Writer}, CURDATE(), #{r_Coment}, #{parent_p_Id}, #{pp_Name}, #{r_ComentRe});
-	</select> -->
+	</select> --> 
 	<!-- 셀러 리뷰관리페이지에 들어갈 쿼리문 -->
 	<select id="reviewListForSeller" resultType="ReviewVO">
 		SELECT * FROM review
