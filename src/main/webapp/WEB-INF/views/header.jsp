@@ -3,32 +3,32 @@
 <%@ page import="org.standard.project.customer.*" %>
 <style>
 
-ul { list-style:none; cursor:pointer }
-li { 
+.main-menu ul { list-style:none; cursor:pointer }
+.main-menu li { 
   float:left; 
   margin-right:10px;
   transition:all .3s ease 
 }
-li:hover { color:purple; transition:all .3s ease }
-li > a { position:relative }
+.main-menu li:hover { color:black; transition:all .3s ease }
+.main-menu li > a { position:relative }
 
 /*밑줄넣기 부분*/
-li > a::after {
+.main-menu li > a::after {
   content: '';
   left: 50%;
   height: 1px;
   display: block;
   position: absolute;
-  border-bottom: 2px solid purple;
+  border-bottom: 2px solid black;
   transition:all .3s ease;
 }
-li:hover > a::after {
+.main-menu li:hover > a::after {
   content: '';
   width: 100%;
   left: 0px;
   display: block;
   position: absolute;
-  border-bottom: 2px solid purple;
+  border-bottom: 2px solid black;
   transition:all .3s ease;
 }
 
