@@ -12,6 +12,8 @@
       <typeAlias alias="BrandDBVO" type="org.standard.project.brand.BrandDBVO"/>
       <typeAlias alias="MagazineLikeVO" type="org.standard.project.magazine.MagazineLikeVO"/>
       <typeAlias alias="ReviewVO" type="org.standard.project.review.ReviewVO"/>
+      <typeAlias alias="OrderHistoryVO" type="org.standard.project.order.OrderHistoryVO"/>
+      
       <!-- <typeAlias alias="ReviewVO" type="org.standard.project.magazine.ReviewVO"/> -->
    </typeAliases>
    <environments default="development">
