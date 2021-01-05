@@ -1,5 +1,6 @@
 package org.standard.project.review;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -14,5 +15,11 @@ public class ReviewDAO {
 	
 	public List<ReviewVO> getReviewListForSeller(ReviewVO vo) {
 		return mySQL.selectList(loc+"reviewListForSeller", vo);
+	}
+	
+	public ArrayList<ReviewVO> listProductReview(String pp_Id) {
+		ArrayList<ReviewVO> listProductReview = new ArrayList<ReviewVO>();
+		listProductReview =(ArrayList) mySQL.selectList(loc+"listProductReview", pp_Id);
+		return listProductReview;
 	}
 }
