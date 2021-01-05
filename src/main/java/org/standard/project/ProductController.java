@@ -159,6 +159,7 @@ public class ProductController {
 				product.setP_Id(orVO.get(0).getP_Id());
 			}catch(IndexOutOfBoundsException e) {
 				out.println("<script>alert('구매자만 작성할 수 있습니다.'); history.go(-1);</script>");
+				out.flush();
 			}
 			
 			product.setP_Id(orVO.get(0).getP_Id());
