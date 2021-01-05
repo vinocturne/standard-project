@@ -3,6 +3,7 @@ package org.standard.project.product;
 import java.util.ArrayList;
 
 import org.standard.project.brand.BrandDBVO;
+import org.standard.project.wishList.WishListVO;
 
 public interface ProductChildService {
 
@@ -10,5 +11,8 @@ public interface ProductChildService {
 	void registProductChild(ProductChildVO vo);
 	void deleteChildProduct(String p_Id);
 	void modifyChildProduct(ProductChildVO vo);
+
+	void purchase(WishListVO wishListVO);
+	int checkStack(String string);
 	
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 import org.standard.project.brand.BrandDBVO;
+import org.standard.project.wishList.WishListVO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Repository("ProductChildDAO")
@@ -30,5 +31,14 @@ public class ProductChildDAO {
 	
 	public void modifyChildProduct(ProductChildVO vo) {
 		mySQL.update(loc+"modifyChildProduct", vo);
+	}
+
+	public void purchase(WishListVO wishListVO) {
+		mySQL.update(loc+"purchase", wishListVO);
+		
+	}
+
+	public int checkStack(String string) {
+		return mySQL.selectOne(loc+"checkStack",string);
 	}
 }

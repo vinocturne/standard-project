@@ -47,9 +47,9 @@
 			<thead>
 				<tr>
 					<th style="width:5%; height:10%">옵션추가</th>
-					<th style="width:5%; height:10%"><input type="text" name="p_Color"></th>
-					<th style="width:5%; height:10%"><input type="text" name="p_Size"></th>
-					<th style="width:5%; height:10%"><input type="text" name="p_Stack"></th>
+					<th style="width:5%; height:10%">색상  <input type="text" name="p_Color"></th>
+					<th style="width:5%; height:10%">사이즈  <input type="text" name="p_Size"></th>
+					<th style="width:5%; height:10%">재고  <input type="text" name="p_Stack"></th>
 					<th style="width:5%; height:10%"><input type="submit" style= "width:60%; height:25px" value=등록></th>
 				</tr>
 			</thead>

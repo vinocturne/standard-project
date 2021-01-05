@@ -62,4 +62,10 @@
 	<select id="showCategoryList" resultType="ProductParentVO">
 		SELECT * FROM productParent WHERE pp_Category1=#{pp_Category1} and pp_Category2=#{pp_Category2}
 	</select>
+	<select id="purchase">
+		UPDATE product SET p_Stack = p_Stack-#{w_Quantity} WHERE p_Id =#{p_Id}
+	</select>
+	<select id="checkStack" parameterType = "String" resultType="_int">
+		select p_Stack from product where p_Id=#{string}
+	</select>
 </mapper>

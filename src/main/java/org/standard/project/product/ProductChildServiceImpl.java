@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.standard.project.brand.BrandDBVO;
+import org.standard.project.wishList.WishListVO;
 
 @Service("ProductChildService")
 public class ProductChildServiceImpl implements ProductChildService {
@@ -31,5 +32,18 @@ public class ProductChildServiceImpl implements ProductChildService {
 	@Override
 	public void modifyChildProduct(ProductChildVO vo) {
 		productChildDAO.modifyChildProduct(vo);
+	}
+
+
+
+	@Override
+	public void purchase(WishListVO wishListVO) {
+		productChildDAO.purchase(wishListVO);
+		
+	}
+
+	@Override
+	public int checkStack(String string) {
+		return productChildDAO.checkStack(string);
 	}
 }

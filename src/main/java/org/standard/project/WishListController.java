@@ -23,6 +23,7 @@ import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.order.OrderHistoryService;
 import org.standard.project.order.OrderHistoryVO;
+import org.standard.project.product.ProductChildService;
 import org.standard.project.wishList.WishListProductVO;
 import org.standard.project.wishList.WishListService;
 import org.standard.project.wishList.WishListVO;
@@ -34,6 +35,8 @@ public class WishListController {
 	WishListService wishListService;
 	@Resource(name="OrderHistoryService")
 	OrderHistoryService orderHistoryService;
+	@Resource(name="ProductChildService")
+	ProductChildService productChildService;
 	
 	@RequestMapping(value ="purchase")
 	public String purchase(HttpSession session,HttpServletRequest req)throws Exception {
@@ -66,14 +69,23 @@ public class WishListController {
 			vo.setO_Name((String)object.get("o_Name"));
 			vo.setO_Phone1((String)object.get("o_Phone1"));
 			vo.setO_Phone2((String)object.get("o_Phone2"));
-			//구매 내역에 추가
-			orderHistoryService.insertOrderHistory(vo);
-			//구매가 완료된 상품은 장바구니에서 제거
+			
 			WishListVO wishListVO = new WishListVO();
 			wishListVO.setC_Id((String) object.get("c_Id"));
 			wishListVO.setP_Id((String)object.get("p_Id"));
-			wishListService.deleteWishList(wishListVO);
-			
+			wishListVO.setW_Quantity(Integer.valueOf((String)object.get("o_Quantity")));
+			//구매 내역에 추가, 재고 -1, 재고가 0이면 돌려보내기?
+			//재고0이면 돌려보내고, 아니면 재고 감소후 결제되게하기.
+			//p_Id, o_Quantity필요.(위의 wishListVO는 c_Id,p_Id만을 활용해서 장바구니에서 삭제해주는 역할이였으므로, 구매를 원하는 수량을 넣어서 구매했을때 재고를 감소하는데에도 활용한다.)
+			//****만약에 재고가 없는경우??? 메세지를 어떻게 할까?
+			//1.재고가 없으면 무시하고, 나머지 우선 결제되게하기.
+			//=> 재고확인 먼저?
+			int presentStack = productChildService.checkStack((String)object.get("p_Id"));
+			if(presentStack>0&&presentStack>wishListVO.getW_Quantity()) {//재고 확인: 0보다 크고, 요청 수량보다 많은경우에 완료
+				productChildService.purchase(wishListVO); //재고-1
+				orderHistoryService.insertOrderHistory(vo);//구매내역에 입력
+				wishListService.deleteWishList(wishListVO); //장바구니에서 삭제
+			}
 
 		} 
 		return "index";
