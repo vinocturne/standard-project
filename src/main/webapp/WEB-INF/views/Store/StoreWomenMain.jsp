@@ -34,6 +34,8 @@ margin-top:7px;
 margin-bottom:3px;
 }
 
+/* SIDE BAR*/
+
 .col-auto ul li a{
   color: black;
   text-decoration: none;
@@ -56,10 +58,6 @@ margin-bottom:3px;
   width: 100%; 
   left: 0; 
 }
-
-a:hover{
- text-decoration:none;
- }
 
 
 </style>

@@ -58,11 +58,6 @@ margin-bottom:3px;
   left: 0; 
 }
 
-a:hover{
- text-decoration:none;
- }
-
-
 </style>
 
 </head>
