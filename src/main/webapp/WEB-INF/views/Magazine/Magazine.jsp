@@ -161,7 +161,7 @@ flex-wrap:rap;
      </div>
 
   	<c:if test="${i%j == j-1}">
-     ddd
+<!-- 여기서 엔터가 들어가야함 -->
 	</c:if>
 
    <c:set var="i" value="${i+1}" />
