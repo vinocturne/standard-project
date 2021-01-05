@@ -13,6 +13,8 @@ public interface WishListService  {
 	WishListProductVO getProductInfo(String p_Id);
 
 	void deleteWishList(WishListVO wishListVO);
+
+	void addWishList(WishListVO vo);
 	
 
 
