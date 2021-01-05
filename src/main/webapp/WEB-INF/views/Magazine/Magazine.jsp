@@ -21,7 +21,7 @@ width:1200px;
 
 body {
 	margin-left: 100px;
-	margin-right: 10%;
+	margin-right: 7%;
 	flex-wrap:rap;
 
 }
@@ -48,12 +48,11 @@ margin-top:73px;
 }
 
 
-
 .mainbody{
 display : grid;
 
 }
-
+ 
 .card-body{
 flex-wrap:rap;
 }
