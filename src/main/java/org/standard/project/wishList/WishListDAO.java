@@ -30,4 +30,9 @@ public class WishListDAO {
 		
 	}
 
+	public void addWishList(WishListVO vo) {
+		mySQL.insert(loc+"add",vo);
+		
+	}
+
 }

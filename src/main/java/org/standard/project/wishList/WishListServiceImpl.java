@@ -31,5 +31,12 @@ public class WishListServiceImpl implements WishListService {
 		
 	}
 
+	@Override
+	public void addWishList(WishListVO vo) {
+		wishListDAO.addWishList(vo);
+		
+	}
+
+
 
 }

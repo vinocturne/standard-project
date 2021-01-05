@@ -38,6 +38,23 @@ public class WishListController {
 	@Resource(name="ProductChildService")
 	ProductChildService productChildService;
 	
+	@RequestMapping(value="addWishList")
+	public void addWishList(HttpSession session,HttpServletRequest req) {
+		//아작스로 요청할 주소임으로 리턴페이지 없음.
+		CustomerVO customer = (CustomerVO) session.getAttribute("loginCustomer");
+		
+		//커맨드 객체로 받을지? 아작스 코드 작성하면서 
+		System.out.println("장바구니에 담기");
+		//필요정보 c_Id, p_Id,p_Price, w_Quantity
+		WishListVO vo = new WishListVO();
+		vo.setC_Id(customer.getC_Id());
+		vo.setP_Id("00150001white95");
+		vo.setP_Price(49000);
+		vo.setW_Quantity(1);
+		wishListService.addWishList(vo);
+		
+	}
+	
 	@RequestMapping(value ="purchase")
 	public String purchase(HttpSession session,HttpServletRequest req)throws Exception {
 		System.out.println("purchase 서버");

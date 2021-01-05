@@ -12,4 +12,7 @@
 	<select id="deleteWishList">
 		delete from wishlist where c_Id =#{c_Id} and p_Id=#{p_Id}
 	</select>
+	<select id="add">
+		insert into wishlist values(#{c_Id},#{p_Id},#{p_Price},#{w_Quantity})
+	</select>
 </mapper>
