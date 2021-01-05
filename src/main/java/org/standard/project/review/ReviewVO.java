@@ -5,7 +5,7 @@ import java.sql.Date;
 public class ReviewVO {
 	private int r_Seq;
 	private String p_Id, r_Title, r_Writer, r_Coment, parent_p_Id, pp_Name, r_ComentRe;
-	private Date o_Date;
+	private Date r_Date;
 	public int getR_Seq() {
 		return r_Seq;
 	}
@@ -54,16 +54,16 @@ public class ReviewVO {
 	public void setR_ComentRe(String r_ComentRe) {
 		this.r_ComentRe = r_ComentRe;
 	}
-	public Date getO_Date() {
-		return o_Date;
+	public Date getR_Date() {
+		return r_Date;
 	}
-	public void setO_Date(Date o_Date) {
-		this.o_Date = o_Date;
+	public void setR_Date(Date r_Date) {
+		this.r_Date = r_Date;
 	}
 	@Override
 	public String toString() {
 		return "ReviewVO [r_Seq=" + r_Seq + ", p_Id=" + p_Id + ", r_Title=" + r_Title + ", r_Writer=" + r_Writer
 				+ ", r_Coment=" + r_Coment + ", parent_p_Id=" + parent_p_Id + ", pp_Name=" + pp_Name + ", r_ComentRe="
-				+ r_ComentRe + ", o_Date=" + o_Date + "]";
+				+ r_ComentRe + ", o_Date=" + r_Date + "]";
 	}
 }

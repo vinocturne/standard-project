@@ -9,4 +9,8 @@
 	<select id="writeReview" resultType="ReviewVO">
 		INSERT INTO review (p_Id, r_Title, r_Writer, r_Date, r_Coment, parent_p_Id, pp_Name, r_ComentRe ) VALUES(#{p_Id}, #{r_Title}, #{r_Writer}, CURDATE(), #{r_Coment}, #{parent_p_Id}, #{pp_Name}, #{r_ComentRe});
 	</select> -->
+	<!-- 셀러 리뷰관리페이지에 들어갈 쿼리문 -->
+	<!-- <select id="reviewListForSeller" resultType="ReviewVO">
+		SELECT * FROM review
+	</select> -->
 </mapper>
