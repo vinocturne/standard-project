@@ -11,6 +11,6 @@
 	</select> --> 
 	<!-- 셀러 리뷰관리페이지에 들어갈 쿼리문 -->
 	<select id="reviewListForSeller" resultType="ReviewVO">
-		SELECT * FROM review
+		SELECT * FROM review where brandId=#{brandId}
 	</select>
 </mapper>

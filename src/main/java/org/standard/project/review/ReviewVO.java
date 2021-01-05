@@ -3,7 +3,7 @@ package org.standard.project.review;
 import java.sql.Date;
 
 public class ReviewVO {
-	private int r_Seq;
+	private int r_Seq, brandId;
 	private String p_Id, r_Title, r_Writer, r_Coment, parent_p_Id, pp_Name, r_ComentRe;
 	private Date r_Date;
 	public int getR_Seq() {
@@ -60,10 +60,16 @@ public class ReviewVO {
 	public void setR_Date(Date r_Date) {
 		this.r_Date = r_Date;
 	}
+	public int getBrandId() {
+		return brandId;
+	}
+	public void setBrandId(int brandId) {
+		this.brandId = brandId;
+	}
 	@Override
 	public String toString() {
 		return "ReviewVO [r_Seq=" + r_Seq + ", p_Id=" + p_Id + ", r_Title=" + r_Title + ", r_Writer=" + r_Writer
 				+ ", r_Coment=" + r_Coment + ", parent_p_Id=" + parent_p_Id + ", pp_Name=" + pp_Name + ", r_ComentRe="
-				+ r_ComentRe + ", o_Date=" + r_Date + "]";
+				+ r_ComentRe + ", o_Date=" + r_Date + ", brandId="+brandId+"]";
 	}
 }

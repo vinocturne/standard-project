@@ -13,8 +13,8 @@ public class ReviewDAO {
 	SqlSessionTemplate mySQL;
 	private String loc = "org.standard.project.ReviewMapper.";
 	
-	public List<ReviewVO> getReviewListForSeller(ReviewVO vo) {
-		return mySQL.selectList(loc+"reviewListForSeller", vo);
+	public List<ReviewVO> getReviewListForSeller(int brandId) {
+		return mySQL.selectList(loc+"reviewListForSeller", brandId);
 	}
 	
 	public ArrayList<ReviewVO> listProductReview(String pp_Id) {

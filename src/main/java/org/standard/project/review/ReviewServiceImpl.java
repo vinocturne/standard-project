@@ -11,8 +11,8 @@ public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	private ReviewDAO reviewDAO;
 	@Override
-	public List<ReviewVO> getReviewListForSeller(ReviewVO vo) {
-		return reviewDAO.getReviewListForSeller(vo);
+	public List<ReviewVO> getReviewListForSeller(int brandId) {
+		return reviewDAO.getReviewListForSeller(brandId);
 	}
 	
 	@Override
