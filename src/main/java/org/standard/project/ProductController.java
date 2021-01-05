@@ -1,6 +1,5 @@
 package org.standard.project;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.standard.project.brand.BrandDBVO;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.product.ProductChildService;
-import org.standard.project.product.ProductChildVO;
 import org.standard.project.product.ProductParentService;
 import org.standard.project.product.ProductParentVO;
 import org.standard.project.review.ReviewService;
@@ -50,10 +47,12 @@ public class ProductController {
 	}
 
 	@RequestMapping(value="/product", method = RequestMethod.GET)
-	public ModelAndView productDetail(ModelAndView mav, HttpServletRequest req) {
+	public ModelAndView productDetail(ModelAndView mav, HttpServletRequest req, HttpSession session) {
 		String pp_Id = req.getParameter("p_id");
 		System.out.println(pp_Id);
-		
+		if(pp_Id == "" || pp_Id == null) {
+			pp_Id = (String) session.getAttribute("productParent_session");
+		} 
 		ProductParentVO parentVO = productParentService.selectParentProduct(pp_Id);
 //		List<ProductChildVO> childVO = productChildService.listProductChild(pp_Id);
 		List<String> optionColor = productChildService.optionColor(pp_Id);
@@ -70,7 +69,7 @@ public class ProductController {
 		mav.addObject("p_VO", parentVO);
 		mav.addObject("optionColor", optionColor);
 		mav.addObject("optionSize", optionSize);
-		mav.addObject("r_List", reviewList);
+		mav.addObject("reviewList", reviewList);
 		
 		System.out.println(parentVO);
 		System.out.println(optionColor);
@@ -119,4 +118,32 @@ public class ProductController {
 		  } 
 		  return mav;
 	  }
+	  
+	  @RequestMapping(value = "/WriteReview", method = RequestMethod.POST)
+		public ModelAndView writeReview(HttpSession session, HttpServletRequest req, HttpServletResponse response, ModelAndView mav) throws Exception {
+			System.out.println("리뷰작성한것, 저장");
+			ReviewVO vo = new ReviewVO();
+			CustomerVO customerVO = (CustomerVO) session.getAttribute("loginCustomer");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			
+			String parent_p_Id = req.getParameter("parent_p_Id");
+			String brandId = req.getParameter("brandId");
+			String pp_Name = req.getParameter("pp_Name");
+			String r_Title = req.getParameter("r_Title");
+			String r_Coment = req.getParameter("r_Coment");
+			
+			int brandIntId = Integer.parseInt(brandId);
+			vo.setP_Id("0001001white100");
+			vo.setParent_p_Id(parent_p_Id);
+			vo.setBrandId(brandIntId);
+			vo.setPp_Name(pp_Name);
+			vo.setR_Title(r_Title);
+			vo.setR_Coment(r_Coment);
+			vo.setR_Writer(customerVO.getC_Id());
+			
+			reviewService.writeReview(vo);
+			mav.setViewName("redirect:/shop/product");
+			return mav;
+		}
 }
