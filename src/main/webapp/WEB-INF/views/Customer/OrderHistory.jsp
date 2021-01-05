@@ -26,7 +26,7 @@
 		</div>
 		<div class="orderHistory">
 		<%if(orderList!=null) {%>
-			<table class="type11">
+			<table class="type11">      
 				<thead>
 					<tr>
 						<th style="width:25%">주문일자</th>
@@ -55,7 +55,7 @@
 				</tbody>
 			</table>
 			<%}else{ %>
-						<h2> 주문 내역이 없습니다.</h2>
+						<h2> 주문 내역이 없습니다</h2>
 			<%} %>
 		</div>
 		<div class="order_index">
