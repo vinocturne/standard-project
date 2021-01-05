@@ -54,6 +54,7 @@ public class ProductController {
 		if(pp_Id == "" || pp_Id == null) {
 			pp_Id = (String) session.getAttribute("productParent_session");
 		} 
+		session.setAttribute("productParent_session", pp_Id);
 		ProductParentVO parentVO = productParentService.selectParentProduct(pp_Id);
 //		List<ProductChildVO> childVO = productChildService.listProductChild(pp_Id);
 		List<String> optionColor = productChildService.optionColor(pp_Id);
