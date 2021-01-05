@@ -6,7 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
-    
+
     <style>
     
     .productside{
@@ -61,7 +61,6 @@
     
 
     </style>
-    
 </head>
 <%@ include file="../header.jsp" %> 
 
@@ -134,26 +133,55 @@
 			</div>
 			<br>
 			<!-- 장바구니 필요 데이터 -->
-			<input type="hidden" name="p_Id" value="<%=pp_VO.getParent_p_Id()%>">
-			<input type="hidden" name="p_Price" value="<%=pp_VO.getPp_Price() %>">
-			<input type="hidden" name="w_Quantity" value="1">
+			<input type="hidden" id="p_Id" name="p_Id" value="<%=pp_VO.getParent_p_Id()%>">
+			<input type="hidden" id="p_Price" name="p_Price" value="<%=pp_VO.getPp_Price() %>">
+			<input type="hidden" id="w_Quantity" name="w_Quantity" value="1">
 			<!-- 구매 필요 데이터 -->
-			<input type="hidden" name="pp_Name" value="<%=pp_VO.getPp_Name() %>">
-			<input type="hidden" name="p_Brand" value="<%=pp_VO.getPp_Brand() %>">
-			<input type="hidden" name="pp_thumb" value="<%=pp_VO.getPp_thumb()%>">
+			<input type="hidden" id="pp_Name" name="pp_Name" value="<%=pp_VO.getPp_Name() %>">
+			<input type="hidden" id="p_Brand" name="p_Brand" value="<%=pp_VO.getPp_Brand() %>">
+			<input type="hidden" id="pp_thumb"name="pp_thumb" value="<%=pp_VO.getPp_thumb()%>">
 
 			
 			<input type="submit" value="장바구니" formaction="/project/wishList/addWishList">
-			<input type="submit" value="구매하기" formaction="/project/Customer/OrderForm">
 		</div>
 		</form>		
-		<div class="choiceButton1">
-				<button class="buyclass"><a href="/project/Customer/OrderForm">구매하기</a></button>
+			<button type="button" class="orderNow" value="구매하기">구매하기</button>
+		<script>
 			
-
-			
-				<button class="listclass"><a href="/project/Customer/cart">장바구니</a></button>
-		</div>
+		    $(".orderNow").click(function() {
+                     var jsonArr = new Array();
+                     
+                     var jsonStr = {
+                    		 pp_Name : $("#pp_Name").val(), p_Brand : $("#p_Brand").val(), w_Quantity:$("#w_Quantity").val(), p_Price:$("#p_Price").val(),
+                    		 pp_thumb:$("#pp_thumb").val(), p_Id : $("#p_Id").val()+$("#p_Color").val()+$("#p_Size").val(), p_Color:$("#p_Color").val(),p_Size:$("#p_Size").val()
+                     }
+                     console.log(jsonStr);
+                     jsonArr.push(jsonStr);
+                     
+                     jsonStringfied = JSON.stringify(jsonArr);
+                     console.log(jsonStringfied);
+                     
+                      if (!(jsonStringfied == "")) {
+                        
+                         var form = document.createElement('form');
+                         form.setAttribute('method', 'post'); //GET 전환 가능
+                         form.setAttribute('action', '/project/wishList/order');
+                         document.charset = "utf-8";
+                         
+                             var hiddenField = document.createElement('input');
+                             hiddenField.setAttribute('type', 'hidden'); //값 입력
+                             hiddenField.setAttribute('name', "data");
+                             hiddenField.setAttribute('value', jsonStringfied);
+                             form.appendChild(hiddenField);
+                         
+                         document.body.appendChild(form);
+                         form.submit();
+						
+                     }else{
+                        alert("주문할 상품을 선택해주세요");
+                     }
+               }); 
+            </script>
 		
 	</div><!-- Product class 끝 -->
 	<div class="review">
