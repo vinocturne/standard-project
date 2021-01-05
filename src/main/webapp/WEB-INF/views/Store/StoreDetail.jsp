@@ -87,7 +87,7 @@
 
 
 
-<div class="Product" style = padding-top:57px;>
+	<div class="Product" style = padding-top:57px;>
 		
 			<%
 			ProductParentVO pp_VO = (ProductParentVO)request.getAttribute("p_VO");
@@ -101,7 +101,7 @@
 		style="width:500px; height:500px" class="picture">
 		</div>
 		
-		<form method="PORT">
+		<form method="POST">
 		<div class="productside" style = border : solid 1px red;>
 			<div class="explain">
 				<h1><%=pp_VO.getPp_Name() %></h1><br>
@@ -146,8 +146,8 @@
 				<button class="listclass"><a href="/project/Customer/cart">장바구니</a></button>
 		</div>
 		
-		
-	 <div class="review">
+	</div><!-- Product class 끝 -->
+	<div class="review">
 	 
 
 				<div class="title_area" >
@@ -189,9 +189,9 @@
 			</tbody>
 		</table>
 		<form action="/project/shop/WriteReview" method="POST" enctype="multipart/form-data">
-		<input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=p_VO.getParent_p_Id()%>">
-		<input type="hidden" id="brandId" name="brandId" value="<%=p_VO.getPp_Brand()%>">
-		<input type="hidden" id="pp_Name" name="pp_Name" value="<%=p_VO.getPp_Name()%>">
+		<input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=pp_VO.getParent_p_Id()%>">
+		<input type="hidden" id="brandId" name="brandId" value="<%=pp_VO.getPp_Brand()%>">
+		<input type="hidden" id="pp_Name" name="pp_Name" value="<%=pp_VO.getPp_Name()%>">
 		<%-- <input type="hidden" id="p_Id" name="p_Id" value="<%=vo.getPp_Brand()%>"> --%>
 		<table class="table table-hover" height="100" width="1100">
 			<thead>
@@ -218,12 +218,6 @@
 		        
 	</div><!--review class 끝  -->
 				 
-
- </div>  <!-- Product class 끝 -->
  
- 
- 
-
- 
-</div>
+</div><br>
 <%@ include file="../footer.jsp"%>
