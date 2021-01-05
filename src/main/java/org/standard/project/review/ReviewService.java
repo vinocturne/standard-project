@@ -4,6 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface ReviewService {
-	List<ReviewVO> getReviewListForSeller(ReviewVO vo);
+	List<ReviewVO> getReviewListForSeller(int brandId);
 	ArrayList<ReviewVO> listProductReview(String pp_Id);
 }

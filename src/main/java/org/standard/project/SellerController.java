@@ -305,7 +305,11 @@ public class SellerController {
 	public ModelAndView sellerReview(HttpSession session, ModelAndView mav, HttpServletResponse response, ReviewVO vo)
 			throws IOException {
 		mav = new ModelAndView("/Seller/Review");
-		List<ReviewVO> reviewList = reviewService.getReviewListForSeller(vo);
+		CustomerVO cVO = (CustomerVO)session.getAttribute("loginCustomer");
+		BrandDBVO bVO = brandDBService.getBrandId(cVO);
+		int brandId = bVO.getBrandId();
+		
+		List<ReviewVO> reviewList = reviewService.getReviewListForSeller(brandId);
 		mav.addObject("list",reviewList);
 		return mav;
 	}
