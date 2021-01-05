@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="org.standard.project.ProductController" %>
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.standard.project.order.OrderHistoryVO"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -26,14 +28,17 @@
                             <th> 
                                 <img src="../ResourcesFile/img/people.png" width="100px" height="100px" alt="">    
                             </th>
+                            	
                                 <td class="textbox"> 
-                                  
-                                   <%-- <%=ProductController.getp_Name()--%>
-                                   <%-- <%=ProductController.getp_Brand()--%>
-                                   <%-- <%=ProductController.getp_Size()--%>
-                                   <%-- <%=ProductController.getp_Price()--%>
+                                <%ArrayList<OrderHistoryVO> orderList = (ArrayList)session.getAttribute("orderList"); %>
+                                <%for(int i=0; i<orderList.size();i++){ %>  
+                                
+                                   <%=orderList.get(i).getP_Id() %> <br>
+                                   <%=orderList.get(i).getO_Quantity() %><br>
+                                   <%=orderList.get(i).getO_Date() %>
                                    
-                                </td>    
+                                </td>   
+                                <% } %> 
                             </tr>
                         </thead>
                     </table>
