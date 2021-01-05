@@ -17,10 +17,12 @@ import org.standard.project.customer.CustomerVO;
 import org.standard.project.order.OrderHistoryService;
 import org.standard.project.order.OrderHistoryVO;
 import org.standard.project.product.ProductChildService;
+import org.standard.project.product.ProductChildVO;
 import org.standard.project.product.ProductParentService;
 import org.standard.project.product.ProductParentVO;
 import org.standard.project.review.ReviewService;
 import org.standard.project.review.ReviewVO;
+import org.standard.project.vo.Product_detailVO;
 
 @Controller
 @RequestMapping(value = "/shop")
@@ -132,27 +134,36 @@ public class ProductController {
 			System.out.println("리뷰작성한것, 저장");
 			ReviewVO vo = new ReviewVO();
 			OrderHistoryVO orderVO = new OrderHistoryVO();
+			ProductChildVO product = new ProductChildVO();
+			ArrayList<OrderHistoryVO> orVO = new ArrayList<OrderHistoryVO>();
 			CustomerVO customerVO = (CustomerVO) session.getAttribute("loginCustomer");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			
 			try{
 				vo.setR_Writer(customerVO.getC_Id());
+				String pp_Id = (String) session.getAttribute("productParent_session");
+				orderVO.setParent_p_Id(pp_Id);
+				orderVO.setC_Id(customerVO.getC_Id());
 			}catch (NullPointerException e){
 				out.println("<script>alert('로그인해주세요.'); history.go(-1);</script>");
 				out.flush();
 			}
-			//커스터머에서 여기 parent_p_Id로 해당 p_Id를 가지고 있는 계정 
-			String pp_Id = (String) session.getAttribute("productParent_session");
-			orderVO.setParent_p_Id(pp_Id);
-			orderVO.setC_Id(customerVO.getC_Id());
 			try{
-				orderVO = orderHistoryService.cusOrder(orderVO);
+				orVO = orderHistoryService.cusOrder(orderVO);
 			}catch (NullPointerException e) {
 				out.println("<script>alert('구매자만 작성할 수 있습니다.'); history.go(-1);</script>");
 				out.flush();
 			}
-			vo.setP_Id(orderVO.getP_Id());
+			try {
+				product.setP_Id(orVO.get(0).getP_Id());
+			}catch(IndexOutOfBoundsException e) {
+				out.println("<script>alert('구매자만 작성할 수 있습니다.'); history.go(-1);</script>");
+			}
+			
+			product.setP_Id(orVO.get(0).getP_Id());
+			vo.setP_Id(product.getP_Id());
+			System.out.println(vo);
 			String parent_p_Id = req.getParameter("parent_p_Id");
 			String brandId = req.getParameter("brandId");
 			String pp_Name = req.getParameter("pp_Name");
@@ -165,7 +176,7 @@ public class ProductController {
 			vo.setPp_Name(pp_Name);
 			vo.setR_Title(r_Title);
 			vo.setR_Coment(r_Coment);
-			
+			System.out.println(vo);
 			reviewService.writeReview(vo);
 			mav.setViewName("redirect:/shop/product");
 			return mav;

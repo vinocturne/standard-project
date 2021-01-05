@@ -60,7 +60,7 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	 */
 	
 	@Override
-	public OrderHistoryVO cusOrder(OrderHistoryVO vo) {
+	public ArrayList<OrderHistoryVO> cusOrder(OrderHistoryVO vo) {
 		return orderHistoryDAO.cusOrder(vo);
 	}
 
