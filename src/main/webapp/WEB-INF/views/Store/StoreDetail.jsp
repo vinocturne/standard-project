@@ -112,22 +112,22 @@
 				<br>
 				<h2 class="detailExplain">상품 상세정보 <br></h2>
 					<h4>Color</h4><br>
-					<select id="ColorSelect">			
+					<select id="ColorSelect" name="p_Color">			
 					<%
 						for(int i=0; i<oC.size(); i++) {
 					%>
-						<option name="p_Color" value="<%=oC.get(i)%>"><%=oC.get(i) %></option>
+						<option value="<%=oC.get(i)%>"><%=oC.get(i) %></option>
 					<%
 					}
 					%>
 					</select><br><br>
 					<h4>Size</h4><br>
-					<select id="SizeSelect">
+					<select id="SizeSelect" name="p_Size">
 			
 					<%
 						for(int i=0; i<oS.size(); i++) {
 					%>
-						<option name="p_Size" value="<%=oS.get(i)%>"><%=oS.get(i) %></option>
+						<option value="<%=oS.get(i)%>"><%=oS.get(i) %></option>
 					<%
 					}
 					%>

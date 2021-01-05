@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.standard.project.order.OrderHistoryVO;
+import org.standard.project.product.ProductParentVO;
 
 @Service("ReviewService")
 public class ReviewServiceImpl implements ReviewService {
@@ -22,6 +24,10 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public void writeReview(ReviewVO vo) {
 		reviewDAO.writeReview(vo);
+	}
+	@Override
+	public OrderHistoryVO cusOrder(OrderHistoryVO vo) {
+		return reviewDAO.cusOrder(vo);
 	}
 
 }

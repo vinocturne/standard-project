@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.standard.project.brand.BrandDBVO;
+import org.standard.project.order.OrderHistoryVO;
 import org.standard.project.wishList.WishListVO;
 
 @Service("ProductChildService")
@@ -63,8 +64,6 @@ public class ProductChildServiceImpl implements ProductChildService {
 		return productChildDAO.selectProductDetail(parent_p_Id);
 	}
 
-	@Override
-	public ProductChildVO selectProductChildDetail(String p_Id) {
-		return productChildDAO.selectProductChildDetail(p_Id);
-	}
+
+
 }

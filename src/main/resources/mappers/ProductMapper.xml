@@ -76,8 +76,4 @@
 	<select id="optionSize" resultType="String">
 		select distinct p_Size from product WHERE parent_p_Id=#{parent_p_Id}
 	</select>
-	<!-- p_Id로 productChildVO 뽑아내기 -->
-	<select id="getProductChild" parameterType = "String" resultType="ProductChildVO">
-	 SELECT * FROM product WHERE p_Id=#{p_Id}
-	</select>
 </mapper>

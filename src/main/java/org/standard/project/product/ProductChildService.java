@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.standard.project.brand.BrandDBVO;
+import org.standard.project.order.OrderHistoryVO;
 import org.standard.project.wishList.WishListVO;
 
 public interface ProductChildService {
@@ -18,6 +19,5 @@ public interface ProductChildService {
 	int checkStack(String string);
 	List<String>optionColor(String parent_p_Id);
 	List<String>optionSize(String parent_p_Id);
-	ProductChildVO selectProductChildDetail(String p_Id);
 	
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerVO;
+import org.standard.project.order.OrderHistoryVO;
 import org.standard.project.product.ProductChildService;
 import org.standard.project.product.ProductChildVO;
 import org.standard.project.product.ProductParentService;
@@ -127,24 +128,37 @@ public class ProductController {
 		public ModelAndView writeReview(HttpSession session, HttpServletRequest req, HttpServletResponse response, ModelAndView mav) throws Exception {
 			System.out.println("리뷰작성한것, 저장");
 			ReviewVO vo = new ReviewVO();
+			OrderHistoryVO orVO = new OrderHistoryVO();
 			CustomerVO customerVO = (CustomerVO) session.getAttribute("loginCustomer");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			
+			try{
+				vo.setR_Writer(customerVO.getC_Id());
+			}catch (NullPointerException e){
+				out.println("<script>alert('로그인해주세요.'); history.go(-1);</script>");
+				out.flush();
+			}
+			
+			//커스터머에서 여기 parent_p_Id로 해당 p_Id를 가지고 있는 계정 
+			String pp_Id = (String) session.getAttribute("productParent_session");
+			orVO.get
+			//오더 히스토리에서 아이디랑 pp_Id 넣어서  p_Id를 뽑는다. 
+			
+			vo.setP_Id("0001001white100");
 			String parent_p_Id = req.getParameter("parent_p_Id");
 			String brandId = req.getParameter("brandId");
 			String pp_Name = req.getParameter("pp_Name");
 			String r_Title = req.getParameter("r_Title");
 			String r_Coment = req.getParameter("r_Coment");
-			
 			int brandIntId = Integer.parseInt(brandId);
-			vo.setP_Id("0001001white100");
+			
+			
 			vo.setParent_p_Id(parent_p_Id);
 			vo.setBrandId(brandIntId);
 			vo.setPp_Name(pp_Name);
 			vo.setR_Title(r_Title);
 			vo.setR_Coment(r_Coment);
-			vo.setR_Writer(customerVO.getC_Id());
 			
 			reviewService.writeReview(vo);
 			mav.setViewName("redirect:/shop/product");
