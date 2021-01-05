@@ -36,6 +36,8 @@ import org.standard.project.product.ProductChildService;
 import org.standard.project.product.ProductChildVO;
 import org.standard.project.product.ProductParentService;
 import org.standard.project.product.ProductParentVO;
+import org.standard.project.review.ReviewService;
+import org.standard.project.review.ReviewVO;
 
 @Controller
 @RequestMapping(value = "/Seller")
@@ -50,6 +52,8 @@ public class SellerController {
 	ProductChildService productChildService;
 	@Resource(name = "OrderHistoryService")
 	OrderHistoryService orderHistoryService;
+	@Resource(name = "ReviewService")
+	ReviewService reviewService;
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
@@ -298,10 +302,11 @@ public class SellerController {
 //	}
 
 	@RequestMapping(value = "/Review", method = RequestMethod.GET)
-	public ModelAndView sellerReview(HttpSession session, ModelAndView mav, HttpServletResponse response)
+	public ModelAndView sellerReview(HttpSession session, ModelAndView mav, HttpServletResponse response, ReviewVO vo)
 			throws IOException {
-
 		mav = new ModelAndView("/Seller/Review");
+		List<ReviewVO> reviewList = reviewService.getReviewListForSeller(vo);
+		mav.addObject("list",reviewList);
 		return mav;
 	}
 
