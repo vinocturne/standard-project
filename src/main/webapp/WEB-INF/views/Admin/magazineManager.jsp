@@ -125,7 +125,15 @@
 								<td>${magazine.m_Date}</td>
 								<td>${magazine.m_Hit}</td>
 								<td>${magazine.m_Like}</td>
-								<td><button onclick="window.location.href='magazineModify?seq=${magazine.m_Seq}'">수정</button></td>
+	<%-- 							<td><button onclick="window.location.href='magazineModify?seq=${magazine.m_Seq}'">
+				<img src="<%=request.getContextPath()%>/ResourcesFile/img/magazinemodify.PNG" alt="cart" width="25" height="25">
+</button></td> --%>
+
+<td>
+<a onclick="window.location.href='magazineModify?seq=${magazine.m_Seq}'">
+<img src="<%=request.getContextPath()%>/ResourcesFile/img/magazinemodify.PNG" alt="cart" width="25" height="25">
+
+</td>
 							</tr>
 						</c:forEach>
 					</c:when>
