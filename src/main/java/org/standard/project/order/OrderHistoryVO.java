@@ -5,10 +5,16 @@ import java.sql.Date;
 public class OrderHistoryVO {
 	//FK: p_Id (reference product(p_id)), p_Price (reference product(p_Price))
 	private int o_Num, p_Price, o_Quantity, o_TotalPrice, o_BrandId;
-    private String c_Id, p_Id, o_Delivery;
+    public String getParent_p_Id() {
+		return parent_p_Id;
+	}
+	public void setParent_p_Id(String parent_p_Id) {
+		this.parent_p_Id = parent_p_Id;
+	}
+	private String c_Id, p_Id, o_Delivery;
     private Date o_Date;
     private String zipcode,o_Address1,o_Address2,o_Name,o_Phone1,o_Phone2;
-    
+    private String parent_p_Id;
 	public int getO_BrandId() {
 		return o_BrandId;
 	}
@@ -105,7 +111,7 @@ public class OrderHistoryVO {
 				+ ", o_TotalPrice=" + o_TotalPrice + ", o_BrandId=" + o_BrandId + ", c_Id=" + c_Id + ", p_Id=" + p_Id
 				+ ", o_Delivery=" + o_Delivery + ", o_Date=" + o_Date + ", zipcode=" + zipcode + ", o_Address1="
 				+ o_Address1 + ", o_Address2=" + o_Address2 + ", o_Name=" + o_Name + ", o_Phone1=" + o_Phone1
-				+ ", o_Phone2=" + o_Phone2 + "]";
+				+ ", o_Phone2=" + o_Phone2 + ", parent_p_Id=" + parent_p_Id + "]";
 	}
     
 }
