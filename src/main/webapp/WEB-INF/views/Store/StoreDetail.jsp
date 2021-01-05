@@ -106,18 +106,25 @@
 					
 				
 				<h4><%=p_VO.getPp_Price() %></h4>
-				<%
-				for(int i=0; i<c_VO.size(); i++) {
-				%>
+				
 				<br>
 				<h2 class="detailExplain">상품 상세정보 <br></h2>
-					<h4> 브랜드  :  <%=p_VO.getPp_Brand() %></h4>
-					<br>
-					<h4> 상품종류 :  <%=p_VO.getPp_Category2() %></h4>
-		
+					<h4>Color</h4><br>
+					<select id="ColorSelect">
+			
+					<%
+						for(int i=0; i<c_VO.size(); i++) {
+					%>
+						<option value="<%=c_VO.get(i).getP_Color()%>"><%=c_VO.get(i).getP_Color() %></option>
 					<%
 					}
 					%>
+				
+					</select>
+					<br>
+					<h4> 상품종류 :  <%=p_VO.getPp_Category2() %></h4>
+		
+					
 				
 			</div>
 			
