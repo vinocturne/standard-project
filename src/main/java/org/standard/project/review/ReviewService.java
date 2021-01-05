@@ -1,5 +1,7 @@
 package org.standard.project.review;
 
-public interface ReviewService {
+import java.util.List;
 
+public interface ReviewService {
+	List<ReviewVO> getReviewListForSeller(ReviewVO vo);
 }
