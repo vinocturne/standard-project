@@ -42,7 +42,12 @@ public class WishListController {
 	public String addWishList(HttpSession session,HttpServletRequest req,WishListVO vo) {
 		//아작스로 요청할 주소임으로 리턴페이지 없음.
 		CustomerVO customer = (CustomerVO) session.getAttribute("loginCustomer");
+		String pp_Id = req.getParameter("p_Id");
+		String p_Color = req.getParameter("p_Color");
+		String p_Size = req.getParameter("p_Size");
 		
+		String p_Id = pp_Id+p_Color+p_Size;
+		vo.setP_Id(p_Id);
 		//커맨드 객체로 받을지? 아작스 코드 작성하면서 
 		System.out.println("장바구니에 담기");
 		//필요정보 c_Id, p_Id,p_Price, w_Quantity
