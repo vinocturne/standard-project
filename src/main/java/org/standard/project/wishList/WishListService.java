@@ -11,6 +11,8 @@ public interface WishListService  {
 	ArrayList<WishListVO> getWishList(String c_Id);
 
 	WishListProductVO getProductInfo(String p_Id);
+
+	void deleteWishList(WishListVO wishListVO);
 	
 
 

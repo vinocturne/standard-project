@@ -9,4 +9,7 @@
 	<select id="getProductInfo" resultType="org.standard.project.wishList.WishListProductVO">
 	SELECT p.p_Id,p.parent_p_Id,pp_Name,p_Color,p_Size,pp_thumb,p_Stack,pp_Price,p_Brand FROM  product p JOIN productparent pp ON p.parent_p_Id = pp.parent_p_Id WHERE p_Id=#{p_Id}
 	</select>
+	<select id="deleteWishList">
+		delete from wishlist where c_Id =#{c_Id} and p_Id=#{p_Id}
+	</select>
 </mapper>

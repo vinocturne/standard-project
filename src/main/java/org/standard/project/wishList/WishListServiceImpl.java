@@ -25,5 +25,11 @@ public class WishListServiceImpl implements WishListService {
 		return productVO;
 	}
 
+	@Override
+	public void deleteWishList(WishListVO wishListVO) {
+		wishListDAO.deleteWishList(wishListVO);
+		
+	}
+
 
 }
