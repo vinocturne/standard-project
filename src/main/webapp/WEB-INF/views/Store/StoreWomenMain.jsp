@@ -12,6 +12,7 @@
 <style>
 .secondbody{
 width:1200px;
+margin-top: 45px;
 }
 
 .content_wrap {
@@ -73,8 +74,7 @@ margin-bottom:3px;
 				<p class="side_nav_title">Store</p>
 				<ul>
 					<li><a href="/project/shop/StoreWomenMain" class="side_nav_title">Women</a></li>
-					<li><a href="#"> <!--줄띄우기 -->
-					</a></li>
+				
 					<li><a href="/project/shop/StoreWomenMain?category=Top">TOP</a></li>
 					<li><a href="/project/shop/StoreWomenMain?category=Bottom">BOTTOM</a></li>
 					<li><a href="/project/shop/StoreWomenMain?category=Dress">DRESS</a></li>
@@ -94,7 +94,7 @@ margin-bottom:3px;
    <c:when test="${fn:length(list)>0}">
     <c:forEach var="productParent" items="${list}">
      
-     <div class="secondbody" style = padding-top:46px;> 
+     <div class="secondbody"> 
      <div class="mainbody"> 
     	 <div class="card" style="width:350px; height:390px">
 		    <a href="/project/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:348px; height:310px"></a>
@@ -116,9 +116,9 @@ margin-bottom:3px;
     </c:forEach>
    </c:when>
   <c:otherwise>
-   <tr>
-    <td>존재하지 않습니다.</td>
-   </tr>
+  <div class="secondbody" style="padding-left:100px">
+	 판매중인 상품이 없습니다.
+   </div>   
   </c:otherwise>
   </c:choose>
 
