@@ -133,9 +133,19 @@
 					%>
 			</div>
 			<br>
+			<!-- 장바구니 필요 데이터 -->
 			<input type="hidden" name="p_Id" value="">
+			<input type="hidden" name="p_Price" value="">
+			<input type="hidden" name="w_Quantity" value="">
+			<!-- 구매 필요 데이터 -->
+			<input type="hidden" name="pp_Name" value="">
+			<input type="hidden" name="p_Brand" value="">
+			<input type="hidden" name="pp_thumb" value="">
+			<input type="hidden" name="p_Color" value="">
+			<input type="hidden" name="p_Size" value="">
+			
 			<input type="submit" value="장바구니" formaction="/project/wishList/addWishList">
-			<input type="submit" value="구매하기" formaction="/manage/delete">
+			<input type="submit" value="구매하기" formaction="/project/Customer/OrderForm">
 		</div>
 		</form>		
 		<div class="choiceButton1">
