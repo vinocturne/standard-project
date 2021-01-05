@@ -1,19 +1,27 @@
 package org.standard.project;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.standard.project.brand.BrandDBVO;
+import org.standard.project.customer.CustomerVO;
 import org.standard.project.product.ProductChildService;
 import org.standard.project.product.ProductChildVO;
 import org.standard.project.product.ProductParentService;
 import org.standard.project.product.ProductParentVO;
+import org.standard.project.review.ReviewService;
+import org.standard.project.review.ReviewVO;
 
 @Controller
 @RequestMapping(value = "/shop")
@@ -23,6 +31,9 @@ public class ProductController {
 	
 	@Resource(name = "ProductChildService")
 	ProductChildService productChildService;
+	
+	@Resource(name = "ReviewService")
+	ReviewService reviewService;
 	
 	//	남자, 여자 전체 상품 보여주는 매퍼 추가.
 	// 남자의 경우 productParentService.showManProductList();를 리스트로 받아오면 되고
@@ -45,10 +56,17 @@ public class ProductController {
 		
 		ProductParentVO parentVO = productParentService.selectParentProduct(pp_Id);
 		List<ProductChildVO> childVO = productChildService.listProductChild(pp_Id);
+		////
+		//pp_Id를 받아서 리스트 
+		System.out.println("리스트 나온다");
+		ArrayList<ReviewVO> reviewList = new ArrayList<ReviewVO>();
+		reviewList = reviewService.listProductReview(pp_Id);
+		///
 		
 		mav = new ModelAndView("/Store/StoreDetail");
 		mav.addObject("p_VO", parentVO);
 		mav.addObject("c_VO", childVO);
+		mav.addObject("r_List", reviewList);
 		
 		System.out.println(parentVO);
 		System.out.println(childVO);
@@ -97,6 +115,4 @@ public class ProductController {
 		  } 
 		  return mav;
 	  }
-	  
-	  
 }

@@ -1,5 +1,6 @@
 package org.standard.project.review;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,11 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public List<ReviewVO> getReviewListForSeller(ReviewVO vo) {
 		return reviewDAO.getReviewListForSeller(vo);
+	}
+	
+	@Override
+	public ArrayList<ReviewVO> listProductReview(String pp_Id) {
+		return reviewDAO.listProductReview(pp_Id);
 	}
 
 }
