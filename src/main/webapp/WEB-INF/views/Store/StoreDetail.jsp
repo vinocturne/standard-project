@@ -91,7 +91,8 @@
 		
 			<%
 			ProductParentVO p_VO = (ProductParentVO)request.getAttribute("p_VO");
-			List<ProductChildVO> c_VO = (List<ProductChildVO>)request.getAttribute("c_VO");
+			List<String> oC = (List<String>)request.getAttribute("optionColor");
+			List<String> oS = (List<String>)request.getAttribute("optionSize");
 			%>
 		
 		<div class="image">
@@ -113,17 +114,23 @@
 					<select id="ColorSelect">
 			
 					<%
-						for(int i=0; i<c_VO.size(); i++) {
+						for(int i=0; i<oC.size(); i++) {
 					%>
-						<option value="<%=c_VO.get(i).getP_Color()%>"><%=c_VO.get(i).getP_Color() %></option>
+						<option value="<%=oC.get(i)%>"><%=oC.get(i) %></option>
 					<%
 					}
 					%>
-				
-					</select>
-					<br>
-					<h4> 상품종류 :  <%=p_VO.getPp_Category2() %></h4>
-		
+					</select><br><br>
+					<h4>Size</h4><br>
+					<select id="SizeSelect">
+			
+					<%
+						for(int i=0; i<oS.size(); i++) {
+					%>
+						<option value="<%=oS.get(i)%>"><%=oS.get(i) %></option>
+					<%
+					}
+					%>
 					
 				
 			</div>
