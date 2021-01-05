@@ -47,7 +47,9 @@
 						<td><%=orderList.get(i).getP_Price() %></th>
 						<td><%=orderList.get(i).getO_Quantity() %></th>
 						<td><%=orderList.get(i).getO_TotalPrice() %></th>
-						<td><%=orderList.get(i).getO_Delivery() %></th>
+						<td><%=orderList.get(i).getO_Delivery() %><br>
+						<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');">후기작성</button>
+						</th>
 					</tr>
 					
 					<%}//for %>
