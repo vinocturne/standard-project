@@ -82,6 +82,8 @@ public class ProductController {
 		mav.addObject("stockCheck", stockMap);
 		mav.addObject("optionColor", optionColor);
 		mav.addObject("optionSize", optionSize);
+		System.out.println("/product 컨트롤러에서 저장해주는 optionSize : " + optionSize);
+		System.out.println("optionSize 배열 1번째"+optionSize.get(0));
 		mav.addObject("reviewList", reviewList);
 		
 		
