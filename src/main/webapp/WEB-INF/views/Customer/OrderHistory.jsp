@@ -15,9 +15,9 @@
 	<%@ include file="../side_nav.jsp"%>
 	
 	<%request.getAttribute("productInfoList"); %>
-	<%ArrayList<ProductParentVO> productInfoList = (ArrayList)session.getAttribute("productInfoList"); %>
+	<%ArrayList<ProductParentVO> productInfoList = (ArrayList)request.getAttribute("productInfoList"); %>
 	<%request.getAttribute("orderHistory"); %>
-	<%ArrayList<OrderHistoryVO> orderHistory = (ArrayList)session.getAttribute("orderHistory"); %>
+	<%ArrayList<OrderHistoryVO> orderHistory = (ArrayList)session.getAttribute("orderList"); %>
 	
 	<!-- ORDER :주문조회-->
 	<div class="order_wrap">
@@ -48,15 +48,15 @@
 				<%for(int j=0; i<orderHistory.size();i++){ %>
 				
 					<tr>
-						<td><%=orderHistory.get(j).getO_Date() %></th>
+						<td><%=orderHistory.get(j).getO_Date() %></td>
 						<td><%=productInfoList.get(i).getPp_thumb() %><br>
-							<%=productInfoList.get(i).getPp_Name() %></th>
-						<td><%=productInfoList.get(i).getPp_Price() %></th>
-						<td><%=orderHistory.get(j).getO_Quantity() %></th>
-						<td><%=orderHistory.get(j).getO_TotalPrice() %></th>
+							<%=productInfoList.get(i).getPp_Name() %></td>
+						<td><%=productInfoList.get(i).getPp_Price() %></td>
+						<td><%=orderHistory.get(j).getO_Quantity() %></td>
+						<td><%=orderHistory.get(j).getO_TotalPrice() %></td>
 						<td><%=orderHistory.get(j).getO_Delivery() %><br>
 						<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');">후기작성</button>
-						</th>
+						</td>
 					</tr>
 					
 					<%}//for %>
@@ -64,9 +64,9 @@
 				</tbody>
 			</table>
 			<%} %>
-			<%}else %>
+			<%} else{%>
 						<h2> 주문 내역이 없습니다</h2>
-		
+			<%}%>
 		</div>
 		<div class="order_index">
                     <button type="button" class="" onclick=""><button> << </button></a>
