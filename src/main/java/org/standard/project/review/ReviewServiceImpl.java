@@ -35,5 +35,11 @@ public class ReviewServiceImpl implements ReviewService {
 		reviewDAO.modifyReviewReply(vo);
 		
 	}
+	
+	@Override
+	public void DelReviewReply(String r_Seq) {
+		reviewDAO.DelReviewReply(r_Seq);
+		
+	}
 
 }

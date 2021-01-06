@@ -37,6 +37,10 @@ public class ReviewDAO {
 		mySQL.update(loc+"modifyReviewReply", vo);
 	}
 	
+	public void DelReviewReply(String r_Seq) {
+		mySQL.update(loc+"DelReviewReply", r_Seq);
+	}
+	
 }
 
 

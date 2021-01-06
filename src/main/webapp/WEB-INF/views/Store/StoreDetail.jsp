@@ -5,8 +5,96 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
+<style>
+.col-auto ul li a{
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+.col-auto ul li a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  background: black;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.col-auto ul li a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
 
-<%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/StoreDetail.css"> --%>
+ .productside{
+    display:flex;
+/*     border:solid 1px red; */
+    padding-left:40px;    
+    padding-top:20px;
+    }
+    
+    
+     .review{
+     width:800px;
+     height:450px;
+     padding-top:190px;
+     
+    }
+
+    .picture{
+     float:left;
+    
+    }
+    
+    .review_list{
+     float:left;
+     padding-top:10px;
+     padding-left:30px;
+       vertical-align: middle;
+     text-align:center;
+     padding-bottom:30px;
+     
+   }
+   .detailExplain{
+    padding-top:30px;
+    padding-bottom:30px;
+    
+    }
+       
+   .r_Title{
+   width:86%;
+   }
+
+      
+   .orderNow{
+   float:right;
+   background:none;
+   border:none;
+   padding-left:60px;
+   margin-top:80px;
+   }
+   
+   .orderNow img{
+   width:30px;
+   height:30px;
+   }
+   
+   .orderList{
+   float:right;
+   width:30px;
+   height:30px;
+   margin-top:85px;
+   margin-left:15px;
+   }
+   
+   .cart_index{
+       padding-bottom:20px;
+   }
+
+</style>
 
 </head>
 
@@ -16,21 +104,21 @@
 
 <div class="content_wrap inner">
 
-	<div class="col-auto p-0">
-		<div class="side_nav">
-			<div class="side_nav_item">
-				<p class="side_nav_title">Store</p>
-				<ul>
-					<li><a href="/project/shop/StoreManMain" class="side_nav_title">Man</a></li>
-					<li><a href="#"> <!--줄띄우기 -->
-					</a></li>
-					<li><a href="/project/shop/StoreManMain">TOP</a></li>
-					<li><a href="/project/shop/StoreManMain">BOTTOM</a></li>
-					<li><a href="/project/shop/StoreManMain">SHOES</a></li>
-				</ul>
+		<div class="col-auto p-0">
+			<div class="side_nav">
+				<div class="side_nav_item">
+					<p class="side_nav_title">Store</p>
+					<ul>
+						<li><a href="/project/shop/StoreManMain" class="side_nav_title">Man</a></li>
+						<li><a href="#"> <!--줄띄우기 -->
+						</a></li>
+						<li><a href="/project/shop/StoreManMain">TOP</a></li>
+						<li><a href="/project/shop/StoreManMain">BOTTOM</a></li>
+						<li><a href="/project/shop/StoreManMain">SHOES</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
 
 
 
@@ -85,18 +173,21 @@
 					</select><br><br>
 					<h4>수량</h4><br>
 					<table>
-                    <tr style="border: 1px solid black">
-                    <td>
-                 	<input type="text" id="w_Quantity"name="w_Quantity" class="form" size="2" value=1 maxlength=2 onblur="numcheck(this.form.w_Quantity.value,10)" onkeyup="if(isNaN(this.value)) {alert('숫자만 입력해 주세요.');this.value=''};">
-                 	</td>
-                 	<td valign=top  style="border: 1px solid black" >
-                 	<input type=button value="▲" onclick="up(this.form.w_Quantity.value,10)" STYLE="background-color:white;border:0; height:10px;font-size:12px; vertical-align: middle;" name=plus>
-                 	<br>
-                 	<input type=button value="▼" onclick="down(this.form.w_Quantity.value)" STYLE="background-color:white;border:0; height:10px;font-size:12px; vertical-align: middle;" name=minus>
-                 	</td>
+                    <tr style="border: 1px solid black; width:30px; height:20px;">
+	                    <td>
+	                 		<input type="text" id="w_Quantity"name="w_Quantity" size="2" value=1 maxlength=2 onblur="numcheck(this.form.w_Quantity.value,10)" onkeyup="if(isNaN(this.value)) {alert('숫자만 입력해 주세요.');this.value=''};"
+	                 		style="margin-top:7px;margin-left:10px; width:30px; height:18px; border:none; vertical-align: middle;">
+	                 	</td>
+	                 	
+	                 	<td valign=top  style="border: 1px solid black" >
+		                 	<input type=button value="▲" onclick="up(this.form.w_Quantity.value,10)" 
+		                 	STYLE="background-color:white;border:none; width:30px; height:10px; font-size:12px; vertical-align: top;" name=plus>
+		                 	<br>
+		                 	<input type=button value="▼" onclick="down(this.form.w_Quantity.value)" 
+		                 	STYLE="margin-bottom:5px; background-color:white;border:none; width:30px; height:10px; font-size:12px; vertical-align: middle;" name=minus>
+	                 	</td>
                  	</tr>
 					</table>
-					<h4>재고 : <span id="stock"></span></h4>
 					<script>
   					function numcheck(val,able){
                         if (val>able-1){
@@ -192,7 +283,6 @@
                }); 
             </script>
 		
-	</div><!-- Product class 끝 -->
 	
 	
 	
@@ -232,48 +322,56 @@
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="5">여러분의 고마운 리뷰를 기다립니다.</td>
+							<td colspan="5" style="text-align:center">여러분의 고마운 리뷰를 기다립니다.</td>
 						</tr>
 					</c:otherwise>
 				</c:choose>
 			</tbody>
 		</table>
 		
-		<form action="/project/shop/WriteReview" method="POST" enctype="multipart/form-data">
-		<input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=pp_VO.getParent_p_Id()%>">
-		<input type="hidden" id="brandId" name="brandId" value="<%=pp_VO.getPp_Brand()%>">
-		<input type="hidden" id="pp_Name" name="pp_Name" value="<%=pp_VO.getPp_Name()%>">
-		<%-- <input type="hidden" id="p_Id" name="p_Id" value="<%=vo.getPp_Brand()%>"> --%>
 		
-		<table class="review_list" >
-			<thead>
-				<tr>
-					<th>제목</th>
-					<th style="width:18%; height:10%"><input type="text"  style= "width:80%;" name="r_Title">
-					<button type="submit" style= "width:12%; height:25px">리뷰등록</button></th>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<th style="width:18%; height:10%"><textarea name="r_Coment" cols="90" rows="5"></textarea></th>
-				</tr>
-			</thead>
-		</table>
+			<form action="/project/shop/WriteReview" method="POST" enctype="multipart/form-data">
+				<input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=pp_VO.getParent_p_Id()%>">
+				<input type="hidden" id="brandId" name="brandId" value="<%=pp_VO.getPp_Brand()%>">
+				<input type="hidden" id="pp_Name" name="pp_Name" value="<%=pp_VO.getPp_Name()%>">
+				<%-- <input type="hidden" id="p_Id" name="p_Id" value="<%=vo.getPp_Brand()%>"> --%>
+			
+			
+				<table class="review_list" >
+					
+						<tr>
+							<th style="width:8%; height:10%">제목</th>
+							<th style="width:18%; height:10%"><input type="text"  class="r_Title">
+							<button type="submit" style= "width:12%; height:25px">리뷰등록</button></th>
+						</tr>
+						<tr>
+							<th style="width:8%; height:10%">내용</th>
+							<th style="margin:0;">
+							<textarea class="r_Coment" cols="90" rows="5" style="width:100; height:100;"></textarea>
+							</th>
+						</tr>
+					
+				</table>
 		
-		</form>
+			</form>
 				
-				<div class="cart_index">
+				
+		        
+	    
+	</div><!--review class 끝  -->
+	
+	
+				 <div class="cart_index">
 		                    <button type="button" class="incart" onclick=""><button> << </button></a>
 		                    <button type="button" class="incart" onclick=""><button> < </button></a>
 		                    <button type="button" class="incart" onclick=""><button> 1 </button></a>
 		                    <button type="button" class="incart" onclick=""><button> > </button></a>
 		                    <button type="button" class="incart" onclick=""><button> >> </button></a>
 		        </div>
-		        
-		        
-	</div><!--review class 끝  -->
-				 
  
 </div><br>
+
+</div>
 
 </div>
 <%@ include file="../footer.jsp"%>

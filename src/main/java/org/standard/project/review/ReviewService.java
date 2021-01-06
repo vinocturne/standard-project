@@ -12,5 +12,6 @@ public interface ReviewService {
 	void writeReview(ReviewVO vo);
 	ReviewVO selectOneReview(String r_Seq);
 	void modifyReviewReply(ReviewVO vo);
+	void DelReviewReply(String r_Seq);
 	
 }

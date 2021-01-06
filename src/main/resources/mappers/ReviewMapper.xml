@@ -19,5 +19,7 @@
 	<select id="modifyReviewReply" resultType="ReviewVO">
 		UPDATE review SET r_ComentRe=#{r_ComentRe} where r_Seq=#{r_Seq}
 	</select>
-	
+	<select id="DelReviewReply" parameterType = "String" resultType="ReviewVO">
+		UPDATE review SET r_ComentRe = null WHERE r_Seq = #{r_Seq};
+	</select>
 </mapper>
