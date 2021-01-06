@@ -76,4 +76,8 @@
 	<select id="optionSize" resultType="String">
 		select distinct p_Size from product WHERE parent_p_Id=#{parent_p_Id}
 	</select>
+	<!-- 재고확인용 매퍼 -->
+	<select id="stockCheck" resultType="ProductChildVO">
+		select p_Id, p_Stack from product WHERE parent_p_Id=#{parent_p_Id}
+	</select>
 </mapper>

@@ -60,7 +60,7 @@ public class ProductChildServiceImpl implements ProductChildService {
 	}
 
 	@Override
-	public ProductChildVO selectProductDetail(String parent_p_Id) {
+	public List<ProductChildVO> selectProductDetail(String parent_p_Id) {
 		return productChildDAO.selectProductDetail(parent_p_Id);
 	}
 

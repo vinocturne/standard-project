@@ -2,7 +2,9 @@ package org.standard.project;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -56,7 +58,6 @@ public class ProductController {
 	@RequestMapping(value="/product", method = RequestMethod.GET)
 	public ModelAndView productDetail(ModelAndView mav, HttpServletRequest req, HttpSession session) {
 		String pp_Id = req.getParameter("p_id");
-		System.out.println(pp_Id);
 		if(pp_Id == "" || pp_Id == null) {
 			pp_Id = (String) session.getAttribute("productParent_session");
 		} 
@@ -65,24 +66,26 @@ public class ProductController {
 //		List<ProductChildVO> childVO = productChildService.listProductChild(pp_Id);
 		List<String> optionColor = productChildService.optionColor(pp_Id);
 		List<String> optionSize = productChildService.optionSize(pp_Id);
-//		ProductChildVO productVO = productChildService.selectProductDetail(pp_Id);
-		System.out.println("옵션 컬러 >>>>"+optionColor);
-		////
-		//pp_Id를 받아서 리스트 
-		System.out.println("리스트 나온다");
+		List<ProductChildVO> productVO = productChildService.selectProductDetail(pp_Id);
+		Map<String, Integer> stockMap = new HashMap<String, Integer>();
 		ArrayList<ReviewVO> reviewList = new ArrayList<ReviewVO>();
 		reviewList = reviewService.listProductReview(pp_Id);
-		///
+		
+		for(int i=0; i<productVO.size(); i++) {
+			String p_Id = productVO.get(i).getP_Id(); 
+			int p_Stack = productVO.get(i).getP_Stack(); 
+			stockMap.put(p_Id, p_Stack);
+		}
+		
+		System.out.println(stockMap);
 		
 		mav = new ModelAndView("/Store/StoreDetail");
 		mav.addObject("p_VO", parentVO);
-//		mav.addObject("productVO", productVO);
+		mav.addObject("stockCheck", stockMap);
 		mav.addObject("optionColor", optionColor);
 		mav.addObject("optionSize", optionSize);
 		mav.addObject("reviewList", reviewList);
 		
-		System.out.println(parentVO);
-		System.out.println(optionColor);
 		
 		return mav;
 	}
