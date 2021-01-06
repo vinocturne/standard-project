@@ -244,8 +244,17 @@
 		<script>
 
 		console.log("존망");
-		var pid = $("#p_Id").val()+$("#p_Color option:selected").val()+$("#p_Size option:selected").val();
-		var stockCheck = ${stockCheck};
+		console.log($("#p_Id").val());
+		console.log("선택된 색 옵션 : "+$("#p_Color option:selected").val());
+		console.log("선택된 싸이즈 옵션: "+$("#p_Size option:selected").val());
+		var ppId =$("#p_Id").val();
+		var pColor=$("#p_Color option:selected").val();
+		var pSize=$("#p_Size option:selected").val();
+		var PID= ppId+pColor+pSize;
+		
+		console.log(PID);
+		//var pid = $("#p_Id").val()+$("#p_Color option:selected").val()+$("#p_Size option:selected").val();
+		//var stockCheck = ${stockCheck};
 		
 
 		</script>
