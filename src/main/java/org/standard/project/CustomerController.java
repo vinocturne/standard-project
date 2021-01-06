@@ -59,7 +59,7 @@ public class CustomerController {
 			mav.setViewName("Customer/login_form");
 			return mav;
 		}
-		
+		//--
 		System.out.println(">>> 로그인 프로세스 입장");
 		System.out.println(vo);
 		// 암호화처리.(사용자가 입력한 비밀번호를 암호화처리하여 vo객체에 setPassword()처리후에 디비조회.
