@@ -97,6 +97,7 @@
                  	</td>
                  	</tr>
 					</table>
+					<h4>재고 : <span id="stock"></span></h4>
 					<script>
   					function numcheck(val,able){
                         if (val>able-1){
