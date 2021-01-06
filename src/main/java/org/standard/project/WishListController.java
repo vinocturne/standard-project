@@ -88,7 +88,7 @@ public class WishListController {
 			vo.setO_Name((String)object.get("o_Name"));
 			vo.setO_Phone1((String)object.get("o_Phone1"));
 			vo.setO_Phone2((String)object.get("o_Phone2"));
-			
+			vo.setParent_p_Id((String)object.get("parent_p_Id"));
 			WishListVO wishListVO = new WishListVO();
 			wishListVO.setC_Id((String) object.get("c_Id"));
 			wishListVO.setP_Id((String)object.get("p_Id"));
@@ -111,13 +111,9 @@ public class WishListController {
 	}
 
 	@RequestMapping(value = "/order")
-	public ModelAndView orderForm(HttpSession session, HttpServletRequest req) throws Exception { // ,@RequestParam(value="chBox")
-																									// String[][]
-																									// cartlist
-		System.out.println("wishList/order 요청. 장바구니에서 체크한 리스트 가져오기");
+	public ModelAndView orderForm(HttpSession session, HttpServletRequest req) throws Exception { 
 		ModelAndView mav = new ModelAndView("Customer/OrderForm");
-		System.out.println(req.getAttribute("data"));
-		
+
 		  JSONParser parser = new JSONParser(); 
 		  JSONArray arr = new JSONArray();
 		  arr=(JSONArray)parser.parse(req.getParameter("data")); 
@@ -126,7 +122,6 @@ public class WishListController {
 			  System.out.println("orderController 요청,카트에서 넘어온 데이터 : "+object.toString());
 		  } 
 		  mav.addObject("cartList",req.getParameter("data"));
-		  System.out.println(mav.getViewName());
 		return mav;
 		// orderForm에 기본으로 있어야할 목록 정보.
 		// 1.고객정보(이미 세션에 저장되어있음) 제이슨으로 넘겨주기.
@@ -146,12 +141,9 @@ public class WishListController {
 			ModelAndView mav = new ModelAndView("Customer/cart");
 			// 아이디에 맞는 wishListVO를 가져오기 위해 아이디를 받아온다.
 			CustomerVO customer = (CustomerVO) session.getAttribute("loginCustomer");
-			// 가져온 아이디로 wishListVO를 불러온 후 저장.
+			// wishList가 null이 아니면 p_Id로 상품 정보를 받아와서 wishListVOList를 저장. 
 			ArrayList<WishListVO> wishListVOList = wishListService.getWishList(customer.getC_Id());
-			// wishList가 null이 아니면 p_Id로 상품 정보를 받아온다
-			// System.out.println("c_Id : " +customer.getC_Id());
-			// System.out.println("wishListVOList : "+ wishListVOList);
-			// mav.addObject("wishListVO", wishListVOList);
+
 			session.setAttribute("wishListVO", wishListVOList);
 			// private int w_Quantity, p_Price; private String c_Id, p_Id;
 			if (wishListVOList != null) {
