@@ -12,6 +12,11 @@
     .table{
         width: 1200px;
     }
+    
+    textarea{
+    	height:100px;
+    	width:1200px;
+    }
 </style>
 </head>
 
@@ -141,10 +146,12 @@
             </thead>
                <tr>
                <form id="reRe"><!-- 바꾸기  -->
-               	<th><textarea name="r_ComentRe" cols="90" rows="5"></textarea></th>
+               	<th><textarea name="r_ComentRe" cols="90" rows="5">
+               	</textarea></th>
                </form>
                </tr>
 		</table>
+		
 		<a class="reBtn">
 				<button type="button" class="selectRe_btn">답변등록/수정</button>
 				<script>
