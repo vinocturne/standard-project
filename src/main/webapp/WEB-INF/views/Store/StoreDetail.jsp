@@ -190,7 +190,7 @@
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="7">여러분의 고마운 리뷰를 기다립니다.</td>
+							<td colspan="5">여러분의 고마운 리뷰를 기다립니다.</td>
 						</tr>
 					</c:otherwise>
 				</c:choose>
@@ -207,11 +207,12 @@
 			<thead>
 				<tr>
 					<th>제목</th>
-					<th style="width:20%; height:10%"><input type="text"  style= "width:86%;" name="r_Title"><button type="submit" style= "width:12%; height:25px">리뷰등록</button></th>
+					<th style="width:18%; height:10%"><input type="text"  style= "width:80%;" name="r_Title">
+					<button type="submit" style= "width:12%; height:25px">리뷰등록</button></th>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<th style="width:20%; height:10%"><textarea name="r_Coment" cols="90" rows="5"></textarea></th>
+					<th style="width:18%; height:10%"><textarea name="r_Coment" cols="90" rows="5"></textarea></th>
 				</tr>
 			</thead>
 		</table>
