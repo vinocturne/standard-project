@@ -56,6 +56,7 @@
 <div id="daliyIncomeChart"></div>
 <div id="daliyRegCusNumChart"></div>
 <div id="pieChart"></div>
+
 <script>
 
 	var list =JSON.stringify(${list});
@@ -138,12 +139,28 @@ var chart2 = bb.generate({
   },
   bindto: "#daliyRegCusNumChart"
 });
+
+ var marketShareList=JSON.stringify(${marketShareList});
+ console.log(marketShareList);
+ var parsedMarketShareList =JSON.parse(marketShareList);
+ console.log(parsedMarketShareList);
+ console.log(parsedMarketShareList[0].brandName);
+ console.log(parsedMarketShareList[0].numberOfSales);
+ parsedMarketShareList[0].brandName;
+ parsedMarketShareList[0].numberOfSales;
+ var brandMarketShareList = new Array();
+for(var i=0; i<parsedMarketShareList.length;i++){
+
+  var arr = [parsedMarketShareList[i].brandName,parsedMarketShareList[i].numberOfSales];
+  brandMarketShareList.push(arr);
+}
+
+
 //브랜드별 점유율을 나타낼 파이차트. 
 var chart = bb.generate({
 	  data: {
 	    columns: [
-		["data1", 30],
-		["data2", 120]
+        [parsedMarketShareList[0].brandName,parsedMarketShareList[0].numberOfSales]
 	    ],
 	    type: "pie", // for ESM specify as: pie()
 	    onclick: function(d, i) {
@@ -159,15 +176,15 @@ var chart = bb.generate({
 	  bindto: "#pieChart"
 	});
 
-	setTimeout(function() {
-		chart.load({
-			columns: [
-				["setosa", 90],
-				["versicolor", 20],
-				["virginica", 60],
-			]
-		});
-	}, 1500);
+	// setTimeout(function() {
+	// 	chart.load({
+	// 		columns: [
+	// 			["setosa", 90],
+	// 			["versicolor", 20],
+	// 			["virginica", 60],
+	// 		]
+	// 	});
+	// }, 1500);
 
 </script>
 
