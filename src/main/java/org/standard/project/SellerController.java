@@ -462,4 +462,17 @@ public class SellerController {
 		return "Seller/BuyList";
 	}
 	
+	@RequestMapping(value = "/ReviewReply", method = RequestMethod.POST)
+	public String reviewReplyAction(@RequestParam(value = "chBox[]") String[] r_Seq, HttpServletRequest req) throws Exception {
+		
+		for (String seq : r_Seq) {
+			System.out.println("이 리뷰에 답변 달기 = " + seq);
+			ReviewVO vo = reviewService.selectOneReview(seq); //여기서 불러오고 
+			vo.setR_ComentRe(req.getParameter("r_ComentRe"));
+			reviewService.modifyReviewReply(vo); //답변을 모디파이 
+		}
+		
+		return "Seller/Review";
+	}
+	
 }

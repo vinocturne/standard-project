@@ -44,12 +44,16 @@ public class OrderController {
 		System.out.println("오더히스토리리스트 싸이즈 "+orderHistoryList.size());
 		ArrayList<ProductParentVO> productInfoList = new ArrayList<ProductParentVO>();//부모상품객체리스트를 넘겨줄 배열
 		for(int i=0;i<orderHistoryList.size();i++) {
-			
-			//productInfoList.add(productParentService.selectParentProduct(pVO.getParent_p_Id()));
+			//System.out.println("parent_p_Id : "+orderHistoryList.get(i).getParent_p_Id());
+			ProductParentVO ppVO = new ProductParentVO();
+			String parent_p_Id =orderHistoryList.get(i).getParent_p_Id();
+			ppVO =productParentService.selectParentProduct(parent_p_Id);
+			//System.out.println("parent_p_Id로 ppVO 가져온 결과 : "+ ppVO);
+			productInfoList.add(ppVO);
 		}
 		System.out.println("어미상품객체리스트 정보 : "+productInfoList);
 //		//request에 저장
-//		req.setAttribute("productInfoList", productInfoList);
+		req.setAttribute("productInfoList", productInfoList);
 
 		//가져온 후 세션에 저장하고,
 		session.setAttribute("orderList", orderHistoryList);
