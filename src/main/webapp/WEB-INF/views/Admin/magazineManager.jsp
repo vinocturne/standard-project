@@ -155,7 +155,9 @@
 	<br>
 	
 	<!-- 매거진 추가 버튼 -->
-	<input type="button" value="매거진 추가하기" onClick="location.href='/project/Admin/magazineWrite'">
+	<input type="button" value="매거진 추가하기" onClick="location.href='/project/Admin/magazineWrite'"
+	style="margin-bottom:20px;">
+	
 	</div>
 	
 	
