@@ -3,11 +3,10 @@
 <%@page import="org.standard.project.product.ProductParentVO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp" %> 
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/StoreDetail.css">
+<%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/ResourcesFile/css/StoreDetail.css"> --%>
 
 </head>
 
@@ -50,7 +49,7 @@
 			style="width:500px; height:500px" class="picture">
 		</div>
 		
-		<form name="frm" method="POST">
+		<form id="frm" name="frm" method="POST">
 		<div class="productside">
 			<div class="explain">
 				<h1><%=pp_VO.getPp_Name() %></h1><br>
@@ -148,13 +147,19 @@
 			<button type="button" class="orderNow"><img src="<%=request.getContextPath()%>/ResourcesFile/img/buy-button.png">
 			</button>			
 		</div>
-		
+			
 		</form>	
 			
-			
 		<script>
-			
-		    $(".orderNow").click(function() {
+
+		console.log("존망");
+		var pid = $("#p_Id").val()+$("#p_Color option:selected").val()+$("#p_Size option:selected").val();
+		var stockCheck = ${stockCheck};
+		
+
+		</script>
+		<script>
+			$(".orderNow").click(function() {
                      var jsonArr = new Array();
                      var jsonP_Id = $("#p_Id").val()+$("#p_Color option:selected").val()+$("#p_Size option:selected").val();
                      var jsonStr = {
