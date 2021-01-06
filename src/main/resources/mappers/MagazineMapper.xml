@@ -27,7 +27,7 @@
 		UPDATE magazine SET m_Title=#{m_Title}, m_Content=#{m_Content}, m_Thumb=#{m_Thumb}, m_Img=#{m_Img} where m_Seq=#{m_Seq}
 	</select>
 	<select id="deleteMagazine" resultType="MagazineVO">
-		DELETE FROM magazine WHERE m_Seq=#{m_Seq}
+		DELETE FROM magazine WHERE m_Seq=#{m_Seq};
 	</select>
 	<select id="hitIncrease" resultType="MagazineVO">
 		UPDATE magazine SET m_Hit=m_Hit + 1 WHERE m_Seq=#{m_Seq}

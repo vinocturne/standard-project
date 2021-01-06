@@ -55,6 +55,7 @@
 </div>
 <div id="daliyIncomeChart"></div>
 <div id="daliyRegCusNumChart"></div>
+<div id="pieChart"></div>
 <script>
 
 	var list =JSON.stringify(${list});
@@ -137,7 +138,36 @@ var chart2 = bb.generate({
   },
   bindto: "#daliyRegCusNumChart"
 });
+//브랜드별 점유율을 나타낼 파이차트. 
+var chart = bb.generate({
+	  data: {
+	    columns: [
+		["data1", 30],
+		["data2", 120]
+	    ],
+	    type: "pie", // for ESM specify as: pie()
+	    onclick: function(d, i) {
+		console.log("onclick", d, i);
+	   },
+	    onover: function(d, i) {
+		console.log("onover", d, i);
+	   },
+	    onout: function(d, i) {
+		console.log("onout", d, i);
+	   }
+	  },
+	  bindto: "#pieChart"
+	});
 
+	setTimeout(function() {
+		chart.load({
+			columns: [
+				["setosa", 90],
+				["versicolor", 20],
+				["virginica", 60],
+			]
+		});
+	}, 1500);
 
 </script>
 

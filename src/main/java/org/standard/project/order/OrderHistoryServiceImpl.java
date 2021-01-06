@@ -30,7 +30,12 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 		dailyIncomeList = orderHistoryDAO.getDailyIncome();
 		return dailyIncomeList;
 	}
-
+	@Override
+	public List<Map<String, Object>> getMarketShare() {
+		 List<Map<String, Object>> marketShareList = new ArrayList<Map<String,Object>>();
+		 marketShareList = orderHistoryDAO.getMarketShare();
+		return marketShareList;
+	}
 	@Override
 	public ArrayList<ProductParentVO> getBrandOrderList(BrandDBVO loginBrand) {
 		return orderHistoryDAO.getBrandOrderList(loginBrand);
@@ -63,5 +68,7 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	public ArrayList<OrderHistoryVO> cusOrder(OrderHistoryVO vo) {
 		return orderHistoryDAO.cusOrder(vo);
 	}
+
+	
 
 }

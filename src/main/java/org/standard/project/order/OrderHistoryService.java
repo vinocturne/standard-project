@@ -22,4 +22,6 @@ public interface OrderHistoryService {
 
 	void insertOrderHistory(OrderHistoryVO vo);
 	ArrayList<OrderHistoryVO> cusOrder(OrderHistoryVO vo);
+
+	List<Map<String, Object>> getMarketShare();
 }
