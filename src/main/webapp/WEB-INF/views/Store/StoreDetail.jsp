@@ -158,7 +158,8 @@
                      var jsonP_Id = $("#p_Id").val()+$("#p_Color option:selected").val()+$("#p_Size option:selected").val();
                      var jsonStr = {
                     		 pp_Name : $("#pp_Name").val(), p_Brand : $("#p_Brand").val(), w_Quantity:$("#w_Quantity").val(), p_Price:$("#p_Price").val(),
-                    		 pp_thumb:$("#pp_thumb").val(), p_Id : $("#p_Id").val()+$("#p_Color option:selected").val()+$("#p_Size option:selected").val(), p_Color:$("#p_Color option:selected").val(),p_Size:$("#p_Size option:selected").val()
+                    		 pp_thumb:$("#pp_thumb").val(), p_Id : $("#p_Id").val()+$("#p_Color option:selected").val()+$("#p_Size option:selected").val(), 
+                    		 p_Color:$("#p_Color option:selected").val(),p_Size:$("#p_Size option:selected").val(), parent_p_Id : $("#p_Id").val()
                      }
                      jsonArr.push(jsonStr);
                      
