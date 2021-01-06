@@ -142,7 +142,7 @@
 			style="width:500px; height:500px" class="picture">
 		</div>
 		
-		<form id="frm" name="frm" method="POST">
+		<form id="frm" name="frm" method="POST" onchange="changeForm()">
 		<div class="productside">
 			<div class="explain">
 				<h1><%=pp_VO.getPp_Name() %></h1><br>
@@ -176,6 +176,7 @@
 					}
 					%>
 					</select><br><br>
+					<h4><span id="stack">재고 : </span></h4><br>
 					<h4>수량</h4><br>
 					<table>
                     <tr style="border: 1px solid black; width:30px; height:20px;">
@@ -193,7 +194,8 @@
 	                 	</td>
                  	</tr>
 					</table>
-					<script>
+					<script> 
+					
   					function numcheck(val,able){
                         if (val>able-1){
                                 alert("최대 주문 가능 수량은 10개입니다.")
@@ -247,17 +249,56 @@
 		</form>	
 			
 		<script>
+		var list = [];
+		var stack = "";
+		<c:forEach items="${stockCheck}" var="item">
 
-		console.log("존망");
+		list.push("${item}");
+
+		</c:forEach>
+		/* 창 열릴때 처음으로 재고 표시해주는 기능 */
+		var ppId =$("#p_Id").val();
+			var pColor=$("#p_Color option:selected").val();
+			var pSize=$("#p_Size option:selected").val();
+			var PID= ppId+pColor+pSize;
+			for(var i=0; i<list.length; i++) {
+				if(list[i].includes(PID)) {
+					console.log(list[i]);
+					var stackArr = list[i].split('=');
+					stack = stackArr[1];
+					break;
+				}
+			}
+		document.getElementById('stack').innerHTML="재고 : "+stack;
+		
+		/* form내 option 변경시 실시간 재고 변경해주는 기능 */
+		function changeForm() {
+			var ppId =$("#p_Id").val();
+			var pColor=$("#p_Color option:selected").val();
+			var pSize=$("#p_Size option:selected").val();
+			var PID= ppId+pColor+pSize;
+			for(var i=0; i<list.length; i++) {
+				if(list[i].includes(PID)) {
+					console.log(list[i]);
+					var stackArr = list[i].split('=');
+					stack = stackArr[1];
+					break;
+				}
+			}
+			document.getElementById('stack').innerHTML="재고 : "+stack;
+			
+		}
+		/* console.log("존망");
 		console.log($("#p_Id").val());
 		console.log("선택된 색 옵션 : "+$("#p_Color option:selected").val());
-		console.log("선택된 싸이즈 옵션: "+$("#p_Size option:selected").val());
-		var ppId =$("#p_Id").val();
-		var pColor=$("#p_Color option:selected").val();
-		var pSize=$("#p_Size option:selected").val();
-		var PID= ppId+pColor+pSize;
+		console.log("선택된 싸이즈 옵션: "+$("#p_Size option:selected").val()); */
 		
-		console.log(PID);
+		
+		
+		
+		
+		/* 
+		console.log("${stockCheck}"); */
 		//var pid = $("#p_Id").val()+$("#p_Color option:selected").val()+$("#p_Size option:selected").val();
 		//var stockCheck = ${stockCheck};
 		

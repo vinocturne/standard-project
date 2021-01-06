@@ -67,12 +67,16 @@ public class ProductController {
 		List<String> optionColor = productChildService.optionColor(pp_Id);
 		List<String> optionSize = productChildService.optionSize(pp_Id);
 		List<ProductChildVO> productVO = productChildService.selectProductDetail(pp_Id);
-		Map<String, ProductChildVO> stockMap = new HashMap<String, ProductChildVO>();
+		List<Map<String, Integer>> stockList = new ArrayList<Map<String,Integer>>(); 
+		Map<String, Integer> stockMap = new HashMap<String, Integer>();
 		ArrayList<ReviewVO> reviewList = new ArrayList<ReviewVO>();
 		reviewList = reviewService.listProductReview(pp_Id);
 		
 		for(int i=0; i<productVO.size(); i++) {
-			stockMap.put("option"+i, productVO.get(i));
+			String p_Id = productVO.get(i).getP_Id();
+			int p_Stock = productVO.get(i).getP_Stack();
+			stockMap.put(p_Id, p_Stock);
+//			stockList.set(0, stockMap)
 		}
 		
 		System.out.println(stockMap);

@@ -68,8 +68,8 @@ public class AdminController {
 			//req.setAttribute("marketShareList", marketShareList);
 			for(int i=0; i<marketShareList.size();i++) {
 				JSONObject jsonObject = new JSONObject();
-				jsonObject.put("brandName",marketShareList.get(i).get("NumberOfSales").toString());
-				jsonObject.put("numberOfSales", marketShareList.get(i).get("brandName").toString());
+				jsonObject.put("numberOfSales",Integer.valueOf(marketShareList.get(i).get("NumberOfSales").toString()));
+				jsonObject.put("brandName", marketShareList.get(i).get("brandName").toString());
 				marketShareListJSONArr.add(jsonObject);
 			}
 			mav.addObject("marketShareList",marketShareListJSONArr.toString());
