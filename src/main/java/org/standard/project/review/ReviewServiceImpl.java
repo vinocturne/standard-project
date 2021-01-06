@@ -26,8 +26,14 @@ public class ReviewServiceImpl implements ReviewService {
 		reviewDAO.writeReview(vo);
 	}
 	@Override
-	public OrderHistoryVO cusOrder(OrderHistoryVO vo) {
-		return reviewDAO.cusOrder(vo);
+	public ReviewVO selectOneReview(String r_Seq) {
+		return reviewDAO.selectOneReview(r_Seq);
+	}
+
+	@Override
+	public void modifyReviewReply(ReviewVO vo) {
+		reviewDAO.modifyReviewReply(vo);
+		
 	}
 
 }

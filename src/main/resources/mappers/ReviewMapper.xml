@@ -13,4 +13,11 @@
 	<select id="reviewListForSeller" resultType="ReviewVO">
 		SELECT * FROM review where brandId=#{brandId}
 	</select>
+	<select id="selectOneReview" parameterType = "String" resultType="ReviewVO">
+		SELECT * FROM review where r_Seq=#{r_Seq}
+	</select>
+	<select id="modifyReviewReply" resultType="ReviewVO">
+		UPDATE review SET r_ComentRe=#{r_ComentRe} where r_Seq=#{r_Seq}
+	</select>
+	
 </mapper>

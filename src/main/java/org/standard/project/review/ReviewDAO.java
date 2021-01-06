@@ -28,9 +28,16 @@ public class ReviewDAO {
 	public void writeReview(ReviewVO vo) {
 		mySQL.insert(loc+"writeReview", vo);
 	}
-	public OrderHistoryVO cusOrder(OrderHistoryVO vo) {
-		return mySQL.selectOne(loc+"cusOrder", vo);
+	
+	public ReviewVO selectOneReview(String r_Seq) {
+		return mySQL.selectOne(loc+"selectOneReview", r_Seq);
 	}
 	
+	public void modifyReviewReply(ReviewVO vo) {
+		mySQL.update(loc+"modifyReviewReply", vo);
+	}
 	
 }
+
+
+

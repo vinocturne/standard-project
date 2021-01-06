@@ -51,7 +51,7 @@
 				});
 			</script>
 			<a class="delBtn">
-				<button type="button" class="selectDelete_btn">삭제하기</button>
+				<button type="button" class="selectDelete_btn">답변 삭제하기</button>
 				<script>
 					$(".selectDelete_btn").click(function() {
 						var confirm_val = confirm("정말 삭제 하시겠습니까?");
@@ -126,12 +126,61 @@
 					</c:when>
 					<c:otherwise>
 						<tr>
-							<td colspan="14">조회된 결과가 없습니다.</td>
+							<td colspan="8">조회된 결과가 없습니다.</td>
 						</tr>
 					</c:otherwise>
                  </c:choose>   
               </tbody>
 		</table>
+		
+		<table class="table table-hover" height="100" width="1100">
+			<thead>
+               <tr>
+                 <th style="width:1%; height:10%">답변내용(체크하여 한번에 보내기)</th>
+               </tr>
+            </thead>
+               <tr>
+               <form id="reRe"><!-- 바꾸기  -->
+               	<th><textarea name="r_ComentRe" cols="90" rows="5"></textarea></th>
+               </form>
+               </tr>
+		</table>
+		<a class="reBtn">
+				<button type="button" class="selectRe_btn">답변하기</button>
+				<script>
+					$(".selectRe_btn").click(function() {
+						var confirm_val = confirm("정말 답변을 저장하시겠습니까?");
+
+						if (confirm_val) {
+							var checkArr = new Array();
+							$("input[class='chBox']:checked").each(function() {
+								checkArr.push($(this).attr("data-r_Seq"));
+							});
+							var queryString = $('#reRe').serialize();
+							if (!(checkArr == "")) {
+								$.ajax({
+									url : "ReviewReply",//변경
+									type : "post",
+									data : {
+										chBox : checkArr,
+										"r_ComentRe" : queryString
+									},
+									success : function(result) {
+										alert("답변 성공");
+										location.href = "Review";
+									}
+								});
+							}else{
+								alert("답변할 리뷰를 선택해주세요");
+							}
+						}
+					});
+				</script>
+			</a>
+		
+		
 	</div>
+	
 </div>
+
 <%@ include file="../footer.jsp"%>
