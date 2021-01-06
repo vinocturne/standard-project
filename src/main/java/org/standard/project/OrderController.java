@@ -44,7 +44,7 @@ public class OrderController {
 		System.out.println("오더히스토리리스트 싸이즈 "+orderHistoryList.size());
 		ArrayList<ProductParentVO> productInfoList = new ArrayList<ProductParentVO>();//부모상품객체리스트를 넘겨줄 배열
 		for(int i=0;i<orderHistoryList.size();i++) {
-
+			
 			//productInfoList.add(productParentService.selectParentProduct(pVO.getParent_p_Id()));
 		}
 		System.out.println("어미상품객체리스트 정보 : "+productInfoList);

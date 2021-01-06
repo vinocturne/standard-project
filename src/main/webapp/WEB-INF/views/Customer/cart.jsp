@@ -120,7 +120,8 @@ function change () {
                               data-p_Color="<%=wishListProductVO.get(i).getP_Color() %>"
                               data-p_Size="<%=wishListProductVO.get(i).getP_Size() %>"
                               data-pp_thumb="<%=wishListProductVO.get(i).getPp_thumb() %>"
-                              data-p_Brand ="<%=wishListProductVO.get(i).getP_Brand() %>"/>
+							  data-p_Brand ="<%=wishListProductVO.get(i).getP_Brand() %>"
+							  data-parent_p_Id="<%=wishListProductVO.get(i).getParent_p_Id() %>"/>
                            <script>
                                  $(".chBox").click(
                                        function() {
@@ -162,7 +163,8 @@ function change () {
                         var jsonStr = {p_Id : $(this).attr("data-p_Id"),p_Price:$(this).attr("data-p_Price"),
                                  w_Quantity:$(this).attr("data-w_Quantity"),pp_Name:$(this).attr("data-pp_Name"),
                                  p_Color:$(this).attr("data-p_Color"),p_Size:$(this).attr("data-p_Size"),
-                                 pp_thumb:$(this).attr("data-pp_thumb"),p_Brand : $(this).attr("data-p_Brand")
+                                 pp_thumb:$(this).attr("data-pp_thumb"),p_Brand : $(this).attr("data-p_Brand"),
+								 parent_p_Id: $(this).attr("data-parent_p_Id")
                      }
                      jsonArr.push(jsonStr);
                      });
