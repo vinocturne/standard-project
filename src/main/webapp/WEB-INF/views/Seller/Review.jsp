@@ -54,7 +54,7 @@
 				<button type="button" class="selectDelete_btn">답변 삭제하기</button>
 				<script>
 					$(".selectDelete_btn").click(function() {
-						var confirm_val = confirm("정말 삭제 하시겠습니까?");
+						var confirm_val = confirm("정말 답변을 삭제 하시겠습니까?");
 
 						if (confirm_val) {
 							var checkArr = new Array();
@@ -63,18 +63,18 @@
 							});
 							if (!(checkArr == "")) {
 								$.ajax({
-									url : "deleteWaitingMagazine",
+									url : "DeleteReviewReply",
 									type : "post",
 									data : {
 										chBox : checkArr
 									},
 									success : function(result) {
-										alert("삭제 성공");
+										alert("답변삭제 성공");
 										location.href = "Review";
 									}
 								});
 							}else{
-								alert("삭제할 게시물을 선택해주세요");
+								alert("다삭제할 게시물을 선택해주세요");
 							}
 						}
 					});
@@ -92,7 +92,7 @@
                     <th style="width:1%; height:10%">글쓴이</th>
                     <th style="width:1%; height:10%">내용</th> 
                     <th style="width:1%; height:10%">등록일</th>
-                    <th style="width:1%; height:10%">댓글</th>
+                    <th style="width:1%; height:10%">답변</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -146,7 +146,7 @@
                </tr>
 		</table>
 		<a class="reBtn">
-				<button type="button" class="selectRe_btn">답변하기</button>
+				<button type="button" class="selectRe_btn">답변등록/수정</button>
 				<script>
 					$(".selectRe_btn").click(function() {
 						var confirm_val = confirm("정말 답변을 저장하시겠습니까?");

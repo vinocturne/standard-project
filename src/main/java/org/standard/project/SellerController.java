@@ -455,7 +455,7 @@ public class SellerController {
 	public String deleteDeliveryAction(@RequestParam(value = "chBox[]") String[] o_Num) throws Exception {
 		
 		for (String del_Num : o_Num) {
-			System.out.println("사용자 삭제 = " + del_Num);
+			System.out.println("삭제할주문번호 = " + del_Num);
 			orderHistoryService.deleteDeliveryList(del_Num);
 		}
 		
@@ -464,12 +464,25 @@ public class SellerController {
 	
 	@RequestMapping(value = "/ReviewReply", method = RequestMethod.POST)
 	public String reviewReplyAction(@RequestParam(value = "chBox[]") String[] r_Seq, HttpServletRequest req) throws Exception {
-		
 		for (String seq : r_Seq) {
 			System.out.println("이 리뷰에 답변 달기 = " + seq);
 			ReviewVO vo = reviewService.selectOneReview(seq); //여기서 불러오고 
-			vo.setR_ComentRe(req.getParameter("r_ComentRe"));
+			String r_CoRe = req.getParameter("r_ComentRe").substring(11);
+			System.out.println(r_CoRe);
+			vo.setR_ComentRe(r_CoRe);
 			reviewService.modifyReviewReply(vo); //답변을 모디파이 
+			System.out.println(vo);
+		}
+		
+		return "Seller/Review";
+	}
+	
+	@RequestMapping(value = "/DeleteReviewReply", method = RequestMethod.POST)
+	public String deleteReviewReply(@RequestParam(value = "chBox[]") String[] r_Seq) throws Exception {
+		
+		for (String seq : r_Seq) {
+			System.out.println("삭제할 리뷰의 답변 = " + seq);
+			reviewService.DelReviewReply(seq);
 		}
 		
 		return "Seller/Review";
