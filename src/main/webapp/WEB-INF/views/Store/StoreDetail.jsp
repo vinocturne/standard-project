@@ -93,6 +93,11 @@
    .cart_index{
        padding-bottom:20px;
    }
+   
+       textarea{
+    	height:100px;
+    	width:720px;
+    }
 
 </style>
 
