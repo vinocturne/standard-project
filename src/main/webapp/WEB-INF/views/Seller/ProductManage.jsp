@@ -143,7 +143,7 @@
 		</table>
 		<a href="/project/Seller/ProductAddParent"><button
 				class="add-product">상품 추가하기</button></a>
-				<script>
+				<!-- <script>
 				var IMP = window.IMP; // 생략가능
 				IMP.init('iamport'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 				</script>
@@ -173,7 +173,7 @@
 				    }
 				    alert(msg);
 				});
-				</script>
+				</script> -->
 	</div>
 </div>
 
