@@ -53,9 +53,26 @@ public class AdminController {
 	OrderHistoryService orderHistoryService;
 	
 	@RequestMapping(value="/AdminGraph")
-	public ModelAndView adminGraph() throws Exception  {
+	public ModelAndView adminGraph(HttpServletRequest req) throws Exception  {
 		System.out.println("관리자 그래프 컨트롤러");
 		ModelAndView mav = new ModelAndView("/Admin/AdminGraph");
+		//브랜드별 판매 점유율 파이차트
+		List<Map<String,Object>> marketShareList = orderHistoryService.getMarketShare();
+		//SELECT COUNT(o.o_BrandId) AS 'NumberOfSales',b.brandName AS 'brandName' FROM orderhistory o JOIN brandDB b ON o.o_BrandId =b.brandId GROUP BY o_BrandId;
+		//System.out.println(marketShareList);
+		//JSONArray marketShareListJSONArr = new JSONArray();
+		
+		
+		if(marketShareList!=null) {
+			//제이슨으로 변환 안하고 바로 list<Map> 형태로 해줘도 괜찮을까?
+			req.setAttribute("marketShareList", marketShareList);
+			//for(int i=0; i<marketShareList.size();i++) {
+				
+				//int numberOfSales = Integer.valueOf((String)marketShareList.get(i).get("NumberOfSales"));
+				//String brandName =(String)marketShareList.get(i).get("brandName");
+			//}
+		}
+		
 		List<Map<String,Object>> list = orderHistoryService.getDailyIncome();
 		JSONArray jsonArr = new JSONArray();
 		//{날짜: 2020-12-24},{판매액:25000}

@@ -1,4 +1,6 @@
+<%@page import="org.standard.project.product.ProductParentVO"%>
 <%@page import="org.standard.project.order.OrderHistoryVO"%>
+
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -12,8 +14,11 @@
 	<!-- side_nav -->
 	<%@ include file="../side_nav.jsp"%>
 	
+	<%request.getAttribute("productInfoList"); %>
+	<%ArrayList<ProductParentVO> productInfoList = (ArrayList)session.getAttribute("productInfoList"); %>
+	<%request.getAttribute("orderHistory"); %>
+	<%ArrayList<OrderHistoryVO> orderHistory = (ArrayList)session.getAttribute("orderHistory"); %>
 	
-	<%ArrayList<OrderHistoryVO> orderList = (ArrayList)session.getAttribute("orderList"); %>
 	<!-- ORDER :주문조회-->
 	<div class="order_wrap">
 		<div class="title_area">
@@ -25,7 +30,7 @@
 			</div>
 		</div>
 		<div class="orderHistory">
-		<%if(orderList!=null) {%>
+		<%if(productInfoList!=null) {%>
 			<table class="type11">      
 				<thead>
 					<tr>
@@ -39,15 +44,17 @@
 				</thead>
 				
 				<tbody>
-				<%for(int i=0; i<orderList.size();i++){ %>
+				<%for(int i=0; i<productInfoList.size();i++){ %>
+				<%for(int j=0; i<orderHistory.size();i++){ %>
 				
 					<tr>
-						<td><%=orderList.get(i).getO_Date() %></th>
-						<td><%=orderList.get(i).getP_Id() %></th>
-						<td><%=orderList.get(i).getP_Price() %></th>
-						<td><%=orderList.get(i).getO_Quantity() %></th>
-						<td><%=orderList.get(i).getO_TotalPrice() %></th>
-						<td><%=orderList.get(i).getO_Delivery() %><br>
+						<td><%=orderHistory.get(j).getO_Date() %></th>
+						<td><%=productInfoList.get(i).getPp_thumb() %><br>
+							<%=productInfoList.get(i).getPp_Name() %></th>
+						<td><%=productInfoList.get(i).getPp_Price() %></th>
+						<td><%=orderHistory.get(j).getO_Quantity() %></th>
+						<td><%=orderHistory.get(j).getO_TotalPrice() %></th>
+						<td><%=orderHistory.get(j).getO_Delivery() %><br>
 						<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');">후기작성</button>
 						</th>
 					</tr>
@@ -56,9 +63,10 @@
 					
 				</tbody>
 			</table>
-			<%}else{ %>
-						<h2> 주문 내역이 없습니다</h2>
 			<%} %>
+			<%}else %>
+						<h2> 주문 내역이 없습니다</h2>
+		
 		</div>
 		<div class="order_index">
                     <button type="button" class="" onclick=""><button> << </button></a>

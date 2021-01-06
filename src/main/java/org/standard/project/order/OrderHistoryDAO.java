@@ -29,6 +29,11 @@ public class OrderHistoryDAO {
 		dailyIncomeList = mySQL.selectList(loc+"getDailyIncomeList");
 		return dailyIncomeList;
 	}
+	public List<Map<String, Object>> getMarketShare() {
+		List<Map<String, Object>> marketShareList = new ArrayList<Map<String,Object>>();
+		marketShareList = mySQL.selectList(loc+"getMarketShareList");
+		return marketShareList;
+	}
 	
 	public ArrayList<ProductParentVO> getBrandOrderList(BrandDBVO loginBrand) {
 		ArrayList<ProductParentVO> getBrandOderList = new ArrayList<ProductParentVO>();
@@ -66,5 +71,7 @@ public class OrderHistoryDAO {
 		cusOrder =(ArrayList) mySQL.selectList(loc+"cusOrder", vo);
 		return cusOrder;
 	}
+
+	
 
 }
