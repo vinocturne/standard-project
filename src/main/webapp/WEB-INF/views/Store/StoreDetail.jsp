@@ -50,7 +50,7 @@
 			style="width:500px; height:500px" class="picture">
 		</div>
 		
-		<form method="POST">
+		<form name="frm" method="POST">
 		<div class="productside">
 			<div class="explain">
 				<h1><%=pp_VO.getPp_Name() %></h1><br>
@@ -83,7 +83,45 @@
 					<%
 					}
 					%>
-					
+					</select><br><br>
+					<h4>수량</h4><br>
+					<table>
+                    <tr style="border: 1px solid black">
+                    <td>
+                 	<input type="text" id="w_Quantity"name="w_Quantity" class="form" size="2" value=1 maxlength=2 onblur="numcheck(this.form.w_Quantity.value,10)" onkeyup="if(isNaN(this.value)) {alert('숫자만 입력해 주세요.');this.value=''};">
+                 	</td>
+                 	<td valign=top  style="border: 1px solid black" >
+                 	<input type=button value="▲" onclick="up(this.form.w_Quantity.value,10)" STYLE="background-color:white;border:0; height:10px;font-size:12px; vertical-align: middle;" name=plus>
+                 	<br>
+                 	<input type=button value="▼" onclick="down(this.form.w_Quantity.value)" STYLE="background-color:white;border:0; height:10px;font-size:12px; vertical-align: middle;" name=minus>
+                 	</td>
+                 	</tr>
+					</table>
+					<script>
+  					function numcheck(val,able){
+                        if (val>able-1){
+                                alert("최대 주문 가능 수량은 10개입니다.")
+                                document.frm.w_Quantity.value=able}
+                        else if (val<2){
+                        		alert("1개 이상의 제품을 선택해주세요.")
+                                document.frm.w_Quantity.value=1        }
+      				 }
+					function up(val,able){
+                        if (val>able-1){
+                                alert("1회 주문량을 초과했습니다.")
+                                document.frm.w_Quantity.value=able}
+                        else{
+                                document.frm.w_Quantity.value=(val/1)+1}
+					}
+                                                         
+					function down(val){
+                        if (val<2){
+	                            alert("1개 이상의 제품을 선택해주세요.")
+                                document.frm.w_Quantity.value=1}
+                        else{
+                                document.frm.w_Quantity.value=val-1}
+						}
+					</script>
 			</div>
 		</div>
 		
@@ -94,8 +132,8 @@
 			<!-- 장바구니 필요 데이터 -->
 			<input type="hidden" id="p_Id" name="p_Id" value="<%=pp_VO.getParent_p_Id()%>">
 			<input type="hidden" id="p_Price" name="p_Price" value="<%=pp_VO.getPp_Price() %>">
-			<input type="hidden" id="w_Quantity" name="w_Quantity" value="1">
-			<!-- 구매 필요 데이터 -->
+<!-- 			<input type="hidden" id="w_Quantity" name="w_Quantity" value="1">
+ -->			<!-- 구매 필요 데이터 -->
 			<input type="hidden" id="pp_Name" name="pp_Name" value="<%=pp_VO.getPp_Name() %>">
 			<input type="hidden" id="p_Brand" name="p_Brand" value="<%=pp_VO.getPp_Brand() %>">
 			<input type="hidden" id="pp_thumb"name="pp_thumb" value="<%=pp_VO.getPp_thumb()%>">
@@ -120,7 +158,7 @@
                      
                      var jsonStr = {
                     		 pp_Name : $("#pp_Name").val(), p_Brand : $("#p_Brand").val(), w_Quantity:$("#w_Quantity").val(), p_Price:$("#p_Price").val(),
-                    		 pp_thumb:$("#pp_thumb").val(), p_Id : $("#p_Id").val()+$("#p_Color").val()+$("#p_Size").val(), p_Color:$("#p_Color").val(),p_Size:$("#p_Size").val()
+                    		 pp_thumb:$("#pp_thumb").val(), parent_p_Id : $("#p_Id").val(), p_Color:$("#p_Color").val(),p_Size:$("#p_Size").val()
                      }
                      console.log(jsonStr);
                      jsonArr.push(jsonStr);
