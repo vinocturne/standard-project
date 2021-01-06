@@ -86,7 +86,7 @@
 			</a>
 			
 		</div>
-		<table class="table table-hover" height="100" width="1100">
+		<table class="table table-hover" height="100" width="1100" style="text-align:center;">
 			<thead>
 				<tr>
 					<th style="width:5%; height:10%">번호</th>
@@ -97,7 +97,7 @@
 					<th style="width:5%; height:10%">썸네일</th>
 					<th style="width:5%; height:10%">브랜드</th>
 					<th style="width:5%; height:10%">가격</th>
-					<th style="width:5%; height:10%">수정</th>
+					<th style="width:7%; height:10%">수정</th>
 				</tr>
 			</thead>
 			<tbody>
