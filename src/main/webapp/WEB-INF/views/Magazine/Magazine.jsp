@@ -172,9 +172,9 @@ flex-wrap:rap;
 
    </c:when>
   <c:otherwise>
-   <tr>
-    <td>존재하지 않습니다.</td>
-   </tr>
+   <div class="secondbody" style="padding-left:100px">
+    게시글이 존재하지 않습니다.
+  </div>   
   </c:otherwise>
   </c:choose>
 
