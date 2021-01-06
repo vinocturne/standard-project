@@ -89,7 +89,7 @@ margin-bottom:3px;
    <c:when test="${fn:length(list)>0}">
     <c:forEach var="productParent" items="${list}">
      
-     <div class="secondbody" style = padding-top:46px;> 
+     <div class="secondbody"> 
      <div class="mainbody"> 
     	 <div class="card" style="width:350px; height:390px">
 		    <a href="/project/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:348px; height:310px"
