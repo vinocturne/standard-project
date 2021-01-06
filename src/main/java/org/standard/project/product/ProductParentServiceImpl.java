@@ -66,4 +66,5 @@ public class ProductParentServiceImpl implements ProductParentService{
 	public List<ProductParentVO> showCategoryList(ProductParentVO vo) {
 		return productParentDAO.showCategoryList(vo);
 	}
+
 }
