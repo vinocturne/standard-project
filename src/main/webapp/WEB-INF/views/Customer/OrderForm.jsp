@@ -264,7 +264,8 @@ function fn_purchase(){
         console.log("p_Brand : "+parsedJSON[i].p_Brand);
         var purchaserData ={"c_Id":c_Id, "p_Id":parsedJSON[i].p_Id,"p_Price":parsedJSON[i].p_Price,"o_Quantity":parsedJSON[i].w_Quantity,
         "o_TotalPrice": ((parsedJSON[i].p_Price)*(parsedJSON[i].w_Quantity)),"p_Brand":parsedJSON[i].p_Brand,
-        "zipcode":o_zipcodeValue, "o_Address1":o_addressValue1,"o_Address2":o_addressValue2,"o_Name" :o_nameValue ,"o_Phone1":o_phone1, "o_Phone2":o_phone2};
+        "zipcode":o_zipcodeValue, "o_Address1":o_addressValue1,"o_Address2":o_addressValue2,"o_Name" :o_nameValue ,
+        "o_Phone1":o_phone1, "o_Phone2":o_phone2,"parent_p_Id":parsedJSON[i].parent_p_Id};
 
         purchaserDataArr.push(purchaserData);
    }
