@@ -50,16 +50,16 @@
         <div class="login_wrap">
             <div class="login_box">
                 <div class="title_box">
-                    <p class="login_title">Member Login</p>
-                    <p>가입 시 입력하신 아이디와 비밀번호로 로그인이 가능합니다.</p>
+                    <p class="login_title">아이디 찾기</p>
+                    <p>본인확인 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수 있습니다.</p>
                 </div>
                 <form action="/project/Customer/login_ok" method="post">
                     <div class="login_content">
                         <div class="input_box">
-                            <input type="text" placeholder="ID" name="c_Id">
-                            <input type="password" placeholder="PASSWORD" name="c_Password">
+                            이름        <input type="text" placeholder="ID" name="c_Id">
+                            이메일 주소 <input type="password" placeholder="PASSWORD" name="c_Password"><input type="button" value="인증번호 발송">
                         </div>
-	                <input type="submit" value="로그인">
+	                <input type="submit" value="다음">
                     </div>
                 </form>
                 

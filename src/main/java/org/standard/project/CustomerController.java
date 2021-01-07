@@ -315,7 +315,16 @@ public class CustomerController {
 			return "Customer/cart";
 		}
 	}
-	
+	@RequestMapping(value="/findID")
+	public String findID(HttpSession session) {
+		System.out.println("컨트롤러 : 아이디찾기페이지로 연결");
+		return "Customer/findIdForm";
+	}
+	@RequestMapping(value="/findPWD")
+	public String findPWD(HttpSession session) {
+		System.out.println("컨트롤러 : 비밀번호 찾기 페이지로 연결");
+		return "Customer/findPwdForm";
+	}
 	
 	
 }
