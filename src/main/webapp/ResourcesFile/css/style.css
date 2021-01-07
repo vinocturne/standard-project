@@ -348,12 +348,13 @@ header .sub-menu li a:hover {
 select { }
 button{
     background: #e5e5e5;
-    padding: 4px;
-    margin: 5px auto;
+    padding: 5px;
+    margin: 3px;
     /* box-sizing: border-box; */
     border:1px solid slategrey;
     border-radius: 3px;
 }
+
 
 .type15 {
     border-spacing: 1px;
@@ -468,6 +469,25 @@ color: black;
     border: none;
     outline: none;
     }
+
+.selectDelete_btn , .selectOrder_btn{
+   background-color: #5D5D5D;
+   color: white;   
+   font-size: 10pt;
+}
+
+.cartButton {
+   display: flex;
+   align-content: center; 
+    text-align: center;  
+    justify-content: flex-end;
+   
+}
+
+.cartButton :hover {
+   color: black;
+   background-color: white;
+}
 
 
 /* Register */
@@ -762,7 +782,7 @@ form {
     justify-content: center;
     align-content: center;   
     width: 80px;
-    background-color: darkblue;
+    background-color: #5D5D5D;
     color: white;
     padding: 5px;
     
@@ -772,6 +792,55 @@ form {
     background-color: white;
     color: black;
 }
+
+
+/* findPasswd */
+
+
+.findPasswd {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 98%;
+    padding: 60px 0;
+    border: 1px solid #e5e5e5; 
+    font-size: 10pt;
+    flex-flow: column wrap;   
+    font-family: 'Montserrat', sans-serif;
+}
+
+.findPasswd strong {
+    display: inline-block;
+    margin: 10px;
+    padding: 0 0 0 10px;
+    width: 140px;
+    font-weight: bold;
+    background: url(//img.echosting.cafe24.com/skin/base/common/ico_arrow.png) no-repeat 0 4px;
+}
+
+.findPasswd input[type="text"] {
+    width: 130px;
+    padding-left: 5px;
+    font-size: 10pt;
+}
+
+.findPasswd_confirm > input{
+    display: flex;
+    justify-content: center;
+    align-content: center;   
+    width: 80px;
+    background-color: #5D5D5D;
+    color: white;
+    padding: 5px;
+    
+}
+
+.findPasswd_confirm > input :hover {
+    background-color: white;
+    color: black;
+}
+
+
 
 
 

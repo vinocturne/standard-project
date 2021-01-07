@@ -16,6 +16,7 @@
    </bean>   
 
    <!-- mybatis로 호출될 시 불러올 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
    <bean id="mybatis" class="org.mybatis.spring.SqlSessionTemplate">
       <constructor-arg ref="sqlSessionFactory" />
