@@ -6,6 +6,12 @@
 	<select id="getCustomer" resultType="CustomerVO">
 		SELECT * FROM CUSTOMER WHERE c_Id=#{c_Id}
 	</select>
+	<select id="getCustomerId" resultType="CustomerVO">
+		SELECT * from CUSTOMER WHERE c_Name =#{c_Name} and c_Email=#{c_Email}
+	</select>
+	<select id="getCustomerPwd" resultType="CustomerVO">
+	SELECT * from CUSTOMER WHERE c_Name =#{c_Name} and c_Email=#{c_Email} and c_Id=#{c_Id}
+	</select>
 	<select id="joinCustomer" resultType="CustomerVO">
 		INSERT INTO customer VALUES(#{c_Id}, #{c_Password}, #{c_Name}, #{c_Birthday}, #{zipcode}, #{c_Address1}, #{c_Address2}, #{c_Phone1}, #{c_Phone2}, #{businessNumber}, SYSDATE(), #{c_Email}, #{role}, #{brandName})
 	</select>
@@ -41,5 +47,7 @@
 	<select id="getDailyRegNumber" resultType="HashMap">
 		SELECT COUNT(c_Id),c_RegisterDate FROM customer GROUP BY c_RegisterDate DESC LIMIT 30
 	</select>
-	
+	<select id="chagePassword" resultType="CustomerVO">
+		UPDATE CUSTOMER SET c_Password = #{c_Password} where c_Id=#{c_Id}
+	</select>
 </mapper>

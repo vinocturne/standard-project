@@ -36,6 +36,17 @@ public class ProductParentDAO {
 		return showWomanProductList; 
 	}
 	
+	public List<ProductParentVO> searchWomanProductList(String pp_Name) {
+		List<ProductParentVO> searchWomanProductList = mySQL.selectList(loc+"searchWomanProductList", pp_Name);
+		return searchWomanProductList; 
+	}
+	
+	public List<ProductParentVO> searchManProductList(String pp_Name) {
+		List<ProductParentVO> searchManProductList = mySQL.selectList(loc+"searchManProductList", pp_Name);
+		return searchManProductList; 
+	}
+	
+	
 	public void registProductParent(ProductParentVO vo) {
 		mySQL.insert(loc+"registProductParent", vo);
 	}

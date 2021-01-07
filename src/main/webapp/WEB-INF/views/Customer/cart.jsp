@@ -120,8 +120,8 @@ function change () {
                               data-p_Color="<%=wishListProductVO.get(i).getP_Color() %>"
                               data-p_Size="<%=wishListProductVO.get(i).getP_Size() %>"
                               data-pp_thumb="<%=wishListProductVO.get(i).getPp_thumb() %>"
-							  data-p_Brand ="<%=wishListProductVO.get(i).getP_Brand() %>"
-							  data-parent_p_Id="<%=wishListProductVO.get(i).getParent_p_Id() %>"/>
+                       data-p_Brand ="<%=wishListProductVO.get(i).getP_Brand() %>"
+                       data-parent_p_Id="<%=wishListProductVO.get(i).getParent_p_Id() %>"/>
                            <script>
                                  $(".chBox").click(
                                        function() {
@@ -154,7 +154,7 @@ function change () {
                   <% }%>
             </tbody>
          </table>
-         <div>
+         <div class="cartButton">
             <div class="orderBtn">
                <button type="button" class="selectOrder_btn">주문하기</button> <script>
                $(".selectOrder_btn").click(function() {
@@ -164,7 +164,7 @@ function change () {
                                  w_Quantity:$(this).attr("data-w_Quantity"),pp_Name:$(this).attr("data-pp_Name"),
                                  p_Color:$(this).attr("data-p_Color"),p_Size:$(this).attr("data-p_Size"),
                                  pp_thumb:$(this).attr("data-pp_thumb"),p_Brand : $(this).attr("data-p_Brand"),
-								 parent_p_Id: $(this).attr("data-parent_p_Id")
+                         parent_p_Id: $(this).attr("data-parent_p_Id")
                      }
                      jsonArr.push(jsonStr);
                      });
@@ -192,7 +192,6 @@ function change () {
                });
             </script>
             </div>
-         </div>
          <div>
             <a class="delBtn">
                <button type="button" class="selectDelete_btn">삭제하기</button> <script>
@@ -224,6 +223,7 @@ function change () {
                });
             </script>
             </a>
+         </div>
          </div>
       </div>
       </form>

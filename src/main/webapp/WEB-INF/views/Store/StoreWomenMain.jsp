@@ -1,7 +1,7 @@
 <%@page import="org.standard.project.magazine.MagazineVO"%>
 <%@page import="java.io.Console"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ include file="../head.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -13,16 +13,19 @@
 .secondbody{
 width:300px;
 margin-top: 45px;
-margin-right: 70px;
 }
 
 .content_wrap {
-	margin-left: 100px;
-	margin-right: 7%;
+   margin-left: 100px;
+   margin-right: 7%;
 }
 
 .table {
-	width: 1200px;
+   width: 1200px;
+}
+
+.magazine {
+   float: left;
 }
 
 .card{
@@ -30,6 +33,9 @@ margin-left:7px;
 margin-right:2px;
 margin-top:7px;
 margin-bottom:3px;
+overflow: hidden;
+margin: 8px;
+
 }
 
 /* SIDE BAR*/
@@ -65,22 +71,22 @@ margin-bottom:3px;
 
 <div class="content_wrap">
 
-	<div class="col-auto p-0">
-		<div class="side_nav">
-			<div class="side_nav_item">
-				<p class="side_nav_title">Store</p>
-				<ul>
-					<li><a href="/project/shop/StoreWomenMain" class="side_nav_title">Women</a></li>
-				
-					<li><a href="/project/shop/StoreWomenMain?category=Top">TOP</a></li>
-					<li><a href="/project/shop/StoreWomenMain?category=Bottom">BOTTOM</a></li>
-					<li><a href="/project/shop/StoreWomenMain?category=Dress">DRESS</a></li>
-					<li><a href="/project/shop/StoreWomenMain?category=Shoes">SHOES</a></li>
-					<li><a href="/project/shop/StoreWomenMain?category=Acc">Acc</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+   <div class="col-auto p-0">
+      <div class="side_nav">
+         <div class="side_nav_item">
+            <p class="side_nav_title">Store</p>
+            <ul>
+               <li><a href="/project/shop/StoreWomenMain" class="side_nav_title">Women</a></li>
+            
+               <li><a href="/project/shop/StoreWomenMain?category=Top">TOP</a></li>
+               <li><a href="/project/shop/StoreWomenMain?category=Bottom">BOTTOM</a></li>
+               <li><a href="/project/shop/StoreWomenMain?category=Dress">DRESS</a></li>
+               <li><a href="/project/shop/StoreWomenMain?category=Shoes">SHOES</a></li>
+               <li><a href="/project/shop/StoreWomenMain?category=Acc">Acc</a></li>
+            </ul>
+         </div>
+      </div>
+   </div>
 
 
 
@@ -96,29 +102,28 @@ margin-bottom:3px;
     </c:if>
     <td>
      <div class="secondbody"> 
-     
-    	 <div class="card" style="width:350px; height:390px">
-		    <a href="/project/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:348px; height:310px"></a>
-  			<div class="card-body">
-		      <h4 class="card-title">${productParent.pp_Name}</h4>
-		      <p class="card-text">${productParent.pp_Price}</p>
-		      <p></p>
-		    </div>
-  		</div>
-   
+     <div class="mainbody"> 
+        <div class="card" style="width:250px; height:370px">
+          <a href="/project/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:250px; height:280px"></a>
+           <div class="card-body">
+            <h4 class="card-title">${productParent.pp_Name}</h4>
+            <p class="card-text">${productParent.pp_Price}</p>
+            <p></p>
+          </div>
+        </div>
+     </div>
      </div>
    </td>
      <c:if test="${i%j == j-1 }">
-   
+     </tr>
      </c:if>
      <c:set var="i" value="${i+1 }"/>
     </c:forEach>
     </table>
-    
    </c:when>
   <c:otherwise>
   <div class="secondbody" style="padding-left:100px">
-	 판매중인 상품이 없습니다.
+    판매중인 상품이 없습니다.
    </div>   
   </c:otherwise>
   </c:choose>

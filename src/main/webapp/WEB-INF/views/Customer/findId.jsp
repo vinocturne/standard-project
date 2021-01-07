@@ -66,10 +66,10 @@
             <div class="findId">
                 <div class="findId_field">
                 <p id="c_Name" class="c_Name" ><strong id="name_lable">이름</strong> 
-                <input id="c_Name" name="c_Name" fw-filter="" fw-label="이름" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p>  
+                <input id="Name" name="c_Name" fw-filter="" fw-label="이름" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p>  
                 
                 <p id="c_Email" class="c_Email" ><strong>이메일로 찾기</strong> 
-                <input id="c_Email" name="c_Email" fw-filter="isEmail" fw-label="이메일" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p> 
+                <input id="Email" name="c_Email" fw-filter="isEmail" fw-label="이메일" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p> 
                 
                <p id="c_Phone1" class="c_Phone1" ><strong>휴대전화 번호로 찾기</strong> 
                     <input id="c_Phone1" name="c_Phone1" fw-filter="c_Phone1" fw-label="" fw-msg="" class="lostInput" placeholder="" value="" type="text">
@@ -77,7 +77,8 @@
                 
         
         <div class="findID_confirm">
-            <input type ="button" value="확인" > 
+            <input type ="button" value="확인" onclick="fn_findID()">
+            <span id="IdResult"></span>
         </div>
         </div>
         </div>
@@ -85,6 +86,36 @@
     </form>
     </div>
     </div>
+    <script>
+        function fn_findID(){
+            console.log("확인버튼 눌림");
+            var resultStr = document.getElementById("IdResult");
+            var requestedName = document.getElementById("Name");
+            var requestedEmail = document.getElementById("Email");
+            var requestedNameVal = requestedName.value;
+            var requestedEmailVal = requestedEmail.value;
+            var requestFindId ={"NAME": requestedNameVal, "EMAIL":requestedEmailVal};
+            console.log(requestFindId);
+            
+            $.ajax({
+                    type: "POST",
+                    async :"false" ,
+                    url: "/project/Customer/findID",
+                    data :{ "data" : JSON.stringify(requestFindId) },
+                    success: function(data,textStatus){
+                       //성공시
+                       resultStr.innerHTML =data;
+                    },
+                    error : function(data,textStatus){
+                       //에러발생시
+                       console.log("ajax 에러발생");
+                    },
+        
+                });
+
+            }
+
+    </script>
     
 
 
