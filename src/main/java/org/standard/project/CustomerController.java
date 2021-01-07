@@ -401,7 +401,10 @@ public class CustomerController {
 			
 	}
 	
-	
+	@RequestMapping(value = "/Mobile", method = RequestMethod.GET)
+	public String mobileLanding() {
+		return "Customer/Mobile";
+	}
 	
 	
 }
