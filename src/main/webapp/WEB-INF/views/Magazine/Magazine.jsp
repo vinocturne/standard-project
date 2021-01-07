@@ -44,13 +44,6 @@ margin-bottom:3px;
 
 }
 
-
-
-
-.mainbody{
-display : grid;
-
-}
  
 .card-body{
 flex-wrap:rap;
@@ -105,7 +98,7 @@ flex-wrap:rap;
   <c:choose>
    <c:when test="${fn:length(list)>0}">
    <table border=0>
-    <c:forEach var="magazine" items="${list}" varStatus="status">
+    <c:forEach var="magazine" items="${list}">
     <c:if test="${i%j == 0}">
     <tr>
     </c:if>

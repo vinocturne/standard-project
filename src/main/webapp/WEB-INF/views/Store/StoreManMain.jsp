@@ -13,6 +13,7 @@
 .secondbody{
 width:300px;
 margin-top: 45px;
+margin-right: 70px;
 }
 
 .content_wrap {
@@ -24,9 +25,6 @@ margin-top: 45px;
 	width: 1200px;
 }
 
-.magazine {
-	float: left;
-}
 
 .card{
 margin-left:7px;
@@ -34,6 +32,11 @@ margin-right:2px;
 margin-top:7px;
 margin-bottom:3px;
 }
+
+.card-body{
+flex-wrap:rap;
+}
+
 
 .col-auto ul li a{
   color: black;
@@ -94,7 +97,7 @@ margin-bottom:3px;
     </c:if>
     <td>
      <div class="secondbody"> 
-     <div class="mainbody"> 
+     
     	 <div class="card" style="width:350px; height:390px">
 		    <a href="/project/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:348px; height:310px"
 		    ></a>
@@ -104,15 +107,17 @@ margin-bottom:3px;
 		      <p></p>
 		    </div>
   		</div>
-     </div>
+   
      </div>
     </td>
     <c:if test="${i%j == j-1 }">
-     </tr>
+     
      </c:if>
    <c:set var="i" value="${i+1}" />
     </c:forEach>
     </table>
+    
+    
    </c:when>
   <c:otherwise>
   <div class="secondbody" style="padding-left:100px">
