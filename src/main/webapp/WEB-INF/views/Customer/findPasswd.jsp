@@ -77,7 +77,8 @@
                 
         
         <div class="findPasswd_confirm">
-            <input type ="button" value="확인" > 
+            <input onclick="fn_findPWD()" type ="button" value="확인" ><br>
+            <span id="PWDResult"></span>
         </div>
         </div>
         </div>
@@ -85,7 +86,39 @@
     </form>
     </div>
     </div>
-        
+    <script>
+      function fn_findPWD(){
+          console.log("확인버튼 눌림");
+          var resultStr = document.getElementById("PWDResult");
+          var requestedName = document.getElementById("c_Name");
+          var requestedEmail = document.getElementById("c_Email");
+          var requestedId =document.getElementById("c_Id");
+
+          var requestedIdVal = requestedId.value;
+          var requestedNameVal = requestedName.value;
+          var requestedEmailVal = requestedEmail.value;
+          var requestFindId ={"ID":requestedIdVal,"NAME": requestedNameVal, "EMAIL":requestedEmailVal};
+          console.log(requestFindId);
+          
+          $.ajax({
+                  type: "POST",
+                  async :"false" ,
+                  url: getContextPath()+"/Customer/findPWD",
+                  data :{ "data" : JSON.stringify(requestFindId) },
+                  success: function(data,textStatus){
+                     //성공시
+                     resultStr.innerHTML =data;
+                  },
+                  error : function(data,textStatus){
+                     //에러발생시
+                     console.log("ajax 에러발생");
+                  },
+      
+              });
+
+          }
+
+  </script>
 
 
 <%@ include file="../footer.jsp"%>
