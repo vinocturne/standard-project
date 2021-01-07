@@ -95,13 +95,6 @@ flex-wrap:rap;
 		<div class="side_nav">
 			<div class="side_nav_item">
 				<p class="side_nav_title">Magazine</p>
-				<ul>
-					<li><a href="/project/Customer/myPage">My page</a></li>
-					
-					<li><a href="/project/Customer/cart">Cart</a></li>
-					<li><a href="/project/Customer/order">Order</a></li>
-					<li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
-				</ul>
 			</div>
 		</div>
 	</div>
