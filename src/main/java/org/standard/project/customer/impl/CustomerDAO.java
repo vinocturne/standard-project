@@ -66,4 +66,9 @@ public class CustomerDAO {
 		return mySQL.selectOne(loc+"getCustomerPwd", vo);
 	}
 
+	public void changePassword(CustomerVO vo) {
+		mySQL.update(loc+"chagePassword", vo);
+		
+	}
+
 }

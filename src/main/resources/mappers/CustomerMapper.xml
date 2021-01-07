@@ -47,5 +47,7 @@
 	<select id="getDailyRegNumber" resultType="HashMap">
 		SELECT COUNT(c_Id),c_RegisterDate FROM customer GROUP BY c_RegisterDate DESC LIMIT 30
 	</select>
-	
+	<select id="chagePassword" resultType="CustomerVO">
+		UPDATE CUSTOMER SET c_Password = #{c_Password} where c_Id=#{c_Id}
+	</select>
 </mapper>

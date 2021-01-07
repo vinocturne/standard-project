@@ -75,4 +75,11 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDAO.getCustomerByIdAndNameAndEmail(vo);
 	}
 
+	@Override
+	public void changePassword(CustomerVO vo) {
+		customerDAO.changePassword(vo);
+		
+	}
+
+
 }

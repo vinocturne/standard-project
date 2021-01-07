@@ -390,7 +390,8 @@ public class CustomerController {
 			String tempPWD = TempPWD.randomPw();
 			System.out.println("생성된 임시 비밀번호 : "+tempPWD);
 			Email.sendTempPWD(customer.getC_Id(), customer.getC_Email(),tempPWD);
-			
+			vo.setC_Password(Encrypt.encrypt(tempPWD));
+			customerService.changePassword(vo);
 			out.print("등록된 이메일로 임시 비밀번호를 발송했습니다.");
 		}else {
 			//가입 정보를 찾을 수 없습니다. 
