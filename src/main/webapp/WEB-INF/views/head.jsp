@@ -18,3 +18,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script defer src="<%=request.getContextPath()%>/ResourcesFile/js/main.js"></script>
 <script defer src="<%=request.getContextPath()%>/ResourcesFile/js/count.js"></script>
+<script>function getContextPath() {
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+  };</script>

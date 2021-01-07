@@ -87,7 +87,12 @@
     </div>
     </div>
     <script>
+        function getContextPath() {
+  var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+  return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+};
         function fn_findID(){
+            console.log("getContextPath : "+getContextPath());
             console.log("확인버튼 눌림");
             var resultStr = document.getElementById("IdResult");
             var requestedName = document.getElementById("Name");
@@ -100,7 +105,7 @@
             $.ajax({
                     type: "POST",
                     async :"false" ,
-                    url: "/project/Customer/findID",
+                    url: getContextPath()+"/Customer/findID",
                     data :{ "data" : JSON.stringify(requestFindId) },
                     success: function(data,textStatus){
                        //성공시
