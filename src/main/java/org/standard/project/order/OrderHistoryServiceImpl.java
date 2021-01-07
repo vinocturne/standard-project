@@ -69,6 +69,20 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 		return orderHistoryDAO.cusOrder(vo);
 	}
 
+	@Override
+	public List<Map<String, Object>> getManCategoryMarketShare() {
+		List<Map<String, Object>> manCategoryMarketShareList = new ArrayList<Map<String,Object>>();
+		manCategoryMarketShareList = orderHistoryDAO.getManCategoryMarketShare();
+		return manCategoryMarketShareList;
+	}
+
+	@Override
+	public List<Map<String, Object>> getWomanCategoryMarketShare() {
+		List<Map<String, Object>> womanCategoryMarketShareList = new ArrayList<Map<String,Object>>();
+		womanCategoryMarketShareList = orderHistoryDAO.getWomanCategoryMarketShare();
+		return womanCategoryMarketShareList;
+	}
+
 	
 
 }

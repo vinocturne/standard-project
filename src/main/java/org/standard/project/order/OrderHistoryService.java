@@ -24,4 +24,7 @@ public interface OrderHistoryService {
 	ArrayList<OrderHistoryVO> cusOrder(OrderHistoryVO vo);
 
 	List<Map<String, Object>> getMarketShare();
+
+	List<Map<String, Object>> getManCategoryMarketShare();
+	List<Map<String, Object>> getWomanCategoryMarketShare();
 }
