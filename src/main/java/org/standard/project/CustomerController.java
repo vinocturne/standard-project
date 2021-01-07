@@ -315,15 +315,54 @@ public class CustomerController {
 			return "Customer/cart";
 		}
 	}
-	@RequestMapping(value="/findID")
-	public String findID(HttpSession session) {
+	@RequestMapping(value="/findID", method=RequestMethod.GET)
+	public String findIDForm(HttpSession session) {
 		System.out.println("컨트롤러 : 아이디찾기페이지로 연결");
+			
 		return "Customer/findIdForm";
 	}
+	@RequestMapping(value="/findID", method=RequestMethod.POST)
+	public String findID(HttpSession session) {
+		System.out.println("컨트롤러 : 아이디찾기페이지로 연결");
+		String name ="xun";
+		String email = "xun415@naver.com";
+		CustomerVO vo = new CustomerVO();
+		vo.setC_Name(name);
+		vo.setC_Email(email);
+		CustomerVO customer = customerService.getCustomer(vo);
+		if(customer.getC_Id()!=null) {
+			//이름과 이메일로 아이디를 가져올 수 있는경우(등록은 되어있음)
+			String customerId = customer.getC_Id();
+			//이메일로 customerId를 보내주기
+		}else {
+			//가입 정보를 찾을 수 없습니다. 
+		}
+			
+		return "Customer/findIdForm";
+	}
+	
 	@RequestMapping(value="/findPWD")
 	public String findPWD(HttpSession session) {
 		System.out.println("컨트롤러 : 비밀번호 찾기 페이지로 연결");
+		//아이디, 이메일, 이름을 받기
+		String name ="test";
+		String Id = "xun";
+		String email = "xun415@naver.com";
+		CustomerVO vo = new CustomerVO();
+		vo.setC_Name(name);
+		vo.setC_Id(Id);
+		vo.setC_Email(email);
+		CustomerVO customer = customerService.getCustomer(vo);
+		if(customer.getC_Password()!=null) {
+			//등록이 되있는경우
+			//비밀번호 재설정을 위한 인증번호 발송
+			//인증번호를 입력하면 비밀번호 재설정 페이지로 이동
+		}else {
+			//등록이 되어있지 않은경우. ajax로 등록되어있지 않은 정보입니다 리턴
+		}
+		
 		return "Customer/findPwdForm";
+		
 	}
 	
 	
