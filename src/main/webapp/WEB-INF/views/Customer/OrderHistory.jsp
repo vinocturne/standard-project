@@ -49,8 +49,7 @@
 				
 					<tr>
 						<td><%=orderHistory.get(j).getO_Date() %></td>
-						<td><%=productInfoList.get(i).getPp_thumb() %><br>
-							<%=productInfoList.get(i).getPp_Name() %></td>
+						<td><%=productInfoList.get(i).getPp_Name() %></td>
 						<td><%=productInfoList.get(i).getPp_Price() %></td>
 						<td><%=orderHistory.get(j).getO_Quantity() %></td>
 						<td><%=orderHistory.get(j).getO_TotalPrice() %></td>

@@ -294,6 +294,7 @@ header .sub-menu li a:hover {
     margin: 20px 10px;
     border-left: none;
     border-right: none;
+	min-width: 570px;
   }
   .table11 thead tr th {
     padding: 14px 0 15px;
