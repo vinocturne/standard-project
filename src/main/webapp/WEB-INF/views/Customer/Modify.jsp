@@ -282,9 +282,9 @@
      					}
    					 </script>
 
-		<span class="withdrawal"> <a class="delCus"> <img
-				src="<%=request.getContextPath()%>/ResourcesFile/img/withdrawal.png"
-				class="delCus_btn" width="100" height="30"> <script>
+					<span class="withdrawal"> 
+					<a class="delCus"> <img src="<%=request.getContextPath()%>/ResourcesFile/img/withdrawal.png" class="delCus_btn" width="100" height="30"> 
+					<script>
 					$(".delCus_btn").click(function() {
 						var confirm_val = confirm("탈퇴 하시겠습니까?");
 						if (confirm_val) {
@@ -295,8 +295,9 @@
 						}
 					});
 				</script>
-		</a>
-		</span>
+				</a>
+				</span>
+		
 		<div class="confirm-button modify">
 
 			<a> <input type="image"
@@ -319,7 +320,7 @@
            
           const hide = () =>{
         	  console.log('사업자웅앵 들어옴')
-        	 	var value = document.getElementById('businessNumber');
+        	 	var value = document.getElementById('brandName');
         	  	console.log(value.value);
         	  	console.log(typeof value.value);
         	  	console.log(typeof null);
