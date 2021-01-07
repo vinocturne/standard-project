@@ -55,6 +55,10 @@
 		SELECT * FROM productParent WHERE pp_Category1='woman'
 	</select>
 	
+	<select id="searchWomanProductList" parameterType="String" resultType="ProductParentVO">
+		SELECT * FROM productParent WHERE pp_Category1='woman' AND pp_Name LIKE CONCAT('%',#{pp_Name},'%')
+	</select>
+	
 	<select id="showManProductList" resultType="ProductParentVO">
 		SELECT * FROM productParent WHERE pp_Category1='man'
 	</select>

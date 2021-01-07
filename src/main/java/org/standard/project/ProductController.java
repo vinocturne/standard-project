@@ -101,11 +101,23 @@ public class ProductController {
 		  String gender = "woman";
 		  String category = req.getParameter("category");
 		  ProductParentVO ppVO = new ProductParentVO();
-		  
+		  String pp_Name = req.getParameter("s_pp_Name");
+		  String pp = "확인";
+			System.out.println(pp_Name+pp);
 			if(req.getParameter("category")==null) {
-				List<ProductParentVO> showWomanProductList = productParentService.showWomanProductList();
+				List<ProductParentVO> showWomanProductList = new ArrayList<ProductParentVO>();
+				if(pp_Name ==""||pp_Name==null) {
+					showWomanProductList = productParentService.showWomanProductList();
+				}else {
+					showWomanProductList = productParentService.searchWomanProductList(pp_Name); //구축
+					System.out.println("들어온값"+showWomanProductList);
+				}
+				
 				mav = new ModelAndView ("/Store/StoreWomenMain");
 				mav.addObject("list", showWomanProductList);
+//				List<ProductParentVO> showWomanProductList = productParentService.showWomanProductList();
+//				mav = new ModelAndView ("/Store/StoreWomenMain");
+//				mav.addObject("list", showWomanProductList);
 			}
 			else {
 				ppVO.setPp_Category1(gender);

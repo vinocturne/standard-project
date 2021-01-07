@@ -59,7 +59,10 @@ margin-bottom:3px;
   width: 100%; 
   left: 0; 
 }
-
+input[type=text] {
+  border: none;
+  border-bottom: 2px solid black;
+}
 
 </style>
 
@@ -85,7 +88,12 @@ margin-bottom:3px;
 		</div>
 	</div>
 
-
+<div>
+<form action="/project/shop/StoreWomenMain" method="get" enctype="multipart/form-data">
+제품명 검색: 
+<input type="text" name="s_pp_Name">
+<input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg"  alt="search" width="20" height="20">
+</form>
 
  <c:set var="i" value="0" />
  <c:set var="j" value="3" />
@@ -128,7 +136,7 @@ margin-bottom:3px;
 
 
 </div> <!--content_wrap 끝  -->
-
+</div>
 
 
 <%@ include file="../footer.jsp"%>
