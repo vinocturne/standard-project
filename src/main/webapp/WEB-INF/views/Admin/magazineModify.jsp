@@ -22,10 +22,10 @@
 			<div class="side_nav_item">
 				<p class="side_nav_title">관리자페이지</p>
 				<ul>
-					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
-					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
-					<li><a href="/project/Cs/cs_request">CS Review</a></li>
-					<li><a href="/project/Admin/AdminGraph">서비스 현황</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Admin/AdminMain">가입 대기 목록</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Admin/magazineManager">Magazine 관리</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Cs/cs_request">CS Review</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Admin/AdminGraph">서비스 현황</a></li>
 
 				</ul>
 			</div>
@@ -39,7 +39,7 @@
 			MagazineVO vo = (MagazineVO)request.getAttribute("vo");
 		%>
 		<!-- POST방식으로 넘어감. -->
-			<form action="/project/Admin/magazineModify" method="POST" enctype="multipart/form-data">
+			<form action=" <%=request.getContextPath() %>/Admin/magazineModify" method="POST" enctype="multipart/form-data">
 			<input type="hidden" id="m_Seq" name="m_Seq" value="<%=vo.getM_Seq() %>">
 			<input type="hidden" id="m_Hit" name="m_Hit" value="<%=vo.getM_Hit() %>">
 			<input type="hidden" id="m_Like" name="m_Like" value="<%=vo.getM_Like() %>">

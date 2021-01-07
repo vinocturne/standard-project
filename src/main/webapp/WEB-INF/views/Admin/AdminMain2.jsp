@@ -29,9 +29,9 @@
 			<div class="side_nav_item">
 				<p class="side_nav_title">관리자페이지</p>
 				<ul>
-					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
-					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
-					<li><a href="/project/Cs/cs_request">CS Review</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Admin/AdminMain">가입 대기 목록</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Admin/magazineManager">Magazine 관리</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Cs/cs_request">CS Review</a></li>
 
 				</ul>
 			</div>

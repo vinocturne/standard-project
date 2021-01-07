@@ -50,10 +50,10 @@
 			<div class="side_nav_item">
 				<p class="side_nav_title">관리자페이지</p>
 				<ul>
-					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
-					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
-					<li><a href="/project/Cs/cs_request">CS Review</a></li>
-					<li><a href="/project/Admin/AdminGraph">서비스 현황</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Admin/AdminMain">가입 대기 목록</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Admin/magazineManager">Magazine 관리</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Cs/cs_request">CS Review</a></li>
+					<li><a href=" <%=request.getContextPath() %>/Admin/AdminGraph">서비스 현황</a></li>
 
 				</ul>
 			</div>
@@ -66,7 +66,7 @@
 	<br>
 	
 		<!-- POST방식으로 넘어감. -->
-		<form action="/project/Admin/magazineWrite" method="POST" enctype="multipart/form-data" class="mainclass">
+		<form action=" <%=request.getContextPath() %>/Admin/magazineWrite" method="POST" enctype="multipart/form-data" class="mainclass">
 	
 			<label class="magazineTitle">매거진 제목 <input type="text" name="m_Title" /></label>
 			<br>
