@@ -56,6 +56,30 @@ public class AdminController {
 	public ModelAndView adminGraph(HttpServletRequest req) throws Exception  {
 		System.out.println("관리자 그래프 컨트롤러");
 		ModelAndView mav = new ModelAndView("/Admin/AdminGraph");
+		//중분류에 따른 중분류별 판매 점유율 파이차트
+		List<Map<String,Object>> manCategoryMarketShareList = orderHistoryService.getManCategoryMarketShare();
+		List<Map<String,Object>> womanCategoryMarketShareList = orderHistoryService.getWomanCategoryMarketShare();
+		System.out.println("남자 의류 카테고리별 판매수 : "+manCategoryMarketShareList);
+		System.out.println("여자 의류 카테고리별 판매수 : "+womanCategoryMarketShareList);
+		if(manCategoryMarketShareList!=null&&womanCategoryMarketShareList!=null) {
+			JSONArray manCategoryMarketShareListJSONArr = new JSONArray();
+			JSONArray womanCategoryMarketShareListJSONArr = new JSONArray();
+			for(int i=0; i<manCategoryMarketShareList.size();i++) {
+				JSONObject jsonObject = new JSONObject();
+				jsonObject.put("numberOfSales",Integer.valueOf(manCategoryMarketShareList.get(i).get("NumberOfSales").toString()));
+				jsonObject.put("Category2", manCategoryMarketShareList.get(i).get("Category2").toString());
+				manCategoryMarketShareListJSONArr.add(jsonObject);
+			}
+			for(int i=0; i<womanCategoryMarketShareList.size();i++) {
+				JSONObject jsonObject = new JSONObject();
+				jsonObject.put("numberOfSales",Integer.valueOf(womanCategoryMarketShareList.get(i).get("NumberOfSales").toString()));
+				jsonObject.put("Category2", womanCategoryMarketShareList.get(i).get("Category2").toString());
+				womanCategoryMarketShareListJSONArr.add(jsonObject);
+			}
+			mav.addObject("womanCategoryMarketShareList",womanCategoryMarketShareListJSONArr.toString());
+			mav.addObject("manCategoryMarketShareList",manCategoryMarketShareListJSONArr.toString());
+		}
+		
 		//브랜드별 판매 점유율 파이차트
 		List<Map<String,Object>> marketShareList = orderHistoryService.getMarketShare();
 		//SELECT COUNT(o.o_BrandId) AS 'NumberOfSales',b.brandName AS 'brandName' FROM orderhistory o JOIN brandDB b ON o.o_BrandId =b.brandId GROUP BY o_BrandId;

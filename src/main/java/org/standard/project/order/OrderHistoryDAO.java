@@ -72,6 +72,18 @@ public class OrderHistoryDAO {
 		return cusOrder;
 	}
 
+	public List<Map<String, Object>> getManCategoryMarketShare() {
+		List<Map<String, Object>> manCategoryMarketShareList = new ArrayList<Map<String,Object>>();
+		manCategoryMarketShareList = mySQL.selectList(loc+"getManCategoryMarketShare");
+		return manCategoryMarketShareList;
+	}
+
+	public List<Map<String, Object>> getWomanCategoryMarketShare() {
+		List<Map<String, Object>> womanCategoryMarketShareList = new ArrayList<Map<String,Object>>();
+		womanCategoryMarketShareList = mySQL.selectList(loc+"getWomanCategoryMarketShare");
+		return womanCategoryMarketShareList;
+	}
+
 	
 
 }
