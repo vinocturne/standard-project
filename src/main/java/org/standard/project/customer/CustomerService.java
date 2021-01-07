@@ -21,4 +21,6 @@ public interface CustomerService {
 	CustomerVO getCustomerByNameAndEmail(CustomerVO vo);
 
 	CustomerVO getCustomerByIdAndNameAndEmail(CustomerVO vo);
+
+	void changePassword(CustomerVO vo);
 }
