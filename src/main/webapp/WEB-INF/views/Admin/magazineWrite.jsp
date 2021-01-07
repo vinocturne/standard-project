@@ -17,6 +17,29 @@
     .table{
         width: 1200px;
     }
+    .mainclass{
+    	border: solid 1px black;/*가늠자 용  나중에 지워야함!*/
+    	
+    }
+    .magazineTitle{
+    padding-top:10px;
+    padding-left:10px;
+    }
+    
+    .magazineContent{
+    padding-left:10px;
+    
+    }
+
+	.fileclass{
+	padding-top:15px;
+	padding-left:10px;
+	}
+	
+	.btn {
+	margin-top:10px;
+    margin-left:10px;
+	}
 </style>
 </head>
 <%@ include file="../header.jsp"%>
@@ -43,13 +66,17 @@
 	<br>
 	
 		<!-- POST방식으로 넘어감. -->
-		<form action="/project/Admin/magazineWrite" method="POST" enctype="multipart/form-data">
-			<label for="magazineTitle">매거진 제목</label> <input type="text" name="m_Title" /><br>
+		<form action="/project/Admin/magazineWrite" method="POST" enctype="multipart/form-data" class="mainclass">
+	
+			<label class="magazineTitle">매거진 제목 <input type="text" name="m_Title" /></label>
 			<br>
-			<label for="magazineContent">매거진 내용</label>
+			<br>
+			<label class="magazineContent">매거진 내용</label>
 			<textarea rows="5" cols="50" name="m_Content"></textarea>
 			<br>
-			<input type="file" id="m_Img" name="m_Img"/>
+			
+			<input  class = "fileclass" type="file" id="m_Img" name="m_Img"/>
+			
 			<div class="selectImg_pre"><img src="" id="selectImg_pre"/></div>
 			<script>
 				$("#m_Img").change(function() {

@@ -65,4 +65,14 @@ public class CustomerServiceImpl implements CustomerService {
 		return regNumberList;
 	}
 
+	@Override
+	public CustomerVO getCustomerByNameAndEmail(CustomerVO vo) {
+		return customerDAO.getCustomerByNameAndEmail(vo);
+	}
+
+	@Override
+	public CustomerVO getCustomerByIdAndNameAndEmail(CustomerVO vo) {
+		return customerDAO.getCustomerByIdAndNameAndEmail(vo);
+	}
+
 }
