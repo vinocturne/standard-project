@@ -15,6 +15,7 @@ public interface ProductParentService {
 	List<ProductParentVO> showManProductList();
 	List<ProductParentVO> showWomanProductList();
 	List<ProductParentVO> searchWomanProductList(String pp_Name);
+	List<ProductParentVO> searchManProductList(String pp_Name);
 	void registProductParent(ProductParentVO vo);
 	int cntBrandProductParent(BrandDBVO vo) throws Exception;
 	void deleteParentProduct(String parent_p_Id);

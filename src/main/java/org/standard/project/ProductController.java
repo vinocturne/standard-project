@@ -102,23 +102,16 @@ public class ProductController {
 		  String category = req.getParameter("category");
 		  ProductParentVO ppVO = new ProductParentVO();
 		  String pp_Name = req.getParameter("s_pp_Name");
-		  String pp = "확인";
-			System.out.println(pp_Name+pp);
 			if(req.getParameter("category")==null) {
 				List<ProductParentVO> showWomanProductList = new ArrayList<ProductParentVO>();
 				if(pp_Name ==""||pp_Name==null) {
 					showWomanProductList = productParentService.showWomanProductList();
 				}else {
 					showWomanProductList = productParentService.searchWomanProductList(pp_Name); //구축
-					System.out.println("들어온값"+showWomanProductList);
 				}
-				
 				mav = new ModelAndView ("/Store/StoreWomenMain");
 				mav.addObject("search", pp_Name);
 				mav.addObject("list", showWomanProductList);
-//				List<ProductParentVO> showWomanProductList = productParentService.showWomanProductList();
-//				mav = new ModelAndView ("/Store/StoreWomenMain");
-//				mav.addObject("list", showWomanProductList);
 			}
 			else {
 				ppVO.setPp_Category1(gender);
@@ -135,9 +128,17 @@ public class ProductController {
 		  String gender = "man";
 		  String category = req.getParameter("category");
 		  ProductParentVO ppVO = new ProductParentVO();
+		  String pp_Name = req.getParameter("s_pp_Name");
 		  if(req.getParameter("category")==null) {
-			  List<ProductParentVO> showManProductList = productParentService.showManProductList();
+			  
+			  List<ProductParentVO> showManProductList = new ArrayList<ProductParentVO>();
+				if(pp_Name ==""||pp_Name==null) {
+					showManProductList = productParentService.showManProductList();
+				}else {
+					showManProductList = productParentService.searchManProductList(pp_Name); //구축
+				}
 			  mav = new ModelAndView ("/Store/StoreManMain");
+			  mav.addObject("search", pp_Name);
 			  mav.addObject("list", showManProductList);
 		  }else {
 			  ppVO.setPp_Category1(gender);
