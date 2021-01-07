@@ -11,7 +11,7 @@
             type: "POST",
             dataType: "text",
             async: false,
-            url: "/project/Customer/check_Id",
+            url: getContextPath()+"/Customer/check_Id",
             data: {
                 param: ID
             },
@@ -74,7 +74,7 @@
     <!-- Register -->
     <div class="register_wrap">
         <fieldset>
-            <form action="/project/Customer/Register" method="POST">
+            <form action=" <%=request.getContextPath() %>/Customer/Register" method="POST">
                 <div class="title_area">
                     <div class="title_area1">
                         <h1>회원 가입</h1>

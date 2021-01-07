@@ -274,7 +274,7 @@ function fn_purchase(){
 
     var form = document.createElement('form');
     form.setAttribute('method', 'post'); //GET 전환 가능
-    form.setAttribute('action', '/project/wishList/purchase');
+    form.setAttribute('action', getContextPath()+'/wishList/purchase');
     document.charset = "utf-8";
     
         var hiddenField = document.createElement('input');

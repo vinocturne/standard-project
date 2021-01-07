@@ -107,7 +107,7 @@
 		</div>
 		<div class="Register_table">
 		<fieldset>
-			<form action="/project/Customer/Modify" method="POST"
+			<form action=" <%=request.getContextPath() %>/Customer/Modify" method="POST"
 				onsubmit="return confirm('이대로 저장하시겠습니까? ');">
 				<table class="type12">
 					<thead>
@@ -303,7 +303,7 @@
 			<a> <input type="image"
 				src="<%=request.getContextPath()%>/ResourcesFile/img/modify.png"
 				width="135" height="40" alt="회원정보수정">
-			</a> <a href="/project"> <img
+			</a> <a href=" <%=request.getContextPath() %>"> <img
 				src="<%=request.getContextPath()%>/ResourcesFile/img/cancel.png"
 				width="135" height="40" alt="취소">
 			</a>

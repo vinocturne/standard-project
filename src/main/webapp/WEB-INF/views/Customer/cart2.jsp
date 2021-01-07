@@ -65,7 +65,7 @@
 			</table>
 						<div class="cart_button">
 							<div>
-								<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=480px,height=620px,location=no,left=200 top=100 status=no,scrollbars=yes');">후기작성</button>
+								<button onclick="window.open(' <%=request.getContextPath() %>/Customer/ReviewPopup','window_name','width=480px,height=620px,location=no,left=200 top=100 status=no,scrollbars=yes');">후기작성</button>
 
 								<button href="#">주문하기</button>
 							</div>

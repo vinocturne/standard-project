@@ -54,7 +54,7 @@
 						<td><%=orderHistory.get(j).getO_Quantity() %></td>
 						<td><%=orderHistory.get(j).getO_TotalPrice() %></td>
 						<td><%=orderHistory.get(j).getO_Delivery() %><br>
-						<button onclick="window.open('/project/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');">후기작성</button>
+						<button onclick="window.open(' <%=request.getContextPath() %>/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');">후기작성</button>
 						</td>
 					</tr>
 					
