@@ -10,7 +10,7 @@
 		SELECT o_Date,o_TotalPrice FROM orderhistory GROUP BY o_Date DESC LIMIT 30
 	</select>
 	<select id="getMarketShareList" resultType="HashMap">
-	SELECT COUNT(o.o_BrandId) AS 'NumberOfSales',b.brandName as 'brandName' FROM orderhistory o JOIN brandDB b ON o.o_BrandId =b.brandId GROUP BY o_BrandId;
+	SELECT COUNT(o.o_BrandId) AS 'NumberOfSales',b.brandName as 'brandName' FROM orderhistory o JOIN branddb b ON o.o_BrandId =b.brandId GROUP BY o_BrandId;
 	</select>
 	<select id="getBrandOrderList" resultType="org.standard.project.order.OrderHistoryVO">
 		SELECT * FROM orderhistory where o_BrandId='${brandId}'

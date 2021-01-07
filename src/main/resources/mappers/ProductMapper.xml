@@ -5,30 +5,30 @@
 <mapper namespace="org.standard.project.ProductMapper">
 
 	<select id="listProductParent" resultType="ProductParentVO">
-		SELECT * FROM productParent WHERE pp_Brand= '${brandId}'
+		SELECT * FROM productparent WHERE pp_Brand= '${brandId}'
 	</select>
 	
 	<select id="registProductParent" resultType="ProductParentVO">
-		INSERT INTO productParent(pp_Name, parent_p_Id, pp_Category1, pp_Category2, pp_thumb, pp_image, pp_Brand, pp_Price) VALUES(#{pp_Name}, #{parent_p_Id}, #{pp_Category1}, #{pp_Category2}, #{pp_thumb}, #{pp_image}, #{pp_Brand}, #{pp_Price});
+		INSERT INTO productparent(pp_Name, parent_p_Id, pp_Category1, pp_Category2, pp_thumb, pp_image, pp_Brand, pp_Price) VALUES(#{pp_Name}, #{parent_p_Id}, #{pp_Category1}, #{pp_Category2}, #{pp_thumb}, #{pp_image}, #{pp_Brand}, #{pp_Price});
 	</select>
 	
 	<select id="cntBrandProductParent" resultType="_int">
-		SELECT MAX(pp_Num) FROM productParent
+		SELECT MAX(pp_Num) FROM productparent
 	</select>
 	
 	<select id="deleteParentProduct" resultType="ProductParentVO">
-		DELETE FROM productParent WHERE parent_p_Id=#{parent_p_Id}
+		DELETE FROM productparent WHERE parent_p_Id=#{parent_p_Id}
 	</select>
 	
 	<select id="selectParentProduct" resultType="ProductParentVO">
-		SELECT * FROM productParent where parent_p_Id=#{parent_p_Id}
+		SELECT * FROM productparent where parent_p_Id=#{parent_p_Id}
 	</select>
 	
 	<select id="modifyParentProductWithoutImage" resultType="ProductParentVO">
-		UPDATE productParent SET pp_Name=#{pp_Name}, pp_Category1=#{pp_Category1}, pp_Category2=#{pp_Category2}, pp_Price=#{pp_Price} where parent_p_Id=#{parent_p_Id}
+		UPDATE productparent SET pp_Name=#{pp_Name}, pp_Category1=#{pp_Category1}, pp_Category2=#{pp_Category2}, pp_Price=#{pp_Price} where parent_p_Id=#{parent_p_Id}
 	</select>
 	<select id="modifyParentProductWithImage" resultType="ProductParentVO">
-		UPDATE productParent SET pp_Name=#{pp_Name}, pp_Category1=#{pp_Category1}, pp_Category2=#{pp_Category2}, pp_Price=#{pp_Price}, pp_thumb=#{pp_thumb}, pp_image=#{pp_image} where parent_p_Id=#{parent_p_Id}
+		UPDATE productparent SET pp_Name=#{pp_Name}, pp_Category1=#{pp_Category1}, pp_Category2=#{pp_Category2}, pp_Price=#{pp_Price}, pp_thumb=#{pp_thumb}, pp_image=#{pp_image} where parent_p_Id=#{parent_p_Id}
 	</select>
 	
 	<select id="listProductChild" parameterType = "String" resultType="ProductChildVO">
@@ -36,7 +36,7 @@
 	</select>
 	
 	<select id="showAllProductList" resultType = "ProductParentVO">
-		SELECT * FROM productParent; 
+		SELECT * FROM productparent; 
 	</select>
 	
 	<select id="registProductChild" resultType="ProductChildVO">
@@ -52,23 +52,23 @@
 	</select>
 	
 	<select id="showWomanProductList" resultType="ProductParentVO">
-		SELECT * FROM productParent WHERE pp_Category1='woman'
+		SELECT * FROM productparent WHERE pp_Category1='woman'
 	</select>
 	
 	<select id="searchWomanProductList" parameterType="String" resultType="ProductParentVO">
-		SELECT * FROM productParent WHERE pp_Category1='woman' AND pp_Name LIKE CONCAT('%',#{pp_Name},'%')
+		SELECT * FROM productparent WHERE pp_Category1='woman' AND pp_Name LIKE CONCAT('%',#{pp_Name},'%')
 	</select>
 	
 	<select id="showManProductList" resultType="ProductParentVO">
-		SELECT * FROM productParent WHERE pp_Category1='man'
+		SELECT * FROM productparent WHERE pp_Category1='man'
 	</select>
 	
 	<select id="searchManProductList" parameterType="String" resultType="ProductParentVO">
-		SELECT * FROM productParent WHERE pp_Category1='man' AND pp_Name LIKE CONCAT('%',#{pp_Name},'%')
+		SELECT * FROM productparent WHERE pp_Category1='man' AND pp_Name LIKE CONCAT('%',#{pp_Name},'%')
 	</select>
 	
 	<select id="showCategoryList" resultType="ProductParentVO">
-		SELECT * FROM productParent WHERE pp_Category1=#{pp_Category1} and pp_Category2=#{pp_Category2}
+		SELECT * FROM productparent WHERE pp_Category1=#{pp_Category1} and pp_Category2=#{pp_Category2}
 	</select>
 	<select id="purchase">
 		UPDATE product SET p_Stack = p_Stack-#{w_Quantity} WHERE p_Id =#{p_Id}

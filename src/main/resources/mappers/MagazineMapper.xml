@@ -34,11 +34,11 @@
 	</select>
 	<!-- 좋아요 눌렀는지 안눌렀는지 확인하는 매퍼 -->
 	<select id="likecheck" resultType="String">
-		SELECT ml_Check From magazineLike WHERE m_Seq=#{m_Seq} and c_Id=#{c_Id}
+		SELECT ml_Check From magazinelike WHERE m_Seq=#{m_Seq} and c_Id=#{c_Id}
 	</select>
 	<!-- 게시글 조회하면 해당 db에 좋아요 여부 생성 -->
 	<select id="makeLikeRow" resultType="MagazineLikeVO">
-		INSERT INTO magazineLike(m_Seq,c_Id,ml_Check) VALUES (#{m_Seq},#{c_Id},1)
+		INSERT INTO magazinelike(m_Seq,c_Id,ml_Check) VALUES (#{m_Seq},#{c_Id},1)
 	</select>
 	<!-- 게시글 좋아요 수 가져오는 쿼리(ml_Check로 여부 확인) -->
 	<select id="getLikeCnt" resultType="_int">
@@ -55,10 +55,10 @@
 	</select>
 	<!-- 좋아요 취소하면 ml_Check가 다시 0이 되어야함 -->
 	<select id="likeCheckInit" resultType="MagazineLikeVO">
-		UPDATE magazineLike SET ml_Check = 0 WHERE m_Seq=#{m_Seq} and c_Id=#{c_Id}
+		UPDATE magazinelike SET ml_Check = 0 WHERE m_Seq=#{m_Seq} and c_Id=#{c_Id}
 	</select>
 	<!-- 취소했다가 다시 좋아요누르는 경우 magazineLike 테이블의 likeCheck를 1로 변경 -->
 	<select id="likeCheckPlus" resultType="MagazineLikeVO">
-		UPDATE magazineLike SET ml_Check = 1 WHERE m_Seq=#{m_Seq} and c_Id=#{c_Id}
+		UPDATE magazinelike SET ml_Check = 1 WHERE m_Seq=#{m_Seq} and c_Id=#{c_Id}
 	</select>
 </mapper>
