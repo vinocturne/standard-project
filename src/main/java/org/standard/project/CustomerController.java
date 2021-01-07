@@ -2,10 +2,12 @@ package org.standard.project;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
 import javax.annotation.Resource;
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,7 +25,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.brand.BrandDBService;
 import org.standard.project.brand.BrandDBVO;
+import org.standard.project.common.Email;
 import org.standard.project.common.Encrypt;
+import org.standard.project.common.TempPWD;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 
@@ -319,51 +323,84 @@ public class CustomerController {
 	public String findIDForm(HttpSession session) {
 		System.out.println("컨트롤러 : 아이디찾기페이지로 연결");
 			
-		return "Customer/findIdForm";
+		return "Customer/findId";
 	}
 	@RequestMapping(value="/findID", method=RequestMethod.POST)
-	public String findID(HttpSession session) {
-		System.out.println("컨트롤러 : 아이디찾기페이지로 연결");
-		String name ="xun";
-		String email = "xun415@naver.com";
+	public void findID(HttpSession session,HttpServletRequest req,HttpServletResponse resp) throws MessagingException, IOException, ParseException {
+		System.out.println("컨트롤러 아이디 찾기 요청");
+		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObject =(JSONObject)jsonParser.parse(req.getParameter("data"));
+		
+		System.out.println("제이슨Object : "+jsonObject);
+		PrintWriter out = resp.getWriter();
+		String name =jsonObject.get("NAME").toString();
+		String email = jsonObject.get("EMAIL").toString();
+		System.out.println("요청 이름 : "+name +", 요청 이메일 : "+email);
 		CustomerVO vo = new CustomerVO();
 		vo.setC_Name(name);
 		vo.setC_Email(email);
-		CustomerVO customer = customerService.getCustomer(vo);
+		CustomerVO customer = customerService.getCustomerByNameAndEmail(vo);
+		System.out.println("custoemr : "+customer);
 		if(customer.getC_Id()!=null) {
 			//이름과 이메일로 아이디를 가져올 수 있는경우(등록은 되어있음)
 			String customerId = customer.getC_Id();
 			//이메일로 customerId를 보내주기
+			Email.sendFindIdResult(customer.getC_Id(), customer.getC_Email());
+			
+			out.print("요청하신 아이디를 이메일로 발송했습니다.");
 		}else {
 			//가입 정보를 찾을 수 없습니다. 
+			//Ajax로 정보 표시해주기
+			out.print("입력하신 정보로 가입된 아이디가 없습니다.");
 		}
 			
-		return "Customer/findIdForm";
 	}
 	
-	@RequestMapping(value="/findPWD")
+	@RequestMapping(value="/findPWD", method=RequestMethod.GET)
 	public String findPWD(HttpSession session) {
 		System.out.println("컨트롤러 : 비밀번호 찾기 페이지로 연결");
-		//아이디, 이메일, 이름을 받기
-		String name ="test";
-		String Id = "xun";
-		String email = "xun415@naver.com";
-		CustomerVO vo = new CustomerVO();
-		vo.setC_Name(name);
-		vo.setC_Id(Id);
-		vo.setC_Email(email);
-		CustomerVO customer = customerService.getCustomer(vo);
-		if(customer.getC_Password()!=null) {
-			//등록이 되있는경우
-			//비밀번호 재설정을 위한 인증번호 발송
-			//인증번호를 입력하면 비밀번호 재설정 페이지로 이동
-		}else {
-			//등록이 되어있지 않은경우. ajax로 등록되어있지 않은 정보입니다 리턴
-		}
-		
 		return "Customer/findPwdForm";
-		
 	}
+	
+	@RequestMapping(value="/findPWD", method=RequestMethod.POST)
+	public void findPWD(HttpSession session,HttpServletRequest req,HttpServletResponse resp) throws MessagingException, IOException, ParseException {
+		System.out.println("컨트롤러 비밀번호 찾기 요청");
+		JSONParser jsonParser = new JSONParser();
+		JSONObject jsonObject =(JSONObject)jsonParser.parse(req.getParameter("data"));
+		
+		System.out.println("제이슨Object : "+jsonObject);
+		PrintWriter out = resp.getWriter();
+		String ID = jsonObject.get("ID").toString();
+		String name =jsonObject.get("NAME").toString();
+		String email = jsonObject.get("EMAIL").toString();
+		System.out.println("요청 아이디 : "+ID+", 요청 이름 : "+name +", 요청 이메일 : "+email);
+		CustomerVO vo = new CustomerVO();
+		vo.setC_Id(ID);
+		vo.setC_Name(name);
+		vo.setC_Email(email);
+		CustomerVO customer = customerService.getCustomerByIdAndNameAndEmail(vo);
+		System.out.println("custoemr : "+customer);
+		//등록이 되있는경우
+		//비밀번호 재설정을 위한 인증번호 발송
+		//인증번호를 입력하면 비밀번호 재설정 페이지로 이동
+		if(customer.getC_Password()!=null) {
+			//이름과 이메일로 아이디를 가져올 수 있는경우(등록은 되어있음)
+			String customerId = customer.getC_Id();
+			//이메일로 임시 비밀번호 보내주기
+			String tempPWD = TempPWD.randomPw();
+			System.out.println("생성된 임시 비밀번호 : "+tempPWD);
+			Email.sendTempPWD(customer.getC_Id(), customer.getC_Email(),tempPWD);
+			
+			out.print("등록된 이메일로 임시 비밀번호를 발송했습니다.");
+		}else {
+			//가입 정보를 찾을 수 없습니다. 
+			//Ajax로 정보 표시해주기
+			out.print("입력하신 정보로 가입된 아이디가 없습니다.");
+		}
+			
+	}
+	
+	
 	
 	
 }

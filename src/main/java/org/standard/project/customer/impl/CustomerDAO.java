@@ -57,4 +57,13 @@ public class CustomerDAO {
 		return regNumberList;
 	}
 
+	public CustomerVO getCustomerByNameAndEmail(CustomerVO vo) {
+		return mySQL.selectOne(loc+"getCustomerId", vo);
+	}
+
+	public CustomerVO getCustomerByIdAndNameAndEmail(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		return mySQL.selectOne(loc+"getCustomerPwd", vo);
+	}
+
 }
