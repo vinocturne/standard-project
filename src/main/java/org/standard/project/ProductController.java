@@ -114,6 +114,7 @@ public class ProductController {
 				}
 				
 				mav = new ModelAndView ("/Store/StoreWomenMain");
+				mav.addObject("search", pp_Name);
 				mav.addObject("list", showWomanProductList);
 //				List<ProductParentVO> showWomanProductList = productParentService.showWomanProductList();
 //				mav = new ModelAndView ("/Store/StoreWomenMain");

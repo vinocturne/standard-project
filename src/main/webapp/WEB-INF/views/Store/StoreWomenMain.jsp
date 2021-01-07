@@ -88,7 +88,7 @@ input[type=text] {
 <div>
 <form action="/project/shop/StoreWomenMain" method="get" enctype="multipart/form-data">
 제품명 검색: 
-<input type="text" name="s_pp_Name">
+<input type="text" value="${search}" name="s_pp_Name">
 <input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg"  alt="search" width="20" height="20">
 </form>
 
@@ -126,7 +126,7 @@ input[type=text] {
    </c:when>
   <c:otherwise>
   <div class="secondbody" style="padding-left:100px">
-	 판매중인 상품이 없습니다.
+	 검색하신 상품이 없습니다.
    </div>   
   </c:otherwise>
   </c:choose>
