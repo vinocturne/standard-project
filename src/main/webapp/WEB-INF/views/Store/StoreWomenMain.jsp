@@ -13,6 +13,7 @@
 .secondbody{
 width:300px;
 margin-top: 45px;
+margin-right: 70px;
 }
 
 .content_wrap {
@@ -24,17 +25,11 @@ margin-top: 45px;
    width: 1200px;
 }
 
-.magazine {
-   float: left;
-}
-
 .card{
 margin-left:7px;
 margin-right:2px;
 margin-top:7px;
 margin-bottom:3px;
-overflow: hidden;
-margin: 8px;
 
 }
 
@@ -103,8 +98,8 @@ margin: 8px;
     <td>
      <div class="secondbody"> 
      <div class="mainbody"> 
-        <div class="card" style="width:250px; height:370px">
-          <a href="<%=request.getContextPath() %>/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:250px; height:280px"></a>
+        <div class="card" style="width:350px; height:390px">
+          <a href="<%=request.getContextPath() %>/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:348px; height:310px"></a>
            <div class="card-body">
             <h4 class="card-title">${productParent.pp_Name}</h4>
             <p class="card-text">${productParent.pp_Price}</p>
