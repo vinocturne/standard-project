@@ -27,4 +27,10 @@
 	<select id="cusOrder" resultType="org.standard.project.order.OrderHistoryVO">
 		SELECT * FROM orderhistory WHERE c_Id = #{c_Id} AND parent_p_Id = #{parent_p_Id};
 	</select>
+	<select id="getManCategoryMarketShare" resultType="HashMap">
+	SELECT pp.pp_Category2 AS 'Category2', COUNT(*) AS 'NumberOfSales'  FROM orderhistory o JOIN productparent pp ON o.parent_p_Id = pp.parent_p_Id WHERE pp.pp_Category1 ='man' GROUP BY pp.pp_Category2; 
+	</select>
+	<select id="getWomanCategoryMarketShare" resultType="HashMap">
+		SELECT pp.pp_Category2 AS 'Category2', COUNT(*) AS 'NumberOfSales'  FROM orderhistory o JOIN productparent pp ON o.parent_p_Id = pp.parent_p_Id WHERE pp.pp_Category1 ='woman' GROUP BY pp.pp_Category2; 
+	</select>
 </mapper>

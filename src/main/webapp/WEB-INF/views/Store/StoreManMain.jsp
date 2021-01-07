@@ -11,7 +11,7 @@
 
 <style>
 .secondbody{
-width:1200px;
+width:300px;
 margin-top: 45px;
 }
 
@@ -87,8 +87,12 @@ margin-bottom:3px;
 
   <c:choose>
    <c:when test="${fn:length(list)>0}">
+   <table border=0>
     <c:forEach var="productParent" items="${list}">
-     
+     <c:if test="${i%j == 0}">
+     <tr>
+    </c:if>
+    <td>
      <div class="secondbody"> 
      <div class="mainbody"> 
     	 <div class="card" style="width:350px; height:390px">
@@ -102,14 +106,13 @@ margin-bottom:3px;
   		</div>
      </div>
      </div>
-    
-    <c:if test="${i%j == j-1}">
+    </td>
+    <c:if test="${i%j == j-1 }">
      </tr>
-     넘어가라 넘어가라
-    </c:if>
-    
+     </c:if>
    <c:set var="i" value="${i+1}" />
     </c:forEach>
+    </table>
    </c:when>
   <c:otherwise>
   <div class="secondbody" style="padding-left:100px">
