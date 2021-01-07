@@ -33,10 +33,7 @@ margin-top:7px;
 margin-bottom:3px;
 }
 
-.card-body{
-flex-wrap:rap;
-}
-
+/* SIDE BAR*/
 
 .col-auto ul li a{
   color: black;
