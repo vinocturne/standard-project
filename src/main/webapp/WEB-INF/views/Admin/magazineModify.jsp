@@ -25,6 +25,7 @@
 					<li><a href="/project/Admin/AdminMain">가입 대기 목록</a></li>
 					<li><a href="/project/Admin/magazineManager">Magazine 관리</a></li>
 					<li><a href="/project/Cs/cs_request">CS Review</a></li>
+					<li><a href="/project/Admin/AdminGraph">서비스 현황</a></li>
 
 				</ul>
 			</div>
