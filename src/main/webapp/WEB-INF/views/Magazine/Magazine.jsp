@@ -15,7 +15,7 @@ opacity:90%;
 }
 
 .secondbody{
-width:1200px;
+width:300px;
 margin-top: 45px;
 }
 
@@ -132,7 +132,7 @@ flex-wrap:rap;
 	
 </div> --%>
 
- <c:set var="i" value="1" />
+ <%-- <c:set var="i" value="1" />
  <c:set var="j" value="5" />
 
   <c:choose>
@@ -170,6 +170,51 @@ flex-wrap:rap;
   </div>   
   </c:otherwise>
   </c:choose>
+ --%>
+<c:set var="i" value="0" /> 
+<c:set var="j" value="3" />
+
+  <c:choose>
+   <c:when test="${fn:length(list)>0}">
+   <table border=0>
+    <c:forEach var="magazine" items="${list}" varStatus="status">
+    <c:if test="${i%j == 0}">
+    <tr>
+    </c:if>
+    <td>
+     <div class="secondbody"> 
+     
+	    	 <div class="card" style="width:280px">
+			    <div class="card-body">
+			      <h4 class="card-title">${magazine.m_Title}</h4>
+			      <p class="card-text">${magazine.m_Content}</p>
+			      
+			    </div>
+			    <a href="/project/magazine/MagazineDetail?m_Seq=${magazine.m_Seq }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
+			    
+	  		</div>
+     </div>
+     </td>
+     <c:if test="${i%j == j-1 }">
+     </tr>
+     </c:if>
+     <c:set var="i" value="${i+1 }"/>
+
+
+
+
+   </c:forEach>
+</table>
+
+   </c:when>
+  <c:otherwise>
+   <div class="secondbody" style="padding-left:100px">
+    게시글이 존재하지 않습니다.
+  </div>   
+  </c:otherwise>
+  </c:choose>
+
+
 
 
 <%-- 
