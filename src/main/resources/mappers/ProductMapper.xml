@@ -68,8 +68,13 @@
 	</select>
 	
 	<select id="showCategoryList" resultType="ProductParentVO">
-		SELECT * FROM productparent WHERE pp_Category1=#{pp_Category1} and pp_Category2=#{pp_Category2}
+		SELECT * FROM productparent WHERE pp_Category1=#{pp_Category1} AND pp_Category2=#{pp_Category2}
 	</select>
+	
+	<select id="showSearchCategoryList" resultType="ProductParentVO">
+		SELECT * FROM productparent WHERE pp_Category1=#{pp_Category1} AND pp_Category2=#{pp_Category2} AND pp_Name LIKE CONCAT('%',#{pp_Name},'%')
+	</select>
+	
 	<select id="purchase">
 		UPDATE product SET p_Stack = p_Stack-#{w_Quantity} WHERE p_Id =#{p_Id}
 	</select>

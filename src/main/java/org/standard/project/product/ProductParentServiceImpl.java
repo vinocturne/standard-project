@@ -77,4 +77,9 @@ public class ProductParentServiceImpl implements ProductParentService{
 		return productParentDAO.searchManProductList(pp_Name);
 	}
 
+	@Override
+	public List<ProductParentVO> showSearchCategoryList(ProductParentVO vo) {
+		return productParentDAO.showSearchCategoryList(vo);
+	}
+
 }

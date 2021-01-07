@@ -84,5 +84,10 @@ public class ProductParentDAO {
 		List<ProductParentVO> showCategoryList = mySQL.selectList(loc+"showCategoryList", vo);
 		return showCategoryList;
 	}
+	
+	public List<ProductParentVO> showSearchCategoryList(ProductParentVO vo) {
+		List<ProductParentVO> showCategoryList = mySQL.selectList(loc+"showSearchCategoryList", vo);
+		return showCategoryList;
+	}
 
 }

@@ -102,7 +102,7 @@ public class ProductController {
 		  String category = req.getParameter("category");
 		  ProductParentVO ppVO = new ProductParentVO();
 		  String pp_Name = req.getParameter("s_pp_Name");
-			if(req.getParameter("category")==null) {
+			if(req.getParameter("category")==null||req.getParameter("category")=="") {
 				List<ProductParentVO> showWomanProductList = new ArrayList<ProductParentVO>();
 				if(pp_Name ==""||pp_Name==null) {
 					showWomanProductList = productParentService.showWomanProductList();
@@ -116,9 +116,20 @@ public class ProductController {
 			else {
 				ppVO.setPp_Category1(gender);
 				ppVO.setPp_Category2(category);
-				List<ProductParentVO> showCategoryList = productParentService.showCategoryList(ppVO);
+				
+				List<ProductParentVO> showCategoryList = new ArrayList<ProductParentVO>();
+				  if(pp_Name ==""||pp_Name==null) {
+					  showCategoryList = productParentService.showCategoryList(ppVO);
+				  }else {
+					  ppVO.setPp_Name(pp_Name);
+					  System.out.println(ppVO);
+					  showCategoryList = productParentService.showSearchCategoryList(ppVO);
+					  System.out.println(showCategoryList);
+				  }
+				
 				mav = new ModelAndView ("/Store/StoreWomenMain");
 				mav.addObject("list", showCategoryList);
+				mav.addObject("category", category);
 			}
 			return mav;
 		}
@@ -129,7 +140,7 @@ public class ProductController {
 		  String category = req.getParameter("category");
 		  ProductParentVO ppVO = new ProductParentVO();
 		  String pp_Name = req.getParameter("s_pp_Name");
-		  if(req.getParameter("category")==null) {
+		  if(req.getParameter("category")==null||req.getParameter("category")=="") {
 			  
 			  List<ProductParentVO> showManProductList = new ArrayList<ProductParentVO>();
 				if(pp_Name ==""||pp_Name==null) {
@@ -143,9 +154,16 @@ public class ProductController {
 		  }else {
 			  ppVO.setPp_Category1(gender);
 			  ppVO.setPp_Category2(category);
-			  List<ProductParentVO> showCategoryList = productParentService.showCategoryList(ppVO);
+			  List<ProductParentVO> showCategoryList = new ArrayList<ProductParentVO>();
+			  if(pp_Name ==""||pp_Name==null) {
+				  showCategoryList = productParentService.showCategoryList(ppVO);
+			  }else {
+				  ppVO.setPp_Name(pp_Name);
+				  showCategoryList = productParentService.showSearchCategoryList(ppVO);
+			  }
 			  mav = new ModelAndView ("/Store/StoreManMain");
 			  mav.addObject("list", showCategoryList);
+			  mav.addObject("category", category);
 		  } 
 		  return mav;
 	  }

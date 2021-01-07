@@ -23,5 +23,6 @@ public interface ProductParentService {
 	void modifyParentProductWithoutImage(ProductParentVO vo);
 	void modifyParentProductWithImage(ProductParentVO vo);
 	List<ProductParentVO> showCategoryList(ProductParentVO vo);
+	List<ProductParentVO> showSearchCategoryList(ProductParentVO vo);
 	
 }
