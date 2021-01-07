@@ -12,6 +12,10 @@
 	<select id="adminMagazineViewList" resultType="MagazineVO">
 		SELECT m_Seq, m_Title, m_Content, m_Date, m_Thumb, m_Hit, m_Like FROM magazine
 	</select>
+	
+	<select id="searchMagazineViewList" parameterType="String" resultType="MagazineVO">
+		SELECT m_Seq, m_Title, m_Content, m_Date, m_Thumb, m_Hit, m_Like FROM magazine WHERE m_Title LIKE CONCAT('%',#{m_Title},'%')
+	</select>
 	<!-- 시퀀스로 매거진 상세보기 불러오기 -->
 	<!-- 본문내용이기 때문에 img를 가져옴 -->
 	<select id="selectMagazine" resultType="MagazineVO">

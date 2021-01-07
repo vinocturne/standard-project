@@ -7,6 +7,7 @@ import org.standard.project.product.ProductParentVO;
 
 public interface MagazineService {
 	List<MagazineVO> getMagazineList(MagazineVO vo);
+	List<MagazineVO> searchMagazineViewList(String m_Title);
 	void writeMagazine(MagazineVO vo);
 	MagazineVO getMagazine(String m_Seq);
 	void modifyMagazineWithoutImg(MagazineVO vo);

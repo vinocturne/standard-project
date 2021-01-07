@@ -87,5 +87,10 @@ public class MagazineServiceImpl implements MagazineService {
 	public void likeCheckPlus(MagazineLikeVO mlVO) {
 		magazineDAO.likeCheckPlus(mlVO);
 	}
+	
+	@Override
+	public List<MagazineVO> searchMagazineViewList(String m_Title) {
+		return magazineDAO.searchMagazineViewList(m_Title);
+	}
 
 }

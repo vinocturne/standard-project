@@ -74,7 +74,10 @@ flex-wrap:rap;
   width: 100%; 
   left: 0; 
 }
-
+input[type=text] {
+  border: none;
+  border-bottom: 2px solid black;
+}
 
 </style>
 
@@ -90,8 +93,13 @@ flex-wrap:rap;
 			</div>
 		</div>
 	</div>
+<div>
+<form action="/project/magazine/magazineList" method="get" enctype="multipart/form-data">
+제목 검색: 
+<input type="text" value="${search}" name="s_m_Title">
+<input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg"  alt="search" width="20" height="20">
+</form>			 
 
-			 
 <c:set var="i" value="0" /> 
 <c:set var="j" value="4" />
 
@@ -120,22 +128,17 @@ flex-wrap:rap;
    
      </c:if>
      <c:set var="i" value="${i+1 }"/>
-
-
-
-
    </c:forEach>
 </table>
 
    </c:when>
   <c:otherwise>
    <div class="secondbody" style="padding-left:100px">
-    게시글이 존재하지 않습니다.
+   검색하신 매거진이 없습니다.
   </div>   
   </c:otherwise>
   </c:choose>
-
-
+</div>
 </div> <!--content_wrap 끝  -->
 
 <%@ include file="../footer.jsp"%>

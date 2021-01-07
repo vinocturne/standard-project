@@ -19,6 +19,10 @@ public class MagazineDAO {
 	public List<MagazineVO> getMagazineList(MagazineVO vo) {
 		return mySQL.selectList(loc+"adminMagazineViewList", vo);
 	}
+	
+	public List<MagazineVO> searchMagazineViewList(String m_Title) {
+		return mySQL.selectList(loc+"searchMagazineViewList", m_Title);
+	}
 		
 	public void writeMagazine(MagazineVO vo) {
 		mySQL.insert(loc+"writeMagazine", vo);

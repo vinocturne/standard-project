@@ -1,9 +1,8 @@
 package org.standard.project;
 
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -12,19 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.magazine.MagazineLikeVO;
 import org.standard.project.magazine.MagazineService;
 import org.standard.project.magazine.MagazineVO;
-import org.standard.project.product.ProductChildVO;
-import org.standard.project.product.ProductParentVO;
 
 @Controller
 @RequestMapping(value = "/magazine")
@@ -33,11 +27,18 @@ public class MagazineController {
 	MagazineService magazineService;
 
 	@RequestMapping(value = "/magazineList", method = RequestMethod.GET)
-	public ModelAndView magazineList(MagazineVO vo) {
+	public ModelAndView magazineList(MagazineVO vo, HttpServletRequest req) {
+		String m_Title = req.getParameter("s_m_Title");
 		System.out.println("매거진 매니저");
 		ModelAndView mav = new ModelAndView("/Magazine/Magazine");
-		List<MagazineVO> list = magazineService.getMagazineList(vo);
+		List<MagazineVO> list = new ArrayList<MagazineVO>();
+		if(m_Title ==""||m_Title==null) {
+			list = magazineService.getMagazineList(vo);
+		}else {
+			list = magazineService.searchMagazineViewList(m_Title);
+		}
 		mav.addObject("list", list);
+		mav.addObject("search", m_Title);
 		return mav;
 	}
 
