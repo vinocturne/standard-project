@@ -56,7 +56,8 @@
 <div id="daliyIncomeChart"></div>
 <div id="daliyRegCusNumChart"></div>
 <div id="pieChart"></div>
-
+<div id="womanCategoryPieChart"></div>
+<div id="manCategoryPieChart"></div>
 <script>
 
 	var list =JSON.stringify(${list});
@@ -159,9 +160,7 @@ for(var i=0; i<parsedMarketShareList.length;i++){
 //브랜드별 점유율을 나타낼 파이차트. 
 var chart = bb.generate({
 	  data: {
-	    columns: [
-        [parsedMarketShareList[0].brandName,parsedMarketShareList[0].numberOfSales]
-	    ],
+	    parsedMarketShareList,
 	    type: "pie", // for ESM specify as: pie()
 	    onclick: function(d, i) {
 		console.log("onclick", d, i);
@@ -185,6 +184,37 @@ var chart = bb.generate({
 	// 		]
 	// 	});
 	// }, 1500);
+	
+	var chart4 = bb.generate({
+	  data: {
+	    columns: [
+        [parsedMarketShareList[0].brandName,parsedMarketShareList[0].numberOfSales]
+	    ],
+	    type: "pie", // for ESM specify as: pie()
+	    onclick: function(d, i) {
+	   },
+	    onover: function(d, i) {
+	   },
+	    onout: function(d, i) {
+	   }
+	  },
+	  bindto: "#womanCategoryPieChart"
+	});
+	var chart5 = bb.generate({
+	  data: {
+	    columns: [
+        [parsedMarketShareList[0].brandName,parsedMarketShareList[0].numberOfSales]
+	    ],
+	    type: "pie", // for ESM specify as: pie()
+	    onclick: function(d, i) {
+	   },
+	    onover: function(d, i) {
+	   },
+	    onout: function(d, i) {
+	   }
+	  },
+	  bindto: "#manCategoryPieChart"
+	});
 
 </script>
 

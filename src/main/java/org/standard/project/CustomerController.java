@@ -359,7 +359,7 @@ public class CustomerController {
 	@RequestMapping(value="/findPWD", method=RequestMethod.GET)
 	public String findPWD(HttpSession session) {
 		System.out.println("컨트롤러 : 비밀번호 찾기 페이지로 연결");
-		return "Customer/findPwdForm";
+		return "Customer/findPasswd";
 	}
 	
 	@RequestMapping(value="/findPWD", method=RequestMethod.POST)
