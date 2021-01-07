@@ -34,19 +34,19 @@
     
 			 <div class="side_nav">
                  <div class="side_nav_item">
-                     <p class="side_nav_title"><a href="/project/Customer/myPage">My page</a></p>
+                     <p class="side_nav_title"><a href="<%=request.getContextPath() %>/Customer/myPage">My page</a></p>
                      <ul>
 				<%
 					if(customer==null){
 					System.out.println( session.getAttribute("loginCustomer"));
 				%>   
-                    <li><a href="/project/Customer/login_form">Login</a></li>
-                    <li><a href="/project/Customer/Register">Register</a></li>
+                    <li><a href="<%=request.getContextPath() %>/Customer/login_form">Login</a></li>
+                    <li><a href="<%=request.getContextPath() %>/Customer/Register">Register</a></li>
                     <% } else { %>
-                    <li><a href="/project/Customer/Modify">Modify</a></li>
-                    <li><a href="/project/wishList/cart">Cart</a></li>
-                    <li><a href="/project/OrderHistory/OrderHistory">Order</a></li>
-                    <li><a href="/project/Customer/ReviewModify">My Review</a></li>
+                    <li><a href="<%=request.getContextPath() %>/Customer/Modify">Modify</a></li>
+                    <li><a href="<%=request.getContextPath() %>/wishList/cart">Cart</a></li>
+                    <li><a href="<%=request.getContextPath() %>/OrderHistory/OrderHistory">Order</a></li>
+                    <li><a href="<%=request.getContextPath() %>/Customer/ReviewModify">My Review</a></li>
                     <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
                     <%} %>
                     </ul>

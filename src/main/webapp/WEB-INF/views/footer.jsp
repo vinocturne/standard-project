@@ -8,8 +8,8 @@
                 <li><a href="#">Training</a></li>
                 <li><a href="#">Shop</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="/project/Admin/AdminMain">Admin</a></li>
-                <li><a href="/project/Seller/ProductManage">Seller</a></li>
+                <li><a href="<%=request.getContextPath() %>/Admin/AdminMain">Admin</a></li>
+                <li><a href="<%=request.getContextPath() %>/Seller/ProductManage">Seller</a></li>
             </ul>
             <ul class="site-links float--left">
                 <li>© 2020 STANDARD Inc.</li>
