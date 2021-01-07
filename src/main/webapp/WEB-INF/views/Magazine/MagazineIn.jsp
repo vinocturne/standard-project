@@ -5,7 +5,7 @@
 <body>
 <div>
     <div class="container">
-        <button class="btn btn-dark" src><a href="/project/magazine/magazineList" class="text-white">목록으로 이동</a></button>
+        <button class="btn btn-dark" src><a href="<%=request.getContextPath() %>/magazine/magazineList" class="text-white">목록으로 이동</a></button>
         <div id="test" class="row no-collapse-1"></div>
     </div>
 </div>
@@ -26,7 +26,7 @@
 			<div class="articleInfo">
 				<div class="title">
 					
-					<button class="btn btn-dark" src><a href="/project/magazine/구매링크로가야됨" class="text-white">구매하기</a></button>	
+					<button class="btn btn-dark" src><a href="<%=request.getContextPath() %>/magazine/구매링크로가야됨" class="text-white">구매하기</a></button>	
 					<br>
 					<br>
 				<div class="info">

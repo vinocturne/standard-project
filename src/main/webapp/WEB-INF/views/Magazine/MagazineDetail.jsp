@@ -10,7 +10,7 @@
 <script>
 	function changeHeart() {
 		$.ajax({
-			url: "/project/magazine/clickLike",
+			url: getContextPath()+"/magazine/clickLike",
 			type:"POST",
 			dataType:"json",
 			data : {
@@ -58,11 +58,11 @@
 			<div class="side_nav_item">
 				<p class="side_nav_title">Magazine</p>
 				<ul>
-					<li><a href="/project/Customer/myPage">My page</a></li>
+					<li><a href="<%=request.getContextPath() %>/Customer/myPage">My page</a></li>
 					<li><a href="#"> <!--줄띄우기 -->
 					</a></li>
-					<li><a href="/project/Customer/cart">Cart</a></li>
-					<li><a href="/project/Customer/order">Order</a></li>
+					<li><a href="<%=request.getContextPath() %>/Customer/cart">Cart</a></li>
+					<li><a href="<%=request.getContextPath() %>/Customer/order">Order</a></li>
 					<li><a
 						href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
 				</ul>

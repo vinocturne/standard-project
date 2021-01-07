@@ -41,9 +41,9 @@
                 <p class="side_nav_title">My page</p>
                 <ul>
                     <li><a href="#">Login</a></li>
-                    <li><a href="/project/Customer/Register">Register</a></li>
-                    <li><a href="/project/Customer/cart">Cart</a></li>
-                    <li><a href="/project/Customer/OrderHistory">Order</a></li>
+                    <li><a href="<%=request.getContextPath() %>/Customer/Register">Register</a></li>
+                    <li><a href="<%=request.getContextPath() %>/Customer/cart">Cart</a></li>
+                    <li><a href="<%=request.getContextPath() %>/Customer/OrderHistory">Order</a></li>
                     <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
                 </ul>
             </div>
@@ -52,7 +52,7 @@
         <!-- Find Id : 아이디 찾기-->
         <div class="order_wrap">
             
-            <form action="/project/Customer/findId" method="POST">
+            <form action="<%=request.getContextPath() %>/Customer/findId" method="POST">
             <div class="title_area">
               <div class="title_area1">
                   <h1>아이디 찾기</h1>

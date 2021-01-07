@@ -8,14 +8,14 @@
 <div class="col-auto p-0">
 	<div class="side_nav">
 		<div class="side_nav_item">
-			<p class="/project/product">Shop</p>
+			<p class="<%=request.getContextPath() %>/product">Shop</p>
 			<ul>
 				<li><a href="#">Men`s</a></li>
 				<li><a href="#">
 						<!--줄띄우기 -->
 				</a></li>
-				<li><a href="/project/Customer/cart">Cart</a></li>
-				<li><a href="/project/Customer/order">Order</a></li>
+				<li><a href="<%=request.getContextPath() %>/Customer/cart">Cart</a></li>
+				<li><a href="<%=request.getContextPath() %>/Customer/order">Order</a></li>
 				<li><a href="Wishlist.html">Wish list</a></li>
 				<!--a태그는 wishList 수정되면 링크고쳐야함  -->
 				<li><a
