@@ -17,6 +17,8 @@ opacity:90%;
 .secondbody{
 width:300px;
 margin-top: 45px;
+margin-left: 47px;
+
 }
 
 .content_wrap {
@@ -38,14 +40,12 @@ margin-top: 45px;
 .card{
 margin-left:7px;
 margin-right:2px;
-margin-top:7px;
+margin-top:4px;
 margin-bottom:3px;
 
 }
 
-.line{
-margin-top:73px;
-}
+
 
 
 .mainbody{
@@ -100,77 +100,6 @@ flex-wrap:rap;
 	</div>
 
 			 
-	
-
-<!--세로로 길게 나오는거  -->
-<%-- <div class="first line">
-	<c:set var="i" value="0" /> <c:set var="j" value="3" />
-	
-	<c:choose>
-	<c:when test="${fn:length(list)>0}">
-	  	
-		<c:forEach var="magazine" items="${list}">
-		
-	<div class="card" style="width:280px">
-	    <div class="card-body">
-	      <h4 class="card-title">${magazine.m_Title}</h4>
-	      <p class="card-text">${magazine.m_Content}</p>
-	      <p>하트하트</p>
-	    </div>
-	    <a href="/MagazineIn"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
-  	</div>
-	
-		</c:forEach>
-		 
-	</c:when>
-			<c:otherwise>
-				<tr>
-					<td>조회된 결과가 없습니다.</td>
-				</tr>
-			</c:otherwise>
-	</c:choose>
-	
-</div> --%>
-
- <%-- <c:set var="i" value="1" />
- <c:set var="j" value="5" />
-
-  <c:choose>
-   <c:when test="${fn:length(list)>0}">
-    <c:forEach var="magazine" items="${list}">
-
-
-     <div class="secondbody"> 
-     
-	    	 <div class="card" style="width:280px">
-			    <div class="card-body">
-			      <h4 class="card-title">${magazine.m_Title}</h4>
-			      <p class="card-text">${magazine.m_Content}</p>
-			      
-			    </div>
-			    <a href="/project/magazine/MagazineDetail?m_Seq=${magazine.m_Seq }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
-			    
-	  		</div>
-     </div>
-
-  	<c:if test="${i%j == j-1}">
-<!-- 여기서 엔터가 들어가야함 -->
-	</c:if>
-
-   <c:set var="i" value="${i+1}" />
-
-
-   </c:forEach>
-
-
-   </c:when>
-  <c:otherwise>
-   <div class="secondbody" style="padding-left:100px">
-    게시글이 존재하지 않습니다.
-  </div>   
-  </c:otherwise>
-  </c:choose>
- --%>
 <c:set var="i" value="0" /> 
 <c:set var="j" value="3" />
 
@@ -196,7 +125,7 @@ flex-wrap:rap;
      </div>
      </td>
      <c:if test="${i%j == j-1 }">
-     </tr>
+   
      </c:if>
      <c:set var="i" value="${i+1 }"/>
 
@@ -213,43 +142,6 @@ flex-wrap:rap;
   </div>   
   </c:otherwise>
   </c:choose>
-
-
-
-
-<%-- 
-
-<c:set var="i" value="0" />
-<c:set var="j" value="4" />
- 
-<div id="magazineList" class="bg-1">
-    <div class="container">
-        <c:forEach var="magazine" items="${list}" varStatus="status">
-            
-            <c:if test="{i%j == 0}">
-            
-           	</c:if>
-            
-                    <div class="col-sm-4">
-                        <div class="thumbnail">
-                            <h4 class="card-title">${magazine.m_Title}</h4>
-			     			<p class="card-text">${magazine.m_Content}</p>
-			     		    <p>하트하트</p>
-			    		</div>
-			    		<a href="/Admin/MagazineIn">
-			    		<img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
-                        </div>
-                   
-            <c:if test="${i%j == j-1}">
-    		
-            </c:if>        
-              </div>    
-        </c:forEach>
-   </div>
- </div>     --%>
-
-
-
 
 
 </div> <!--content_wrap 끝  -->
