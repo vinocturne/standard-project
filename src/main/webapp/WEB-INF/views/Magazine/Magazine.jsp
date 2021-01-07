@@ -17,7 +17,6 @@ opacity:90%;
 .secondbody{
 width:300px;
 margin-top: 45px;
-margin-left: 47px;
 
 }
 
@@ -101,7 +100,7 @@ flex-wrap:rap;
 
 			 
 <c:set var="i" value="0" /> 
-<c:set var="j" value="3" />
+<c:set var="j" value="4" />
 
   <c:choose>
    <c:when test="${fn:length(list)>0}">
