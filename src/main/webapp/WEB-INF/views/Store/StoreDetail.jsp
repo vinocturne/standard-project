@@ -125,21 +125,21 @@ margin-top: 45px;
             <div class="side_nav_item">
                <p class="side_nav_title">Store</p>
                <ul>
-                  <li><a href="/project/shop/StoreManMain" class="side_nav_title">Man</a></li>
-                  <li><a href="/project/shop/StoreManMain?category=Top">TOP</a></li>
-                  <li><a href="/project/shop/StoreManMain?category=Bottom">BOTTOM</a></li>
-                  <li><a href="/project/shop/StoreManMain?category=Shoes">SHOES</a></li>
-                  <li><a href="/project/shop/StoreManMain?category=Acc">ACC</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreManMain" class="side_nav_title">Man</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreManMain?category=Top">TOP</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreManMain?category=Bottom">BOTTOM</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreManMain?category=Shoes">SHOES</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreManMain?category=Acc">ACC</a></li>
                </ul>
                <br><br><br>
                <ul>
-                  <li><a href="/project/shop/StoreWomenMain" class="side_nav_title">Women</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain" class="side_nav_title">Women</a></li>
             
-                  <li><a href="/project/shop/StoreWomenMain?category=Top">TOP</a></li>
-                  <li><a href="/project/shop/StoreWomenMain?category=Bottom">BOTTOM</a></li>
-                  <li><a href="/project/shop/StoreWomenMain?category=Dress">DRESS</a></li>
-                  <li><a href="/project/shop/StoreWomenMain?category=Shoes">SHOES</a></li>
-                  <li><a href="/project/shop/StoreWomenMain?category=Acc">Acc</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Top">TOP</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Bottom">BOTTOM</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Dress">DRESS</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Shoes">SHOES</a></li>
+                  <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Acc">Acc</a></li>
                </ul>
             </div>
          </div>
@@ -258,7 +258,7 @@ margin-top: 45px;
 
          
          <!-- <input type="submit" value="장바구니" formaction="/project/wishList/addWishList"> -->
-         <input type="image" class="orderList" src="<%=request.getContextPath()%>/ResourcesFile/img/cart.svg" formaction="/project/wishList/addWishList"
+         <input type="image" class="orderList" src="<%=request.getContextPath()%>/ResourcesFile/img/cart.svg" formaction="<%=request.getContextPath() %>/wishList/addWishList"
            >
       <%--    <input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/buy-button.png"
          width="25" height="25" class="orderNow" > --%>
@@ -341,7 +341,7 @@ margin-top: 45px;
                         
                          var form = document.createElement('form');
                          form.setAttribute('method', 'post'); //GET 전환 가능
-                         form.setAttribute('action', '/project/wishList/order');
+                         form.setAttribute('action', getContextPath()+'/wishList/order');
                          document.charset = "utf-8";
                          
                              var hiddenField = document.createElement('input');
@@ -405,7 +405,7 @@ margin-top: 45px;
       </table>
       
       
-         <form action="/project/shop/WriteReview" method="POST" enctype="multipart/form-data">
+         <form action="<%=request.getContextPath() %>/shop/WriteReview" method="POST" enctype="multipart/form-data">
             <input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=pp_VO.getParent_p_Id()%>">
             <input type="hidden" id="brandId" name="brandId" value="<%=pp_VO.getPp_Brand()%>">
             <input type="hidden" id="pp_Name" name="pp_Name" value="<%=pp_VO.getPp_Name()%>">

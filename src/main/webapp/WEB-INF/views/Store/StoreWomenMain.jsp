@@ -76,13 +76,13 @@ margin: 8px;
          <div class="side_nav_item">
             <p class="side_nav_title">Store</p>
             <ul>
-               <li><a href="/project/shop/StoreWomenMain" class="side_nav_title">Women</a></li>
+               <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain" class="side_nav_title">Women</a></li>
             
-               <li><a href="/project/shop/StoreWomenMain?category=Top">TOP</a></li>
-               <li><a href="/project/shop/StoreWomenMain?category=Bottom">BOTTOM</a></li>
-               <li><a href="/project/shop/StoreWomenMain?category=Dress">DRESS</a></li>
-               <li><a href="/project/shop/StoreWomenMain?category=Shoes">SHOES</a></li>
-               <li><a href="/project/shop/StoreWomenMain?category=Acc">Acc</a></li>
+               <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Top">TOP</a></li>
+               <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Bottom">BOTTOM</a></li>
+               <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Dress">DRESS</a></li>
+               <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Shoes">SHOES</a></li>
+               <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Acc">Acc</a></li>
             </ul>
          </div>
       </div>
@@ -104,7 +104,7 @@ margin: 8px;
      <div class="secondbody"> 
      <div class="mainbody"> 
         <div class="card" style="width:250px; height:370px">
-          <a href="/project/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:250px; height:280px"></a>
+          <a href="<%=request.getContextPath() %>/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:250px; height:280px"></a>
            <div class="card-body">
             <h4 class="card-title">${productParent.pp_Name}</h4>
             <p class="card-text">${productParent.pp_Price}</p>

@@ -22,9 +22,9 @@
 			<div class="side_nav_item">
 				<p class="side_nav_title" font_size="100px">브랜드 관리페이지</p>
 				<ul>
-					<li><a href="/project/Seller/ProductManage">상품관리</a></li>
-					<li><a href="/project/Seller/BuyList">구매관리</a></li>
-					<li><a href="/project/Seller/Review">리뷰관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/ProductManage">상품관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/BuyList">구매관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/Review">리뷰관리</a></li>
 
 				</ul>
 			</div>
@@ -37,7 +37,7 @@
 				<h1>신규 상품 카테고리 등록</h1>
 			</div>
 		</div>
-		<form action="/project/Seller/ProductAddParent" method="POST" enctype="multipart/form-data">
+		<form action="<%=request.getContextPath() %>/Seller/ProductAddParent" method="POST" enctype="multipart/form-data">
 			<div class="Register_table">
 				<table class="type12">
 					<thead>

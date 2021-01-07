@@ -27,9 +27,9 @@
 			<div class="side_nav_item">
 				<p class="side_nav_title" font_size="100px">브랜드 관리페이지</p>
 				<ul>
-					<li><a href="/project/Seller/ProductManage">상품관리</a></li>
-					<li><a href="/project/Seller/BuyList">구매관리</a></li>
-					<li><a href="/project/Seller/Review">리뷰관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/ProductManage">상품관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/BuyList">구매관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/Review">리뷰관리</a></li>
 
 				</ul>
 			</div>
@@ -49,7 +49,7 @@
 			String Category2 = (String)vo.getPp_Category2();
 		%>
 		
-		<form action="/project/Seller/ModifyParentProduct" method="POST" enctype="multipart/form-data">
+		<form action="<%=request.getContextPath() %>/Seller/ModifyParentProduct" method="POST" enctype="multipart/form-data">
 		<input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=vo.getParent_p_Id()%>">
 		<input type="hidden" id="pp_thumb" name="pp_thumb" value="<%=vo.getPp_thumb()%>">
 		<input type="hidden" id="pp_image" name="pp_image" value="<%=vo.getPp_image()%>">

@@ -24,9 +24,9 @@
 			<div class="side_nav_item">
 				<p class="side_nav_title" font_size="100px">브랜드 관리페이지</p>
 				<ul>
-					<li><a href="/project/Seller/ProductManage">상품관리</a></li>
-					<li><a href="/project/Seller/BuyList">구매관리</a></li>
-					<li><a href="/project/Seller/Review">리뷰관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/ProductManage">상품관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/BuyList">구매관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/Review">리뷰관리</a></li>
 
 				</ul>
 			</div>
@@ -101,7 +101,7 @@
 					<c:when test="${fn:length(list)>0}">
 						<c:forEach var="orderHistory" items="${list}">
 							<tr>
-							<form action="/project/Seller/ModifyDelivery" method="POST" enctype="multipart/form-data">
+							<form action="<%=request.getContextPath() %>/Seller/ModifyDelivery" method="POST" enctype="multipart/form-data">
 							<input type="hidden" id="o_Num" name="o_Num" value="${orderHistory.o_Num}">
 								<td>
 									<div class="checkBox">

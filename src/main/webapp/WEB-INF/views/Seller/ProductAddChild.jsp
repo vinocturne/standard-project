@@ -31,9 +31,9 @@
 			<div class="side_nav_item">
 				<p class="side_nav_title">브랜드 관리페이지</p>
 				<ul>
-					<li><a href="/project/Seller/ProductManage">상품관리</a></li>
-					<li><a href="/project/Seller/BuyList">구매관리</a></li>
-					<li><a href="/project/Seller/Review">리뷰관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/ProductManage">상품관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/BuyList">구매관리</a></li>
+					<li><a href="<%=request.getContextPath() %>/Seller/Review">리뷰관리</a></li>
 
 				</ul>
 			</div>
@@ -46,7 +46,7 @@
 		<br><br>
 		<h3>상품 옵션 관리</h3>
 		<br>
-		<form action="/project/Seller/AddChild" method="POST" enctype="multipart/form-data">
+		<form action="<%=request.getContextPath() %>/Seller/AddChild" method="POST" enctype="multipart/form-data">
 		<input type="hidden" id="parent_p_Id" name="parent_p_Id" value="<%=vo.getParent_p_Id()%>">
 		<input type="hidden" id="pp_Brand" name="pp_Brand" value="<%=vo.getPp_Brand()%>">
 		<table class="table table-hover" height="100" width="1100">
@@ -86,7 +86,7 @@
 						<c:forEach var="product" items="${list}">
 							<!-- <form action="/project/Seller/ModifyParentProduct" method="POST" enctype="multipart/form-data"> -->
 							<tr>
-								<form action="/project/Seller/ModifyChild" method="POST" enctype="multipart/form-data">
+								<form action="<%=request.getContextPath() %>/Seller/ModifyChild" method="POST" enctype="multipart/form-data">
 								<td><input style="background-color:pink" name="p_Id" type="hidden"  value="${product.p_Id}">${product.p_Id}</td>
 								<td><input name="p_Color" type="text" value="${product.p_Color}"></td>
 								<td><input name="p_Size" type="text" value="${product.p_Size}"></td>
