@@ -1,15 +1,6 @@
 package org.standard.project.common;
 
 public class TempPWD{
-	public String TempPWD() {
-		String TempPWD ="";
-		
-		
-		
-		return TempPWD;
-	}
-
-	
 	  public static String randomPw(){ 
 	      char pwCollection[] = new char[] { 
 	                        '1','2','3','4','5','6','7','8','9','0', 
