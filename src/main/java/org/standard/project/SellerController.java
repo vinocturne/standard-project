@@ -74,9 +74,9 @@ public class SellerController {
 			mav.setViewName("Customer/login_form");
 			return mav;
 		} else if (customerVO.getBrandName() == null) {
-			out.println("<script>alert('기업회원으로 가입해주세요.');</script>");
+			out.println("<script>alert('기업회원전용 기능입니다');</script>");
 			out.flush();
-			mav.setViewName("Customer/login_form");
+			mav.setViewName("index");
 			return mav;
 		}
 
