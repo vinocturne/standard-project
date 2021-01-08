@@ -14,9 +14,12 @@
 	<mvc:resources mapping="/ResourcesFile/js/**" location="/ResourcesFile/js/"/>
 	<mvc:resources mapping="/ResourcesFile/img/**" location="/ResourcesFile/img/"/>
 	<!-- 바로 아래 리소스 매핑의 경우에는 상대경로로 프로젝트 내에서 리소스파일이 있는경우에 사용 -->
-	<!-- <mvc:resources mapping="/magazineImage/**" location="/uploadResources/magazineImage/"/> -->
 	<mvc:resources mapping="/magazineImage/**" location="file:\\\C:\projectLocal\uploadResources\magazineImage\"/>
 	<mvc:resources mapping="/productImage/**" location="file:\\\C:\projectLocal\uploadResources\productImage\"/>
+	<!-- 서버 DB로 연결할때 주석 풀어야하는 부분
+	<mvc:resources mapping="/magazineImage/**" location="/upload/magazineImage/"/>
+	<mvc:resources mapping="/productImage/**" location="/upload/productImage/"/> -->
+	
 	<!-- .jsp를 입력하지 않고, 또 전체 루트를 입력하지 않고 해당 페이지의 이름만으로 연결 시켜주기 위한 초석.
 		 jsp에서 링크를 연결할 때 .jsp 빼도 가능. -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -36,7 +39,8 @@
 	<bean class="java.lang.String" id="uploadPath">
 		<!--  이미지를 서버에 저장하지 않는 가장 큰 이유는 서버의 볼륨이 너무 커지기 때문. 따라서 로컬에 이미지를 다룰 수 있도록 해야한다. 아래의 경로를 참고해서 자신의 프로젝트가 있는 위치로 설정. -->
 		<!--  magazine db 테이블이 잘 생성되어있고, 아래 경로를 제대로 설정해주면 heidiSQL에서 썸네일과 img에 해당 값이 추가된걸 확인할 수 있다.  -->
-		<!-- <constructor-arg value="C:\Users\ilsan\git\standard-project\src\main\webapp\uploadResources"/>  -->
  		<constructor-arg value="C:\projectLocal\uploadResources" />
+ 		<!-- 서버 DB로 연결할때 주석 풀어야하는 부분
+		<constructor-arg value="/vinocturne/upload" /> -->
 	</bean>	
 </beans>

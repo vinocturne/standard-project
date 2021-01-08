@@ -13,6 +13,11 @@
       <property name="url" value="jdbc:mariadb://localhost:3306/standard" />
       <property name="username" value="root" />
       <property name="password" value="12345" />
+<!--  서버DB 연결할때 주석 풀어야 하는 부분     
+	  <property name="url" value="jdbc:mariadb://localhost:3306/vinocturne" />
+      <property name="username" value="vinocturne" />
+      <property name="password" value="standard1@" /> 
+      -->
    </bean>   
 
    <!-- mybatis로 호출될 시 불러올 설정 -->

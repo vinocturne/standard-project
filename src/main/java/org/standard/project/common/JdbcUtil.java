@@ -12,6 +12,8 @@ public class JdbcUtil {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 			return DriverManager.getConnection("jdbc:mysql://localhost:3306/standard","root","12345");
+			//서버 DB 실행할 때 주석 풀어야하는 부분
+			//return DriverManager.getConnection("jdbc:mysql://localhost:3306/vinocturne","vinocturne","standard1@");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

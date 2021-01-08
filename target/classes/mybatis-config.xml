@@ -24,6 +24,10 @@
             <property name="url" value="jdbc:mysql://localhost:3306/standard" />
             <property name="username" value="root" />
             <property name="password" value="12345" />
+            <!-- 서버 DB 연결 때 주석 풀어야하는 부분 
+            <property name="url" value="jdbc:mariadb://localhost:3306/vinocturne" />
+            <property name="username" value="vinocturne" />
+            <property name="password" value="standard1@" /> -->
          </dataSource>
       </environment>
    </environments>
