@@ -80,7 +80,7 @@ input[type=text] {
                <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Bottom">BOTTOM</a></li>
                <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Dress">DRESS</a></li>
                <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Shoes">SHOES</a></li>
-               <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Acc">Acc</a></li>
+               <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=ACC">ACC</a></li>
             </ul>
          </div>
       </div>

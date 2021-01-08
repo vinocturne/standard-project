@@ -78,7 +78,7 @@ input[type=text] {
 					<li><a href=" <%=request.getContextPath() %>/shop/StoreManMain?category=Top">TOP</a></li>
 					<li><a href=" <%=request.getContextPath() %>/shop/StoreManMain?category=Bottom">BOTTOM</a></li>
 					<li><a href=" <%=request.getContextPath() %>/shop/StoreManMain?category=Shoes">SHOES</a></li>
-					<li><a href=" <%=request.getContextPath() %>/shop/StoreManMain?category=Acc">Acc</a></li>
+					<li><a href=" <%=request.getContextPath() %>/shop/StoreManMain?category=Acc">ACC</a></li>
 				</ul>
 			</div>
 		</div>

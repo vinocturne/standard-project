@@ -68,7 +68,7 @@
                 <p id="c_Name" class="c_Name" ><strong id="name_lable">이름</strong> 
                 <input id="Name" name="c_Name" fw-filter="" fw-label="이름" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p>  
                 
-                <p id="c_Email" class="c_Email" ><strong>이메일 입력</strong> 
+                <p id="c_Email" class="c_Ema il" ><strong>이메일 입력</strong> 
                 <input id="Email" name="c_Email" fw-filter="isEmail" fw-label="이메일" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p> 
                 
                <p id="c_Phone1" class="c_Phone1" ><strong>휴대전화 번호 입력</strong> 

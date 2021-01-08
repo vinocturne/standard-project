@@ -46,7 +46,7 @@
 				<tbody>
 				<%for(int i=0; i<productInfoList.size();i++){ %>
 				<%for(int j=0; i<orderHistory.size();i++){ %>
-				
+			
 					<tr>
 						<td><%=orderHistory.get(j).getO_Date() %></td>
 						<td><%=productInfoList.get(i).getPp_Name() %></td>
@@ -54,7 +54,7 @@
 						<td><%=orderHistory.get(j).getO_Quantity() %></td>
 						<td><%=orderHistory.get(j).getO_TotalPrice() %></td>
 						<td><%=orderHistory.get(j).getO_Delivery() %><br>
-						<button onclick="window.open(' <%=request.getContextPath() %>/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');">후기작성</button>
+						<button onclick="window.open(' <%=request.getContextPath() %>/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');" class="order_btn">후기작성</button>
 						</td>
 					</tr>
 					
@@ -68,11 +68,11 @@
 			<%}%>
 		</div>
 		<div class="order_index">
-                    <button type="button" class="" onclick=""><button> << </button></a>
-                    <button type="button" class="" onclick=""><button> < </button></a>
-                    <button type="button" class="" onclick=""><button> 1 </button></a>
-                    <button type="button" class="" onclick=""><button> > </button></a>
-                    <button type="button" class="" onclick=""><button> >> </button></a>
+                    <button type="button" class="" onclick=""><button><<</button></a>
+                    <button type="button" class="" onclick=""><button><</button></a>
+                    <button type="button" class="" onclick=""><button>1</button></a>
+                    <button type="button" class="" onclick=""><button>></button></a>
+                    <button type="button" class="" onclick=""><button>>></button></a>
         </div>
 	</div>
 </div>
