@@ -89,6 +89,7 @@ public class WishListController {
 			vo.setO_Phone1((String)object.get("o_Phone1"));
 			vo.setO_Phone2((String)object.get("o_Phone2"));
 			vo.setParent_p_Id((String)object.get("parent_p_Id"));
+			System.out.println("상품가격 : "+vo.getP_Price()+",주문 수량: "+ vo.getO_Quantity() + ",총 주문금액 : "+ vo.getO_TotalPrice());
 			WishListVO wishListVO = new WishListVO();
 			wishListVO.setC_Id((String) object.get("c_Id"));
 			wishListVO.setP_Id((String)object.get("p_Id"));
