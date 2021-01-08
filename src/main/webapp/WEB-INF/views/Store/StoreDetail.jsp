@@ -416,13 +416,13 @@ margin-top: 45px;
                
                   <tr>
                      <th style="width:8%; height:10%">제목</th>
-                     <th style="width:18%; height:10%"><input type="text"  class="r_Title">
+                     <th style="width:18%; height:10%"><input type="text"  class="r_Title" name="r_Title">
                      <button type="submit" style= "width:12%; height:25px">리뷰등록</button></th>
                   </tr>
                   <tr>
                      <th style="width:8%; height:10%">내용</th>
                      <th style="margin:0;">
-                     <textarea class="r_Coment" cols="90" rows="5" style="width:100; height:100;"></textarea>
+                     <textarea class="r_Coment" name="r_Coment" cols="90" rows="5" style="width:100; height:100;"></textarea>
                      </th>
                   </tr>
                
