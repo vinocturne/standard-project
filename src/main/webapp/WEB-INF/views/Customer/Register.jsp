@@ -11,7 +11,7 @@
             type: "POST",
             dataType: "text",
             async: false,
-            url: getContextPath()+"/Customer/check_Id",
+            url: "check_Id",
             data: {
                 param: ID
             },
