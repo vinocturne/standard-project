@@ -203,7 +203,7 @@
                                             onChange="checkemailaddy(this);">
                                             <option value="" selected>선택하세요</option>
                                             <option value="naver.com">naver.com</option>
-                                            <option value="yahoo.co.kr">gmail.com</option>
+                                            <option value="gmail.com">gmail.com</option>
                                             <option value="hotmail.com">hotmail.com</option>
                                             <option value="hanmail.com">daum.net</option>
                                             <option value="yahoo.co.kr">yahoo.co.kr</option>

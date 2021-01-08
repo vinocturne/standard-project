@@ -25,7 +25,6 @@ import org.standard.project.product.ProductParentService;
 import org.standard.project.product.ProductParentVO;
 import org.standard.project.review.ReviewService;
 import org.standard.project.review.ReviewVO;
-import org.standard.project.vo.Product_detailVO;
 
 @Controller
 @RequestMapping(value = "/shop")
