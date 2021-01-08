@@ -261,12 +261,12 @@
 
 						<%-- <tr class="brandName">
                                 <th scope="row"> 브랜드명 </th>
-                                <td><input  id="brandName" name="brandName" type="text" value="<%=customer.getBrandName()%>"></span>
+                                <td><input  id="brandName" readonly name="brandName" type="text" value="<%=customer.getBrandName()%>"></span>
                                 </td>
                             </tr>
                             <tr class="businessNumber">
                                 <th scope="row"> 사업자번호 </th>
-                                <td><input  id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10" value="<%=customer.getBusinessNumber()%>"></span>
+                                <td><input  id="businessNumber" readonly name="businessNumber" type="text" pattern="[0-9]+" maxlength="10" value="<%=customer.getBusinessNumber()%>"></span>
                                 </td>
                             </tr> --%>
 
@@ -277,7 +277,7 @@
        					 	document.write ( '' );
       					} else {
       						$('#companycheck span').html(
-      	                            `<table class="type12"><thead><tr class="brandName"><th scope="row"> 브랜드명 </th><td><input  id="brandName" name="brandName" type="text" value="<%=customer.getBrandName()%>"></span></td></tr><tr class="businessNumber"><th scope="row"> 사업자번호 </th><td><input  id="businessNumber" name="businessNumber" type="text" pattern="[0-9]+" maxlength="10" value="<%=customer.getBusinessNumber()%>"></span></td></tr></thead></table>`
+      	                            `<table class="type12"><thead><tr class="brandName"><th scope="row"> 브랜드명 </th><td><input  id="brandName" readonly name="brandName" type="text" value="<%=customer.getBrandName()%>"></span></td></tr><tr class="businessNumber"><th scope="row"> 사업자번호 </th><td><input  id="businessNumber" readonly name="businessNumber" type="text" pattern="[0-9]+" maxlength="10" value="<%=customer.getBusinessNumber()%>"></span></td></tr></thead></table>`
       	                    );
      					}
    					 </script>
