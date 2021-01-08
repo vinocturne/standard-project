@@ -103,7 +103,7 @@
           $.ajax({
                   type: "POST",
                   async :"false" ,
-                  url: getContextPath()+"/Customer/findPWD",
+                  url: "findPWD",
                   data :{ "data" : JSON.stringify(requestFindId) },
                   success: function(data,textStatus){
                      //성공시

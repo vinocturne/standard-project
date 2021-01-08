@@ -75,11 +75,11 @@
                     <input id="c_Phone1" name="c_Phone1" fw-filter="c_Phone1" fw-label="" fw-msg="" class="lostInput" placeholder="" value="" type="text">
                     <input type="button" onClick="" class="Address_btn" name="Address_btn" value="인증번호 보내기"><br></p>        
 
+        	</div>		
         <div class="findID_confirm">
             <input type ="button" value="확인"  class="findID_btn" onclick="fn_findID()">
             <span id="IdResult"></span>
         </div>
-        	</div>		
         
         </div>
         </div>
@@ -101,7 +101,7 @@
             $.ajax({
                     type: "POST",
                     async :"false" ,
-                    url: getContextPath()+"/Customer/findID",
+                    url: "findID",
                     data :{ "data" : JSON.stringify(requestFindId) },
                     success: function(data,textStatus){
                        //성공시

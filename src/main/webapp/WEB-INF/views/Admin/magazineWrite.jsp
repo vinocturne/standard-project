@@ -100,7 +100,7 @@
 		
 		</table>
 		<div class="mgzBtn_wrap">
-			<input type="button" class="mgzBtn" value="등록"></input>
+			<button type="submit" class="mgzBtn">등록</button>
 		</div>
 			
 			<script>

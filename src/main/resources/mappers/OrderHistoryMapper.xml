@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.standard.project.OrderHistoryMapper">
 	<select id="getList" resultType="org.standard.project.order.OrderHistoryVO">
-		SELECT * FROM orderhistory where c_Id=#{c_Id}
+		SELECT * FROM orderhistory where c_Id=#{c_Id} order by o_Date DESC
 	</select>
 	<select id="getDailyIncomeList" resultType="HashMap">
 		SELECT o_Date, sum(o_TotalPrice) as 'o_TotalPrice' FROM orderhistory GROUP BY o_Date DESC LIMIT 30

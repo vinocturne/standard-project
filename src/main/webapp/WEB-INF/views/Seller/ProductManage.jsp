@@ -18,6 +18,7 @@
         width: 1200px;
     }
 </style>
+
 </head>
 
 <%@ include file="../header.jsp"%>

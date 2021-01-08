@@ -44,16 +44,16 @@
 				</thead>
 				
 				<tbody>
-				<%for(int i=0; i<productInfoList.size();i++){ %>
-				<%for(int j=0; i<orderHistory.size();i++){ %>
+				<% for(int i=0;i<productInfoList.size(); i++) {  %>
+
 			
 					<tr>
-						<td><%=orderHistory.get(j).getO_Date() %></td>
+						<td><%=orderHistory.get(i).getO_Date() %></td>
 						<td><%=productInfoList.get(i).getPp_Name() %></td>
 						<td><%=productInfoList.get(i).getPp_Price() %></td>
-						<td><%=orderHistory.get(j).getO_Quantity() %></td>
-						<td><%=orderHistory.get(j).getO_TotalPrice() %></td>
-						<td><%=orderHistory.get(j).getO_Delivery() %><br>
+						<td><%=orderHistory.get(i).getO_Quantity() %></td>
+						<td><%=orderHistory.get(i).getO_TotalPrice() %></td>
+						<td><%=orderHistory.get(i).getO_Delivery() %><br>
 						<button onclick="window.open(' <%=request.getContextPath() %>/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');" class="order_btn">후기작성</button>
 						</td>
 					</tr>
@@ -62,8 +62,7 @@
 					
 				</tbody>
 			</table>
-			<%} %>
-			<%} else{%>
+			<%}else{%>
 						<h2> 주문 내역이 없습니다</h2>
 			<%}%>
 		</div>

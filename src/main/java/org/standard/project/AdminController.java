@@ -3,12 +3,14 @@ package org.standard.project;
 import java.io.File;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
@@ -128,9 +130,22 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/AdminMain", method = RequestMethod.GET)
-	public ModelAndView adminMain(Map<String, Object> map, CustomerVO vo) {
-		System.out.println("어드민 입장 및 웨이팅회원 목록불러오기");
+	public ModelAndView adminMain(Map<String, Object> map, CustomerVO vo, HttpSession session, HttpServletResponse response) throws IOException {
 		ModelAndView mav = new ModelAndView("/Admin/AdminMain");
+		PrintWriter out = response.getWriter();
+		CustomerVO customerVO = (CustomerVO) session.getAttribute("loginCustomer");
+		if (customerVO == null) {
+			out.println("<script>alert('로그인해주세요.');</script>");
+			out.flush();
+			mav.setViewName("Customer/login_form");
+			return mav;
+		} else if (customerVO.getRole() != "관리자") {
+			out.println("<script>alert('관리자 아이디로 로그인해주세요.');</script>");
+			out.flush();
+			mav.setViewName("index");
+			return mav;
+		}
+		System.out.println("어드민 입장 및 웨이팅회원 목록불러오기");
 
 		List<Map<String, Object>> list = customerService.listWaitingCustomer(map);
 		mav.addObject("list", list);

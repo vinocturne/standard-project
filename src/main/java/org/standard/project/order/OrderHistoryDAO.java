@@ -51,6 +51,8 @@ public class OrderHistoryDAO {
 
 
 	public void insertOrderHistory(OrderHistoryVO vo) {
+		System.out.println("orderHistoryDAO 실행전 확인");
+		System.out.println("상품가격 : "+vo.getP_Price()+",주문 수량: "+ vo.getO_Quantity() + ",총 주문금액 : "+ vo.getO_TotalPrice());
 		mySQL.insert(loc+"insertOrderHistory", vo);
 		
 	}
