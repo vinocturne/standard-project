@@ -21,35 +21,17 @@
     .table{
         width: 1200px;
     }
-	.graphs{
-		border: solid 1px black;
-		width: 500px;
-	}
+
 	.AdminCharts{
 		border:  solid 1px black;
 		width: 1000px;
 	}
-	#chartBox{
-		border:  solid 1px black;
-		width: 1000px;
-		height: 500px;
-	}
-	.pieCharts{
-		border:  solid 1px black;
-		grid-template-columns: 3fr;
-		width: 300px;
-		display: inline;
-		float: left;
-	}
-	#pieChart{
+
+	 .pieCharts>div{
+		width: 320px;
 		display: inline-block;
-	}
-	#womanCategoryPieChart{
-		display: inline-block;
-	}
-	#manCategoryPieChart{
-		display: inline-block;
-	}
+	} 
+
 
     
 </style>
@@ -82,14 +64,24 @@
 		<br>
 	
 	<div class ="AdminCharts">
+	<h1>일자별 주문액 추이</h1>
 	<div id="daliyIncomeChart"></div>
+	<h1>일자별 가입 고객 추이</h1>
 	<div id="daliyRegCusNumChart"></div>
 	<div id="chartBox">
 	<div class="pieCharts">
+		<div id="pc1">
+		<h1>브랜드별 누적 판매 점유율 현황</h1>
 		<div id="pieChart"></div>
-		<p>남성 / 여성 별 카테고리 점유율</p>
+		</div>
+		<div id="pc2">
+		<h1>여성의류 카테고리별 누적판매 점유율</h1>
 		<div id="womanCategoryPieChart"></div>
+		</div>
+		<div id="pc3">
+		<h1>남성의류 카테고리별 누적판매 점유율</h1>
 		<div id="manCategoryPieChart"></div>
+		</div>
 	</div>
 </div>
 </div>
