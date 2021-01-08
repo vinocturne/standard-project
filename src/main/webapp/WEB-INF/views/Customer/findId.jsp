@@ -101,7 +101,7 @@
             $.ajax({
                     type: "POST",
                     async :"false" ,
-                    url: getContextPath()+"/Customer/findID",
+                    url: "findID",
                     data :{ "data" : JSON.stringify(requestFindId) },
                     success: function(data,textStatus){
                        //성공시
