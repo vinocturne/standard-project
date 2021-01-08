@@ -28,15 +28,15 @@ public class Email {
 		    //제목
 		    String subject = "아이디 찾기 결과";
 		    //보내는 사람 이메일
-		    String fromEmail = "standardADPTH@gmail.com";
+		    String fromEmail = "noreply@ourstandard.shop";
 		    //보내는 사람
 		    String fromUsername = "SYSTEM MANAGER";
 		    //받는 사람 이메일
 		    String toEmail = customerEmail; // 콤마(,)로 여러개 나열
 		    //태훈 프로젝트용 구글 아이디
-		    final String username = "standardadpth@gmail.com"; 
+		    final String username = "noreply@ourstandard.shop"; 
 		    //비밀번호 일단 표시 안함
-		    final String password = "wimnhfehslgdsrtw";
+		    final String password = "standard1@";
 		    
 		    // 메일에 출력할 텍스트
 		    StringBuffer sb = new StringBuffer();
@@ -49,15 +49,15 @@ public class Email {
 		    
 		    // 메일 옵션 설정
 		    Properties props = new Properties();    
-		    props.put("mail.transport.protocol", "smtp");
-		    props.put("mail.smtp.host", "smtp.gmail.com");
-		    props.put("mail.smtp.port", "465");
-		    props.put("mail.smtp.auth", "true");
+		    props.put("mail.transport.protocol","smtp");
+		    props.put("mail.smtp.host","mw-002.cafe24.com");
+		    props.put("mail.smtp.port","25");
+		    props.put("mail.smtp.auth","true");
 		 
 		    props.put("mail.smtp.quitwait", "false");
-		    props.put("mail.smtp.socketFactory.port", "465");
-		    props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		    props.put("mail.smtp.socketFactory.fallback", "false");
+		    props.put("mail.smtp.socketFactory.port","25");
+		    props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+		    props.put("mail.smtp.socketFactory.fallback","false");
 		    
 		    try {
 		      // 메일 서버  인증 계정 설정
@@ -112,15 +112,13 @@ public class Email {
 		    //제목
 		    String subject = "임시 비밀번호 발송";
 		    //보내는 사람 이메일
-		    String fromEmail = "standardADPTH@gmail.com";
+		    String fromEmail = "noreply@ourstandard.shop";
 		    //보내는 사람
 		    String fromUsername = "SYSTEM MANAGER";
 		    //받는 사람 이메일
 		    String toEmail = customerEmail; // 콤마(,)로 여러개 나열
-		    //태훈 프로젝트용 구글 아이디
-		    final String username = "standardadpth@gmail.com"; 
-		    //비밀번호 일단 표시 안함
-		    final String password = "wimnhfehslgdsrtw";
+		    final String username = "noreply@ourstandard.shop"; 
+		    final String password = "standard1@";
 		    
 		    // 메일에 출력할 텍스트
 		    StringBuffer sb = new StringBuffer();
@@ -133,15 +131,15 @@ public class Email {
 		    
 		    // 메일 옵션 설정
 		    Properties props = new Properties();    
-		    props.put("mail.transport.protocol", "smtp");
-		    props.put("mail.smtp.host", "smtp.gmail.com");
-		    props.put("mail.smtp.port", "465");
-		    props.put("mail.smtp.auth", "true");
+		    props.put("mail.transport.protocol","smtp");
+		    props.put("mail.smtp.host","mw-002.cafe24.com");
+		    props.put("mail.smtp.port","587");
+		    props.put("mail.smtp.auth","true");
 		 
-		    props.put("mail.smtp.quitwait", "false");
-		    props.put("mail.smtp.socketFactory.port", "465");
-		    props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		    props.put("mail.smtp.socketFactory.fallback", "false");
+		    props.put("mail.smtp.quitwait","false");
+		    props.put("mail.smtp.socketFactory.port","587");
+		    props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+		    props.put("mail.smtp.socketFactory.fallback","false");
 		    
 		    try {
 		      // 메일 서버  인증 계정 설정
