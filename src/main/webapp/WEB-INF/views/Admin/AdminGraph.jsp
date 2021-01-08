@@ -21,6 +21,36 @@
     .table{
         width: 1200px;
     }
+	.graphs{
+		border: solid 1px black;
+		width: 500px;
+	}
+	.AdminCharts{
+		border:  solid 1px black;
+		width: 1000px;
+	}
+	#chartBox{
+		border:  solid 1px black;
+		width: 1000px;
+		height: 500px;
+	}
+	.pieCharts{
+		border:  solid 1px black;
+		grid-template-columns: 3fr;
+		width: 300px;
+		display: inline;
+		float: left;
+	}
+	#pieChart{
+		display: inline-block;
+	}
+	#womanCategoryPieChart{
+		display: inline-block;
+	}
+	#manCategoryPieChart{
+		display: inline-block;
+	}
+
     
 </style>
 
@@ -50,14 +80,24 @@
 		<br><br>
 		<h3>그래프</h3>
 		<br>
+	
+	<div class ="AdminCharts">
+	<div id="daliyIncomeChart"></div>
+	<div id="daliyRegCusNumChart"></div>
+	<div id="chartBox">
+	<div class="pieCharts">
+		<div id="pieChart"></div>
+		<p>남성 / 여성 별 카테고리 점유율</p>
+		<div id="womanCategoryPieChart"></div>
+		<div id="manCategoryPieChart"></div>
 	</div>
-
 </div>
-<div id="daliyIncomeChart"></div>
-<div id="daliyRegCusNumChart"></div>
-<div id="pieChart"></div>
-<div id="womanCategoryPieChart"></div>
-<div id="manCategoryPieChart"></div>
+</div>
+
+		</div><!-- content-->
+	</div>  <!-- contentWrap-->
+
+
 <script>
 
 	var list =JSON.stringify(${list});
@@ -171,7 +211,7 @@ for(var i=0; i<parsedManMarketShareListParsed.length;i++){
 		columns: manCategoryMarketShareList,
 	    type: "pie" // for ESM specify as: pie()
 	  },
-	  bindto: "#pimanCategoryPieCharteChart"
+	  bindto: "#womanCategoryPieChart"
 	});
 	var womanCategoryMarketShareListStringfied=JSON.stringify(${womanCategoryMarketShareList});
  var parsedWomanMarketShareListParsed =JSON.parse(womanCategoryMarketShareListStringfied);
