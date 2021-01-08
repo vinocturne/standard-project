@@ -267,9 +267,9 @@ margin-top: 45px;
       </div>
          
       </form>   
-        <div class="image">
+        <div class="image" >
          <img src = "${pageContext.request.contextPath}<%=pp_VO.getPp_image() %>" 
-         style="width:1000px; class="picture">
+         style="width:1000px;padding-top:40px;" class="picture">
       </div>
       <script>
       var list = [];
