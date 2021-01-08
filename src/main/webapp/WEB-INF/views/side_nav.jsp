@@ -46,7 +46,6 @@
                     <li><a href="<%=request.getContextPath() %>/Customer/Modify">Modify</a></li>
                     <li><a href="<%=request.getContextPath() %>/wishList/cart">Cart</a></li>
                     <li><a href="<%=request.getContextPath() %>/OrderHistory/OrderHistory">Order</a></li>
-                    <li><a href="<%=request.getContextPath() %>/Customer/ReviewModify">My Review</a></li>
                     <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
                     <%} %>
                     </ul>
