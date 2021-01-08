@@ -1,29 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../head.jsp"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
 <style>
 	.btn btn-primary{
 	}
 	#selectImg_pre {
-		width: 300px;
+		width: 160px;
 	}
-	   body{
-       margin-left: 100px;
-       margin-right: 10%;
-   }
-    .table{
-        width: 1200px;
-    }
-    .mainclass{
-    	border: solid 1px black;/*가늠자 용  나중에 지워야함!*/
-    	
+	
+    .content{
+    width:50%;
+    min-width:600px;
+    
     }
     .magazineTitle{
     padding-top:10px;
-    padding-left:10px;
+    width:50px;
     }
     
     .magazineContent{
@@ -36,14 +32,27 @@
 	padding-left:10px;
 	}
 	
-	.btn {
-	margin-top:10px;
-    margin-left:10px;
+	.mgzBtn_wrap{
+	display:flex;
+    justify-content: center;
+    align-content: center;
+	}
+	
+	.mgzBtn {
+    width: 120px;
+    background-color: #5D5D5D;
+    color: white;
+    padding: 5px;
+    margin:10px 10px; 
 	}
 </style>
+
+<%@ include file="../head.jsp"%>
 </head>
+
 <%@ include file="../header.jsp"%>
-<div class="content_wrap">
+
+<div class="content_wrap inner">
 	<!-- side_nav -->
 	<div class="col-auto p-0">
 		<div class="side_nav">
@@ -67,17 +76,33 @@
 	
 		<!-- POST방식으로 넘어감. -->
 		<form action=" <%=request.getContextPath() %>/Admin/magazineWrite" method="POST" enctype="multipart/form-data" class="mainclass">
-	
-			<label class="magazineTitle">매거진 제목 <input type="text" name="m_Title" /></label>
-			<br>
-			<br>
-			<label class="magazineContent">매거진 내용</label>
-			<textarea rows="5" cols="50" name="m_Content"></textarea>
-			<br>
+		<table class="type12">
+		<thead>
+		<tr>
+			<th>매거진 제목</th>
+			<td><label class="magazineTitle"><input type="text" name="m_Title" style="width: 320px";/></label></td>
+		</tr>
+		<tr>
+			<th>매거진 내용</th>
+			<td><textarea rows="5" cols="50" name="m_Content"></textarea></td>
+		</tr>
+		<tr>
+			<th>매거진 첨부</th>
+			<td>
+				<input  class = "fileclass" type="file" id="m_Img" name="m_Img"/>
+				<div class="selectImg_pre">
+					<img src="#" id="selectImg_pre" onerror="<%=request.getContextPath()%>/ResourcesFile/img/folder.png"/>
+				</div>
+			</td>
+		</tr>
+		</thead>
+		
+		
+		</table>
+		<div class="mgzBtn_wrap">
+			<input type="button" class="mgzBtn" value="등록"></input>
+		</div>
 			
-			<input  class = "fileclass" type="file" id="m_Img" name="m_Img"/>
-			
-			<div class="selectImg_pre"><img src="" id="selectImg_pre"/></div>
 			<script>
 				$("#m_Img").change(function() {
 					if(this.files && this.files[0]) {
@@ -89,13 +114,11 @@
 					}
 				});
 			</script>
-
-			<button type="submit" class="btn btn-primary">등록</button>
-
 		</form>
+
 	</div>
 
-</div>
 
+</div>
 
 <%@ include file="../footer.jsp"%>

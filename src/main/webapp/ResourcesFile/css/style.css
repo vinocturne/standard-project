@@ -294,7 +294,7 @@ header .sub-menu li a:hover {
     margin: 20px 10px;
     border-left: none;
     border-right: none;
-	min-width: 570px;
+	min-width: 600px;
   }
   .table11 thead tr th {
     padding: 14px 0 15px;
@@ -545,7 +545,7 @@ table.type12 {
   
   table.type12 td > input {
     border: 1px solid #C3C3C3;
-    width: 120px; 
+    width: 160px; 
     height: 20px;
     margin: 2px;
     padding: 0;
@@ -722,6 +722,10 @@ h2{
     vertical-align: middle;
     font-weight:bold;
   }
+.mypageimg{
+	margin:8px 0;
+}
+
 
   .type14 td {
     font-size: 9pt;
