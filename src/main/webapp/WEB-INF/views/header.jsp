@@ -9,8 +9,9 @@
 		<div class="inner clearfix">
 			<div class="menu-group float--left">
 				<!-- <div class="logo"> -->
-				<a href="<%=request.getContextPath() %>" class="logo"><img
-					src="<%=request.getContextPath()%>/ResourcesFile/img/logo2.png" width="60" height="40"></a>
+				<a href="<%=request.getContextPath() %>" class="logo">
+					<img class="newlogo" src="<%=request.getContextPath()%>/ResourcesFile/img/NewLogo.png" width="180px" height="42px" margin-right="10px">
+				</a>
 				<!-- </div> -->
 				<ul class="main-menu toggle">
 					<li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain">W'Store</a></li>
