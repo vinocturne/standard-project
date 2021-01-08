@@ -7,7 +7,7 @@
 		SELECT * FROM orderhistory where c_Id=#{c_Id}
 	</select>
 	<select id="getDailyIncomeList" resultType="HashMap">
-		SELECT o_Date,SUM(o_TotalPrice) FROM orderhistory GROUP BY o_Date DESC LIMIT 30
+		SELECT o_Date, sum(o_TotalPrice) as 'o_TotalPrice' FROM orderhistory GROUP BY o_Date DESC LIMIT 30
 	</select>
 	<select id="getMarketShareList" resultType="HashMap">
 	SELECT COUNT(o.o_BrandId) AS 'NumberOfSales',b.brandName as 'brandName' FROM orderhistory o JOIN branddb b ON o.o_BrandId =b.brandId GROUP BY o_BrandId;
