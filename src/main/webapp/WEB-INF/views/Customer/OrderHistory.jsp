@@ -48,7 +48,7 @@
 
 			
 					<tr>
-						<td><%=orderHistory.get(j).getO_Date() %></td>
+						<td><%=orderHistory.get(i).getO_Date() %></td>
 						<td><%=productInfoList.get(i).getPp_Name() %></td>
 						<td><%=productInfoList.get(i).getPp_Price() %></td>
 						<td><%=orderHistory.get(i).getO_Quantity() %></td>
@@ -62,8 +62,7 @@
 					
 				</tbody>
 			</table>
-			<%}  %>
-			<%} else{%>
+			<%}else{%>
 						<h2> 주문 내역이 없습니다</h2>
 			<%}%>
 		</div>
