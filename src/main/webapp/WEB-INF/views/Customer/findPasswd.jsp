@@ -66,13 +66,13 @@
             <div class="findPasswd">
                 <div class="findPasswd_field">
                 <p id="c_Name" class="c_Name" ><strong id="name_lable">이름</strong> 
-                <input id="c_Name" name="c_Name" fw-filter="" fw-label="이름" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p>  
+                <input id="NAME" name="c_Name" fw-filter="" fw-label="이름" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p>  
                 
                 <p id="c_Id" class="c_Id" ><strong>아이디 입력</strong> 
-                <input id="c_Id" name="c_Id" fw-filter="c_Id" fw-label="아이디" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p> 
+                <input id="ID" name="c_Id" fw-filter="c_Id" fw-label="아이디" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p> 
               
                <p id="c_Email" class="c_Email" ><strong>이메일 입력</strong> 
-                    <input id="c_Email" name="c_Email" fw-filter="c_Email" fw-label="" fw-msg="" class="lostInput" placeholder="" value="" type="text">
+                    <input id="EMAIL" name="c_Email" fw-filter="c_Email" fw-label="" fw-msg="" class="lostInput" placeholder="" value="" type="text">
                 </p>
                 
         
@@ -90,9 +90,9 @@
       function fn_findPWD(){
           console.log("확인버튼 눌림");
           var resultStr = document.getElementById("PWDResult");
-          var requestedName = document.getElementById("c_Name");
-          var requestedEmail = document.getElementById("c_Email");
-          var requestedId =document.getElementById("c_Id");
+          var requestedName = document.getElementById("NAME");
+          var requestedEmail = document.getElementById("EMAIL");
+          var requestedId =document.getElementById("ID");
 
           var requestedIdVal = requestedId.value;
           var requestedNameVal = requestedName.value;
