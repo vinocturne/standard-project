@@ -66,37 +66,34 @@
 	//차트에 들어갈 배열1
 	var chartLabels= new Array();
 	chartLabels.push("x");
-for(var i=0; i<parsed.length;i++){
-	chartLabels.push(parsed[i].orderDate);
-}
+	for(var i=0; i<parsed.length;i++){
+		chartLabels.push(parsed[i].orderDate);
+	}
 //차트에 들어갈 배열2
-var chartData = new Array();
-chartData.push("일별 주문액");
-for(var i=0; i<parsed.length;i++){
-	chartData.push(parsed[i].totalPrice);
-}
+	var chartData = new Array();
+	chartData.push("일별 주문액");
+	for(var i=0; i<parsed.length;i++){
+		chartData.push(parsed[i].totalPrice);
+	}
 
 	var chart = bb.generate({
-  data: {
-    x: "x",
-    columns: [
-
-	chartLabels,
-	chartData 
-
-    ],
-    type: "line", // for ESM specify as: line()
-  },
-  axis: {
-    x: {
-      type: "timeseries",
-      tick: {
-        format: "%m-%d"
-      }
-    }
-  },
-  bindto: "#daliyIncomeChart"
-});
+  		data: {
+    		x: "x",
+    		columns: [
+			chartLabels,chartData 
+    		],
+    		type: "line", // for ESM specify as: line()
+	  	},
+	  	axis: {
+	    	x: {
+	    	  type: "timeseries",
+	    	  tick: {
+	    	    format: "%m-%d"
+	    	  }
+	    	}
+	  	},
+	  	bindto: "#daliyIncomeChart"
+	});
 
 
 </script>
@@ -104,51 +101,45 @@ for(var i=0; i<parsed.length;i++){
 
 
 <script>
-//일자별 등록 고객수 차트
-var regNumList =JSON.stringify(${regNumberList});
-var parsedRegNumList = JSON.parse(regNumList);
+	//일자별 등록 고객수 차트
+	var regNumList =JSON.stringify(${regNumberList});
+	var parsedRegNumList = JSON.parse(regNumList);
 
 	//차트에 들어갈 배열1
 	var chartLabels2= new Array();
 	chartLabels2.push("x");
-for(var i=0; i<parsedRegNumList.length;i++){
-	chartLabels2.push(parsedRegNumList[i].registerDate);
-}
+	for(var i=0; i<parsedRegNumList.length;i++){
+		chartLabels2.push(parsedRegNumList[i].registerDate);
+	}
 //차트에 들어갈 배열2
-var chartData2 = new Array();
-chartData2.push("일별 가입 고객 수");
-for(var i=0; i<parsedRegNumList.length;i++){
-	chartData2.push(parsedRegNumList[i].regNum);
-}
+	var chartData2 = new Array();
+	chartData2.push("일별 가입 고객 수");
+	for(var i=0; i<parsedRegNumList.length;i++){
+		chartData2.push(parsedRegNumList[i].regNum);
+	}
 
-var chart2 = bb.generate({
-  data: {
-    x: "x",
-    columns: [
-    chartLabels2,
-    chartData2
-    ],
-    type: "line", // for ESM specify as: line()
-  },
-  axis: {
-    x: {
-      type: "timeseries",
-      tick: {
-        format: "%m-%d"
-      }
-    }
-  },
-  bindto: "#daliyRegCusNumChart"
-});
+	var chart2 = bb.generate({
+	  data: {
+	    x: "x",
+	    columns: [
+	    chartLabels2,
+	    chartData2
+	    ],
+	    type: "line", // for ESM specify as: line()
+	  },
+	  axis: {
+	    x: {
+	      type: "timeseries",
+	      tick: {	
+	        format: "%m-%d"
+	      }
+	    }
+	  },
+	  bindto: "#daliyRegCusNumChart"
+	});
 
  var marketShareList=JSON.stringify(${marketShareList});
- console.log(marketShareList);
  var parsedMarketShareList =JSON.parse(marketShareList);
- console.log(parsedMarketShareList);
- console.log(parsedMarketShareList[0].brandName);
- console.log(parsedMarketShareList[0].numberOfSales);
- parsedMarketShareList[0].brandName;
- parsedMarketShareList[0].numberOfSales;
  var brandMarketShareList = new Array();
 for(var i=0; i<parsedMarketShareList.length;i++){
 
@@ -157,61 +148,47 @@ for(var i=0; i<parsedMarketShareList.length;i++){
 }
 
 
+
 //브랜드별 점유율을 나타낼 파이차트. 
 var chart = bb.generate({
 	  data: {
-	    parsedMarketShareList,
-	    type: "pie", // for ESM specify as: pie()
-	    onclick: function(d, i) {
-		console.log("onclick", d, i);
-	   },
-	    onover: function(d, i) {
-		console.log("onover", d, i);
-	   },
-	    onout: function(d, i) {
-		console.log("onout", d, i);
-	   }
+		columns: brandMarketShareList,
+	    type: "pie"
 	  },
 	  bindto: "#pieChart"
 	});
 
-	// setTimeout(function() {
-	// 	chart.load({
-	// 		columns: [
-	// 			["setosa", 90],
-	// 			["versicolor", 20],
-	// 			["virginica", 60],
-	// 		]
-	// 	});
-	// }, 1500);
-	
+var manCategoryMarketShareListStringfied=JSON.stringify(${manCategoryMarketShareList});
+ var parsedManMarketShareListParsed =JSON.parse(manCategoryMarketShareListStringfied);
+manCategoryMarketShareList = new Array();
+for(var i=0; i<parsedManMarketShareListParsed.length;i++){
+  var arr = [parsedManMarketShareListParsed[i].Category2,parsedManMarketShareListParsed[i].numberOfSales];
+  manCategoryMarketShareList.push(arr);
+	}
+
 	var chart4 = bb.generate({
 	  data: {
-	    columns: [
-        [parsedMarketShareList[0].brandName,parsedMarketShareList[0].numberOfSales]
-	    ],
-	    type: "pie", // for ESM specify as: pie()
-	    onclick: function(d, i) {
-	   },
-	    onover: function(d, i) {
-	   },
-	    onout: function(d, i) {
-	   }
+		columns: manCategoryMarketShareList,
+	    type: "pie" // for ESM specify as: pie()
 	  },
-	  bindto: "#womanCategoryPieChart"
+	  bindto: "#pimanCategoryPieCharteChart"
 	});
+	var womanCategoryMarketShareListStringfied=JSON.stringify(${womanCategoryMarketShareList});
+ var parsedWomanMarketShareListParsed =JSON.parse(womanCategoryMarketShareListStringfied);
+ console.log(parsedWomanMarketShareListParsed);
+
+
+ var womanCategoryMarketShareList = new Array();
+for(var i=0; i<parsedWomanMarketShareListParsed.length;i++){
+
+  var arr = [parsedWomanMarketShareListParsed[i].Category2,parsedWomanMarketShareListParsed[i].numberOfSales];
+  womanCategoryMarketShareList.push(arr);
+	}
+
 	var chart5 = bb.generate({
 	  data: {
-	    columns: [
-        [parsedMarketShareList[0].brandName,parsedMarketShareList[0].numberOfSales]
-	    ],
-	    type: "pie", // for ESM specify as: pie()
-	    onclick: function(d, i) {
-	   },
-	    onover: function(d, i) {
-	   },
-	    onout: function(d, i) {
-	   }
+	    columns: womanCategoryMarketShareList,
+	    type: "pie" // for ESM specify as: pie()
 	  },
 	  bindto: "#manCategoryPieChart"
 	});
