@@ -267,7 +267,10 @@ margin-top: 45px;
       </div>
          
       </form>   
-         
+        <div class="image">
+         <img src = "${pageContext.request.contextPath}<%=pp_VO.getPp_image() %>" 
+         style="width:1000px; class="picture">
+      </div>
       <script>
       var list = [];
       var stack = "";
@@ -358,8 +361,6 @@ margin-top: 45px;
                }); 
             </script>
       
-   
-   
    
    <div class="review">
    
