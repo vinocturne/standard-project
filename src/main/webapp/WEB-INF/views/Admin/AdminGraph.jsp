@@ -23,7 +23,6 @@
     }
 
 	.AdminCharts{
-		border:  solid 1px black;
 		width: 1000px;
 	}
 

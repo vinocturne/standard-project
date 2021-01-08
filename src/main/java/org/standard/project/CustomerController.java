@@ -238,6 +238,7 @@ public class CustomerController {
 		PrintWriter out = response.getWriter();
 		out.println("<script>alert('삭제완료.'); location.href='/project';</script>");
 		out.flush();
+		session.invalidate();
 		mav.setViewName("index");
 		return mav;
 
