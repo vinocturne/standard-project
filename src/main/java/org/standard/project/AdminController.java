@@ -139,7 +139,7 @@ public class AdminController {
 			out.flush();
 			mav.setViewName("Customer/login_form");
 			return mav;
-		} else if (customerVO.getRole() != "관리자") {
+		} else if (!"관리자".equals(customerVO.getRole())) {
 			out.println("<script>alert('관리자 아이디로 로그인해주세요.');</script>");
 			out.flush();
 			mav.setViewName("index");
