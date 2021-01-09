@@ -166,8 +166,8 @@ if(phone1.length() == 10){
                                 <table>
 
                                 </table>
-
-                                <input type="button" value="결제하기" onclick="fn_purchase()">
+								<button type="button" class="order_Product_btn" onclick="fn_purchase()">결제하기</button>
+                                <!-- <input type="button" class="order_Product_btn" value="결제하기" onclick="fn_purchase()"> -->
 	
 	
 	    
@@ -206,7 +206,7 @@ if(phone1.length() == 10){
     var tableBody = document.getElementById("cartListTableBody");
 
    for(let i=0;i<parsedJSON.length;i++){
-       var row ="<tr><td><img src="+parsedJSON[i].pp_thumb+" alt ='상품이미지'> "+parsedJSON[i].pp_Name+parsedJSON[i].p_Color+parsedJSON[i].p_Size+"</td><td>"+parsedJSON[i].p_Price+"</td><td>"+parsedJSON[i].w_Quantity+"</td><td>"+((parsedJSON[i].p_Price)*(parsedJSON[i].w_Quantity))+"</td></tr>";
+       var row ="<tr><td><img src=<%=request.getContextPath()%>"+parsedJSON[i].pp_thumb+" alt ='상품이미지'><br>"+parsedJSON[i].pp_Name+parsedJSON[i].p_Color+parsedJSON[i].p_Size+"</td><td>"+parsedJSON[i].p_Price+"</td><td>"+parsedJSON[i].w_Quantity+"</td><td>"+((parsedJSON[i].p_Price)*(parsedJSON[i].w_Quantity))+"</td></tr>";
        tableBody.innerHTML +=row;
    }
 window.onload = function(){
