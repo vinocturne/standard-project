@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -177,5 +178,25 @@ public class WishListController {
 
 		}
 	}
+	@RequestMapping(value = "/DeleteWishList" )
+	public String deleteWishList(HttpSession session,HttpServletRequest req) throws ParseException {
+		System.out.println("장바구니에서 지우기");
+		System.out.println(req.getParameter("data"));
+		JSONParser parser = new JSONParser(); 
+		  JSONArray arr = new JSONArray();
+		  arr=(JSONArray)parser.parse(req.getParameter("data")); 
+		  for(int i=0; i<arr.size(); i++) { 
+			  JSONObject object = (JSONObject)arr.get(i);
+			  object.get("p_Id");
+			  object.get("c_Id");
+			  WishListVO vo = new WishListVO();
+			  vo.setC_Id((String)object.get("c_Id"));
+			  vo.setP_Id((String)object.get("p_Id"));
+			  wishListService.deleteWishList(vo);
+		  } 
+		  return "redirect:/wishList/cart";
+		
+	}
+	
 
 }
