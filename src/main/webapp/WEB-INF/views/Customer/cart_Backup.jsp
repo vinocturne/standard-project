@@ -33,54 +33,53 @@
    (추후 구현)상품 이미지나 상품명을 클릭하면 a href = /?/?/pp_Name이 되게해서 상품페이지로 이동할수 있도록한다.
    -->
    <!-- CART:주문조회-->
-   <body 
-      onload="initialize();"> 
+<body onload="init();">
    <div class="order_wrap">
       <div class="title_area">
          <div class="title_area1">
             <h1>장바구니</h1>
          </div>
       </div>
-      <script>
-         
-         function initialize(){
-               var sell_price = document.getElementsByName("sell_price");
-               var amount = document.getElementsByName("amount");
-               var sum = document.getElementsByName("sum");
-               for(var i =0;i<sell_price.length;i++){
-                  sum[i].value= (amount[i].value)*(sell_price[i].value); 
-               }
-         }
-         var findIndex;
-         function addQuantity(i){
-            console.log(i);
-            var targetIdx =Number(i);
-            var chBoxs = document.getElementsByName("chBox");
-            var IDs = document.getElementsByName("productID");
-            var sell_price = document.getElementsByName("sell_price");
-            var amount = document.getElementsByName("amount");
-            var sum = document.getElementsByName("sum");
-            amount[targetIdx].value++;
-            sum[targetIdx].value= (amount[targetIdx].value)*(sell_price[targetIdx].value); 
-         }
-         function minusQuantity(i){
-            console.log(i);
-            var targetIdx =Number(i);
-            var chBoxs = document.getElementsByName("chBox");
-            var IDs = document.getElementsByName("productID");
-            var sell_price = document.getElementsByName("sell_price");
-            var amount = document.getElementsByName("amount");
-            var sum = document.getElementsByName("sum");
-            if(amount[targetIdx].value>1){
-               amount[targetIdx].value--;
-            }
-            sum[targetIdx].value= (amount[targetIdx].value)*(sell_price[targetIdx].value); 
-         }
+      <script language="JavaScript">
 
-      </script>
+var sell_price;
+var amount;
 
+function init () {
+   sell_price = document.form.sell_price.value;
+   amount = document.form.amount.value;
+   document.form.sum.value = sell_price;
+   change();
+}
 
+function add () {
+   hm = document.form.amount;
+   sum = document.form.sum;
+   hm.value ++ ;
 
+   sum.value = parseInt(hm.value) * sell_price;
+}
+
+function del () {
+   hm = document.form.amount;
+   sum = document.form.sum;
+      if (hm.value > 1) {
+         hm.value -- ;
+         sum.value = parseInt(hm.value) * sell_price;
+      }
+}
+
+function change () {
+   hm = document.form.amount;
+   sum = document.form.sum;
+
+      if (hm.value < 0) {
+         hm.value = 0;
+      }
+   sum.value = parseInt(hm.value) * sell_price;
+}  
+
+</script>
       <div class="order_table">
          <table class="type15">
             <thead>
@@ -109,11 +108,7 @@
                   <% ArrayList<WishListProductVO> wishListProductVO = (ArrayList<WishListProductVO>)session.getAttribute("wishListProductVO");%>
 
                   <%for(int i=0;i<wishListVO.size();i++) { %>
-                  <script>
-                     var rowIdxStr = "<%=i %>";
-                     var rowIdx = Number(rowIdxStr);
-                     console.log(rowIdx);
-                  </script>
+                  
                   <tr>
                      <td><div class="checkBox">
                            <input type="checkbox" name="chBox" class="chBox"
@@ -143,22 +138,17 @@
                         <form name="form" method="get">
                      <td><input type=hidden name="sell_price" value="<%=wishListVO.get(i).getP_Price() %>"><%=wishListVO.get(i).getP_Price() %></td>
                      <td><span class=""> <span class="ec-base-qty">
-                     <input type="hidden" name="productID" value="<%=wishListVO.get(i).getP_Id() %>">
                      <input type="text" name="amount" value="<%=wishListVO.get(i).getW_Quantity() %>" size="3" onchange="change();">
-                     <a onclick="addQuantity('<%=i %>');"> <img
+                     <a onclick="add();"> <img
                                  src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif"
                                  alt="수량증가" class="up">
-                           </a> <a onclick="minusQuantity('<%=i %>');"> <img
+                           </a> <a onclick="del();"> <img
                                  src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif"
                                  alt="수량감소" class="down">
                            </a>
                         </span>
                      </span></td>
-                     <td> 
-                        <script>
-
-                        </script>
-                        <input type="text" name="sum" size="11"  readonly> 원</td>
+                     <td> <input type="text" name="sum" size="11" readonly>원</td>
                      </form>
                   </tr>
                   <% }%>
@@ -169,34 +159,9 @@
                <button type="button" class="selectOrder_btn">주문하기</button> <script>
                $(".selectOrder_btn").click(function() {
                      var jsonArr = new Array();
-                     $("input[class='chBox']:checked").each(function(i,j) {
-                        //부모노드? 형제 노드?
-                        // console.log("체크박스.each : "+i);
-                        // console.dir(j);
-                        // console.log("체크박스.each 의 j 노드네임: "+j.nodeName);
-                        // console.log("체크박스.each 의 j 부모부모노드네임: "+j.parentNode.parentNode.nodeName);
-                        // var td =j.parentNode.parentNode;
-                        // var quantitytd =td.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling;
-                        // console.log(quantitytd);
-                        // var quantityInput =quantitytd.firstChild.firstChild.nodeValue;
-                        // console.log(quantityInput);
-                        var productIDs =document.getElementsByName("productID");
-                        var amount = document.getElementsByName("amount");
-                        var targetProductID = $(this).attr("data-p_Id");
-                        var index=-1;
-                        for(var i =0;i<productIDs.length;i++){
-                           if(productIDs[i].value==targetProductID){
-                              console.log("인덱스: "+i);
-                              index=i;
-                              break;
-                           }
-                        }
-                        if(index!=-1){
-                           console.log(productIDs[index].value+"의 수량은 : "+amount[index].value);
-                        }
-
+                     $("input[class='chBox']:checked").each(function() {
                         var jsonStr = {p_Id : $(this).attr("data-p_Id"),p_Price:$(this).attr("data-p_Price"),
-                                 w_Quantity:amount[index].value, pp_Name:$(this).attr("data-pp_Name"),
+                                 w_Quantity:$(this).attr("data-w_Quantity"),pp_Name:$(this).attr("data-pp_Name"),
                                  p_Color:$(this).attr("data-p_Color"),p_Size:$(this).attr("data-p_Size"),
                                  pp_thumb:$(this).attr("data-pp_thumb"),p_Brand : $(this).attr("data-p_Brand"),
                          parent_p_Id: $(this).attr("data-parent_p_Id")
@@ -219,7 +184,7 @@
                              form.appendChild(hiddenField);
                          
                          document.body.appendChild(form);
-                         //form.submit();
+                         form.submit();
 
                      }else{
                         alert("주문할 상품을 선택해주세요");
