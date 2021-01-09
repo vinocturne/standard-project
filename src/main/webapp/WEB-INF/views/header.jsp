@@ -39,13 +39,14 @@
 						<li><a href="<%=request.getContextPath() %>/Customer/myPage"><%=customer.getC_Id()%>님 환영합니다</a></li>
 					<% } %>
 				</ul>
-				<a href="#"><form action="/project/magazine/magazineList" method="get" enctype="multipart/form-data">
-				<input type="text" value="${search}" name="s_m_Title">
-				<input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg"  alt="search" width="20" height="20">
-				</form>
+				<a href="#">
+				<form action="<%=request.getContextPath() %>/magazine/magazineList" method="get" enctype="multipart/form-data">
+					<input type="text" value="${search}" name="s_m_Title">
+					<input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg"  alt="search" width="20" height="20">
 				</a>
 				<a href="#"><img src="<%=request.getContextPath()%>/ResourcesFile/img/cart.svg" alt="cart" width="25" height="25">
 				</a>
+				</form>
 			</div>
 			<div id="toggle-btn">Header Menu Toggle Button</div>
 		</div>
