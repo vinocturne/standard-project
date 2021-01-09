@@ -66,26 +66,7 @@ public class OrderController {
 		return "Customer/OrderHistory";
 	}
 	
-	@RequestMapping(value="/save", method = RequestMethod.POST)
-	public void reviewSave(HttpSession session, HttpServletRequest req) {
-		String p_Id = req.getParameter("p_Id");
-		String pp_Id = p_Id.substring(0,7);
-		ProductParentVO ppvo = productParentService.selectParentProduct(pp_Id);
-		int brandId = ppvo.getPp_Brand();
-		String pp_Name = ppvo.getPp_Name();
-		String r_Coment = req.getParameter("r_Coment");
-		CustomerVO cvo = (CustomerVO)session.getAttribute("loginCustomer");
-		String r_Writer = cvo.getC_Id();
-		String r_Title = req.getParameter("r_Title");
-		ReviewVO rvo = new ReviewVO();
-		rvo.setBrandId(brandId);
-		rvo.setP_Id(p_Id);
-		rvo.setParent_p_Id(pp_Id);
-		rvo.setR_Coment(r_Coment);
-		rvo.setR_Writer(r_Writer);
-		rvo.setR_Title(r_Title);
-		reviewService.writeReview(rvo);
-	}
+	
 	
 
 }

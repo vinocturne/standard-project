@@ -16,7 +16,7 @@
 </head>
 <body>
 <%
-   int o_Num = Integer.parseInt(request.getParameter("orderNum"));
+   int o_Num = Integer.parseInt(request.getParameter("orderNum"))-1;
    String p_Pname = request.getParameter("ppName"); 
 %>
 
@@ -45,7 +45,7 @@
             </div>
      
         </div>
-        <form name="reviewform" class="reviewform" method="post" action="/save">
+        <form name="reviewform" class="reviewform" method="post" action="save">
             <input type="hidden" name="rate" id="rate" value="0"/>
      		<input type="hidden" id="p_Id" name="p_Id" value="<%=orderList.get(o_Num).getP_Id()%>">
             <input type="hidden" id="o_Quantity" name="o_Quantity" value="<%=orderList.get(o_Num).getO_Quantity()%>">
@@ -79,7 +79,7 @@
                 <textarea rows="10" class="review_textarea" name="r_Coment"></textarea>
           </div>
             <div class="cmd">
-                <input type="button" name="save" id="save" value="등록">
+                <input type="submit" name="save" id="save" value="등록">
             </div>
         </form>
     </div>
