@@ -348,7 +348,15 @@ header .sub-menu li a:hover {
     outline: none;
     }
  
- 
+.order_btn {
+ 	font-size: 9pt;
+ 	width: 80px;
+    background-color: #5D5D5D;
+    color: white;
+    padding: 3px;
+    margin-top: 5px; 
+    font-weight: bold; 
+ } 
  
 /* CART */
 select { }
@@ -479,7 +487,8 @@ color: black;
 .selectDelete_btn , .selectOrder_btn{
    background-color: #5D5D5D;
    color: white;   
-   font-size: 10pt;
+   font-size: 9pt;
+   font-weight: bold;
 }
 
 .cartButton {
@@ -782,31 +791,27 @@ form {
 }
 
 .findId input[type="text"] {
-    width: 130px;
+    width: 165px;
     padding-left: 5px;
     font-size: 10pt;
 }
 
-.findID_confirm > input{
+.findID_confirm {
     display: flex;
     justify-content: center;
     align-content: center;   
-    width: 80px;
-    background-color: #5D5D5D;
+    /* background-color: #5D5D5D;
     color: white;
-    padding: 5px;
-    
+    padding: 5px; */
 }
-
-.findID_confirm > input :hover {
-    background-color: white;
-    color: black;
-}
-
+input.findID_btn{
+	width:140px;
+	padding: 4px;
+    margin-top: 20px;  
+    font-weight: bold; 
+}    
 
 /* findPasswd */
-
-
 .findPasswd {
     display: flex;
     justify-content: center;
@@ -829,29 +834,26 @@ form {
 }
 
 .findPasswd input[type="text"] {
-    width: 130px;
+    width: 165px;
     padding-left: 5px;
     font-size: 10pt;
 }
 
-.findPasswd_confirm > input{
+.findPasswd_confirm {
     display: flex;
     justify-content: center;
     align-content: center;   
-    width: 80px;
-    background-color: #5D5D5D;
-    color: white;
-    padding: 5px;
     
 }
 
-.findPasswd_confirm > input :hover {
-    background-color: white;
-    color: black;
+findPasswd_confirm > input {
+	width: 140px;
+    background-color: #5D5D5D;
+    color: white;
+    padding: 4px;
+    margin-top: 20px;  
+    font-weight: bold; 
 }
-
-
-
 
 
 
