@@ -58,10 +58,7 @@
 	</div>
 
 	<div class="content">
-		<br><br>
-		<h3>그래프</h3>
-		<br>
-	
+
 	<div class ="AdminCharts">
 	<h1>일자별 주문액 추이</h1>
 	<div id="daliyIncomeChart"></div>
