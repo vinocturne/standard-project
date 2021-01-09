@@ -16,8 +16,8 @@
 </head>
 <body>
 <%
-	int o_Num = Integer.parseInt(request.getParameter("orderNum"));
-	String p_Pname = request.getParameter("ppName"); 
+   int o_Num = Integer.parseInt(request.getParameter("orderNum"));
+   String p_Pname = request.getParameter("ppName"); 
 %>
 
 <div class="wrap">
@@ -35,15 +35,9 @@
                                 <td class="textbox"> 
                                 <%ArrayList<OrderHistoryVO> orderList = (ArrayList)session.getAttribute("orderList"); %>
                                 <!-- 상품명, 개수, 주문 -->
-                                <input type="hidden" id="p_Id" name="p_Id" value="<%=orderList.get(o_Num).getP_Id()%>">
-                                <input type="hidden" id="o_Quantity" name="o_Quantity" value="<%=orderList.get(o_Num).getO_Quantity()%>">
-                                <input type="hidden" id="pp_Name" name="pp_Name" value="<%=p_Pname%>">
-                                <input type="hidden" id="0_Num" name="0_Num" value="<%=o_Num%>">
-                                <input type="hidden" id="r_Title" name="r_Title" value="">
-                                <input type="hidden" id="o_Date" name="o_Date" value="<%=orderList.get(o_Num).getO_Date()%>">
-                                   	상품이름:<%=p_Pname%><br> 
-                                  	수량:<%=orderList.get(o_Num).getO_Quantity()%><br>
-                                   	주문일자:<%=orderList.get(o_Num).getO_Date()%>
+                                      상품이름:<%=p_Pname%><br> 
+                                     수량:<%=orderList.get(o_Num).getO_Quantity()%><br>
+                                      주문일자:<%=orderList.get(o_Num).getO_Date()%>
                                 </td>   
                             </tr>
                         </thead>
@@ -54,7 +48,12 @@
         </div>
         <form name="reviewform" class="reviewform" method="post" action="/save">
             <input type="hidden" name="rate" id="rate" value="0"/>
-     
+           <input type="hidden" id="p_Id" name="p_Id" value="<%=orderList.get(o_Num).getP_Id()%>">
+            <input type="hidden" id="o_Quantity" name="o_Quantity" value="<%=orderList.get(o_Num).getO_Quantity()%>">
+            <input type="hidden" id="pp_Name" name="pp_Name" value="<%=p_Pname%>">
+            <input type="hidden" id="0_Num" name="0_Num" value="<%=o_Num%>">
+            <input type="hidden" id="r_Title" name="r_Title" value="">
+            <input type="hidden" id="o_Date" name="o_Date" value="<%=orderList.get(o_Num).getO_Date()%>">
             
             <div class="review_contents"> 
                 <div class="warning_msg2" >5자 이상의 리뷰 내용을 작성해 주세요.</div>
