@@ -15,7 +15,13 @@
 
 </head>
 <body>
- 
+<%
+	int o_Num = Integer.parseInt(request.getParameter("orderNum"));
+	String p_Pname = request.getParameter("ppName"); 
+%>
+
+<%=o_Num %>
+<%=p_Pname %>
 <div class="wrap">
         <h2>상품 후기작성</h2>
         <div class="content_wrap">
@@ -33,7 +39,8 @@
                                 <%ArrayList<OrderHistoryVO> orderList = (ArrayList)session.getAttribute("orderList"); %>
                                 <%for(int i=0; i<orderList.size();i++){ %>  
                                 
-                                   <%=orderList.get(i).getP_Id() %> <br>
+                                   <%=orderList.get(i).getP_Id() %> <br> 
+                                   
                                    <%=orderList.get(i).getO_Quantity() %><br>
                                    <%=orderList.get(i).getO_Date() %>
                                    
@@ -50,14 +57,14 @@
             <input type="hidden" name="rate" id="rate" value="0"/>
      
             <div class="review_rating">
-            	<div>
+            	<!-- <div>
             		<p style="text-align:center">별점과 리뷰를 남겨주세요</p>
             	</div>
                 <div class="warning_msg1">별점을 선택해 주세요.</div>
                 
                 <div class="rating">
                     <div class="ratefill"></div>
-                    <!-- [D] 해당 별점이 선택될 때 그 점수 이하의 input엘리먼트에 checked 클래스 추가 -->
+                    [D] 해당 별점이 선택될 때 그 점수 이하의 input엘리먼트에 checked 클래스 추가
                     <input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="1점">
                     <label for="rating1"></label>
                     <input type="checkbox" name="rating" id="rating2" value="2" class="rate_radio" title="2점">
@@ -69,7 +76,7 @@
                     <input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="5점">
                     <label for="rating5"></label>
                 </div>
-            </div> 
+            </div>  -->
             
             <div class="review_contents"> 
                 <div class="warning_msg2">5자 이상의 리뷰 내용을 작성해 주세요.</div>

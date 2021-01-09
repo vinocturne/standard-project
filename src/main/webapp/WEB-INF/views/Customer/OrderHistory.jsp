@@ -45,8 +45,6 @@
 				
 				<tbody>
 				<% for(int i=0;i<productInfoList.size(); i++) {  %>
-
-			
 					<tr>
 						<td><%=orderHistory.get(i).getO_Date() %></td>
 						<td><%=productInfoList.get(i).getPp_Name() %></td>
@@ -54,7 +52,7 @@
 						<td><%=orderHistory.get(i).getO_Quantity() %></td>
 						<td><%=orderHistory.get(i).getO_TotalPrice() %></td>
 						<td><%=orderHistory.get(i).getO_Delivery() %><br>
-						<button onclick="window.open(' <%=request.getContextPath() %>/Customer/ReviewPopup','window_name','width=480,height=620,left=200 top=100 location=no,status=no,scrollbars=yes');" class="order_btn">후기작성</button>
+						<button onclick="window.open(' <%=request.getContextPath() %>/Customer/ReviewPopup?orderNum=<%=orderHistory.get(i).getO_Num() %>&ppName=<%=productInfoList.get(i).getPp_Name() %>','window_name','width=480,height=530,left=200 top=100 location=no,status=no,scrollbars=yes');" class="order_btn">후기작성</button>
 						</td>
 					</tr>
 					
