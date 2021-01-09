@@ -35,12 +35,6 @@
                                 <td class="textbox"> 
                                 <%ArrayList<OrderHistoryVO> orderList = (ArrayList)session.getAttribute("orderList"); %>
                                 <!-- 상품명, 개수, 주문 -->
-                                <input type="hidden" id="p_Id" name="p_Id" value="<%=orderList.get(o_Num).getP_Id()%>">
-                                <input type="hidden" id="o_Quantity" name="o_Quantity" value="<%=orderList.get(o_Num).getO_Quantity()%>">
-                                <input type="hidden" id="pp_Name" name="pp_Name" value="<%=p_Pname%>">
-                                <input type="hidden" id="0_Num" name="0_Num" value="<%=o_Num%>">
-                                <input type="hidden" id="r_Title" name="r_Title" value="">
-                                <input type="hidden" id="o_Date" name="o_Date" value="<%=orderList.get(o_Num).getO_Date()%>">
                                    	상품이름:<%=p_Pname%><br> 
                                   	수량:<%=orderList.get(o_Num).getO_Quantity()%><br>
                                    	주문일자:<%=orderList.get(o_Num).getO_Date()%>
@@ -54,7 +48,33 @@
         </div>
         <form name="reviewform" class="reviewform" method="post" action="/save">
             <input type="hidden" name="rate" id="rate" value="0"/>
-     
+            <!-- <div class="review_rating">
+            	<div>
+            		<p style="text-align:center">별점과 리뷰를 남겨주세요</p>
+            	</div>
+                <div class="warning_msg1">별점을 선택해 주세요.</div>
+                
+                <div class="rating">
+                    <div class="ratefill"></div>
+                    [D] 해당 별점이 선택될 때 그 점수 이하의 input엘리먼트에 checked 클래스 추가
+                    <input type="checkbox" name="rating" id="rating1" value="1" class="rate_radio" title="1점">
+                    <label for="rating1"></label>
+                    <input type="checkbox" name="rating" id="rating2" value="2" class="rate_radio" title="2점">
+                    <label for="rating2"></label>
+                    <input type="checkbox" name="rating" id="rating3" value="3" class="rate_radio" title="3점" >
+                    <label for="rating3"></label>
+                    <input type="checkbox" name="rating" id="rating4" value="4" class="rate_radio" title="4점">
+                    <label for="rating4"></label>
+                    <input type="checkbox" name="rating" id="rating5" value="5" class="rate_radio" title="5점">
+                    <label for="rating5"></label>
+                </div>
+            </div>  -->
+     		<input type="hidden" id="p_Id" name="p_Id" value="<%=orderList.get(o_Num).getP_Id()%>">
+            <input type="hidden" id="o_Quantity" name="o_Quantity" value="<%=orderList.get(o_Num).getO_Quantity()%>">
+            <input type="hidden" id="pp_Name" name="pp_Name" value="<%=p_Pname%>">
+            <input type="hidden" id="0_Num" name="0_Num" value="<%=o_Num%>">
+            <input type="hidden" id="r_Title" name="r_Title" value="">
+            <input type="hidden" id="o_Date" name="o_Date" value="<%=orderList.get(o_Num).getO_Date()%>">
             
             <div class="review_contents"> 
                 <div class="warning_msg2" >5자 이상의 리뷰 내용을 작성해 주세요.</div>
