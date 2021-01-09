@@ -447,7 +447,7 @@ public class SellerController {
 		orderHistoryService.modifyDeliveryList(vo);
 		out.println("<script>alert('배송상태적용완료');</script>");
 		out.flush();
-		mav.setViewName("Seller/BuyList");
+		mav.setViewName("redirect:/Seller/BuyList");
 		return mav;
 	}
 	

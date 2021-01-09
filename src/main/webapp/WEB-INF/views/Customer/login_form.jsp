@@ -40,7 +40,7 @@
                 <ul>
                     <li><a href="#">Login</a></li>
                     <li><a href=" <%=request.getContextPath() %>/Customer/Register">Register</a></li>
-                    <li><a href=" <%=request.getContextPath() %>/Customer/cart">Cart</a></li>
+                    <li><a href=" <%=request.getContextPath() %>/Customer/cartList">Cart</a></li>
                     <li><a href=" <%=request.getContextPath() %>/Customer/OrderHistory">Order</a></li>
                     <li><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking">Delivery</a></li>
                 </ul>
