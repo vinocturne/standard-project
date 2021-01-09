@@ -50,10 +50,10 @@ margin-top: 45px;
     
      .review{
      
-     width:800px;
+     width:900px;
      height:600px;
      padding-top:190px;
-     margin-left:100px;
+     margin-left:55px;
      
     }
 
@@ -62,11 +62,15 @@ margin-top: 45px;
     
     }
     
+    .r_Coment{
+    margin:0;
+    
+    }
     .review_list{
      float:left;
      padding-top:10px;
      padding-left:30px;
-       vertical-align: middle;
+     vertical-align: middle;
      text-align:center;
      padding-bottom:30px;
      
@@ -271,7 +275,7 @@ margin-top: 45px;
       </form>   
         <div class="image" >
          <img src = "${pageContext.request.contextPath}<%=pp_VO.getPp_image() %>" 
-         style="width:1000px;padding-top:40px;" class="picture">
+         style="width:1000px;padding-top:40px;padding-bottom:40px;" class="picture">
       </div>
       <script>
       var list = [];
@@ -372,7 +376,7 @@ margin-top: 45px;
                </div>
             </div>
             
-      <table class="table table-hover" height="100" width="1100">
+      <table class="table table-hover" style="height:100px; width:800px; ">
          <thead>
             <tr>
                <th style="width:5%; height:10%">작성일</th>
@@ -425,7 +429,7 @@ margin-top: 45px;
                   <tr>
                      <th style="width:8%; height:10%">내용</th>
                      <th style="margin:0;">
-                     <textarea class="r_Coment" name="r_Coment" cols="90" rows="5" style="width:100; height:100;"></textarea>
+                     <textarea class="r_Coment" name="r_Coment" cols="90" rows="5" style="width:812px; height:100px;"></textarea>
                      </th>
                   </tr>
                
