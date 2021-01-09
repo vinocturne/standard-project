@@ -393,10 +393,10 @@ margin-top: 45px;
                   <c:forEach var="review" items="${reviewList}">
                      <!-- <form action="/project/Seller/ModifyParentProduct" method="POST" enctype="multipart/form-data"> -->
                      <tr>
-                        <td><input name="p_Color" type="text" value="${review.r_Date}" style="background-color:transparent;border:0 solid black;text-align:center;"></td>
-                        <td><input name="p_Size" type="text" value="${review.r_Writer}"style="background-color:transparent;border:0 solid black;text-align:center;"></td>
-                        <td><input name="p_Stack" type="text" value="${review.r_Title}"style="background-color:transparent;border:0 solid black;text-align:center;"></td>
-                        <td><input name="p_Stack" type="text" value="${review.r_Coment}"style="background-color:transparent;border:0 solid black;text-align:center;"></td>
+                        <td><input name="p_Color" type="text" value="${review.r_Date}" style="background-color:transparent;border:0 solid black;text-align:center;" disabled></td>
+                        <td><input name="p_Size" type="text" value="${review.r_Writer}"style="background-color:transparent;border:0 solid black;text-align:center;" disabled></td>
+                        <td><input name="p_Stack" type="text" value="${review.r_Title}"style="background-color:transparent;border:0 solid black;text-align:center;" disabled></td>
+                        <td><input name="p_Stack" type="text" value="${review.r_Coment}"style="background-color:transparent;border:0 solid black;text-align:center;" disabled></td>
                         
                      </tr>
                      <!-- </form> -->
