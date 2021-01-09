@@ -236,21 +236,41 @@
                   if (confirm_val) {
                      var checkArr = new Array();
                      $("input[class='chBox']:checked").each(function() {
-                        checkArr.push($(this).attr("data-p_Id"));
-                        checkArr.push($(this).attr("data-c_Id"));
+                        var productID =$(this).attr("data-p_Id");
+                        var customerID =$(this).attr("data-c_Id");
+                        var arr ={"p_Id": productID,"c_Id":customerID}
+                        checkArr.push(arr);
                      });
+                     
                      if (!(checkArr == "")) {
-                        $.ajax({
-                           url : "DeleteParentProduct",/* 보낼곳 */
-                           type : "post",
-                           data : {
-                              chBox : checkArr
-                           },
-                           success : function(result) {
-                              alert("삭제 성공");
-                              location.href = "ProductManage";/* 끝나고 갈곳 */
-                           }
-                        });
+
+
+                        var form = document.createElement('form');
+                         form.setAttribute('method', 'post'); //GET 전환 가능
+                         form.setAttribute('action', getContextPath()+'/wishList/DeleteWishList');
+                         document.charset = "utf-8";
+                         
+                             var hiddenField = document.createElement('input');
+                             hiddenField.setAttribute('type', 'hidden'); //값 입력
+                             hiddenField.setAttribute('name', "data");
+                             hiddenField.setAttribute('value', JSON.stringify(checkArr));
+                             form.appendChild(hiddenField);
+                         
+                         document.body.appendChild(form);
+                         form.submit();
+
+                        // $.ajax({
+                        //    type : "POST",
+                        //    url : "DeleteWishList",/* 보낼곳 */
+                        //    data : {
+                        //       "data" : JSON.stringify(checkArr)
+                        //    },
+                        //    success : function(result) {
+                        //       alert("삭제 성공");
+                        //       location.href = "cart";/* 끝나고 갈곳 */
+                        //    }
+                        // });
+
                      }else{
                         alert("삭제할 상품을 선택해주세요");
                      }
