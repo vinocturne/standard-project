@@ -44,7 +44,7 @@
            },
            success:function(data,textStatus){
                 var resultStr = document.getElementById("brandInfoCheckResult");
-                resultStr.innerHTML ="중복체크완료";
+                resultStr.innerHTML =data;
            },
            error:function(data,textStatus){
                console.log("에러발생");
