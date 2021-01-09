@@ -156,8 +156,10 @@
 	<br>
 	
 	<!-- 매거진 추가 버튼 -->
-	<input type="button" value="매거진 추가하기" onClick="location.href=' <%=request.getContextPath() %>/Admin/magazineWrite'"
-	style="margin-bottom:20px;">
+	<button type="button" class="magazineAdd_btn" onClick="location.href=' <%=request.getContextPath() %>/Admin/magazineWrite'"
+	style="margin-bottom:20px;">매거진 추가하기</button>
+	<%-- <input type="button" value="매거진 추가하기" onClick="location.href=' <%=request.getContextPath() %>/Admin/magazineWrite'"
+	style="margin-bottom:20px;"> --%>
 	
 	</div>
 	
