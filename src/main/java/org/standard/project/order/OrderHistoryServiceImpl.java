@@ -83,6 +83,11 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 		return womanCategoryMarketShareList;
 	}
 
+	@Override
+	public OrderHistoryVO getOneHistory(int o_Num) {
+		return orderHistoryDAO.getOneHistory(o_Num);
+	}
+
 	
 
 }

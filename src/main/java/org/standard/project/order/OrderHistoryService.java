@@ -22,7 +22,7 @@ public interface OrderHistoryService {
 
 	void insertOrderHistory(OrderHistoryVO vo);
 	ArrayList<OrderHistoryVO> cusOrder(OrderHistoryVO vo);
-
+	OrderHistoryVO getOneHistory(int o_Num);
 	List<Map<String, Object>> getMarketShare();
 
 	List<Map<String, Object>> getManCategoryMarketShare();

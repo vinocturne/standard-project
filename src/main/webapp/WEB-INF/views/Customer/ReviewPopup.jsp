@@ -1,3 +1,4 @@
+<%@page import="org.standard.project.order.OrderHistoryService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList"%>
@@ -28,8 +29,12 @@ if (str==="ok"){
 </script>
 
 <%
-   int o_Num = Integer.parseInt(request.getParameter("orderNum"))-1;
+   OrderHistoryService orderHistoryService;
+   int o_Num = Integer.parseInt(request.getParameter("orderNum"));
    String p_Pname = request.getParameter("ppName"); 
+   String p_Id = "";
+   int o_Quantity = 0;
+
 %>
 <div class="wrap">
         <h2>상품 후기작성</h2>
@@ -44,11 +49,22 @@ if (str==="ok"){
                                 <img src="../ResourcesFile/img/review.png" width="100px" height="100px" alt="">    
                             </th>
                                 <td class="textbox"> 
-                                <%ArrayList<OrderHistoryVO> orderList = (ArrayList)session.getAttribute("orderList"); %>
+                                <%ArrayList<OrderHistoryVO> orderList = (ArrayList)session.getAttribute("orderList"); 
+                                for(int i=0; i<orderList.size(); i++) {
+                                	if(orderList.get(i).getO_Num() == o_Num) {
+                                %>                                
                                       	상품이름:<%=p_Pname%><br> 
-                                     	수량:<%=orderList.get(o_Num).getO_Quantity()%><br>
-                                     	 주문일자:<%=orderList.get(o_Num).getO_Date()%>
-                                </td>   
+                                     	수량:<%=orderList.get(i).getO_Quantity()%><br>
+                                     	 주문일자:<%=orderList.get(i).getO_Date()%>
+                                     	 <%
+                                     	 p_Id = orderList.get(i).getP_Id();
+                                     	 o_Quantity = orderList.get(i).getO_Quantity();
+                                     	/*  o_Date = (String)orderList.get(i).getO_Date(); */
+                                     	 
+                                	}
+                                }
+                                 %>
+                                </td>
                             </tr>
                         </thead>
                     </table>
@@ -57,13 +73,19 @@ if (str==="ok"){
      
         </div>
         <form name="reviewform" class="reviewform" method="post" action="save">
-            <input type="hidden" name="rate" id="rate" value="0"/>
+            <%-- <input type="hidden" name="rate" id="rate" value="0"/>
      		<input type="hidden" id="p_Id" name="p_Id" value="<%=orderList.get(o_Num).getP_Id()%>">
             <input type="hidden" id="o_Quantity" name="o_Quantity" value="<%=orderList.get(o_Num).getO_Quantity()%>">
             <input type="hidden" id="pp_Name" name="pp_Name" value="<%=p_Pname%>">
             <input type="hidden" id="0_Num" name="0_Num" value="<%=o_Num%>">
             <input type="hidden" id="r_Title" name="r_Title" value="">
-            <input type="hidden" id="o_Date" name="o_Date" value="<%=orderList.get(o_Num).getO_Date()%>">
+            <input type="hidden" id="o_Date" name="o_Date" value="<%=orderList.get(o_Num).getO_Date()%>"> --%>
+     		<input type="hidden" id="p_Id" name="p_Id" value="<%=p_Id%>">
+            <input type="hidden" id="o_Quantity" name="o_Quantity" value="<%=o_Quantity%>">
+            <input type="hidden" id="pp_Name" name="pp_Name" value="<%=p_Pname%>">
+            <input type="hidden" id="0_Num" name="0_Num" value="<%=o_Num%>">
+            <input type="hidden" id="r_Title" name="r_Title" value="">
+            <%-- <input type="hidden" id="o_Date" name="o_Date" value="<%=orderList.get(o_Num).getO_Date()%>"> --%>
             <!-- <div class="review_rating">
             	<div>
             		<p style="text-align:center">별점과 리뷰를 남겨주세요</p>

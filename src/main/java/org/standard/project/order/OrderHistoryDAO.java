@@ -86,6 +86,10 @@ public class OrderHistoryDAO {
 		return womanCategoryMarketShareList;
 	}
 
+	public OrderHistoryVO getOneHistory(int o_Num) {
+		return mySQL.selectOne(loc+"getOneHistory", o_Num);
+	}
+
 	
 
 }
