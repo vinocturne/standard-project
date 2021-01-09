@@ -7,7 +7,17 @@
 <%@ include file="../head.jsp"%>
 </head>
 <%@ include file="../header.jsp"%>
-
+${ok}
+<script type="text/javascript">
+var str = '${ok}';
+console.log(str);
+if (str==="ok"){
+	console.log(str);
+	self.close();
+	}else {
+		console.log(str);
+	}
+</script>
 
 	<!-- CONTENT -->
 	<div class="content_wrap inner">

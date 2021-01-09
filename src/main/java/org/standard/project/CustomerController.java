@@ -421,7 +421,7 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value="save", method = RequestMethod.POST)
-	public void reviewSave(HttpSession session, HttpServletRequest req) {
+	public ModelAndView reviewSave(HttpSession session, HttpServletRequest req, ModelAndView mav, HttpServletResponse response) throws IOException {
 		String p_Id = req.getParameter("p_Id");
 		String pp_Id = p_Id.substring(0,8);
 		ProductParentVO ppvo = productParentService.selectParentProduct(pp_Id);
@@ -440,6 +440,14 @@ public class CustomerController {
 		rvo.setR_Writer(r_Writer);
 		rvo.setR_Title(r_Title);
 		reviewService.writeReview(rvo);
+		mav = new ModelAndView ("/Customer/OrderHistory");
+		String ss = "ok";
+		mav.addObject("ok", ss);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('리뷰등록 완료');</script>");
+		out.flush();
+		return mav;
 	}
 	
 }
