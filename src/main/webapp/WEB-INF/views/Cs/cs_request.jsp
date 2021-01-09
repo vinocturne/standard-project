@@ -99,8 +99,8 @@
 					</thead>
 					<tbody>
 						<c:choose>
-							<c:when test="${fn:length(list)>0}">
-								<c:forEach var="review" items="${list}">
+							<c:when test="${fn:length(reviewList)>0}">
+								<c:forEach var="review" items="${reviewList}">
 								<tr>
 								<td>
 									<div class="checkBox">
