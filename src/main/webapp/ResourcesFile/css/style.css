@@ -805,11 +805,20 @@ form {
     padding: 5px; */
 }
 input.findID_btn{
-	width:140px;
 	padding: 4px;
     margin-top: 20px;  
     font-weight: bold; 
+	font-size: 10pt;
+ 	width: 140px;
+    background-color: #5D5D5D;
+    color: white; 
+    border-radius: 4px;
 }    
+
+.Address_btn {
+	padding: 3px;
+	margin-left : 3px;
+}
 
 /* findPasswd */
 .findPasswd {
@@ -846,14 +855,17 @@ input.findID_btn{
     
 }
 
-findPasswd_confirm > input {
-	width: 140px;
-    background-color: #5D5D5D;
-    color: white;
-    padding: 4px;
+.findPasswd_confirm > input{
+	padding: 4px;
     margin-top: 20px;  
     font-weight: bold; 
-}
+	font-size: 10pt;
+ 	width: 140px;
+    background-color: #5D5D5D;
+    color: white; 
+    border-radius: 4px;
+}    
+
 
 
 
