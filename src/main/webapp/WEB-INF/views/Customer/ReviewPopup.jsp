@@ -15,11 +15,22 @@
 
 </head>
 <body>
+${ok}
+<script type="text/javascript">
+var str = '${ok}';
+console.log(str);
+if (str==="ok"){
+	console.log(str);
+	self.close();
+	}else {
+		console.log(str);
+	}
+</script>
+
 <%
    int o_Num = Integer.parseInt(request.getParameter("orderNum"))-1;
    String p_Pname = request.getParameter("ppName"); 
 %>
-
 <div class="wrap">
         <h2>상품 후기작성</h2>
         <div class="content_wrap">
@@ -85,6 +96,5 @@
     </div>
 
 </body>
-
 
 </html>
