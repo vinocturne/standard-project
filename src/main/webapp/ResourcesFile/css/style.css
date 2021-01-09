@@ -511,6 +511,7 @@ color: black;
     padding: 20px 0;
 }
 .register_wrap {
+	min-width:700px;
     width: 100%;
     padding: 50px 0;
 }   
