@@ -383,6 +383,7 @@ margin-top: 45px;
                <th style="width:5%; height:10%">글쓴이</th>
                <th style="width:5%; height:10%">제목</th>
                <th style="width:5%; height:10%">내용</th>
+               <th style="width:5%; height:10%">답변</th>
                
             </tr>
          </thead>
@@ -397,6 +398,7 @@ margin-top: 45px;
                         <td><input name="p_Size" type="text" value="${review.r_Writer}"style="background-color:transparent;border:0 solid black;text-align:center;" disabled></td>
                         <td><input name="p_Stack" type="text" value="${review.r_Title}"style="background-color:transparent;border:0 solid black;text-align:center;" disabled></td>
                         <td><input name="p_Stack" type="text" value="${review.r_Coment}"style="background-color:transparent;border:0 solid black;text-align:center;" disabled></td>
+                        <td><input name="p_Stack" type="text" value="${review.r_ComentRe}"style="background-color:transparent;border:0 solid black;text-align:center;" disabled></td>
                         
                      </tr>
                      <!-- </form> -->
