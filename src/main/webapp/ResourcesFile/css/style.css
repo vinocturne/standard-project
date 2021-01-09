@@ -484,7 +484,7 @@ color: black;
     outline: none;
     }
 
-.selectDelete_btn , .selectOrder_btn, .magazineAdd_btn, .selectApprove_btn{
+.selectRe_btn, .selectDelete_btn , .add-product, .selectOrder_btn, .magazineAdd_btn, .selectApprove_btn{
    background-color: #5D5D5D;
    color: white;   
    font-size: 9pt;
