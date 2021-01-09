@@ -52,7 +52,7 @@ margin-top: 45px;
      width:800px;
      height:450px;
      padding-top:190px;
-     
+     margin-left:100px;
     }
 
     .picture{
@@ -431,22 +431,23 @@ margin-top: 45px;
       
          </form>
             
-            
-              
-       
-   </div><!--review class 끝  -->
-   
-   
-             <div class="cart_index">
+            <div class="cart_index">
                           <button type="button" class="incart" onclick=""><button> << </button></a>
                           <button type="button" class="incart" onclick=""><button> < </button></a>
                           <button type="button" class="incart" onclick=""><button> 1 </button></a>
                           <button type="button" class="incart" onclick=""><button> > </button></a>
                           <button type="button" class="incart" onclick=""><button> >> </button></a>
               </div>
+            
+              
+       
+   </div><!--review class 끝  -->
+   
+   
  
 </div><br>
 
+             
 </div>
 
 </div>
