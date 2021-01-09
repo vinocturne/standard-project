@@ -94,7 +94,7 @@ input[type=text] {
 		</div>
 	</div>
 <div>
-<form action="/project/magazine/magazineList" method="get" enctype="multipart/form-data">
+<form action="<%=request.getContextPath()%>/magazine/magazineList" method="get" enctype="multipart/form-data">
 제목 검색: 
 <input type="text" value="${search}" name="s_m_Title">
 <input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg"  alt="search" width="20" height="20">
