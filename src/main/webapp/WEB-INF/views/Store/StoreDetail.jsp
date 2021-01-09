@@ -49,10 +49,12 @@ margin-top: 45px;
     
     
      .review{
+     
      width:800px;
-     height:450px;
+     height:600px;
      padding-top:190px;
      margin-left:100px;
+     
     }
 
     .picture{
