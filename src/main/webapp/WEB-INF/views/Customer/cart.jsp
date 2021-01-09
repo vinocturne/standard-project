@@ -136,7 +136,7 @@
                                        });
                               </script>
                         </div></td>
-                     <td><img src="<%=wishListProductVO.get(i).getPp_thumb()%>"></td>
+                     <td><img src="<%=request.getContextPath() %><%=wishListProductVO.get(i).getPp_thumb()%>"></td>
                      <td><%=wishListProductVO.get(i).getPp_Name() %></td>
                      <td>색상: <%=wishListProductVO.get(i).getP_Color() %><br>
                         사이즈: <%=wishListProductVO.get(i).getP_Size() %></td>
