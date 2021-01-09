@@ -101,7 +101,7 @@
 					<c:when test="${fn:length(list)>0}">
 						<c:forEach var="orderHistory" items="${list}">
 							<tr>
-							<form action="<%=request.getContextPath() %>/Seller/ModifyDelivery" method="POST" enctype="multipart/form-data">
+							<form action="<%=request.getContextPath() %>/Seller/BuyList" method="POST" enctype="multipart/form-data">
 							<input type="hidden" id="o_Num" name="o_Num" value="${orderHistory.o_Num}">
 								<td>
 									<div class="checkBox">
