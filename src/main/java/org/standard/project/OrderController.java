@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.order.OrderHistoryService;
@@ -18,6 +19,8 @@ import org.standard.project.product.ProductChildService;
 import org.standard.project.product.ProductChildVO;
 import org.standard.project.product.ProductParentService;
 import org.standard.project.product.ProductParentVO;
+import org.standard.project.review.ReviewService;
+import org.standard.project.review.ReviewVO;
 
 @Controller
 @RequestMapping(value = "/OrderHistory")
@@ -29,6 +32,8 @@ public class OrderController {
 	ProductChildService proudctChildService;
 	@Resource(name="ProductParentService")
 	ProductParentService productParentService;
+	@Resource(name="ReviewService")
+	ReviewService reviewService;
 	
 	
 	@RequestMapping("/OrderHistory")
@@ -60,6 +65,28 @@ public class OrderController {
 		//돌아갈 페이지 지정
 		return "Customer/OrderHistory";
 	}
+	
+	@RequestMapping(value="/save", method = RequestMethod.POST)
+	public void reviewSave(HttpSession session, HttpServletRequest req) {
+		String p_Id = req.getParameter("p_Id");
+		String pp_Id = p_Id.substring(0,7);
+		ProductParentVO ppvo = productParentService.selectParentProduct(pp_Id);
+		int brandId = ppvo.getPp_Brand();
+		String pp_Name = ppvo.getPp_Name();
+		String r_Coment = req.getParameter("r_Coment");
+		CustomerVO cvo = (CustomerVO)session.getAttribute("loginCustomer");
+		String r_Writer = cvo.getC_Id();
+		String r_Title = req.getParameter("r_Title");
+		ReviewVO rvo = new ReviewVO();
+		rvo.setBrandId(brandId);
+		rvo.setP_Id(p_Id);
+		rvo.setParent_p_Id(pp_Id);
+		rvo.setR_Coment(r_Coment);
+		rvo.setR_Writer(r_Writer);
+		rvo.setR_Title(r_Title);
+		reviewService.writeReview(rvo);
+	}
+	
 
 }
 
