@@ -435,8 +435,8 @@ public class SellerController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/ModifyDelivery", method = RequestMethod.POST)
-	public ModelAndView modifyDeliveryAction(HttpServletRequest req, ModelAndView mav, HttpServletResponse response) throws IOException {
+	@RequestMapping(value = "/BuyList", method = RequestMethod.POST)
+	public ModelAndView modifyDeliveryAction(HttpServletRequest req, ModelAndView mav, HttpSession session, HttpServletResponse response) throws IOException {
 		System.out.println("배송상태 수정 액션");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -447,7 +447,29 @@ public class SellerController {
 		orderHistoryService.modifyDeliveryList(vo);
 		out.println("<script>alert('배송상태적용완료');</script>");
 		out.flush();
-		mav.setViewName("redirect:/Seller/BuyList");
+		System.out.println("구매관리입니다");
+//		session.removeAttribute("productParentList");
+//		System.out.println(session.getAttribute("productParentList"));
+//		System.out.println("productParentList 보기");
+		
+		CustomerVO customerVO = (CustomerVO) session.getAttribute("loginCustomer");
+		if (customerVO == null) {
+			out.println("<script>alert('로그인해주세요.');</script>");
+			out.flush();
+			mav.setViewName("Customer/login_form");
+			return mav;
+		} else if (customerVO.getBrandName() == null) {
+			out.println("<script>alert('기업회원으로 가입해주세요.');</script>");
+			out.flush();
+			mav.setViewName("Customer/login_form");
+			return mav;
+		}
+		BrandDBVO loginBrand = brandDBService.getBrandId(customerVO);
+		ArrayList<ProductParentVO> orderList = new ArrayList<ProductParentVO>();
+		orderList = orderHistoryService.getBrandOrderList(loginBrand);
+		System.out.println(orderList);
+		mav = new ModelAndView("Seller/BuyList");
+		mav.addObject("list", orderList);
 		return mav;
 	}
 	
@@ -459,7 +481,7 @@ public class SellerController {
 			orderHistoryService.deleteDeliveryList(del_Num);
 		}
 		
-		return "Seller/BuyList";
+		return "Seller/Review";
 	}
 	
 	@RequestMapping(value = "/ReviewReply", method = RequestMethod.POST)
