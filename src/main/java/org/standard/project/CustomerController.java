@@ -136,6 +136,11 @@ public class CustomerController {
 			out.flush();
 			mav.setViewName("Customer/Register");
 			return mav;
+		} else if (req.getParameter("c_Name") == "" || req.getParameter("zipcode") == "" || req.getParameter("mobile-2") == "" || req.getParameter("c_Email") == "") {
+			out.println("<script>alert('필수입력사항을 확인해주세요.'); history.go(-1);</script>");
+			out.flush();
+			mav.setViewName("Customer/Register");
+			return mav;
 		}
 		
 		String phoneNum = req.getParameter("mobile1-1") + req.getParameter("mobile1-2") + req.getParameter("mobile1-3");
