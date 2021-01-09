@@ -379,28 +379,28 @@ margin-top: 45px;
                <th style="width:5%; height:10%">글쓴이</th>
                <th style="width:5%; height:10%">제목</th>
                <th style="width:5%; height:10%">내용</th>
-               <th style="width:5%; height:10%">답변</th>
+               
             </tr>
          </thead>
          
-         <tbody>
+         <tbody >
             <c:choose>
                <c:when test="${fn:length(reviewList)>0}">
                   <c:forEach var="review" items="${reviewList}">
                      <!-- <form action="/project/Seller/ModifyParentProduct" method="POST" enctype="multipart/form-data"> -->
                      <tr>
-                        <td><input name="p_Color" type="text" value="${review.r_Date}"></td>
-                        <td><input name="p_Size" type="text" value="${review.r_Writer}"></td>
-                        <td><input name="p_Stack" type="text" value="${review.r_Title}"></td>
-                        <td><input name="p_Stack" type="text" value="${review.r_Coment}"></td>
-                        <td><input name="p_Stack" type="text" value="${review.r_ComentRe}"></td>
+                        <td><input name="p_Color" type="text" value="${review.r_Date}" style="background-color:transparent;border:0 solid black;text-align:center;"></td>
+                        <td><input name="p_Size" type="text" value="${review.r_Writer}"style="background-color:transparent;border:0 solid black;text-align:center;"></td>
+                        <td><input name="p_Stack" type="text" value="${review.r_Title}"style="background-color:transparent;border:0 solid black;text-align:center;"></td>
+                        <td><input name="p_Stack" type="text" value="${review.r_Coment}"style="background-color:transparent;border:0 solid black;text-align:center;"></td>
+                        
                      </tr>
                      <!-- </form> -->
                   </c:forEach>
                </c:when>
                <c:otherwise>
                   <tr>
-                     <td colspan="5" style="text-align:center">여러분의 고마운 리뷰를 기다립니다.</td>
+                     <td colspan="4" style="text-align:center">여러분의 고마운 리뷰를 기다립니다.</td>
                   </tr>
                </c:otherwise>
             </c:choose>
