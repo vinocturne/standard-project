@@ -146,8 +146,7 @@
             </thead>
                <tr>
                <form id="reRe"><!-- 바꾸기  -->
-               	<th><textarea name="r_ComentRe" cols="90" rows="5">
-               	</textarea></th>
+               	<th><textarea name="r_ComentRe" cols="90" rows="5"></textarea></th>
                </form>
                </tr>
 		</table>
