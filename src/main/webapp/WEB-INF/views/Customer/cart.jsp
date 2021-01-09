@@ -219,7 +219,7 @@
                              form.appendChild(hiddenField);
                          
                          document.body.appendChild(form);
-                         //form.submit();
+                         form.submit();
 
                      }else{
                         alert("주문할 상품을 선택해주세요");
