@@ -489,7 +489,7 @@ public class SellerController {
 		for (String seq : r_Seq) {
 			System.out.println("이 리뷰에 답변 달기 = " + seq);
 			ReviewVO vo = reviewService.selectOneReview(seq); //여기서 불러오고 
-			String r_CoRe = req.getParameter("r_ComentRe").substring(11);
+			String r_CoRe = req.getParameter("v1");
 			System.out.println(r_CoRe);
 			vo.setR_ComentRe(r_CoRe);
 			reviewService.modifyReviewReply(vo); //답변을 모디파이 

@@ -145,9 +145,7 @@
                </tr>
             </thead>
                <tr>
-               <form id="reRe"><!-- 바꾸기  -->
-               	<th><textarea name="r_ComentRe" cols="90" rows="5"></textarea></th>
-               </form>
+               	<th><textarea id="r_ComentRe" name="r_ComentRe" cols="90" rows="5"></textarea></th>
                </tr>
 		</table>
 		
@@ -162,14 +160,15 @@
 							$("input[class='chBox']:checked").each(function() {
 								checkArr.push($(this).attr("data-r_Seq"));
 							});
-							var queryString = $('#reRe').serialize();
+							/* var queryString = $('#reRe').serialize(); */
 							if (!(checkArr == "")) {
 								$.ajax({
 									url : "ReviewReply",//변경
 									type : "post",
 									data : {
 										chBox : checkArr,
-										"r_ComentRe" : queryString
+										/* "r_ComentRe" : queryString */
+										v1: $('#r_ComentRe').val()
 									},
 									success : function(result) {
 										alert("답변 성공");
