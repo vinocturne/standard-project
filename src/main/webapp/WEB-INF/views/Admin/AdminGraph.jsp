@@ -199,7 +199,7 @@ for(var i=0; i<parsedManMarketShareListParsed.length;i++){
 		columns: manCategoryMarketShareList,
 	    type: "pie" // for ESM specify as: pie()
 	  },
-	  bindto: "#womanCategoryPieChart"
+	  bindto: "#manCategoryPieChart"
 	});
 	var womanCategoryMarketShareListStringfied=JSON.stringify(${womanCategoryMarketShareList});
  var parsedWomanMarketShareListParsed =JSON.parse(womanCategoryMarketShareListStringfied);
@@ -218,7 +218,7 @@ for(var i=0; i<parsedWomanMarketShareListParsed.length;i++){
 	    columns: womanCategoryMarketShareList,
 	    type: "pie" // for ESM specify as: pie()
 	  },
-	  bindto: "#manCategoryPieChart"
+	  bindto: "#womanCategoryPieChart"
 	});
 
 </script>
