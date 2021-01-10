@@ -171,7 +171,7 @@
  var brandMarketShareList = new Array();
 for(var i=0; i<parsedMarketShareList.length;i++){
 
-  var arr = [parsedMarketShareList[i].brandName,parsedMarketShareList[i].numberOfSales];
+  var arr = [parsedMarketShareList[i].brandName.toString(),parsedMarketShareList[i].numberOfSales];
   brandMarketShareList.push(arr);
 }
 
@@ -190,7 +190,7 @@ var manCategoryMarketShareListStringfied=JSON.stringify(${manCategoryMarketShare
  var parsedManMarketShareListParsed =JSON.parse(manCategoryMarketShareListStringfied);
 manCategoryMarketShareList = new Array();
 for(var i=0; i<parsedManMarketShareListParsed.length;i++){
-  var arr = [parsedManMarketShareListParsed[i].Category2,parsedManMarketShareListParsed[i].numberOfSales];
+  var arr = [parsedManMarketShareListParsed[i].Category2.toString(),parsedManMarketShareListParsed[i].numberOfSales];
   manCategoryMarketShareList.push(arr);
 	}
 
@@ -201,7 +201,9 @@ for(var i=0; i<parsedManMarketShareListParsed.length;i++){
 	  },
 	  bindto: "#manCategoryPieChart"
 	});
+	var WCSL =${womanCategoryMarketShareList};
 	var womanCategoryMarketShareListStringfied=JSON.stringify(${womanCategoryMarketShareList});
+	console.log(womanCategoryMarketShareListStringfied);
  var parsedWomanMarketShareListParsed =JSON.parse(womanCategoryMarketShareListStringfied);
  console.log(parsedWomanMarketShareListParsed);
 
@@ -209,7 +211,9 @@ for(var i=0; i<parsedManMarketShareListParsed.length;i++){
  var womanCategoryMarketShareList = new Array();
 for(var i=0; i<parsedWomanMarketShareListParsed.length;i++){
 
-  var arr = [parsedWomanMarketShareListParsed[i].Category2,parsedWomanMarketShareListParsed[i].numberOfSales];
+  var arr = [parsedWomanMarketShareListParsed[i].Category2.toString(),parsedWomanMarketShareListParsed[i].numberOfSales];
+  console.log("womanCategory arr 요소확인");
+  console.log(arr);
   womanCategoryMarketShareList.push(arr);
 	}
 

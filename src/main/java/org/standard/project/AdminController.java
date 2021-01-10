@@ -37,6 +37,8 @@ import org.standard.project.customer.CustomerService;
 import org.standard.project.customer.CustomerVO;
 import org.standard.project.magazine.MagazineService;
 import org.standard.project.magazine.MagazineVO;
+import org.standard.project.order.Category2SalesVO;
+import org.standard.project.order.MarketShareVO;
 import org.standard.project.order.OrderHistoryService;
 
 @Controller
@@ -59,46 +61,53 @@ public class AdminController {
 		System.out.println("관리자 그래프 컨트롤러");
 		ModelAndView mav = new ModelAndView("/Admin/AdminGraph");
 		//중분류에 따른 중분류별 판매 점유율 파이차트
-		List<Map<String,Object>> manCategoryMarketShareList = orderHistoryService.getManCategoryMarketShare();
-		List<Map<String,Object>> womanCategoryMarketShareList = orderHistoryService.getWomanCategoryMarketShare();
-		System.out.println("남자 의류 카테고리별 판매수 : "+manCategoryMarketShareList);
-		System.out.println("여자 의류 카테고리별 판매수 : "+womanCategoryMarketShareList);
-		if(manCategoryMarketShareList!=null&&womanCategoryMarketShareList!=null) {
-			JSONArray manCategoryMarketShareListJSONArr = new JSONArray();
-			JSONArray womanCategoryMarketShareListJSONArr = new JSONArray();
-			for(int i=0; i<manCategoryMarketShareList.size();i++) {
+		List<Map<String,String>> manCategoryMarketShareList = orderHistoryService.getManCategoryMarketShare();
+		List<Map<String,String>> womanCategoryMarketShareList = orderHistoryService.getWomanCategoryMarketShare();
+		ArrayList<Category2SalesVO> MCMSList =  orderHistoryService.getManCategoryMarketShareVOList();
+		ArrayList<Category2SalesVO> WCMSList =  orderHistoryService.getWomanCategoryMarketShareVOList();
+		ArrayList<MarketShareVO> MSList = orderHistoryService.getMarketShareVOList();
+		
+		System.out.println("남자상품별 점유율:"+MCMSList);
+		System.out.println("여자상품별 점유율:"+WCMSList);
+		System.out.println("브랜드별 점유율:"+MSList);
+		
+		if(MCMSList!=null&&womanCategoryMarketShareList!=null) {
+			JSONArray MCMSListJSONArr = new JSONArray();
+			JSONArray WCMSListJSONArr = new JSONArray();
+			for(int i=0; i<MCMSList.size();i++) {
 				JSONObject jsonObject = new JSONObject();
-				jsonObject.put("numberOfSales",Integer.valueOf(manCategoryMarketShareList.get(i).get("NumberOfSales").toString()));
-				jsonObject.put("Category2", manCategoryMarketShareList.get(i).get("Category2").toString());
-				manCategoryMarketShareListJSONArr.add(jsonObject);
+				jsonObject.put("numberOfSales",MCMSList.get(i).getNumberOfSales());
+				jsonObject.put("Category2",MCMSList.get(i).getCategory2());
+				MCMSListJSONArr.add(jsonObject);
 			}
-			for(int i=0; i<womanCategoryMarketShareList.size();i++) {
+			for(int i=0; i<WCMSList.size();i++) {
 				JSONObject jsonObject = new JSONObject();
-				jsonObject.put("numberOfSales",Integer.valueOf(womanCategoryMarketShareList.get(i).get("NumberOfSales").toString()));
-				jsonObject.put("Category2", womanCategoryMarketShareList.get(i).get("Category2").toString());
-				womanCategoryMarketShareListJSONArr.add(jsonObject);
+				jsonObject.put("numberOfSales",WCMSList.get(i).getNumberOfSales());
+				jsonObject.put("Category2", WCMSList.get(i).getCategory2());
+				WCMSListJSONArr.add(jsonObject);
 			}
-			mav.addObject("womanCategoryMarketShareList",womanCategoryMarketShareListJSONArr.toString());
-			mav.addObject("manCategoryMarketShareList",manCategoryMarketShareListJSONArr.toString());
+			mav.addObject("womanCategoryMarketShareList",WCMSListJSONArr.toJSONString());
+			mav.addObject("manCategoryMarketShareList",MCMSListJSONArr.toJSONString());
 		}
 		
 		//브랜드별 판매 점유율 파이차트
-		List<Map<String,Object>> marketShareList = orderHistoryService.getMarketShare();
+		List<Map<String,String>> marketShareList = orderHistoryService.getMarketShare();
 		//SELECT COUNT(o.o_BrandId) AS 'NumberOfSales',b.brandName AS 'brandName' FROM orderhistory o JOIN brandDB b ON o.o_BrandId =b.brandId GROUP BY o_BrandId;
 		System.out.println(marketShareList);
-		JSONArray marketShareListJSONArr = new JSONArray();
+//		req.setAttribute("MKS", marketShareList);
+		JSONArray MSListJSONArr = new JSONArray();
 		
 		
-		if(marketShareList!=null) {
+		if(MSList!=null) {
 			//제이슨으로 변환 안하고 바로 list<Map> 형태로 해줘도 괜찮을까?
 			//req.setAttribute("marketShareList", marketShareList);
-			for(int i=0; i<marketShareList.size();i++) {
+			for(int i=0; i<MSList.size();i++) {
 				JSONObject jsonObject = new JSONObject();
-				jsonObject.put("numberOfSales",Integer.valueOf(marketShareList.get(i).get("NumberOfSales").toString()));
-				jsonObject.put("brandName", marketShareList.get(i).get("brandName").toString());
-				marketShareListJSONArr.add(jsonObject);
+				jsonObject.put("numberOfSales",MSList.get(i).getNumberOfSales());
+				jsonObject.put("brandName", MSList.get(i).getBrandName());
+				MSListJSONArr.add(jsonObject);
 			}
-			mav.addObject("marketShareList",marketShareListJSONArr.toString());
+			mav.addObject("marketShareList",MSListJSONArr.toJSONString());
 		}
 		
 		List<Map<String,Object>> list = orderHistoryService.getDailyIncome();

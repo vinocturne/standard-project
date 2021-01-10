@@ -36,4 +36,13 @@
 	<select id="getOneHistory" resultType="org.standard.project.order.OrderHistoryVO">
 		SELECT * FROM orderhistory WHERE o_Num=#{o_Num};
 	</select>
+	<select id="getManCategoryMarketShareVOList" resultType="org.standard.project.order.Category2SalesVO">
+		SELECT pp.pp_Category2 AS 'Category2', COUNT(*) AS 'NumberOfSales'  FROM orderhistory o JOIN productparent pp ON o.parent_p_Id = pp.parent_p_Id WHERE pp.pp_Category1 ='man' GROUP BY pp.pp_Category2; 
+	</select>
+	<select id="getWomanCategoryMarketShareVOList" resultType="org.standard.project.order.Category2SalesVO">
+		SELECT pp.pp_Category2 AS 'Category2', COUNT(*) AS 'NumberOfSales'  FROM orderhistory o JOIN productparent pp ON o.parent_p_Id = pp.parent_p_Id WHERE pp.pp_Category1 ='woman' GROUP BY pp.pp_Category2; 
+	</select>
+	<select id="getMarketShareVOList" resultType="org.standard.project.order.MarketShareVO">
+		SELECT COUNT(o.o_BrandId) AS 'NumberOfSales',b.brandName as 'brandName' FROM orderhistory o JOIN branddb b ON o.o_BrandId =b.brandId GROUP BY o_BrandId;
+	</select>
 </mapper>

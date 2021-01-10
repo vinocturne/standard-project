@@ -29,9 +29,8 @@ public class OrderHistoryDAO {
 		dailyIncomeList = mySQL.selectList(loc+"getDailyIncomeList");
 		return dailyIncomeList;
 	}
-	public List<Map<String, Object>> getMarketShare() {
-		List<Map<String, Object>> marketShareList = new ArrayList<Map<String,Object>>();
-		marketShareList = mySQL.selectList(loc+"getMarketShareList");
+	public List<Map<String, String>> getMarketShare() {
+		List<Map<String, String>> marketShareList =  mySQL.selectList(loc+"getMarketShareList");
 		return marketShareList;
 	}
 	
@@ -74,14 +73,14 @@ public class OrderHistoryDAO {
 		return cusOrder;
 	}
 
-	public List<Map<String, Object>> getManCategoryMarketShare() {
-		List<Map<String, Object>> manCategoryMarketShareList = new ArrayList<Map<String,Object>>();
+	public List<Map<String, String>> getManCategoryMarketShare() {
+		List<Map<String, String>> manCategoryMarketShareList = new ArrayList<Map<String,String>>();
 		manCategoryMarketShareList = mySQL.selectList(loc+"getManCategoryMarketShare");
 		return manCategoryMarketShareList;
 	}
 
-	public List<Map<String, Object>> getWomanCategoryMarketShare() {
-		List<Map<String, Object>> womanCategoryMarketShareList = new ArrayList<Map<String,Object>>();
+	public List<Map<String, String>> getWomanCategoryMarketShare() {
+		List<Map<String, String>> womanCategoryMarketShareList = new ArrayList<Map<String,String>>();
 		womanCategoryMarketShareList = mySQL.selectList(loc+"getWomanCategoryMarketShare");
 		return womanCategoryMarketShareList;
 	}
@@ -89,6 +88,31 @@ public class OrderHistoryDAO {
 	public OrderHistoryVO getOneHistory(int o_Num) {
 		return mySQL.selectOne(loc+"getOneHistory", o_Num);
 	}
+
+	public ArrayList<Category2SalesVO> getManCategoryMarketShareVOList() {
+		ArrayList<Category2SalesVO> ManCategoryMarketShareVOList = new ArrayList<Category2SalesVO>();
+		ManCategoryMarketShareVOList =(ArrayList)mySQL.selectList(loc+"getManCategoryMarketShareVOList");
+		return ManCategoryMarketShareVOList;
+	}
+
+	public ArrayList<Category2SalesVO> getWomanCategoryMarketShareVOList() {
+		ArrayList<Category2SalesVO> WomanCategoryMarketShareVOList = new ArrayList<Category2SalesVO>();
+		WomanCategoryMarketShareVOList =(ArrayList)mySQL.selectList(loc+"getWomanCategoryMarketShareVOList");
+		return WomanCategoryMarketShareVOList;
+	}
+
+	public ArrayList<MarketShareVO> getMarketShareVOList() {
+		ArrayList<MarketShareVO> MarketShareVOList = new ArrayList<MarketShareVO>();
+		MarketShareVOList =(ArrayList)mySQL.selectList(loc+"getMarketShareVOList");
+		return MarketShareVOList;
+	}
+
+//	public ArrayList<Category2SalesVO> getCategoryMarketShareVOList() {
+//		 ArrayList<Category2SalesVO> CategoryMarketShareVOList = new ArrayList<Category2SalesVO>();
+//		 CategoryMarketShareVOList =(ArrayList)mySQL.selectList(loc+"getManCategoryMarketShareVOList");
+//		return CategoryMarketShareVOList;
+//	}
+
 
 	
 

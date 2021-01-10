@@ -31,8 +31,8 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 		return dailyIncomeList;
 	}
 	@Override
-	public List<Map<String, Object>> getMarketShare() {
-		 List<Map<String, Object>> marketShareList = new ArrayList<Map<String,Object>>();
+	public List<Map<String, String>> getMarketShare() {
+		 List<Map<String, String>> marketShareList = new ArrayList<Map<String,String>>();
 		 marketShareList = orderHistoryDAO.getMarketShare();
 		return marketShareList;
 	}
@@ -70,15 +70,15 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	}
 
 	@Override
-	public List<Map<String, Object>> getManCategoryMarketShare() {
-		List<Map<String, Object>> manCategoryMarketShareList = new ArrayList<Map<String,Object>>();
+	public List<Map<String, String>> getManCategoryMarketShare() {
+		List<Map<String, String>> manCategoryMarketShareList = new ArrayList<Map<String,String>>();
 		manCategoryMarketShareList = orderHistoryDAO.getManCategoryMarketShare();
 		return manCategoryMarketShareList;
 	}
 
 	@Override
-	public List<Map<String, Object>> getWomanCategoryMarketShare() {
-		List<Map<String, Object>> womanCategoryMarketShareList = new ArrayList<Map<String,Object>>();
+	public List<Map<String, String>> getWomanCategoryMarketShare() {
+		List<Map<String, String>> womanCategoryMarketShareList = new ArrayList<Map<String,String>>();
 		womanCategoryMarketShareList = orderHistoryDAO.getWomanCategoryMarketShare();
 		return womanCategoryMarketShareList;
 	}
@@ -87,6 +87,28 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 	public OrderHistoryVO getOneHistory(int o_Num) {
 		return orderHistoryDAO.getOneHistory(o_Num);
 	}
+
+	@Override
+	public ArrayList<Category2SalesVO> getManCategoryMarketShareVOList() {
+		return orderHistoryDAO.getManCategoryMarketShareVOList();
+	}
+
+	@Override
+	public ArrayList<Category2SalesVO> getWomanCategoryMarketShareVOList() {
+		// TODO Auto-generated method stub
+		return orderHistoryDAO.getWomanCategoryMarketShareVOList();
+	}
+
+	@Override
+	public ArrayList<MarketShareVO> getMarketShareVOList() {
+		// TODO Auto-generated method stub
+		return orderHistoryDAO.getMarketShareVOList();
+	}
+
+//	@Override
+//	public ArrayList<Category2SalesVO> getCategoryMarketShareVOList() {
+//		return orderHistoryDAO.getCategoryMarketShareVOList();
+//	}
 
 	
 
