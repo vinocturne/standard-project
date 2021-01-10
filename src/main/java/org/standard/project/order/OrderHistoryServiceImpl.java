@@ -30,12 +30,7 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 		dailyIncomeList = orderHistoryDAO.getDailyIncome();
 		return dailyIncomeList;
 	}
-	@Override
-	public List<Map<String, String>> getMarketShare() {
-		 List<Map<String, String>> marketShareList = new ArrayList<Map<String,String>>();
-		 marketShareList = orderHistoryDAO.getMarketShare();
-		return marketShareList;
-	}
+
 	@Override
 	public ArrayList<ProductParentVO> getBrandOrderList(BrandDBVO loginBrand) {
 		return orderHistoryDAO.getBrandOrderList(loginBrand);
@@ -69,19 +64,6 @@ public class OrderHistoryServiceImpl implements OrderHistoryService {
 		return orderHistoryDAO.cusOrder(vo);
 	}
 
-	@Override
-	public List<Map<String, String>> getManCategoryMarketShare() {
-		List<Map<String, String>> manCategoryMarketShareList = new ArrayList<Map<String,String>>();
-		manCategoryMarketShareList = orderHistoryDAO.getManCategoryMarketShare();
-		return manCategoryMarketShareList;
-	}
-
-	@Override
-	public List<Map<String, String>> getWomanCategoryMarketShare() {
-		List<Map<String, String>> womanCategoryMarketShareList = new ArrayList<Map<String,String>>();
-		womanCategoryMarketShareList = orderHistoryDAO.getWomanCategoryMarketShare();
-		return womanCategoryMarketShareList;
-	}
 
 	@Override
 	public OrderHistoryVO getOneHistory(int o_Num) {

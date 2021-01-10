@@ -29,10 +29,6 @@ public class OrderHistoryDAO {
 		dailyIncomeList = mySQL.selectList(loc+"getDailyIncomeList");
 		return dailyIncomeList;
 	}
-	public List<Map<String, String>> getMarketShare() {
-		List<Map<String, String>> marketShareList =  mySQL.selectList(loc+"getMarketShareList");
-		return marketShareList;
-	}
 	
 	public ArrayList<ProductParentVO> getBrandOrderList(BrandDBVO loginBrand) {
 		ArrayList<ProductParentVO> getBrandOderList = new ArrayList<ProductParentVO>();
@@ -50,10 +46,7 @@ public class OrderHistoryDAO {
 
 
 	public void insertOrderHistory(OrderHistoryVO vo) {
-		System.out.println("orderHistoryDAO 실행전 확인");
-		System.out.println("상품가격 : "+vo.getP_Price()+",주문 수량: "+ vo.getO_Quantity() + ",총 주문금액 : "+ vo.getO_TotalPrice());
 		mySQL.insert(loc+"insertOrderHistory", vo);
-		
 	}
 
 	/*
@@ -73,17 +66,6 @@ public class OrderHistoryDAO {
 		return cusOrder;
 	}
 
-	public List<Map<String, String>> getManCategoryMarketShare() {
-		List<Map<String, String>> manCategoryMarketShareList = new ArrayList<Map<String,String>>();
-		manCategoryMarketShareList = mySQL.selectList(loc+"getManCategoryMarketShare");
-		return manCategoryMarketShareList;
-	}
-
-	public List<Map<String, String>> getWomanCategoryMarketShare() {
-		List<Map<String, String>> womanCategoryMarketShareList = new ArrayList<Map<String,String>>();
-		womanCategoryMarketShareList = mySQL.selectList(loc+"getWomanCategoryMarketShare");
-		return womanCategoryMarketShareList;
-	}
 
 	public OrderHistoryVO getOneHistory(int o_Num) {
 		return mySQL.selectOne(loc+"getOneHistory", o_Num);
@@ -107,11 +89,6 @@ public class OrderHistoryDAO {
 		return MarketShareVOList;
 	}
 
-//	public ArrayList<Category2SalesVO> getCategoryMarketShareVOList() {
-//		 ArrayList<Category2SalesVO> CategoryMarketShareVOList = new ArrayList<Category2SalesVO>();
-//		 CategoryMarketShareVOList =(ArrayList)mySQL.selectList(loc+"getManCategoryMarketShareVOList");
-//		return CategoryMarketShareVOList;
-//	}
 
 
 	

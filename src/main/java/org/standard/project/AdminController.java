@@ -61,8 +61,6 @@ public class AdminController {
 		System.out.println("관리자 그래프 컨트롤러");
 		ModelAndView mav = new ModelAndView("/Admin/AdminGraph");
 		//중분류에 따른 중분류별 판매 점유율 파이차트
-		List<Map<String,String>> manCategoryMarketShareList = orderHistoryService.getManCategoryMarketShare();
-		List<Map<String,String>> womanCategoryMarketShareList = orderHistoryService.getWomanCategoryMarketShare();
 		ArrayList<Category2SalesVO> MCMSList =  orderHistoryService.getManCategoryMarketShareVOList();
 		ArrayList<Category2SalesVO> WCMSList =  orderHistoryService.getWomanCategoryMarketShareVOList();
 		ArrayList<MarketShareVO> MSList = orderHistoryService.getMarketShareVOList();
@@ -71,7 +69,7 @@ public class AdminController {
 		System.out.println("여자상품별 점유율:"+WCMSList);
 		System.out.println("브랜드별 점유율:"+MSList);
 		
-		if(MCMSList!=null&&womanCategoryMarketShareList!=null) {
+		if(MCMSList!=null&&WCMSList!=null) {
 			JSONArray MCMSListJSONArr = new JSONArray();
 			JSONArray WCMSListJSONArr = new JSONArray();
 			for(int i=0; i<MCMSList.size();i++) {
@@ -91,10 +89,6 @@ public class AdminController {
 		}
 		
 		//브랜드별 판매 점유율 파이차트
-		List<Map<String,String>> marketShareList = orderHistoryService.getMarketShare();
-		//SELECT COUNT(o.o_BrandId) AS 'NumberOfSales',b.brandName AS 'brandName' FROM orderhistory o JOIN brandDB b ON o.o_BrandId =b.brandId GROUP BY o_BrandId;
-		System.out.println(marketShareList);
-//		req.setAttribute("MKS", marketShareList);
 		JSONArray MSListJSONArr = new JSONArray();
 		
 		

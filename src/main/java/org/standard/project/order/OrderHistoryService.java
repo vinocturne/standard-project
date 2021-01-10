@@ -23,12 +23,6 @@ public interface OrderHistoryService {
 	void insertOrderHistory(OrderHistoryVO vo);
 	ArrayList<OrderHistoryVO> cusOrder(OrderHistoryVO vo);
 	OrderHistoryVO getOneHistory(int o_Num);
-	List<Map<String, String>> getMarketShare();
-
-	List<Map<String, String>> getManCategoryMarketShare();
-	List<Map<String, String>> getWomanCategoryMarketShare();
-
-	//ArrayList<Category2SalesVO> getCategoryMarketShareVOList();
 
 	ArrayList<Category2SalesVO> getManCategoryMarketShareVOList();
 

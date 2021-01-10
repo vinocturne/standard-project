@@ -9,9 +9,6 @@
 	<select id="getDailyIncomeList" resultType="HashMap">
 		SELECT o_Date, sum(o_TotalPrice) as 'o_TotalPrice' FROM orderhistory GROUP BY o_Date DESC LIMIT 30
 	</select>
-	<select id="getMarketShareList" resultType="HashMap">
-	SELECT COUNT(o.o_BrandId) AS 'NumberOfSales',b.brandName as 'brandName' FROM orderhistory o JOIN branddb b ON o.o_BrandId =b.brandId GROUP BY o_BrandId;
-	</select>
 	<select id="getBrandOrderList" resultType="org.standard.project.order.OrderHistoryVO">
 		SELECT * FROM orderhistory where o_BrandId='${brandId}'
 	</select>
@@ -26,12 +23,6 @@
 	</select>
 	<select id="cusOrder" resultType="org.standard.project.order.OrderHistoryVO">
 		SELECT * FROM orderhistory WHERE c_Id = #{c_Id} AND parent_p_Id = #{parent_p_Id};
-	</select>
-	<select id="getManCategoryMarketShare" resultType="HashMap">
-	SELECT pp.pp_Category2 AS 'Category2', COUNT(*) AS 'NumberOfSales'  FROM orderhistory o JOIN productparent pp ON o.parent_p_Id = pp.parent_p_Id WHERE pp.pp_Category1 ='man' GROUP BY pp.pp_Category2; 
-	</select>
-	<select id="getWomanCategoryMarketShare" resultType="HashMap">
-		SELECT pp.pp_Category2 AS 'Category2', COUNT(*) AS 'NumberOfSales'  FROM orderhistory o JOIN productparent pp ON o.parent_p_Id = pp.parent_p_Id WHERE pp.pp_Category1 ='woman' GROUP BY pp.pp_Category2; 
 	</select>
 	<select id="getOneHistory" resultType="org.standard.project.order.OrderHistoryVO">
 		SELECT * FROM orderhistory WHERE o_Num=#{o_Num};
