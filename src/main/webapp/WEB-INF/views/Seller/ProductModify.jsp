@@ -69,11 +69,8 @@
 							<th scope="row">카테고리1</th>
 							<td><select id="pp_Category1" name="pp_Category1">
 									<option value="<%=Category1%>"><%=Category1%></option>
-									<option value="Top">Top</option>
-									<option value="Bottom">Bottom</option>
-									<option value="Dress">Dress</option>
-									<option value="Shoes">Shoes</option>
-									<option value="Acc">Acc</option>
+									<option value="man">man</option>
+									<option value="woman">woman</option>
 							</select></td>
 						</tr>
 						
