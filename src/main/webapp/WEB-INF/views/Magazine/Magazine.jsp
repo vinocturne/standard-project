@@ -5,8 +5,6 @@
 <%@ include file="../head.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <style>
 
@@ -15,16 +13,14 @@ opacity:90%;
 }
 
 .secondbody{
-width:300px;
-margin-top: 45px;
-
+width:290px;
+margin-top: 5px;
 }
 
 .content_wrap {
 	margin-left: 100px;
 	margin-right: 7%;
 	flex-wrap:rap;
-
 }
 
 .table {
@@ -32,17 +28,10 @@ margin-top: 45px;
 	
 }
 
-/* .magazine {
-	flex-wrap:rap;
-} */
-
-
-
 .card {
 	width:280px;
 	border-radius: 15px;
 	display: inline-block;
-	margin-left:7px;
 	margin-right:2px;
 	margin-top:4px;
 	margin-bottom:3px;
@@ -111,6 +100,7 @@ input[type=text] {
 제목 검색: 
 <input type="text" value="${search}" name="s_m_Title">
 <input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg"  alt="search" width="20" height="20">
+<br><br>
 </form>			 
 
 <c:set var="i" value="0" /> 

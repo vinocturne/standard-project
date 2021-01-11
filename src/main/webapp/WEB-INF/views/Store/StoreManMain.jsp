@@ -5,15 +5,11 @@
 <%@ include file="../head.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 <style>
 .secondbody{
 width:300px;
-margin-top: 45px;
-margin-right: 70px;
+margin-right: 60px;
 }
 
 .content_wrap {
@@ -25,14 +21,12 @@ margin-right: 70px;
 	width: 1200px;
 }
 
-
 .card {
 	height:390px;
 	width:350px;
 	border-radius: 15px;
 	display: inline-block;
 	margin-top: 7px;
-	margin-left: 7px;
 	margin-right:2px;
 	margin-bottom: 3px;
 	position: relative;
@@ -91,7 +85,6 @@ input[type=text] {
 				<p class="side_nav_title">Store</p>
 				<ul>
 					<li><a href=" <%=request.getContextPath() %>/shop/StoreManMain" class="side_nav_title">Man</a></li>
-				
 					<li><a href=" <%=request.getContextPath() %>/shop/StoreManMain?category=Top">TOP</a></li>
 					<li><a href=" <%=request.getContextPath() %>/shop/StoreManMain?category=Bottom">BOTTOM</a></li>
 					<li><a href=" <%=request.getContextPath() %>/shop/StoreManMain?category=Shoes">SHOES</a></li>
@@ -107,8 +100,9 @@ input[type=text] {
 <input type="text" value="${search}" name="s_pp_Name">
 <input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg"  alt="search" width="20" height="20">
 </form>
+<br><br>
  <c:set var="i" value="0" />
- <c:set var="j" value="3" />
+ <c:set var="j" value="4" />
 
   <c:choose>
    <c:when test="${fn:length(list)>0}">
@@ -121,7 +115,7 @@ input[type=text] {
      <div class="secondbody"> 
      
     	 <div class="card">
-		    <a href=" <%=request.getContextPath() %>/shop/product?p_id=${productParent.parent_p_Id }"class="card-header"><img class="card-header" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image"></a>
+		    <a href=" <%=request.getContextPath() %>/shop/product?p_id=${productParent.parent_p_Id }"class="card-header"><img src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image"></a>
   			<div class="card-body">
 		      <h4 class="card-title">${productParent.pp_Name}</h4>
 		      <p class="card-text">${productParent.pp_Price}</p>

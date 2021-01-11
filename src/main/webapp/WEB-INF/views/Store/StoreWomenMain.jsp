@@ -5,15 +5,11 @@
 <%@ include file="../head.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
 <style>
 .secondbody{
 width:300px;
-margin-top: 45px;
-margin-right: 70px;
+margin-right: 60px;
 }
 
 .content_wrap {
@@ -75,7 +71,6 @@ input[type=text] {
   border: none;
   border-bottom: 2px solid black;
 }
-
 </style>
 
 </head>
@@ -89,7 +84,6 @@ input[type=text] {
             <p class="side_nav_title">Store</p>
             <ul>
                <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain" class="side_nav_title">Women</a></li>
-            
                <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Top">TOP</a></li>
                <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Bottom">BOTTOM</a></li>
                <li><a href="<%=request.getContextPath() %>/shop/StoreWomenMain?category=Dress">DRESS</a></li>
@@ -99,7 +93,6 @@ input[type=text] {
          </div>
       </div>
    </div>
-
 <div>
 
 <form action="/project/shop/StoreWomenMain" method="get" enctype="multipart/form-data">
@@ -108,9 +101,9 @@ input[type=text] {
 <input type="text" value="${search}" name="s_pp_Name">
 <input type="image" src="<%=request.getContextPath()%>/ResourcesFile/img/search.svg"  alt="search" width="20" height="20">
 </form>
-
+<br><br>
  <c:set var="i" value="0" />
- <c:set var="j" value="3" />
+ <c:set var="j" value="4" />
 
   <c:choose>
    <c:when test="${fn:length(list)>0}">
