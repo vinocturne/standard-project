@@ -26,12 +26,29 @@ margin-right: 70px;
 }
 
 
-.card{
-margin-left:7px;
-margin-right:2px;
-margin-top:7px;
-margin-bottom:3px;
+.card {
+	height:390px;
+	width:350px;
+	border-radius: 15px;
+	display: inline-block;
+	margin-top: 7px;
+	margin-left: 7px;
+	margin-right:2px;
+	margin-bottom: 3px;
+	position: relative;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	overflow: hidden;
 }
+.card-header {
+    width:100%; 
+    position: center;
+	height:310px;
+	display: inline-block;
+	overflow: hidden;
+	display:relative;
+}
+
+.card-header img{vertical-align:middle; width:370px; margin-top: -12px; margin-left:-20px; }
 
 /* SIDE BAR*/
 
@@ -103,9 +120,8 @@ input[type=text] {
     <td>
      <div class="secondbody"> 
      
-    	 <div class="card" style="width:350px; height:390px">
-		    <a href=" <%=request.getContextPath() %>/shop/product?p_id=${productParent.parent_p_Id }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image" style="width:348px; height:310px"
-		    ></a>
+    	 <div class="card">
+		    <a href=" <%=request.getContextPath() %>/shop/product?p_id=${productParent.parent_p_Id }"class="card-header"><img class="card-header" src="${pageContext.request.contextPath}${productParent.pp_thumb}" alt="Card image"></a>
   			<div class="card-body">
 		      <h4 class="card-title">${productParent.pp_Name}</h4>
 		      <p class="card-text">${productParent.pp_Price}</p>

@@ -36,15 +36,28 @@ margin-top: 45px;
 	flex-wrap:rap;
 } */
 
-.card{
-margin-left:7px;
-margin-right:2px;
-margin-top:4px;
-margin-bottom:3px;
 
+
+.card {
+	width:280px;
+	border-radius: 15px;
+	display: inline-block;
+	margin-left:7px;
+	margin-right:2px;
+	margin-top:4px;
+	margin-bottom:3px;
+	position: relative;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	overflow: hidden;
+}
+.card-header {
+    width:100%; 
+    position: center;
+	display: inline-block;
+	overflow: hidden;
+	display:relative;
 }
 
- 
 .card-body{
 flex-wrap:rap;
 }
@@ -113,13 +126,13 @@ input[type=text] {
     <td>
      <div class="secondbody"> 
      
-	    	 <div class="card" style="width:280px">
+	    	 <div class="card">
 			    <div class="card-body">
 			      <h4 class="card-title">${magazine.m_Title}</h4>
 			      <p class="card-text">${magazine.m_Content}</p>
 			      
 			    </div>
-			    <a href="<%=request.getContextPath() %>/magazine/MagazineDetail?m_Seq=${magazine.m_Seq }"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" style="width:100%"></a>
+			    <a href="<%=request.getContextPath() %>/magazine/MagazineDetail?m_Seq=${magazine.m_Seq }"class="card-header"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" ></a>
 			    
 	  		</div>
      </div>

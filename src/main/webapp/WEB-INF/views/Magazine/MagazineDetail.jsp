@@ -79,7 +79,7 @@
 
 		<div class="image">
 			<img src="${pageContext.request.contextPath}<%=vo.getM_Thumb() %>"
-				style="width: 700px; height: 500px" class="picture">
+				style="width: 700px" class="picture">
 		</div>
 
 
