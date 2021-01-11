@@ -47,6 +47,8 @@ margin-top: 5px;
 	display:relative;
 }
 
+.card-header img{vertical-align:middle; width:280px; margin-left:-20px; margin-top: -20px; margin-bottom: -20px;}
+
 .card-body{
 flex-wrap:rap;
 }
@@ -122,7 +124,7 @@ input[type=text] {
 			      <p class="card-text">${magazine.m_Content}</p>
 			      
 			    </div>
-			    <a href="<%=request.getContextPath() %>/magazine/MagazineDetail?m_Seq=${magazine.m_Seq }"class="card-header"><img class="card-img-bottom" src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" ></a>
+			    <a href="<%=request.getContextPath() %>/magazine/MagazineDetail?m_Seq=${magazine.m_Seq }" class="card-header"><img src="${pageContext.request.contextPath}${magazine.m_Thumb}" alt="Card image" ></a>
 			    
 	  		</div>
      </div>
