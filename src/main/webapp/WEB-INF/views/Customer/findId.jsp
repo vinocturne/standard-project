@@ -71,10 +71,10 @@
                 <p id="c_Email" class="c_Ema il" ><strong>이메일 입력</strong> 
                 <input id="Email" name="c_Email" fw-filter="isEmail" fw-label="이메일" fw-msg="" class="lostInput" placeholder="" value="" type="text"></p> 
                 
-               <p id="c_Phone1" class="c_Phone1" ><strong>휴대전화 번호 입력</strong> 
+     <!--           <p id="c_Phone1" class="c_Phone1" ><strong>휴대전화 번호 입력</strong> 
                     <input id="c_Phone1" name="c_Phone1" fw-filter="c_Phone1" fw-label="" fw-msg="" class="lostInput" placeholder="" value="" type="text">
                     <input type="button" onClick="" class="Address_btn" name="Address_btn" value="인증번호 보내기"><br></p>        
-
+ -->
         <div class="findID_confirm">
             <input type ="button" value="확인"  class="findID_btn" onclick="fn_findID()">
             <span id="IdResult"></span>
