@@ -24,6 +24,11 @@
 --------------------------
 
 ### DB Modeling
+![dbmodeling](https://user-images.githubusercontent.com/74940939/111894574-37507000-8a4f-11eb-9d13-ade0a30fb400.png)
+
+
+### Spring MVC 구조
+![springmvc](https://user-images.githubusercontent.com/74940939/111894590-50592100-8a4f-11eb-8d81-1f6e96d70bea.png)
 
 
 ### 요구사항
