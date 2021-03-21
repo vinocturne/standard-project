@@ -28,7 +28,8 @@
 
 
 ### Spring MVC 구조
-![springmvc](https://user-images.githubusercontent.com/74940939/111894590-50592100-8a4f-11eb-8d81-1f6e96d70bea.png)
+![springmvc](https://user-images.githubusercontent.com/74940939/111894611-826a8300-8a4f-11eb-8725-bde59b7fba16.png)
+
 
 
 ### 요구사항
